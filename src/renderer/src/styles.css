@@ -606,6 +606,7 @@ button.goal-where.toggle { font: inherit; cursor: pointer; }
 .pet-rarity[data-rarity='divine'] { border-left-color: #c084fc; }
 .pet-rarity-cap { font-size: 12.5px; white-space: nowrap; }
 .pet-rarity-meta { margin-left: auto; font-size: 11px; color: var(--muted); text-align: right; }
+.pet-rarity-feed { margin-left: auto; font-size: 11px; color: var(--gold); text-align: right; white-space: nowrap; }
 
 .pet-abilities { display: flex; flex-direction: column; gap: 9px; }
 .pet-ability { display: flex; gap: 10px; }

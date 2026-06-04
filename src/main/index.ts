@@ -128,6 +128,9 @@ function createMainWindow(): void {
   rendererTarget(mainWin);
   mainWin.on('closed', () => {
     mainWin = null;
+    // The overlay is a hidden/always-on-top helper window with no taskbar entry, so it
+    // would keep the process alive after the main window closes — tear it down too.
+    if (overlayWin && !overlayWin.isDestroyed()) overlayWin.destroy();
   });
 }
 

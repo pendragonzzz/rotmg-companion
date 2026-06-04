@@ -1,7 +1,7 @@
 {
   "name": "rotmg-companion",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Realm of the Mad God Exalt new-player companion (desktop).",
   "author": "RotMG Companion",

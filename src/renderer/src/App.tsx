@@ -7,7 +7,7 @@ import { OverlayPage } from './components/OverlayPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Dropdown } from './components/Dropdown';
 import { Icon } from './components/Icon';
-import { THEMES, useTheme, useDeclined, type DeclinedApi } from './hooks';
+import { THEMES, useTheme, useDeclined, useRecentPlayers, type DeclinedApi } from './hooks';
 
 /** Most-progressed characters first so the useful ones are at the top. */
 function sortCharacters(chars: Character[]): Character[] {
@@ -30,11 +30,12 @@ export function App() {
   const [view, setView] = useState<View>({ kind: 'characters' });
   const [theme, setTheme] = useTheme();
   const declined = useDeclined();
+  const recent = useRecentPlayers();
 
-  async function load(e: React.FormEvent) {
-    e.preventDefault();
-    const trimmed = name.trim();
+  async function runSearch(raw: string) {
+    const trimmed = raw.trim();
     if (!trimmed) return;
+    setName(trimmed);
     setView({ kind: 'characters' });
     setPhase({ kind: 'loading' });
     const res = await window.api.getPlayer(trimmed);
@@ -44,7 +45,13 @@ export function App() {
       setPhase({ kind: 'error', message: `No RealmEye player found named "${trimmed}".` });
     } else {
       setPhase({ kind: 'loaded', profile: res.profile });
+      recent.add(trimmed);
     }
+  }
+
+  function load(e: React.FormEvent) {
+    e.preventDefault();
+    void runSearch(name);
   }
 
   const browseSets = (className?: string) => setView({ kind: 'sets', className });
@@ -93,7 +100,14 @@ export function App() {
                 placeholder="RealmEye username…"
                 spellCheck={false}
                 autoFocus
+                list="recent-players"
+                autoComplete="off"
               />
+              <datalist id="recent-players">
+                {recent.recent.map((n) => (
+                  <option key={n} value={n} />
+                ))}
+              </datalist>
             </span>
             <button type="submit" disabled={phase.kind === 'loading'}>
               {phase.kind === 'loading' ? 'Loading…' : 'Load'}
@@ -117,6 +131,26 @@ export function App() {
                   Or browse the <button className="link-btn" onClick={() => browseSets()}>Set-Tier item</button> catalog
                   by class and difficulty. Profiles must be public on RealmEye.
                 </p>
+                {recent.recent.length > 0 && (
+                  <div className="recent-row">
+                    <span className="muted">Recent:</span>
+                    {recent.recent.map((n) => (
+                      <button key={n} className="recent-chip" onClick={() => void runSearch(n)}>
+                        {n}
+                        <span
+                          className="recent-x"
+                          title="Remove"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            recent.remove(n);
+                          }}
+                        >
+                          ✕
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
 

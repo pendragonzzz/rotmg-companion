@@ -20,6 +20,47 @@ export function useTheme(): [string, (t: string) => void] {
   return [theme, setTheme];
 }
 
+// ---- recent player searches ----
+const RECENT_KEY = 'rotmg-recent-players';
+const RECENT_MAX = 8;
+
+export interface RecentApi {
+  recent: string[];
+  add(name: string): void;
+  remove(name: string): void;
+}
+
+export function useRecentPlayers(): RecentApi {
+  const [recent, setRecent] = useState<string[]>(() => {
+    try {
+      const v = JSON.parse(localStorage.getItem(RECENT_KEY) ?? '[]');
+      return Array.isArray(v) ? (v as string[]) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const add = useCallback((name: string) => {
+    const n = name.trim();
+    if (!n) return;
+    setRecent((prev) => {
+      const next = [n, ...prev.filter((p) => p.toLowerCase() !== n.toLowerCase())].slice(0, RECENT_MAX);
+      localStorage.setItem(RECENT_KEY, JSON.stringify(next));
+      return next;
+    });
+  }, []);
+
+  const remove = useCallback((name: string) => {
+    setRecent((prev) => {
+      const next = prev.filter((p) => p.toLowerCase() !== name.toLowerCase());
+      localStorage.setItem(RECENT_KEY, JSON.stringify(next));
+      return next;
+    });
+  }, []);
+
+  return { recent, add, remove };
+}
+
 // ---- declined quests (per class) ----
 const DECLINED_KEY = 'rotmg-declined';
 type DeclinedStore = Record<string, string[]>;

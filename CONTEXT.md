@@ -208,3 +208,15 @@ RealmEye import (all chars, sorted, error-isolated) · goals panel (level/stat/g
     Cnidarian "only the gold one is vulnerable"; O3 "Celestial phase — rotate the gaps, don't panic-run").
     Fixed a stale Toxic Sewers note (sludge=Sick + green slow-star, not the old "DS Gorgon"). These notes are
     what the overlay's current-dungeon card shows. typecheck + build pass.
+19. **Packaging + GitHub shipping (v0.1.0 beta):** added `electron-builder.yml` (NSIS installer + portable exe,
+    GitHub publish), `dist`/`dist:win`/`pack` scripts, `.github/workflows/{release,ci}.yml` (tag `v*` → builds
+    + attaches installers to a Release), modernized README (download/build/release), `git init` + initial commit
+    on `main`. NOTE: local `electron-builder` fails extracting winCodeSign symlinks without Windows **Developer
+    Mode** (issue #6158) — CI runners build fine, so releases come from Actions, not local. `gh` CLI not
+    installed → user creates the GitHub repo + pushes manually (replace `YOUR_USERNAME` in package.json repo URL).
+20. **Verified user's `RotMG_Complete_Dungeon_Guide_Sheet.xlsx`** and folded the accurate wins into dungeon
+    notes: Tomb "kill Bes→Nut→Geb one at a time (don't AoE)", Parasite "drag barrels into Nightmare Colony",
+    Mad Lab "herd Horrific Creation into blue beams", Manor "break mirrors for Holy Water", Forbidden Jungle
+    "destroy Mixcoatl's totems", Crawling Depths "pop egg sacks", Toxic Sewers boss name (Gulpord). Rejected the
+    sheet's errors (Hive mislabeled Tier-1, Ocean Trench "answer the prompt" fabrication, dubious boss names,
+    speculative trading tab). Pet/status-effect tabs are accurate but not yet surfaced in UI (future).

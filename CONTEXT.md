@@ -223,4 +223,8 @@ RealmEye import (all chars, sorted, error-isolated) · goals panel (level/stat/g
 21. **v0.1.1 (shipped):** fixed overlay lifecycle — `mainWin` 'closed' now destroys `overlayWin` so the
     process fully exits (the hidden always-on-top window was keeping it alive). Added **recent player searches**
     (`useRecentPlayers` in hooks.ts, localStorage `rotmg-recent-players`): `<datalist>` autocomplete on the
-    search box + clickable recent chips (with ✕ remove) on the home screen. Released via the gh/Actions pipeline.
+    search box + clickable recent chips (with remove) on the home screen. Released via the gh/Actions pipeline.
+22. **v0.1.2 (shipped):** **app icon** (`build/icon.ico` crossed-swords, generated via Pillow; electron-builder
+    auto-embeds it). **Auto-update** via `electron-updater` (prod dep) — `app.isPackaged` -> `checkForUpdatesAndNotify()`
+    in main; reads the GitHub `publish` config (app-update.yml). Auto-update works v0.1.2 -> forward (NSIS installer
+    only, not portable). CI/release workflows bumped to Node 24.

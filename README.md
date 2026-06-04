@@ -18,6 +18,8 @@ Grab the latest from the [**Releases**](../../releases) page:
 
 The app isn't code-signed, so Windows SmartScreen may warn on first run — click **More info → Run anyway**.
 
+The **installer auto-updates**: once you're on v0.1.2+, new releases download in the background and install on quit.
+
 Then type a **public** RealmEye username and hit Load.
 
 ## Features

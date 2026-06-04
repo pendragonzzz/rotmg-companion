@@ -5,7 +5,6 @@ interface Rarity {
   maxAbility: number;
   abilities: number;
   feedFame: number;
-  feedGold: number;
   note: string;
 }
 interface Ability {
@@ -43,15 +42,14 @@ export function PetsPage() {
                 <span className="pet-rarity-cap">
                   Lv {r.maxAbility} cap · {r.abilities} abilit{r.abilities === 1 ? 'y' : 'ies'}
                 </span>
-                <span className="pet-rarity-feed">
-                  {r.feedFame.toLocaleString()} fame · {r.feedGold} gold / feed
-                </span>
+                <span className="pet-rarity-feed">{r.feedFame.toLocaleString()} fame / feed</span>
               </div>
             ))}
           </div>
           <p className="ov-note">
             A pet has up to 3 abilities (1st always active, 2nd unlocks at Uncommon, 3rd at Legendary). Each
-            feed costs the fame/gold above <b>regardless of the item</b> — so only feed high-feed-power items.
+            feed costs the fame above <b>regardless of the item</b> — the item&apos;s <b>feed power</b> is what
+            levels the pet, so feed high-feed-power items.
           </p>
         </section>
 

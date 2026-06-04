@@ -1,11 +1,11 @@
 {
-  "_comment": "CURATED pet reference, verified vs RealmEye Pets / Pet Maxing / Pet Fusing guides (2025). KEY: each feed costs Fame (or Gold) based on the pet's RARITY, the SAME cost regardless of the item's feed power — so only feed high-feed-power items.",
+  "_comment": "CURATED pet reference (BASIC v1 — economy numbers are provisional, double-check vs RealmEye later). KEY: feeding an item costs Fame set by the pet's RARITY (same cost regardless of which item); the item's FEED POWER is what actually levels the abilities, so feed HIGH feed-power items to get the most growth per fame.",
   "rarities": [
-    { "name": "Common", "maxAbility": 30, "abilities": 1, "feedFame": 15, "feedGold": 5, "note": "First ability only." },
-    { "name": "Uncommon", "maxAbility": 50, "abilities": 2, "feedFame": 50, "feedGold": 12, "note": "Unlocks the 2nd ability." },
-    { "name": "Rare", "maxAbility": 70, "abilities": 2, "feedFame": 175, "feedGold": 30, "note": "" },
-    { "name": "Legendary", "maxAbility": 90, "abilities": 3, "feedFame": 625, "feedGold": 60, "note": "Unlocks the 3rd ability." },
-    { "name": "Divine", "maxAbility": 100, "abilities": 3, "feedFame": 1750, "feedGold": 150, "note": "Max rarity." }
+    { "name": "Common", "maxAbility": 30, "abilities": 1, "feedFame": 15, "note": "First ability only." },
+    { "name": "Uncommon", "maxAbility": 50, "abilities": 2, "feedFame": 50, "note": "Unlocks the 2nd ability." },
+    { "name": "Rare", "maxAbility": 70, "abilities": 2, "feedFame": 175, "note": "" },
+    { "name": "Legendary", "maxAbility": 90, "abilities": 3, "feedFame": 625, "note": "Unlocks the 3rd ability." },
+    { "name": "Divine", "maxAbility": 100, "abilities": 3, "feedFame": 1750, "note": "Max rarity." }
   ],
   "abilities": [
     { "name": "Heal", "tier": "S", "slot": "1st", "desc": "Restores HP over time — your core survivability. Aim for this as ability 1." },
@@ -15,9 +15,9 @@
     { "name": "Attack / Savage", "tier": "F", "slot": "—", "desc": "Negligible flat damage — skip it; it wastes a slot that could be Heal/MHeal/Electric." }
   ],
   "feeding": [
-    "Each feed costs Fame (or Gold) set by the pet's RARITY — and it's the SAME cost no matter the item, so don't feed everything; feed only HIGH feed-power items to maximize growth per fame.",
-    "Feed Power (shown in the item tooltip) applies in FULL to every unlocked ability, so a 3-ability pet grows faster per feed than a 1-ability one.",
-    "Spare UT/ST whites you don't need are the best fodder; never burn fame on low-FP tiered junk."
+    "Feeding an item costs Fame set by the pet's RARITY (above) — the SAME cost no matter which item you feed.",
+    "The item's FEED POWER (shown in its tooltip) is what actually levels the abilities, so feed HIGH feed-power items — you don't want to spend the same fame on a low-FP item.",
+    "Feed Power applies in FULL to every unlocked ability; spare UT/ST whites you don't need are the best fodder."
   ],
   "fusing": [
     "Fuse two pets of the SAME family and SAME rarity to upgrade rarity (Common→…→Divine).",

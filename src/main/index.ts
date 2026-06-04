@@ -1,7 +1,10 @@
 import { app, BrowserWindow, ipcMain, globalShortcut, screen } from 'electron';
 import { join } from 'node:path';
 import { readFileSync, writeFileSync } from 'node:fs';
+import electronUpdater from 'electron-updater';
 import { fetchPlayer } from '../shared/realmeye';
+
+const { autoUpdater } = electronUpdater;
 import type { Character } from '../shared/types';
 import {
   DEFAULT_OVERLAY_SETTINGS,
@@ -214,6 +217,13 @@ app.whenReady().then(() => {
   createOverlayWindow();
   applyOverlay();
   registerHotkeys();
+
+  // Auto-update from GitHub Releases (packaged builds only). Downloads a newer version
+  // in the background and installs it on quit; errors (offline etc.) are non-fatal.
+  if (app.isPackaged) {
+    autoUpdater.on('error', () => {});
+    autoUpdater.checkForUpdatesAndNotify().catch(() => {});
+  }
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

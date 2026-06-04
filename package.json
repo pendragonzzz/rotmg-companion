@@ -1,7 +1,7 @@
 {
   "name": "rotmg-companion",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Realm of the Mad God Exalt new-player companion (desktop).",
   "author": "RotMG Companion",
@@ -22,7 +22,8 @@
     "test:wiki": "tsx scripts/test-wiki.ts"
   },
   "dependencies": {
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "electron-updater": "^6.8.3"
   },
   "devDependencies": {
     "@types/node": "^22.7.0",

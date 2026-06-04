@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Realm of the Mad God Exalt new-player companion (desktop).",
   "author": "RotMG Companion",
-  "repository": "https://github.com/YOUR_USERNAME/rotmg-companion",
+  "repository": "https://github.com/pendragonzzz/rotmg-companion",
   "license": "MIT",
   "main": "./out/main/index.js",
   "scripts": {

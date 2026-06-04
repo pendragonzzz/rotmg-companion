@@ -1,0 +1,503 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Corruption Tether - the RotMG Wiki | RealmEye.com</title><link rel="shortcut icon" href="/s/hn/img/favicon.ico"><meta name="msapplication-config" content="none"><link rel="canonical" href="/wiki/corruption-tether"><link href="/s/hn/css/re.css" rel="stylesheet"><link rel="preload" href="/s/hn/css/select2.css" as="style"><link rel="preload" href="/s/hn/css/select2-bootstrap.css" as="style"><link rel="preload" href="/s/hn/css/wiki.css" as="style"><link rel="preload" href="/s/hn/js/jquery-1.11.2.min.js" as="script"><link rel="preload" href="/s/hn/js/typeahead.bundle.js" as="script"><link rel="preload" href="/s/hn/js/bootstrap.min.js" as="script"><link rel="preload" href="/s/hn/js/jquery.timeago.js" as="script"><link rel="preload" href="/s/hn/js/jquery.timeago.en-short.js" as="script"><link rel="preload" href="/s/hn/js/classinfo.js" as="script"><link rel="preload" href="/s/hn/js/definition.js" as="script"><link rel="preload" href="/s/hn/js/jquery.tablesorter.js" as="script"><link rel="preload" href="/s/hn/js/realmeye.js" as="script"><link rel="preload" href="/s/hn/js/advertisement.js" as="script"><link rel="preload" href="/s/hn/js/select2.js" as="script"><link rel="preload" href="/s/hn/js/wiki.js" as="script"><link rel="preload" href="/s/hn/img/eye.png" as="image"><link rel="preload" href="/s/hn/img/bg.gif" as="image"><meta name="keywords" content="realm of the mad god, rotmg, statistics, stats,wiki"></head><body><header class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="brand navbar-brand" href="/" tab-index="-1"><img class="realm-eye" alt="eye" title="eye" src="/s/hn/img/eye.png"><span style="color: #333">Realm</span><span style="color: #08C">Eye</span></a></div><nav id="navbar" class="collapse navbar-collapse"><div class="navbar-right navbar-form"><div id="a" class="btn btn-default" title="Search"><i class="glyphicon glyphicon-search"></i></div><div class="form-group player-search input-append" style="display:none;opacity:0" id="b"><input type="text" class="form-control" placeholder="Search"><div class="player-guild-toggle-panel"><div class="btn-group" data-toggle="buttons"><label class="btn btn-default active"><input type="radio" name="player-guild-search-toggle">Player</label><label class="btn btn-default"><input type="radio" name="player-guild-search-toggle">Guild</label></div></div></div><div class="auth-panel"><a id="c" href="https://www.realmeye.com/log-in" class="btn btn-default">Log In</a></div></div><ul class="nav navbar-nav"><li class="dropdown"><a style="cursor:pointer;user-select:none" class="dropdown-toggle" data-toggle="dropdown">Guilds<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="/top-guilds-by-fame">Top Guilds by Fame</a></li><li><a href="/servers-by-active-guilds">Servers by active Guilds</a></li></ul></li><li class="dropdown"><a style="cursor:pointer;user-select:none" class="dropdown-toggle" data-toggle="dropdown">Players<b class="caret"></b></a><ul class="dropdown-menu"><li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Top Players</a><ul class="dropdown-menu"><li><a href="/top-players-by-exaltations">by Exaltations</a></li><li><a href="/top-players-by-fame">by Fame</a></li><li><a href="/top-players-by-account-fame">by Account Fame</a></li><li><a href="/top-graveyards-by/oryx-kills">by Graveyard</a></li><li><a href="/top-players-by-skin-count">by Skin count</a></li><li><a href="/top-players-with-no-guild">with no Guild</a></li></ul></li><li><a href="/top-oldest-active-players">Top Oldest Active Players</a></li><li><a href="/number-of-players-by-rank">Number of Players by Rank</a></li></ul></li><li class="dropdown"><a style="cursor:pointer;user-select:none" class="dropdown-toggle" data-toggle="dropdown">Characters<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="/top-characters">Top Characters by Fame</a></li><li><a href="/top-characters-by-exaltations">Top Characters by Exaltations</a></li><li><a href="/top-characters-with-outfit">Top Characters with Outfit</a></li><li><a href="/top-dead-characters-by/oryx-kills">Top Dead Characters</a></li><li><a href="/recent-deaths">Recent Deaths</a></li><li><a href="/items/dye-statistics">Dye statistics</a></li></ul></li><li class="dropdown"><a style="cursor:pointer;user-select:none" class="dropdown-toggle" data-toggle="dropdown">Pets<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="/top-pets">Top Pets</a></li><li><a href="/top-pets-by-ability-heal">Top Pets by Ability</a></li></ul></li><li class="dropdown"><a style="cursor:pointer;user-select:none" class="dropdown-toggle" data-toggle="dropdown">Trading<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="/current-offers">Current Offers</a></li><li><a href="/current-seasonal-offers">Current Seasonal Offers</a></li><li><a href="/recent-offers">Recent Offers</a></li><li><a href="/recent-seasonal-offers">Recent Seasonal Offers</a></li><li><a href="/trading-help">Help</a></li></ul></li><li class="dropdown"><a style="cursor:pointer;user-select:none" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="/q-and-a">Q &amp; A</a></li><li><a href="/recent-changes">Recent changes</a></li><li><a href="/mreyeball">Mr. Eyeball</a></li><li><a href="/user-help">For Users</a></li><li><a href="/signature-help">User Signatures</a></li><li><a href="/donators">Donators</a></li><li><a href="/feedback">Feedback</a></li><li><a href="/privacy-policy">Privacy policy</a></li></ul></li><li class="active"><a href="/wiki/realm-of-the-mad-god" title="RotMG Wiki">Wiki</a></li><li><a href="/forum" title="Unofficial RotMG Forum">Forum</a></li></ul></nav></div></header><div class="container"><noscript><div class="help-block alert alert-info">It seems like you have disabled javascript. The site uses it extensively, so expect a much degraded experience!</div></noscript><div class="row"><div class="col-md-12"><div class="row"><div class="col-md-12"><h1>Corruption Tether</h1></div></div><div class="row"><div class="col-md-9"><div class="wiki-page" id="d"><div class="table-responsive"><table>
+<tbody><tr>
+<td width="50"><img alt="Corruption Tether" src="/s/a/img/wiki/i/WzJqBbb.png" title="Corruption Tether" class="img-responsive"></td>
+<td width="100"><img alt="Wizard ST Staff Projectile" src="/s/a/img/wiki/i/aTQg00u.png" title="Wizard ST Staff Projectile" class="img-responsive">
+
+</td>
+<td rowspan="">This transmogrified crook bolsters the ability to peer into pocket dimensions and cling to the essence within. Such a characteristic arguably makes the staff itself sentient, a harrowing trait for the tool which gave the Shattered Kingdom its name.</td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+</td>
+</tr>
+</tbody></table></div>
+
+<hr>
+
+<div class="table-responsive"><table>
+<tbody><tr>
+<th width="150px">Reskin(s)</th>
+<td><div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/supernatural-staff"><img alt="Supernatural Staff" src="/s/a/img/wiki/i/qTOdZNR.png" title="Supernatural Staff" class="img-responsive"></a></td><td><a href="/wiki/supernatural-staff">ST. Supernatural Staff</a></td></tr></tbody></table></div></td>
+</tr>
+</tbody></table></div>
+
+<hr>
+
+<div class="table-responsive"><table>
+<tbody><tr> 
+<th width="150px">Tier</th>
+<th class="st">ST <img alt="1st Generation" src="/s/a/img/wiki/i/yOKIzU9.png" title="1st Generation" class="img-responsive"></th>
+
+
+</tr><tr>
+<th>Shots</th>
+<td>1</td>
+</tr>
+
+
+<tr>
+<th>Damage</th>
+<td>175–210 (average: 192.5)</td>
+</tr>
+
+
+<tr>
+<th>Projectile Speed</th>
+<td>15 tiles/second</td>
+</tr>
+<tr>
+<th>Lifetime</th>
+<td>1.6 seconds</td>
+</tr>
+<tr>
+<th>Range</th>
+<td>6.75 tiles</td>
+</tr>
+<tr>
+<th>Amplitude</th>
+<td>0.2 tile(s)</td>
+</tr>
+<tr>
+<th>Frequency</th>
+<td>1.5 cycle(s)/shot</td>
+</tr>
+<tr>
+</tr><tr>
+<th>Acceleration</th>
+<td>-100 tiles/second<sup>2</sup>&nbsp;after 0.375 seconds</td>
+</tr>
+<tr>
+<th>Max/Min Speed</th>
+<td>0 tiles/second</td>
+</tr>
+
+
+
+
+<tr>
+<th>Power Level</th>
+<td>170</td>
+</tr>
+<tr>
+<th>XP Bonus</th>
+<td>7%</td>
+</tr>
+<tr>
+<th>Soulbound</th>
+<td><img alt="Soulbound" src="/s/a/img/wiki/i/qUTUpqy.png" title="Soulbound" class="img-responsive"></td>
+</tr>
+<tr>
+<th>Feed Power</th>
+<td>800</td>
+</tr>
+
+
+<tr>
+<th>Dismantling Value</th>
+<td>20 <a href="/wiki/forge"><img alt="Mythical Material" src="/s/a/img/wiki/i/23gVNz1.png" title="Mythical Material" width="20" class="img-responsive"></a></td>
+</tr>
+
+
+
+
+
+
+<tr><th>Used Dust</th><td> <a href="/wiki/enchanting#dusts"><img alt="Purple Dust" src="/s/a/img/wiki/i/7jfyGWz.png" title="Purple Dust" width="20" class="img-responsive"></a></td></tr>
+
+
+</tbody></table></div>
+
+<hr>
+
+<div class="table-responsive"><table>
+<tbody><tr>
+<th width="150px">Loot Bag</th>
+<td><img alt="Assigned to Orange Bag" src="/s/a/img/wiki/i/tUtoyLH.png" title="Assigned to Orange Bag" class="img-responsive"></td>
+</tr>
+
+<tr>
+<th width="150px" valign="top">Drops From</th>
+<td><a href="/wiki/avatar-of-the-forgotten-king">Avatar of the Forgotten King</a><br>
+<a href="/wiki/pyro-warlock">Pyro Warlock</a><br>
+<a href="/wiki/cryo-warlock">Cryo Warlock</a><br>
+<a href="/wiki/royal-epic-quest-chest">Royal Epic Quest Chest</a></td>
+</tr>
+<tr>
+<th width="150px" valign="top">Obtained Through</th>
+<td><a href="/wiki/mystery-boxes">Mystery Boxes</a></td>
+</tr>
+</tbody></table></div>
+
+<hr>
+
+<p><b>Notes</b> <br>
+Part of the <a href="/wiki/twilight-archmage-set">Twilight Archmage Set</a>.</p>
+
+<p>This staff is one in a few that fire only one shot, able to beat the T14 <a href="/wiki/staff-of-the-fundamental-core">Staff of the Fundamental Core</a> and even <a href="/wiki/superior">Superior</a> starting at <abbr title="Wizard/Necromancer">49</abbr>/<abbr title="Mystic">44</abbr> DEF (before any group buffs). As this staff also has a dampened range, it is quite similar to a <a href="/wiki/spellblades">spellblade</a> in its usage and function, though unlike spellblades, the Tether does not pierce.</p>
+
+<p>This staff always beats the T13 <a href="/wiki/spellblade-of-the-heavens-light">Spellblade of the Heavens Light</a> and T12 <a href="/wiki/staff-of-the-cosmic-whole">Staff of the Cosmic Whole</a> in terms of damage, though always loses out to the T14 <a href="/wiki/spellblade-of-the-everlasting-death">Spellblade of the Everlasting Death</a>.</p>
+
+<p>When the entire Twilight Archmage Set is equipped, the weapon projectile changes to: <br>
+<img alt="Wizard ST Staff Projectile Big" src="/s/a/img/wiki/i/MkXe2qN.png" title="Wizard ST Staff Projectile Big" class="img-responsive"></p>
+
+<p><b>History</b> <br>
+Before <a href="/wiki/release-history-2024#exalt-version-5-0-0-0">Exalt Version 5.0.0.0</a> (July 2024), this item did not drop from <a href="/wiki/avatar-of-the-forgotten-king">Avatar of the Forgotten King</a>, had a dismantling value of 80 <a href="/wiki/forge"><img alt="Mythical Material" src="/s/a/img/wiki/i/23gVNz1.png" title="Mythical Material" width="20" class="img-responsive"></a>.</p>
+
+<p>Before <a href="/wiki/release-history-2025#exalt-version-5-15-0-0">Exalt Version 5.15.0.0</a> (Aug 2025), this item dealt 150-180 damage.</p>
+
+<div class="table-responsive"><table class="table table-condensed table-striped container-fluid">
+<tbody><tr>
+<th align="center"><a href="/wiki/twilight-archmage-set">Twilight Archmage Set</a></th>
+</tr>
+<tr>
+<td class="align-left">
+<div align="center" class="col-md-3 col-sm-4">
+<a href="/wiki/twilight-archmage-set"><img alt="Twilight Archmage Set Skin" src="/s/a/img/wiki/i/lCfEMti.png" title="Twilight Archmage Set Skin" class="img-responsive"></a>
+</div>
+<div class="col-md-9 col-sm-8">
+<div class="col-md-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><img alt="Corruption Tether" src="/s/a/img/wiki/i/WzJqBbb.png" title="Corruption Tether" class="img-responsive"></td><td><strong>Corruption Tether</strong></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/ancient-eminence"><img alt="Ancient Eminence" src="/s/a/img/wiki/i/w1rJnK9.png" title="Ancient Eminence" class="img-responsive"></a></td><td><a href="/wiki/ancient-eminence">Ancient Eminence</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/twilight-shroud"><img alt="Twilight Shroud" src="/s/a/img/wiki/i/sDrDmCT.png" title="Twilight Shroud" class="img-responsive"></a></td><td><a href="/wiki/twilight-shroud">Twilight Shroud</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/defiled-equilibrium"><img alt="Defiled Equilibrium" src="/s/a/img/wiki/i/dIOdLFM.png" title="Defiled Equilibrium" class="img-responsive"></a></td><td><a href="/wiki/defiled-equilibrium">Defiled Equilibrium</a></td></tr></tbody></table></div>
+
+</div>
+</div>
+</td></tr>
+</tbody></table></div>
+
+<div class="table-responsive"><table class="table table-condensed table-striped align-center container-fluid">
+<tbody><tr>
+<th align="center"><a href="/wiki/staves">Staves</a></th>
+</tr>
+<tr>
+<td>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/energy-staff"><img alt="Energy Staff" src="/s/a/img/wiki/i/wMmqTWw.png" title="Energy Staff" class="img-responsive"></a></td><td><a href="/wiki/energy-staff">T0. Energy Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/firebrand-staff"><img alt="Firebrand Staff" src="/s/a/img/wiki/i/72Njhx8.png" title="Firebrand Staff" class="img-responsive"></a></td><td><a href="/wiki/firebrand-staff">T1. Firebrand Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/comet-staff"><img alt="Comet Staff" src="/s/a/img/wiki/i/dOIDdKX.png" title="Comet Staff" class="img-responsive"></a></td><td><a href="/wiki/comet-staff">T2. Comet Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/serpentine-staff"><img alt="Serpentine Staff" src="/s/a/img/wiki/i/LcMYJlw.png" title="Serpentine Staff" class="img-responsive"></a></td><td><a href="/wiki/serpentine-staff">T3. Serpentine Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/meteor-staff"><img alt="Meteor Staff" src="/s/a/img/wiki/i/PO7A1xD.png" title="Meteor Staff" class="img-responsive"></a></td><td><a href="/wiki/meteor-staff">T4. Meteor Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/slayer-staff"><img alt="Slayer Staff" src="/s/a/img/wiki/i/UH6hHIr.png" title="Slayer Staff" class="img-responsive"></a></td><td><a href="/wiki/slayer-staff">T5. Slayer Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/avenger-staff"><img alt="Avenger Staff" src="/s/a/img/wiki/i/kqggaFU.png" title="Avenger Staff" class="img-responsive"></a></td><td><a href="/wiki/avenger-staff">T6. Avenger Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-destruction"><img alt="Staff of Destruction" src="/s/a/img/wiki/i/30bamPz.png" title="Staff of Destruction" class="img-responsive"></a></td><td><a href="/wiki/staff-of-destruction">T7. Staff of Destruction</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-horror"><img alt="Staff of Horror" src="/s/a/img/wiki/i/NaJfx4l.png" title="Staff of Horror" class="img-responsive"></a></td><td><a href="/wiki/staff-of-horror">T8. Staff of Horror</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-necrotic-arcana"><img alt="Staff of Necrotic Arcana" src="/s/a/img/wiki/i/ySNBTdu.png" title="Staff of Necrotic Arcana" class="img-responsive"></a></td><td><a href="/wiki/staff-of-necrotic-arcana">T9. Staff of Necrotic Arcana</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-diabolic-secrets"><img alt="Staff of Diabolic Secrets" src="/s/a/img/wiki/i/nHBniQs.png" title="Staff of Diabolic Secrets" class="img-responsive"></a></td><td><a href="/wiki/staff-of-diabolic-secrets">T10. Staff of Diabolic Secrets</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-astral-knowledge"><img alt="Staff of Astral Knowledge" src="/s/a/img/wiki/i/uVcGAae.png" title="Staff of Astral Knowledge" class="img-responsive"></a></td><td><a href="/wiki/staff-of-astral-knowledge">T11. Staff of Astral Knowledge</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-the-cosmic-whole"><img alt="Staff of the Cosmic Whole" src="/s/a/img/wiki/i/cnKvKxT.png" title="Staff of the Cosmic Whole" class="img-responsive"></a></td><td><a href="/wiki/staff-of-the-cosmic-whole">T12. Staff of the Cosmic Whole</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-the-vital-unity"><img alt="Staff of the Vital Unity" src="/s/a/img/wiki/i/spRnVBC.png" title="Staff of the Vital Unity" class="img-responsive"></a></td><td><a href="/wiki/staff-of-the-vital-unity">T13. Staff of the Vital Unity</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-the-fundamental-core"><img alt="Staff of the Fundamental Core" src="/s/a/img/wiki/i/t3Ko60Q.png" title="Staff of the Fundamental Core" class="img-responsive"></a></td><td><a href="/wiki/staff-of-the-fundamental-core">T14. Staff of the Fundamental Core</a></td></tr></tbody></table></div>
+
+</div>
+
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-the-crystal-serpent"><img alt="Staff of the Crystal Serpent" src="/s/a/img/wiki/i/E3rQtUJ.png" title="Staff of the Crystal Serpent" class="img-responsive"></a></td><td><a href="/wiki/staff-of-the-crystal-serpent">UT. Staff of the Crystal Serpent</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/k-i-d-d-force"><img alt="K.I.D.D. Force" src="/s/a/img/wiki/i/SGuH4eT.png" title="K.I.D.D. Force" class="img-responsive"></a></td><td><a href="/wiki/k-i-d-d-force">UT. K.I.D.D. Force</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/k-i-d-d-force-2-0"><img alt="K.I.D.D. Force 2.0" src="/s/a/img/wiki/i/wPdeWmT.png" title="K.I.D.D. Force 2.0" class="img-responsive"></a></td><td><a href="/wiki/k-i-d-d-force-2-0">UT. K.I.D.D. Force 2.0</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-adoration"><img alt="Staff of Adoration" src="/s/a/img/wiki/i/RUjImXp.png" title="Staff of Adoration" class="img-responsive"></a></td><td><a href="/wiki/staff-of-adoration">UT. Staff of Adoration</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/oppressor-s-staff"><img alt="Oppressor's Staff" src="/s/a/img/wiki/i/YkPOOiY.png" title="Oppressor's Staff" class="img-responsive"></a></td><td><a href="/wiki/oppressor-s-staff">UT. Oppressor’s Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-extreme-prejudice"><img alt="Staff of Extreme Prejudice" src="/s/a/img/wiki/i/AyOQRFj.png" title="Staff of Extreme Prejudice" class="img-responsive"></a></td><td><a href="/wiki/staff-of-extreme-prejudice">UT. Staff of Extreme Prejudice</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/spirit-staff"><img alt="Spirit Staff" src="/s/a/img/wiki/i/6GDdhQb.png" title="Spirit Staff" class="img-responsive"></a></td><td><a href="/wiki/spirit-staff">UT. Spirit Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-esben"><img alt="Staff of Esben" src="/s/a/img/wiki/i/LBDSDfB.png" title="Staff of Esben" class="img-responsive"></a></td><td><a href="/wiki/staff-of-esben">UT. Staff of Esben</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/tezcacoatl-s-tail"><img alt="Tezcacoatl's Tail" src="/s/a/img/wiki/i/IFRn3wz.png" title="Tezcacoatl's Tail" class="img-responsive"></a></td><td><a href="/wiki/tezcacoatl-s-tail">UT. Tezcacoatl’s Tail</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/elder-heartwood-staff"><img alt="Elder Heartwood Staff" src="/s/a/img/wiki/i/bPrC1gq.png" title="Elder Heartwood Staff" class="img-responsive"></a></td><td><a href="/wiki/elder-heartwood-staff">UT. Elder Heartwood Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/s-t-a-f-f"><img alt="S.T.A.F.F." src="/s/a/img/wiki/i/Gx4CCtY.png" title="S.T.A.F.F." class="img-responsive"></a></td><td><a href="/wiki/s-t-a-f-f">UT. S.T.A.F.F.</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/foramite-staff"><img alt="Foramite Staff" src="/s/a/img/wiki/i/2OlTVYj.png" title="Foramite Staff" class="img-responsive"></a></td><td><a href="/wiki/foramite-staff">UT. Foramite Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/comet-of-calamity"><img alt="Comet of Calamity" src="/s/a/img/wiki/i/TaBAF5v.png" title="Comet of Calamity" class="img-responsive"></a></td><td><a href="/wiki/comet-of-calamity">UT. Comet of Calamity</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/bogwood-crook"><img alt="Bogwood Crook" src="/s/a/img/wiki/i/LNBvq4L.png" title="Bogwood Crook" class="img-responsive"></a></td><td><a href="/wiki/bogwood-crook">UT. Bogwood Crook</a></td></tr></tbody></table></div>
+
+</div>
+
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/torrential-staff"><img alt="Torrential Staff" src="/s/a/img/wiki/i/GwByOIZ.png" title="Torrential Staff" class="img-responsive"></a></td><td><a href="/wiki/torrential-staff">UT. Torrential Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/jailer-s-scythe"><img alt="Jailer's Scythe" src="/s/a/img/wiki/i/jhorqyo.png" title="Jailer's Scythe" class="img-responsive"></a></td><td><a href="/wiki/jailer-s-scythe">UT. Jailer’s Scythe</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-unholy-sacrifice"><img alt="Staff of Unholy Sacrifice" src="/s/a/img/wiki/i/LVY6EyC.png" title="Staff of Unholy Sacrifice" class="img-responsive"></a></td><td><a href="/wiki/staff-of-unholy-sacrifice">UT. Staff of Unholy Sacrifice</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/vigor"><img alt="Vigor" src="/s/a/img/wiki/i/DRmL5tS.png" title="Vigor" class="img-responsive"></a></td><td><a href="/wiki/vigor">UT. Vigor</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/superior"><img alt="Superior" src="/s/a/img/wiki/i/y0Svuxi.png" title="Superior" class="img-responsive"></a></td><td><a href="/wiki/superior">UT. Superior</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/mechanical-kogbold-limb"><img alt="Mechanical Kogbold Limb" src="/s/a/img/wiki/i/bK8QaiO.png" title="Mechanical Kogbold Limb" class="img-responsive"></a></td><td><a href="/wiki/mechanical-kogbold-limb">UT. Mechanical Kogbold Limb</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/nebular-rod"><img alt="Nebular Rod" src="/s/a/img/wiki/i/laDuXga.png" title="Nebular Rod" class="img-responsive"></a></td><td><a href="/wiki/nebular-rod">ST. Nebular Rod</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/edictum-praetoris"><img alt="Edictum Praetoris" src="/s/a/img/wiki/i/slxDs9i.png" title="Edictum Praetoris" class="img-responsive"></a></td><td><a href="/wiki/edictum-praetoris">ST. Edictum Praetoris</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/squaroid-staff"><img alt="Squaroid Staff" src="/s/a/img/wiki/i/MhpbAMi.png" title="Squaroid Staff" class="img-responsive"></a></td><td><a href="/wiki/squaroid-staff">ST. Squaroid Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-eruption"><img alt="Staff of Eruption" src="/s/a/img/wiki/i/eYQVX29.png" title="Staff of Eruption" class="img-responsive"></a></td><td><a href="/wiki/staff-of-eruption">ST. Staff of Eruption</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/tideturner-trident"><img alt="Tideturner Trident" src="/s/a/img/wiki/i/JTRwMES.png" title="Tideturner Trident" class="img-responsive"></a></td><td><a href="/wiki/tideturner-trident">ST. Tideturner Trident</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/the-phylactery"><img alt="The Phylactery" src="/s/a/img/wiki/i/hFV5MVt.png" title="The Phylactery" class="img-responsive"></a></td><td><a href="/wiki/the-phylactery">ST. The Phylactery</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><img alt="Corruption Tether" src="/s/a/img/wiki/i/WzJqBbb.png" title="Corruption Tether" class="img-responsive"></td><td><strong>ST. Corruption Tether</strong></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/shaman-s-staff"><img alt="Shaman's Staff" src="/s/a/img/wiki/i/ZbS4u0i.png" title="Shaman's Staff" class="img-responsive"></a></td><td><a href="/wiki/shaman-s-staff">ST. Shaman’s Staff</a></td></tr></tbody></table></div>
+
+</div>
+</td></tr>
+<tr>
+<th align="center"><abbr title="These items are intermittently available from seasonal events or no longer available. Some may still be obtained by trading with players or as drops from dungeons whose keys are no longer sold. ">Limited Edition Staves</abbr></th>
+</tr>
+<tr>
+<td>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/koalapow"><img alt="KoalaPOW" src="/s/a/img/wiki/i/uXyETVT.png" title="KoalaPOW" class="img-responsive"></a></td><td><a href="/wiki/koalapow">UT. KoalaPOW</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/barely-attuned-magic-thingy"><img alt="Barely Attuned Magic Thingy" src="/s/a/img/wiki/i/PZe6eoP.png" title="Barely Attuned Magic Thingy" class="img-responsive"></a></td><td><a href="/wiki/barely-attuned-magic-thingy">UT. Barely Attuned Magic Thingy</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/anatis-staff"><img alt="Anatis Staff" src="/s/a/img/wiki/i/ioMzoA7.png" title="Anatis Staff" class="img-responsive"></a></td><td><a href="/wiki/anatis-staff">UT. Anatis Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-the-saint"><img alt="Staff of the Saint" src="/s/a/img/wiki/i/u6sB85k.png" title="Staff of the Saint" class="img-responsive"></a></td><td><a href="/wiki/staff-of-the-saint">UT. Staff of the Saint</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-horrific-knowledge"><img alt="Staff of Horrific Knowledge" src="/s/a/img/wiki/i/UvcxYUu.png" title="Staff of Horrific Knowledge" class="img-responsive"></a></td><td><a href="/wiki/staff-of-horrific-knowledge">UT. Staff of Horrific Knowledge</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-yuletide-carols"><img alt="Staff of Yuletide Carols" src="/s/a/img/wiki/i/GB41h0Q.png" title="Staff of Yuletide Carols" class="img-responsive"></a></td><td><a href="/wiki/staff-of-yuletide-carols">UT. Staff of Yuletide Carols</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-the-rising-sun"><img alt="Staff of the Rising Sun" src="/s/a/img/wiki/i/PnQ36Ax.png" title="Staff of the Rising Sun" class="img-responsive"></a></td><td><a href="/wiki/staff-of-the-rising-sun">UT. Staff of the Rising Sun</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/frosty-s-walking-stick"><img alt="Frosty's Walking Stick" src="/s/a/img/wiki/i/w6IINCB.png" title="Frosty's Walking Stick" class="img-responsive"></a></td><td><a href="/wiki/frosty-s-walking-stick">UT. Frosty’s Walking Stick</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/aspirant-s-staff"><img alt="Aspirant's Staff" src="/s/a/img/wiki/i/epMhbz9.png" title="Aspirant's Staff" class="img-responsive"></a></td><td><a href="/wiki/aspirant-s-staff">UT. Aspirant’s Staff</a></td></tr></tbody></table></div>
+
+</div>
+
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/screwdriver-staff"><img alt="Screwdriver Staff" src="/s/a/img/wiki/i/cDNotYr.png" title="Screwdriver Staff" class="img-responsive"></a></td><td><a href="/wiki/screwdriver-staff">UT. Screwdriver Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-silver-wings"><img alt="Staff of Silver Wings" src="/s/a/img/wiki/i/BWyKdec.png" title="Staff of Silver Wings" class="img-responsive"></a></td><td><a href="/wiki/staff-of-silver-wings">UT. Staff of Silver Wings</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-iceblast"><img alt="Staff of Iceblast" src="/s/a/img/wiki/i/GqcV9up.png" title="Staff of Iceblast" class="img-responsive"></a></td><td><a href="/wiki/staff-of-iceblast">UT. Staff of Iceblast</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-esben-legacy"><img alt="Staff of Esben Legacy" src="/s/a/img/wiki/i/LBDSDfB.png" title="Staff of Esben Legacy" class="img-responsive"></a></td><td><a href="/wiki/staff-of-esben-legacy">UT. Staff of Esben Legacy</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/sleigh-bell-staff"><img alt="Sleigh Bell Staff" src="/s/a/img/wiki/i/5sZxjSW.png" title="Sleigh Bell Staff" class="img-responsive"></a></td><td><a href="/wiki/sleigh-bell-staff">UT. Sleigh Bell Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/snow-branch"><img alt="Snow Branch" src="/s/a/img/wiki/i/Nxpvwoa.png" title="Snow Branch" class="img-responsive"></a></td><td><a href="/wiki/snow-branch">UT. Snow Branch</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/frostfall-rod"><img alt="Frostfall Rod" src="/s/a/img/wiki/i/G6pw2UH.png" title="Frostfall Rod" class="img-responsive"></a></td><td><a href="/wiki/frostfall-rod">UT. Frostfall Rod</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/deathmask-staff"><img alt="Deathmask Staff" src="/s/a/img/wiki/i/a1c5N0r.png" title="Deathmask Staff" class="img-responsive"></a></td><td><a href="/wiki/deathmask-staff">UT. Deathmask Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/dreamcaster"><img alt="Dreamcaster" src="/s/a/img/wiki/i/v7zpH2p.png" title="Dreamcaster" class="img-responsive"></a></td><td><a href="/wiki/dreamcaster">UT. Dreamcaster</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/blooming-bouquet"><img alt="Blooming Bouquet" src="/s/a/img/wiki/i/NRqSGMZ.png" title="Blooming Bouquet" class="img-responsive"></a></td><td><a href="/wiki/blooming-bouquet">UT. Blooming Bouquet</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/explorer-s-shovel"><img alt="Explorer's Shovel" src="/s/a/img/wiki/i/pHFHgsL.png" title="Explorer's Shovel" class="img-responsive"></a></td><td><a href="/wiki/explorer-s-shovel">UT. Explorer’s Shovel</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/legion-elite-staff"><img alt="Legion Elite Staff" src="/s/a/img/wiki/i/cofvctu.png" title="Legion Elite Staff" class="img-responsive"></a></td><td><a href="/wiki/legion-elite-staff">UT. Legion Elite Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/bloom-fire-scepter"><img alt="Bloom-Fire Scepter" src="/s/a/img/wiki/i/dgbTjtU.png" title="Bloom-Fire Scepter" class="img-responsive"></a></td><td><a href="/wiki/bloom-fire-scepter">UT. Bloom-Fire Scepter</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/hero-s-staff"><img alt="Hero's Staff" src="/s/a/img/wiki/i/QpFRN4s.png" title="Hero's Staff" class="img-responsive"></a></td><td><a href="/wiki/hero-s-staff">UT. Hero’s Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/staff-of-the-eclipse"><img alt="Staff of the Eclipse" src="/s/a/img/wiki/i/hA0lahJ.png" title="Staff of the Eclipse" class="img-responsive"></a></td><td><a href="/wiki/staff-of-the-eclipse">UT. Staff of the Eclipse</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/legacy-sentient-staff"><img alt="Legacy Sentient Staff" src="/s/a/img/wiki/i/iveqFIc.png" title="Legacy Sentient Staff" class="img-responsive"></a></td><td><a href="/wiki/legacy-sentient-staff">ST. Legacy Sentient Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/gravekeeper-s-scythe"><img alt="Gravekeeper's Scythe" src="/s/a/img/wiki/i/xDhWKL5.png" title="Gravekeeper's Scythe" class="img-responsive"></a></td><td><a href="/wiki/gravekeeper-s-scythe">ST. Gravekeeper’s Scythe</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/bloody-pitch-fork-staff"><img alt="Bloody Pitch Fork Staff" src="/s/a/img/wiki/i/zlSKtG8.png" title="Bloody Pitch Fork Staff" class="img-responsive"></a></td><td><a href="/wiki/bloody-pitch-fork-staff">ST. Bloody Pitch Fork Staff</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/cursed-harpoon"><img alt="Cursed Harpoon" src="/s/a/img/wiki/i/VB6xaWB.png" title="Cursed Harpoon" class="img-responsive"></a></td><td><a href="/wiki/cursed-harpoon">ST. Cursed Harpoon</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/stygian-torch"><img alt="Stygian Torch" src="/s/a/img/wiki/i/B9NH29Z.png" title="Stygian Torch" class="img-responsive"></a></td><td><a href="/wiki/stygian-torch">ST. Stygian Torch</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/gloves-of-love"><img alt="Gloves of Love" src="/s/a/img/wiki/i/PiYaAhj.png" title="Gloves of Love" class="img-responsive"></a></td><td><a href="/wiki/gloves-of-love">ST. Gloves of Love</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/spring-rose"><img alt="Spring Rose" src="/s/a/img/wiki/i/0KdIq38.png" title="Spring Rose" class="img-responsive"></a></td><td><a href="/wiki/spring-rose">ST. Spring Rose</a></td></tr></tbody></table></div>
+
+</div>
+<div class="col-md-4 col-sm-6">
+<div class="table-responsive"><table><tbody><tr><td width="45px"><a href="/wiki/supernatural-staff"><img alt="Supernatural Staff" src="/s/a/img/wiki/i/qTOdZNR.png" title="Supernatural Staff" class="img-responsive"></a></td><td><a href="/wiki/supernatural-staff">ST. Supernatural Staff</a></td></tr></tbody></table></div>
+
+</div>
+</td>
+</tr>
+</tbody></table></div></div></div><div class="col-md-3 wiki-sidebar"><ul class="nav nav-stacked"><li class="nav-header">Wiki Search</li><li><input id="e" type="text" placeholder="Wiki search" value=""></li></ul><ul class="nav nav-stacked"><li class="nav-header">Navigation</li><li><a href="/wiki/equipment">Equipment</a><ul class="nav nav-stacked"><li><a href="/wiki/weapons">Weapons</a><ul class="nav nav-stacked"><li><a href="/wiki/daggers">Daggers</a></li><li><a href="/wiki/bows">Bows</a></li><li><a href="/wiki/staves">Staves</a><ul class="nav nav-stacked"><li><a href="/wiki/energy-staff">Energy Staff</a></li><li><a href="/wiki/firebrand-staff">Firebrand Staff</a></li><li><a href="/wiki/comet-staff">Comet Staff</a></li><li><a href="/wiki/serpentine-staff">Serpentine Staff</a></li><li><a href="/wiki/meteor-staff">Meteor Staff</a></li><li><a href="/wiki/slayer-staff">Slayer Staff</a></li><li><a href="/wiki/avenger-staff">Avenger Staff</a></li><li><a href="/wiki/staff-of-destruction">Staff of Destruction</a></li><li><a href="/wiki/staff-of-horror">Staff of Horror</a></li><li><a href="/wiki/staff-of-necrotic-arcana">Staff of Necrotic Arcana</a></li><li><a href="/wiki/staff-of-diabolic-secrets">Staff of Diabolic Secrets</a></li><li><a href="/wiki/staff-of-astral-knowledge">Staff of Astral Knowledge</a></li><li><a href="/wiki/staff-of-the-cosmic-whole">Staff of the Cosmic Whole</a></li><li><a href="/wiki/staff-of-the-vital-unity">Staff of the Vital Unity</a></li><li><a href="/wiki/staff-of-the-fundamental-core">Staff of the Fundamental Core</a></li><li><a href="/wiki/staff-of-the-crystal-serpent">Staff of the Crystal Serpent</a></li><li><a href="/wiki/k-i-d-d-force">K.I.D.D. Force</a></li><li><a href="/wiki/k-i-d-d-force-2-0">K.I.D.D. Force 2.0</a></li><li><a href="/wiki/staff-of-adoration">Staff of Adoration</a></li><li><a href="/wiki/oppressor-s-staff">Oppressor&apos;s Staff</a></li><li><a href="/wiki/staff-of-extreme-prejudice">Staff of Extreme Prejudice</a></li><li><a href="/wiki/spirit-staff">Spirit Staff</a></li><li><a href="/wiki/staff-of-esben">Staff of Esben</a></li><li><a href="/wiki/tezcacoatl-s-tail">Tezcacoatl&apos;s Tail</a></li><li><a href="/wiki/elder-heartwood-staff">Elder Heartwood Staff</a></li><li><a href="/wiki/s-t-a-f-f">S.T.A.F.F.</a></li><li><a href="/wiki/foramite-staff">Foramite Staff</a></li><li><a href="/wiki/comet-of-calamity">Comet of Calamity</a></li><li><a href="/wiki/bogwood-crook">Bogwood Crook</a></li><li><a href="/wiki/torrential-staff">Torrential Staff</a></li><li><a href="/wiki/jailer-s-scythe">Jailer&apos;s Scythe</a></li><li><a href="/wiki/staff-of-unholy-sacrifice">Staff of Unholy Sacrifice</a></li><li><a href="/wiki/vigor">Vigor</a></li><li><a href="/wiki/superior">Superior</a></li><li><a href="/wiki/mechanical-kogbold-limb">Mechanical Kogbold Limb</a></li><li><a href="/wiki/nebular-rod">Nebular Rod</a></li><li><a href="/wiki/edictum-praetoris">Edictum Praetoris</a></li><li><a href="/wiki/squaroid-staff">Squaroid Staff</a></li><li><a href="/wiki/staff-of-eruption">Staff of Eruption</a></li><li><a href="/wiki/tideturner-trident">Tideturner Trident</a></li><li><a href="/wiki/the-phylactery">The Phylactery</a></li><li><a href="/wiki/shaman-s-staff">Shaman&apos;s Staff</a></li><li class="active"><a href="/wiki/corruption-tether">Corruption Tether</a></li><li><a href="/wiki/koalapow">KoalaPOW</a></li><li><a href="/wiki/barely-attuned-magic-thingy">Barely Attuned Magic Thingy</a></li><li><a href="/wiki/anatis-staff">Anatis Staff</a></li><li><a href="/wiki/staff-of-the-saint">Staff of the Saint</a></li><li><a href="/wiki/staff-of-horrific-knowledge">Staff of Horrific Knowledge</a></li><li><a href="/wiki/staff-of-yuletide-carols">Staff of Yuletide Carols</a></li><li><a href="/wiki/staff-of-the-rising-sun">Staff of the Rising Sun</a></li><li><a href="/wiki/frosty-s-walking-stick">Frosty&apos;s Walking Stick</a></li><li><a href="/wiki/aspirant-s-staff">Aspirant&apos;s Staff</a></li><li><a href="/wiki/screwdriver-staff">Screwdriver Staff</a></li><li><a href="/wiki/staff-of-silver-wings">Staff of Silver Wings</a></li><li><a href="/wiki/staff-of-iceblast">Staff of Iceblast</a></li><li><a href="/wiki/staff-of-esben-legacy">Staff of Esben Legacy</a></li><li><a href="/wiki/sleigh-bell-staff">Sleigh Bell Staff</a></li><li><a href="/wiki/snow-branch">Snow Branch</a></li><li><a href="/wiki/frostfall-rod">Frostfall Rod</a></li><li><a href="/wiki/deathmask-staff">Deathmask Staff</a></li><li><a href="/wiki/dreamcaster">Dreamcaster</a></li><li><a href="/wiki/blooming-bouquet">Blooming Bouquet</a></li><li><a href="/wiki/explorer-s-shovel">Explorer&apos;s Shovel</a></li><li><a href="/wiki/legion-elite-staff">Legion Elite Staff</a></li><li><a href="/wiki/bloom-fire-scepter">Bloom-Fire Scepter</a></li><li><a href="/wiki/hero-s-staff">Hero&apos;s Staff</a></li><li><a href="/wiki/staff-of-the-eclipse">Staff of the Eclipse</a></li><li><a href="/wiki/legacy-sentient-staff">Legacy Sentient Staff</a></li><li><a href="/wiki/gravekeeper-s-scythe">Gravekeeper&apos;s Scythe</a></li><li><a href="/wiki/bloody-pitch-fork-staff">Bloody Pitch Fork Staff</a></li><li><a href="/wiki/cursed-harpoon">Cursed Harpoon</a></li><li><a href="/wiki/stygian-torch">Stygian Torch</a></li><li><a href="/wiki/gloves-of-love">Gloves of Love</a></li><li><a href="/wiki/spring-rose">Spring Rose</a></li><li><a href="/wiki/supernatural-staff">Supernatural Staff</a></li></ul></li><li><a href="/wiki/wands">Wands</a></li><li><a href="/wiki/swords">Swords</a></li><li><a href="/wiki/katanas">Katanas</a></li><li><a href="/wiki/dual-blades">Dual Blades</a></li><li><a href="/wiki/longbows">Longbows</a></li><li><a href="/wiki/spellblades">Spellblades</a></li><li><a href="/wiki/morning-stars">Morning Stars</a></li><li><a href="/wiki/flails">Flails</a></li><li><a href="/wiki/tachis">Tachis</a></li></ul></li><li><a href="/wiki/ability-items">Ability Items</a></li><li><a href="/wiki/armor">Armor</a></li><li><a href="/wiki/rings">Rings</a></li><li><a href="/wiki/weapon-attributes">Weapon Attributes</a></li><li><a href="/wiki/untiered-drops">Untiered Drops</a></li><li><a href="/wiki/untiered-items-by-dungeon">Untiered Items by Dungeon</a></li><li><a href="/wiki/biome-whites">Biome Whites</a></li><li><a href="/wiki/event-whites">Event Whites</a></li><li><a href="/wiki/reskinned-equipment">Reskinned Equipment</a></li><li><a href="/wiki/themed-sets">Themed Sets</a></li><li><a href="/wiki/set-tier-items">Set Tier Items</a></li><li><a href="/wiki/equipment-set-gear">Equipment Set Gear</a></li><li><a href="/wiki/april-fool-s-equipment-versions">April Fool&apos;s Equipment Versions</a></li></ul></li><li><a href="/wiki/shiny-items">Shiny Items</a></li><li><a href="/wiki/consumables">Consumables</a></li><li><a href="/wiki/pet-food">Pet Food</a></li><li><a href="/wiki/other-items">Other Items</a></li><li><a href="/wiki/loot-containers">Loot Containers</a></li><li><a href="/wiki/forge">Forge</a></li><li><a href="/wiki/enchanting">Enchanting</a></li></ul><ul class="nav nav-stacked"><li class="nav-header">Page Tools</li><li><a href="/what-links-to-wiki-page/corruption-tether">Links to this page</a></li><li><a href="/history-of-wiki-page/corruption-tether">Page history</a></li></ul><ul class="nav nav-stacked"><li class="nav-header">Wiki Tools</li><li><a href="/recent-changes-of-the-rotmg-wiki">Recent Changes</a></li><li><a href="/wiki-pages-with-broken-internal-links">Broken links</a></li><li><a href="/unlinked-wiki-pages">Unlinked pages</a></li><li><a href="/wiki-pages-with-inconsistent-paths">Inconsistent paths</a></li><li><a href="/wiki-pages-not-part-of-the-navigation-tree">Pages not part of the navigation tree</a></li><li><a href="/random-wiki-page">Random page</a></li></ul></div></div></div></div></div><link href="/s/hn/css/select2.css" rel="stylesheet"><link href="/s/hn/css/select2-bootstrap.css" rel="stylesheet"><link href="/s/hn/css/wiki.css" rel="stylesheet"><link href="/footer.css" rel="stylesheet"><script src="/s/hn/js/jquery-1.11.2.min.js"></script><script src="/s/hn/js/typeahead.bundle.js"></script><script src="/s/hn/js/bootstrap.min.js"></script><script src="/s/hn/js/jquery.timeago.js"></script><script src="/s/hn/js/jquery.timeago.en-short.js"></script><script src="/s/hn/js/classinfo.js"></script><script src="/s/hn/js/definition.js"></script><script src="/s/hn/js/jquery.tablesorter.js"></script><script src="/s/hn/js/realmeye.js"></script><script src="/s/hn/js/advertisement.js"></script><script src="/s/hn/js/select2.js"></script><script src="/s/hn/js/wiki.js"></script><script>$(function(){initializeSearch("b","a");});initializeLoginButton("c");initializeWikiPage("d",[["\/wiki\/anatis-staff","Anatis Staff"],["\/wiki\/ancient-eminence","Ancient Eminence"],["\/wiki\/aspirant-s-staff","Aspirant's Staff"],["\/wiki\/avatar-of-the-forgotten-king","Avatar of the Forgotten King"],["\/wiki\/avenger-staff","Avenger Staff"],["\/wiki\/barely-attuned-magic-thingy","Barely Attuned Magic Thingy"],["\/wiki\/bloody-pitch-fork-staff","Bloody Pitch Fork Staff"],["\/wiki\/bloom-fire-scepter","Bloom-Fire Scepter"],["\/wiki\/blooming-bouquet","Blooming Bouquet"],["\/wiki\/bogwood-crook","Bogwood Crook"],["\/wiki\/comet-of-calamity","Comet of Calamity"],["\/wiki\/comet-staff","Comet Staff"],["\/wiki\/cryo-warlock","Cryo Warlock"],["\/wiki\/cursed-harpoon","Cursed Harpoon"],["\/wiki\/deathmask-staff","Deathmask Staff"],["\/wiki\/defiled-equilibrium","Defiled Equilibrium"],["\/wiki\/dreamcaster","Dreamcaster"],["\/wiki\/edictum-praetoris","Edictum Praetoris"],["\/wiki\/elder-heartwood-staff","Elder Heartwood Staff"],["\/wiki\/enchanting","Enchanting"],["\/wiki\/energy-staff","Energy Staff"],["\/wiki\/explorer-s-shovel","Explorer's Shovel"],["\/wiki\/firebrand-staff","Firebrand Staff"],["\/wiki\/foramite-staff","Foramite Staff"],["\/wiki\/forge","Forge"],["\/wiki\/frostfall-rod","Frostfall Rod"],["\/wiki\/frosty-s-walking-stick","Frosty's Walking Stick"],["\/wiki\/gloves-of-love","Gloves of Love"],["\/wiki\/gravekeeper-s-scythe","Gravekeeper's Scythe"],["\/wiki\/hero-s-staff","Hero's Staff"],["\/wiki\/jailer-s-scythe","Jailer's Scythe"],["\/wiki\/k-i-d-d-force","K.I.D.D. Force"],["\/wiki\/k-i-d-d-force-2-0","K.I.D.D. Force 2.0"],["\/wiki\/koalapow","KoalaPOW"],["\/wiki\/legacy-sentient-staff","Legacy Sentient Staff"],["\/wiki\/legion-elite-staff","Legion Elite Staff"],["\/wiki\/mechanical-kogbold-limb","Mechanical Kogbold Limb"],["\/wiki\/meteor-staff","Meteor Staff"],["\/wiki\/mystery-boxes","Mystery Boxes"],["\/wiki\/nebular-rod","Nebular Rod"],["\/wiki\/oppressor-s-staff","Oppressor's Staff"],["\/wiki\/pyro-warlock","Pyro Warlock"],["\/wiki\/release-history-2024","Release History 2024"],["\/wiki\/release-history-2025","Release History 2025"],["\/wiki\/royal-epic-quest-chest","Royal Epic Quest Chest"],["\/wiki\/screwdriver-staff","Screwdriver Staff"],["\/wiki\/serpentine-staff","Serpentine Staff"],["\/wiki\/shaman-s-staff","Shaman's Staff"],["\/wiki\/slayer-staff","Slayer Staff"],["\/wiki\/sleigh-bell-staff","Sleigh Bell Staff"],["\/wiki\/snow-branch","Snow Branch"],["\/wiki\/spellblade-of-the-everlasting-death","Spellblade of the Everlasting Death"],["\/wiki\/spellblade-of-the-heavens-light","Spellblade of the Heavens Light"],["\/wiki\/spellblades","Spellblades"],["\/wiki\/spirit-staff","Spirit Staff"],["\/wiki\/spring-rose","Spring Rose"],["\/wiki\/squaroid-staff","Squaroid Staff"],["\/wiki\/s-t-a-f-f","S.T.A.F.F."],["\/wiki\/staff-of-adoration","Staff of Adoration"],["\/wiki\/staff-of-astral-knowledge","Staff of Astral Knowledge"],["\/wiki\/staff-of-destruction","Staff of Destruction"],["\/wiki\/staff-of-diabolic-secrets","Staff of Diabolic Secrets"],["\/wiki\/staff-of-eruption","Staff of Eruption"],["\/wiki\/staff-of-esben","Staff of Esben"],["\/wiki\/staff-of-esben-legacy","Staff of Esben Legacy"],["\/wiki\/staff-of-extreme-prejudice","Staff of Extreme Prejudice"],["\/wiki\/staff-of-horrific-knowledge","Staff of Horrific Knowledge"],["\/wiki\/staff-of-horror","Staff of Horror"],["\/wiki\/staff-of-iceblast","Staff of Iceblast"],["\/wiki\/staff-of-necrotic-arcana","Staff of Necrotic Arcana"],["\/wiki\/staff-of-silver-wings","Staff of Silver Wings"],["\/wiki\/staff-of-the-cosmic-whole","Staff of the Cosmic Whole"],["\/wiki\/staff-of-the-crystal-serpent","Staff of the Crystal Serpent"],["\/wiki\/staff-of-the-eclipse","Staff of the Eclipse"],["\/wiki\/staff-of-the-fundamental-core","Staff of the Fundamental Core"],["\/wiki\/staff-of-the-rising-sun","Staff of the Rising Sun"],["\/wiki\/staff-of-the-saint","Staff of the Saint"],["\/wiki\/staff-of-the-vital-unity","Staff of the Vital Unity"],["\/wiki\/staff-of-unholy-sacrifice","Staff of Unholy Sacrifice"],["\/wiki\/staff-of-yuletide-carols","Staff of Yuletide Carols"],["\/wiki\/staves","Staves"],["\/wiki\/stygian-torch","Stygian Torch"],["\/wiki\/superior","Superior"],["\/wiki\/supernatural-staff","Supernatural Staff"],["\/wiki\/tezcacoatl-s-tail","Tezcacoatl's Tail"],["\/wiki\/the-phylactery","The Phylactery"],["\/wiki\/tideturner-trident","Tideturner Trident"],["\/wiki\/torrential-staff","Torrential Staff"],["\/wiki\/twilight-archmage-set","Twilight Archmage Set"],["\/wiki\/twilight-shroud","Twilight Shroud"],["\/wiki\/vigor","Vigor"]]);initializeWikiSearch("e",{"data":{"title":null},"url":"\/wiki-title-search","type":"POST"},"\/wiki-search");</script><script>$(".adsbygoogle").hide();</script></body></html>

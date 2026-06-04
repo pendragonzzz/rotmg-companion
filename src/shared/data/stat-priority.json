@@ -1,0 +1,26 @@
+{
+  "default": ["def", "vit", "att", "dex", "spd", "wis", "hp", "mp"],
+
+  "warrior": ["att", "def", "dex", "vit", "spd", "wis", "hp", "mp"],
+  "knight": ["def", "vit", "att", "dex", "spd", "wis", "hp", "mp"],
+  "paladin": ["att", "def", "vit", "dex", "spd", "wis", "hp", "mp"],
+  "samurai": ["att", "def", "dex", "vit", "spd", "wis", "hp", "mp"],
+  "kensei": ["att", "def", "dex", "vit", "spd", "wis", "hp", "mp"],
+
+  "wizard": ["att", "dex", "vit", "def", "spd", "wis", "hp", "mp"],
+  "archer": ["dex", "att", "vit", "def", "spd", "wis", "hp", "mp"],
+  "huntress": ["dex", "att", "vit", "def", "spd", "wis", "hp", "mp"],
+
+  "rogue": ["spd", "def", "vit", "att", "dex", "wis", "hp", "mp"],
+  "assassin": ["dex", "att", "def", "vit", "spd", "wis", "hp", "mp"],
+  "trickster": ["spd", "dex", "att", "def", "vit", "wis", "hp", "mp"],
+  "ninja": ["spd", "att", "def", "vit", "dex", "wis", "hp", "mp"],
+
+  "priest": ["wis", "vit", "def", "att", "dex", "spd", "hp", "mp"],
+  "necromancer": ["wis", "vit", "def", "att", "dex", "spd", "hp", "mp"],
+  "mystic": ["wis", "vit", "def", "att", "dex", "spd", "hp", "mp"],
+  "sorcerer": ["wis", "att", "dex", "def", "vit", "spd", "hp", "mp"],
+  "summoner": ["wis", "vit", "def", "att", "dex", "spd", "hp", "mp"],
+  "bard": ["wis", "vit", "def", "att", "dex", "spd", "hp", "mp"],
+  "druid": ["wis", "vit", "def", "att", "dex", "spd", "hp", "mp"]
+}

@@ -1,0 +1,7284 @@
+[
+  {
+    "slug": "frost-wander-archer-set",
+    "name": "Frost Wander Archer Set",
+    "className": "Archer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+25 MP, +4 WIS, +1 DEF, +1 SPD",
+        "stats": {
+          "mp": 25,
+          "wis": 4,
+          "def": 1,
+          "spd": 1
+        }
+      },
+      "three": {
+        "text": "+35 MP, +6 WIS, +3 DEF, +2 SPD",
+        "stats": {
+          "mp": 35,
+          "wis": 6,
+          "def": 3,
+          "spd": 2
+        }
+      },
+      "four": {
+        "text": "+60 MP, +10 WIS, +5 DEF, +4 SPD",
+        "stats": {
+          "mp": 60,
+          "wis": 10,
+          "def": 5,
+          "spd": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "frostbite-mittens",
+        "name": "Frostbite Mittens",
+        "slot": "weapon",
+        "stats": {
+          "spd": 2
+        },
+        "dungeonId": null,
+        "score": 115,
+        "summary": "95–115 dmg ×3",
+        "description": "Ignores defense of target Spare Snowball: When worn, Gun Critters will fire 2 projectiles, and every 3rd shot will Slowed enemies for 0.2 seconds. Burst Count: 4 Maximum Burst Delay: 1.4 seconds Minimum Burst Delay: 0.8 seconds"
+      },
+      {
+        "slug": "snow-critters",
+        "name": "Snow Critters",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 10,
+        "summary": "+5 DEF",
+        "description": "Gun Critter: This critter rapidly fires towards enemies. Flail Snowflake: Creates 4 spinning flails around the spawn point. Heavy Critter: This critter fires 3 larger, heavier bullets in a cone."
+      },
+      {
+        "slug": "blizzard-jacket",
+        "name": "Blizzard Jacket",
+        "slot": "armor",
+        "stats": {
+          "mp": 80,
+          "def": 16,
+          "spd": 4
+        },
+        "dungeonId": null,
+        "score": 52,
+        "summary": "+80 MP, +16 DEF, +4 SPD",
+        "description": "Longer Links: When worn, Flail Snowflakes have longer chains, and the heads will Slowed enemies for 0.2 seconds."
+      },
+      {
+        "slug": "magical-winter-scarf",
+        "name": "Magical Winter Scarf",
+        "slot": "ring",
+        "stats": {
+          "hp": 50,
+          "def": 8
+        },
+        "dungeonId": null,
+        "score": 29,
+        "summary": "+50 HP, +8 DEF",
+        "description": "Target Analysis: When worn, Heavy Critters increase damage to 350-525, and every other shot will Slowed enemies for 0.2 seconds."
+      }
+    ]
+  },
+  {
+    "slug": "kogbold-turretsmith-archer-set",
+    "name": "Kogbold Turretsmith Archer Set",
+    "className": "Archer",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Factory Control Core"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+25 MP, +4 WIS, +1 DEF, +1 SPD",
+        "stats": {
+          "mp": 25,
+          "wis": 4,
+          "def": 1,
+          "spd": 1
+        }
+      },
+      "three": {
+        "text": "+35 MP, +6 WIS, +3 DEF, +2 SPD",
+        "stats": {
+          "mp": 35,
+          "wis": 6,
+          "def": 3,
+          "spd": 2
+        }
+      },
+      "four": {
+        "text": "+60 MP, +10 WIS, +5 DEF, +4 SPD",
+        "stats": {
+          "mp": 60,
+          "wis": 10,
+          "def": 5,
+          "spd": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "experimental-cannon",
+        "name": "Experimental Cannon",
+        "slot": "weapon",
+        "stats": {
+          "spd": 2
+        },
+        "dungeonId": null,
+        "score": 115,
+        "summary": "95–115 dmg ×3",
+        "description": "Ignores defense of target Spare Barrel: When worn, Gun Turrets will fire 2 projectiles, and every 3rd shot will Slowed enemies for 0.2 seconds. Burst Count: 4 Maximum Burst Delay: 1.4 seconds Minimum Burst Delay: 0.8 seconds"
+      },
+      {
+        "slug": "sentry-turret",
+        "name": "Sentry Turret",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 10,
+        "summary": "+5 DEF",
+        "description": "Gun Turret: This turret rapidly fires towards enemies. Flail Turret: Creates 4 spinning flails around the spawn point. Heavy Turret: This turret fires 3 larger, heavier bullets in a cone."
+      },
+      {
+        "slug": "tinkerers-apron",
+        "name": "Tinkerers Apron",
+        "slot": "armor",
+        "stats": {
+          "mp": 80,
+          "def": 16,
+          "spd": 4
+        },
+        "dungeonId": null,
+        "score": 52,
+        "summary": "+80 MP, +16 DEF, +4 SPD",
+        "description": "Longer Links: When worn, Flail Turrets have longer chains, and the heads will Slowed enemies for 0.2 seconds."
+      },
+      {
+        "slug": "targeting-monocular",
+        "name": "Targeting Monocular",
+        "slot": "ring",
+        "stats": {
+          "hp": 50,
+          "def": 8
+        },
+        "dungeonId": null,
+        "score": 29,
+        "summary": "+50 HP, +8 DEF",
+        "description": "Target Analysis: When worn, Heavy Turrets increase damage to 350-525, and every other shot will Slowed enemies for 0.2 seconds."
+      }
+    ]
+  },
+  {
+    "slug": "painted-egg-archer-set",
+    "name": "Painted Egg Archer Set",
+    "className": "Archer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+25 HP, +20 MP",
+        "stats": {
+          "hp": 25,
+          "mp": 20
+        }
+      },
+      "three": {
+        "text": "+30 MP, +5 DEX, +5 VIT",
+        "stats": {
+          "mp": 30,
+          "dex": 5,
+          "vit": 5
+        }
+      },
+      "four": {
+        "text": "+50 HP, +50 MP, +10 ATT, +5 DEX",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 10,
+          "dex": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "spring-wonder-bow",
+        "name": "Spring Wonder Bow",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 325,
+        "summary": "250–325 dmg ×2",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "fresh-breeze-quiver",
+        "name": "Fresh Breeze Quiver",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 30,
+        "summary": "effect item",
+        "description": "Effect: Fire 3 projectiles in a line with the closest inflicting Paralyzed and the middle inflicting Slowed Middle Projectile: Slowed for 2 seconds Inner Projectile: Paralyzed for 2 seconds Shots hit multiple targets Ignores defense of target With Painted Egg "
+      },
+      {
+        "slug": "painted-eggshell-armor",
+        "name": "Painted Eggshell Armor",
+        "slot": "armor",
+        "stats": {
+          "def": 16,
+          "vit": 10
+        },
+        "dungeonId": null,
+        "score": 42,
+        "summary": "+16 DEF, +10 VIT"
+      },
+      {
+        "slug": "painted-egg-amulet",
+        "name": "Painted Egg Amulet",
+        "slot": "ring",
+        "stats": {
+          "def": 5,
+          "vit": 5,
+          "hp": 50
+        },
+        "dungeonId": null,
+        "score": 28,
+        "summary": "+50 HP, +5 DEF, +5 VIT",
+        "description": "Increases the power of the Fresh Breeze Quiver if worn in conjunction"
+      }
+    ]
+  },
+  {
+    "slug": "reanimated-archer-set",
+    "name": "Reanimated Archer Set",
+    "className": "Archer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +20 MP, +3 ATT, +3 SPD",
+        "stats": {
+          "hp": 20,
+          "mp": 20,
+          "att": 3,
+          "spd": 3
+        }
+      },
+      "three": {
+        "text": "+30 HP, +30 MP, +3 DEF, +6 SPD",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "def": 3,
+          "spd": 6
+        }
+      },
+      "four": {
+        "text": "+50 HP, +50 MP, +6 ATT, +6 DEF",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 6,
+          "def": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "bone-bow",
+        "name": "Bone Bow",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 235,
+        "summary": "180–235 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "spinal-quiver",
+        "name": "Spinal Quiver",
+        "slot": "ability",
+        "stats": {
+          "spd": 4
+        },
+        "dungeonId": null,
+        "score": 29,
+        "summary": "+4 SPD",
+        "description": "Slowed for 2.5 seconds on enemies Speedy on self for 3 seconds Wavy shots Shots pass through obstacles Shots hit multiple targets"
+      },
+      {
+        "slug": "torso-tunic",
+        "name": "Torso Tunic",
+        "slot": "armor",
+        "stats": {
+          "hp": 80,
+          "def": 15
+        },
+        "dungeonId": null,
+        "score": 50,
+        "summary": "+80 HP, +15 DEF"
+      },
+      {
+        "slug": "collarbone-collar",
+        "name": "Collarbone Collar",
+        "slot": "ring",
+        "stats": {
+          "hp": 60,
+          "spd": 5,
+          "att": 4
+        },
+        "dungeonId": null,
+        "score": 28,
+        "summary": "+60 HP, +4 ATT, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "valentine-s-day-archer-set",
+    "name": "Valentine's Day Archer Set",
+    "className": "Archer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +3 DEX, +3 VIT",
+        "stats": {
+          "hp": 20,
+          "dex": 3,
+          "vit": 3
+        }
+      },
+      "three": {
+        "text": "+30 HP, +5 SPD, +5 VIT",
+        "stats": {
+          "hp": 30,
+          "spd": 5,
+          "vit": 5
+        }
+      },
+      "four": {
+        "text": "+40 HP, +4 DEF, +7 VIT",
+        "stats": {
+          "hp": 40,
+          "def": 4,
+          "vit": 7
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "heartstruck-bow",
+        "name": "Heartstruck Bow",
+        "slot": "weapon",
+        "stats": {
+          "spd": 5
+        },
+        "dungeonId": null,
+        "score": 177,
+        "summary": "120–175 dmg",
+        "description": "Wavy shots"
+      },
+      {
+        "slug": "quiver-of-dazing-love",
+        "name": "Quiver of Dazing Love",
+        "slot": "ability",
+        "stats": {
+          "att": 5
+        },
+        "dungeonId": null,
+        "score": 18,
+        "summary": "+5 ATT",
+        "description": "Vulnerable: Targets receive 115% damage for 3 seconds after being hit. Dazed for 3 seconds"
+      },
+      {
+        "slug": "cupid-s-garments",
+        "name": "Cupid's Garments",
+        "slot": "armor",
+        "stats": {
+          "def": 14,
+          "dex": 8,
+          "wis": 8
+        },
+        "dungeonId": null,
+        "score": 48,
+        "summary": "+14 DEF, +8 DEX, +8 WIS"
+      },
+      {
+        "slug": "ring-of-unbound-love",
+        "name": "Ring of Unbound Love",
+        "slot": "ring",
+        "stats": {
+          "hp": 140,
+          "mp": 40
+        },
+        "dungeonId": null,
+        "score": 43,
+        "summary": "+140 HP, +40 MP"
+      }
+    ]
+  },
+  {
+    "slug": "phantom-archer-set",
+    "name": "Phantom Archer Set",
+    "className": "Archer",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "cursed-library"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "Corruption Phantom",
+      "Avalon the Archivist",
+      "Standard Quest Chest",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +20 MP, +3 ATT, +3 SPD",
+        "stats": {
+          "hp": 20,
+          "mp": 20,
+          "att": 3,
+          "spd": 3
+        }
+      },
+      "three": {
+        "text": "+30 HP, +30 MP, +3 DEF, +6 SPD",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "def": 3,
+          "spd": 6
+        }
+      },
+      "four": {
+        "text": "+50 HP, +50 MP, +6 ATT, +6 DEF",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 6,
+          "def": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "deathless-crossbow",
+        "name": "Deathless Crossbow",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "cursed-library",
+        "score": 235,
+        "summary": "180–235 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "quiver-of-shrieking-specters",
+        "name": "Quiver of Shrieking Specters",
+        "slot": "ability",
+        "stats": {
+          "spd": 4
+        },
+        "dungeonId": "cursed-library",
+        "score": 29,
+        "summary": "+4 SPD",
+        "description": "Slowed for 2.5 seconds on enemies Speedy on self for 3 seconds Wavy shots Shots pass through obstacles Shots hit multiple targets"
+      },
+      {
+        "slug": "wraith-s-brigandine",
+        "name": "Wraith's Brigandine",
+        "slot": "armor",
+        "stats": {
+          "hp": 80,
+          "def": 15
+        },
+        "dungeonId": "cursed-library",
+        "score": 50,
+        "summary": "+80 HP, +15 DEF"
+      },
+      {
+        "slug": "revenant-ring",
+        "name": "Revenant Ring",
+        "slot": "ring",
+        "stats": {
+          "hp": 60,
+          "spd": 5,
+          "att": 4
+        },
+        "dungeonId": "cursed-library",
+        "score": 28,
+        "summary": "+60 HP, +4 ATT, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "treasure-hunter-archer-set",
+    "name": "Treasure Hunter Archer Set",
+    "className": "Archer",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "ancient-ruins",
+      "cave-of-a-thousand-treasures"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "Sandstone Titan",
+      "Genie",
+      "Sand Elemental",
+      "Ancient Monolith",
+      "Standard Quest Chest",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+25 HP, +20 MP",
+        "stats": {
+          "hp": 25,
+          "mp": 20
+        }
+      },
+      "three": {
+        "text": "+30 MP, +5 DEX, +5 VIT",
+        "stats": {
+          "mp": 30,
+          "dex": 5,
+          "vit": 5
+        }
+      },
+      "four": {
+        "text": "+50 HP, +50 MP, +10 ATT, +5 DEX",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 10,
+          "dex": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "resplendent-bow",
+        "name": "Resplendent Bow",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "ancient-ruins",
+        "score": 325,
+        "summary": "250–325 dmg ×2",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "embellished-quiver",
+        "name": "Embellished Quiver",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "ancient-ruins",
+        "score": 30,
+        "summary": "effect item",
+        "description": "Effect: Fire 3 projectiles in a line with the closest inflicting Paralyzed and the middle inflicting Slowed Middle Projectile: Slowed for 2 seconds Inner Projectile: Paralyzed for 2 seconds Shots hit multiple targets Ignores defense of target With Aquamarine A"
+      },
+      {
+        "slug": "ornate-armor",
+        "name": "Ornate Armor",
+        "slot": "armor",
+        "stats": {
+          "def": 16,
+          "vit": 10
+        },
+        "dungeonId": "cave-of-a-thousand-treasures",
+        "score": 42,
+        "summary": "+16 DEF, +10 VIT"
+      },
+      {
+        "slug": "aquamarine-amulet",
+        "name": "Aquamarine Amulet",
+        "slot": "ring",
+        "stats": {
+          "def": 5,
+          "vit": 5,
+          "hp": 50
+        },
+        "dungeonId": "ancient-ruins",
+        "score": 28,
+        "summary": "+50 HP, +5 DEF, +5 VIT",
+        "description": "Increases the power of the Embellished Quiver if worn in conjunction"
+      }
+    ]
+  },
+  {
+    "slug": "alchemist-assassin-set",
+    "name": "Alchemist Assassin Set",
+    "className": "Assassin",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Groundskeeper Gretch",
+      "Overseer Oculon"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+6 DEF, +4 SPD",
+        "stats": {
+          "def": 6,
+          "spd": 4
+        }
+      },
+      "three": {
+        "text": "+50 MP, +6 ATT, +4 SPD",
+        "stats": {
+          "mp": 50,
+          "att": 6,
+          "spd": 4
+        }
+      },
+      "four": {
+        "text": "+60 HP, +5 ATT, +6 DEF",
+        "stats": {
+          "hp": 60,
+          "att": 5,
+          "def": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "toxic-toad",
+        "name": "Toxic Toad",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 100,
+        "summary": "60–100 dmg",
+        "description": "Deadly Croak: Throws a poison on shoot every 0.4 seconds dealing 500 damage over 1 second within 2 tiles. This poison provides has a 25% damage boost and Scales off attack."
+      },
+      {
+        "slug": "makeshift-blowpipe",
+        "name": "Makeshift Blowpipe",
+        "slot": "ability",
+        "stats": {
+          "att": 6
+        },
+        "dungeonId": null,
+        "score": 20,
+        "summary": "+6 ATT",
+        "description": "Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "alchemist-s-disheveled-garbs",
+        "name": "Alchemist's Disheveled Garbs",
+        "slot": "armor",
+        "stats": {
+          "att": 6,
+          "def": 14,
+          "spd": 5
+        },
+        "dungeonId": null,
+        "score": 45,
+        "summary": "+6 ATT, +14 DEF, +5 SPD"
+      },
+      {
+        "slug": "protective-gloves",
+        "name": "Protective Gloves",
+        "slot": "ring",
+        "stats": {
+          "hp": 60,
+          "att": 6,
+          "def": 4,
+          "spd": 4
+        },
+        "dungeonId": null,
+        "score": 39,
+        "summary": "+60 HP, +6 ATT, +4 DEF, +4 SPD",
+        "description": "Toxicity: Toxic Toad has a 5% chance to release another Poison Grenade"
+      }
+    ]
+  },
+  {
+    "slug": "acidified-assassin-set",
+    "name": "Acidified Assassin Set",
+    "className": "Assassin",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "toxic-sewers",
+      "snake-pit"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "Gulpord the Slime God",
+      "Master Rat",
+      "Golden Rat",
+      "Natural Slime God",
+      "Sewer Alligator",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+2 ATT, +5 DEF, -5 SPD, +5 VIT",
+        "stats": {
+          "att": 2,
+          "def": 5,
+          "spd": -5,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+50 MP, +3 ATT, +5 DEF, +10 VIT",
+        "stats": {
+          "mp": 50,
+          "att": 3,
+          "def": 5,
+          "vit": 10
+        }
+      },
+      "four": {
+        "text": "+100 HP, +10 ATT, +10 DEF, +15 VIT",
+        "stats": {
+          "hp": 100,
+          "att": 10,
+          "def": 10,
+          "vit": 15
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "toxin-tooth",
+        "name": "Toxin Tooth",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "toxic-sewers",
+        "score": 320,
+        "summary": "265–320 dmg"
+      },
+      {
+        "slug": "virulent-venom",
+        "name": "Virulent Venom",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": "toxic-sewers",
+        "score": 10,
+        "summary": "+5 DEF"
+      },
+      {
+        "slug": "acidic-armor",
+        "name": "Acidic Armor",
+        "slot": "armor",
+        "stats": {
+          "def": 18,
+          "vit": 5,
+          "hp": 50,
+          "mp": 50,
+          "spd": -5
+        },
+        "dungeonId": "snake-pit",
+        "score": 59,
+        "summary": "+50 HP, +50 MP, +18 DEF, -5 SPD, +5 VIT"
+      },
+      {
+        "slug": "pernicious-peridot",
+        "name": "Pernicious Peridot",
+        "slot": "ring",
+        "stats": {
+          "hp": 150,
+          "spd": -5
+        },
+        "dungeonId": "snake-pit",
+        "score": 33,
+        "summary": "+150 HP, -5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "flesh-collector-set",
+    "name": "Flesh Collector Set",
+    "className": "Assassin",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "parasite-chambers"
+    ],
+    "difficultyTier": 4,
+    "difficultyCategory": "high",
+    "sources": [
+      "Nightmare Colony",
+      "Infested Chest",
+      "Blob Colony",
+      "Swarm Colony",
+      "Pterasite Colony",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+2 ATT, +2 VIT, +6 WIS",
+        "stats": {
+          "att": 2,
+          "vit": 2,
+          "wis": 6
+        }
+      },
+      "three": {
+        "text": "+50 HP, +5 ATT, +2 VIT",
+        "stats": {
+          "hp": 50,
+          "att": 5,
+          "vit": 2
+        }
+      },
+      "four": {
+        "text": "+30 HP, +5 ATT, +6 VIT, +6 WIS",
+        "stats": {
+          "hp": 30,
+          "att": 5,
+          "vit": 6,
+          "wis": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "symbiotic-ripper",
+        "name": "Symbiotic Ripper",
+        "slot": "weapon",
+        "stats": {
+          "vit": -2
+        },
+        "dungeonId": "parasite-chambers",
+        "score": 181,
+        "summary": "120–170 dmg"
+      },
+      {
+        "slug": "parasitic-concoction",
+        "name": "Parasitic Concoction",
+        "slot": "ability",
+        "stats": {
+          "att": 2,
+          "vit": -2
+        },
+        "dungeonId": "parasite-chambers",
+        "score": 14,
+        "summary": "+2 ATT, -2 VIT",
+        "description": "On enemies: Curse for 4 seconds"
+      },
+      {
+        "slug": "rags-of-the-host",
+        "name": "Rags of the Host",
+        "slot": "armor",
+        "stats": {
+          "def": 18,
+          "att": 6,
+          "wis": 2,
+          "vit": -4
+        },
+        "dungeonId": "parasite-chambers",
+        "score": 46,
+        "summary": "+6 ATT, +18 DEF, -4 VIT, +2 WIS"
+      },
+      {
+        "slug": "hivemind-circlet",
+        "name": "Hivemind Circlet",
+        "slot": "ring",
+        "stats": {
+          "hp": 70,
+          "att": 5,
+          "vit": -2
+        },
+        "dungeonId": "parasite-chambers",
+        "score": 26,
+        "summary": "+70 HP, +5 ATT, -2 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "ancestral-shaman-set",
+    "name": "Ancestral Shaman Set",
+    "className": "Bard",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+35 HP, +5 ATT, +5 DEX",
+        "stats": {
+          "hp": 35,
+          "att": 5,
+          "dex": 5
+        }
+      },
+      "three": {
+        "text": "+35 MP, +7 DEF, +7 SPD",
+        "stats": {
+          "mp": 35,
+          "def": 7,
+          "spd": 7
+        }
+      },
+      "four": {
+        "text": "+10 ATT, +13 SPD, +15 DEX",
+        "stats": {
+          "att": 10,
+          "spd": 13,
+          "dex": 15
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "firestarter",
+        "name": "Firestarter",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 194,
+        "summary": "200–275 dmg ×3",
+        "description": "Shots hit multiple targets Bleeding on enemies for 3 seconds. (Bleed Damage: 90)"
+      },
+      {
+        "slug": "sacred-lute",
+        "name": "Sacred Lute",
+        "slot": "ability",
+        "stats": {
+          "att": 5
+        },
+        "dungeonId": null,
+        "score": 24,
+        "summary": "+5 ATT",
+        "description": "Party Effect: Within 4 squares Inspired for 4 seconds.Party Effect: Within 4 squares VIT Boost (+15 VIT) for 4 seconds.Regular Totem: Spawn a 3000HP totem for 12 seconds unless it’s destroyed that taunts nearby enemies, deals 100 damage to enemies within 5 sqr"
+      },
+      {
+        "slug": "ritualistic-pa-u",
+        "name": "Ritualistic Pa'u",
+        "slot": "armor",
+        "stats": {
+          "def": 5,
+          "dex": 5,
+          "vit": 10
+        },
+        "dungeonId": null,
+        "score": 28,
+        "summary": "+5 DEF, +5 DEX, +10 VIT"
+      },
+      {
+        "slug": "tiki-pendant",
+        "name": "Tiki Pendant",
+        "slot": "ring",
+        "stats": {
+          "hp": 35,
+          "att": 5,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 24,
+        "summary": "+35 HP, +5 ATT, +5 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "demon-guitarist-set",
+    "name": "Demon Guitarist Set",
+    "className": "Bard",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +3 DEF, +3 DEX",
+        "stats": {
+          "hp": 20,
+          "def": 3,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+20 HP, +40 MP, +3 DEX",
+        "stats": {
+          "hp": 20,
+          "mp": 40,
+          "dex": 3
+        }
+      },
+      "four": {
+        "text": "+40 HP, +20 MP, +5 DEF, +4 DEX",
+        "stats": {
+          "hp": 40,
+          "mp": 20,
+          "def": 5,
+          "dex": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "electric-guitar",
+        "name": "Electric Guitar",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 265,
+        "summary": "120–145 dmg ×2",
+        "description": "Shots hit multiple targets Increases the power of the Inferno Pick if worn in conjunction"
+      },
+      {
+        "slug": "inferno-pick",
+        "name": "Inferno Pick",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 26,
+        "summary": "effect item",
+        "description": "Party Effect: Within 4 squares Inspired for 4 seconds.Party Effect: Within 4 squares HP Boost (+80 HP) for 4 seconds.Guitar: ATT Boost (+8 ATT) on self for 4 seconds (cooldown: 0.5 seconds)Wings: DEF Boost (+12 DEF) on self for 4 seconds (cooldown: 0.5 seconds"
+      },
+      {
+        "slug": "wings-of-the-fallen",
+        "name": "Wings of the Fallen",
+        "slot": "armor",
+        "stats": {
+          "mp": 50,
+          "def": 10,
+          "vit": 5,
+          "wis": 5,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 48,
+        "summary": "+50 MP, +10 DEF, +5 DEX, +5 VIT, +5 WIS",
+        "description": "Increases the power of the Inferno Pick if worn in conjunction"
+      },
+      {
+        "slug": "pointy-tail",
+        "name": "Pointy Tail",
+        "slot": "ring",
+        "stats": {
+          "hp": 70,
+          "mp": 50,
+          "wis": 6
+        },
+        "dungeonId": null,
+        "score": 34,
+        "summary": "+70 HP, +50 MP, +6 WIS",
+        "description": "Increases the power of the Inferno Pick if worn in conjunction"
+      }
+    ]
+  },
+  {
+    "slug": "storm-caller-bard-set",
+    "name": "Storm Caller Bard Set",
+    "className": "Bard",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "lair-of-draconis"
+    ],
+    "difficultyTier": 3,
+    "difficultyCategory": "mid",
+    "sources": [
+      "Feargus the Obsidian Dragon",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+25 HP, +3 SPD, +3 DEX",
+        "stats": {
+          "hp": 25,
+          "spd": 3,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+45 MP, +4 DEF, +4 SPD",
+        "stats": {
+          "mp": 45,
+          "def": 4,
+          "spd": 4
+        }
+      },
+      "four": {
+        "text": "+80 HP, +60 MP, +7 DEX",
+        "stats": {
+          "hp": 80,
+          "mp": 60,
+          "dex": 7
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "hailstorm",
+        "name": "Hailstorm",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "lair-of-draconis",
+        "score": 158,
+        "summary": "50–55 dmg ×3",
+        "description": "Shots hit multiple targets Ignores defense of target Shots face direction"
+      },
+      {
+        "slug": "thundering-chorus",
+        "name": "Thundering Chorus",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 24,
+        "summary": "+5 DEF",
+        "description": "Party Effect: Within 4.5 squares Inspired for 7 seconds. Lightning Strike: Deals 1200 Damage within 3 sqrs. Thundering Resonance: Creates 7 additional random explosions that each deal 200-250 damage within 2 sqrs. If Wind Dancer Robe equipped: Cast range of th"
+      },
+      {
+        "slug": "wind-dancer-robe",
+        "name": "Wind Dancer Robe",
+        "slot": "armor",
+        "stats": {
+          "def": 13,
+          "spd": 7,
+          "dex": 12,
+          "att": -5
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 41,
+        "summary": "-5 ATT, +13 DEF, +7 SPD, +12 DEX",
+        "description": "Superstorm: Increases the cast range of Thundering Chorus’ Lightning Strike to 10 Tiles"
+      },
+      {
+        "slug": "augur-of-the-tempest",
+        "name": "Augur of the Tempest",
+        "slot": "ring",
+        "stats": {
+          "hp": 75,
+          "spd": 5,
+          "dex": 5
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 31,
+        "summary": "+75 HP, +5 SPD, +5 DEX",
+        "description": "Concussive Waves: Grants additional recursive thunder explosions to the lightning strike of Thundering Chorus"
+      }
+    ]
+  },
+  {
+    "slug": "angelic-bard-set",
+    "name": "Angelic Bard Set",
+    "className": "Bard",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "oryx-sanctuary"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Oryx Ambassador",
+      "Oryx Minister",
+      "Oryx Judge",
+      "Legion Principal",
+      "Oryx Officer",
+      "Oryx Sergeant",
+      "Oryx Major",
+      "Legion Colonel",
+      "Oryx Deacon",
+      "Oryx Cleric",
+      "Oryx Cardinal",
+      "Legion Missionary",
+      "Oryx Noble",
+      "Oryx Aristocrat",
+      "Oryx Patrician",
+      "Legion Commissioner"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +3 DEF, +3 DEX",
+        "stats": {
+          "hp": 20,
+          "def": 3,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+20 HP, +40 MP, +3 DEX",
+        "stats": {
+          "hp": 20,
+          "mp": 40,
+          "dex": 3
+        }
+      },
+      "four": {
+        "text": "+40 HP, +20 MP, +5 DEF, +4 DEX",
+        "stats": {
+          "hp": 40,
+          "mp": 20,
+          "def": 5,
+          "dex": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "harmonious-harp",
+        "name": "Harmonious Harp",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "oryx-sanctuary",
+        "score": 265,
+        "summary": "120–145 dmg ×2",
+        "description": "Shots hit multiple targets Increases the power of the Angel’s Fanfare if worn in conjunction"
+      },
+      {
+        "slug": "angel-s-fanfare",
+        "name": "Angel's Fanfare",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "oryx-sanctuary",
+        "score": 26,
+        "summary": "effect item",
+        "description": "Party Effect: Within 4 squares Inspired for 4 seconds.Party Effect: Within 4 squares HP Boost (+80 HP) for 4 seconds.If Harmonious Harp equipped: ATT Boost (+8 ATT) on self for 4 seconds (cooldown: 0.5 seconds)If Wings of Sanctity equipped: DEF Boost (+12 DEF)"
+      },
+      {
+        "slug": "wings-of-sanctity",
+        "name": "Wings of Sanctity",
+        "slot": "armor",
+        "stats": {
+          "mp": 50,
+          "def": 10,
+          "vit": 5,
+          "wis": 5,
+          "dex": 5
+        },
+        "dungeonId": "oryx-sanctuary",
+        "score": 48,
+        "summary": "+50 MP, +10 DEF, +5 DEX, +5 VIT, +5 WIS",
+        "description": "Increases the power of the Angel’s Fanfare if worn in conjunction"
+      },
+      {
+        "slug": "heavenly-halo",
+        "name": "Heavenly Halo",
+        "slot": "ring",
+        "stats": {
+          "hp": 70,
+          "mp": 50,
+          "wis": 6
+        },
+        "dungeonId": "oryx-sanctuary",
+        "score": 34,
+        "summary": "+70 HP, +50 MP, +6 WIS",
+        "description": "Increases the power of the Angel’s Fanfare if worn in conjunction"
+      }
+    ]
+  },
+  {
+    "slug": "mechanical-raptor-druid-set",
+    "name": "Mechanical Raptor Druid Set",
+    "className": "Druid",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+80 HP, +40 MP, +3 DEF",
+        "stats": {
+          "hp": 80,
+          "mp": 40,
+          "def": 3
+        }
+      },
+      "three": {
+        "text": "+80 HP, +5 ATT, +5 WIS",
+        "stats": {
+          "hp": 80,
+          "att": 5,
+          "wis": 5
+        }
+      },
+      "four": {
+        "text": "+60 MP, +10 ATT, +5 DEF",
+        "stats": {
+          "mp": 60,
+          "att": 10,
+          "def": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "gearhawk-morning-star",
+        "name": "Gearhawk Morning Star",
+        "slot": "weapon",
+        "stats": {
+          "att": 4,
+          "dex": 4
+        },
+        "dungeonId": null,
+        "score": 110,
+        "summary": "80–110 dmg ×5"
+      },
+      {
+        "slug": "mechraptor-sigil",
+        "name": "Mechraptor Sigil",
+        "slot": "ability",
+        "stats": {
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 8,
+        "summary": "+5 DEX",
+        "description": "Raptor Form: Stat Boost, Reduced weapon range, summon Raptor, improving the ability Requires full meter to transform Switches back only automatically after 10 seconds."
+      },
+      {
+        "slug": "mechpilot-s-jerkin",
+        "name": "Mechpilot's Jerkin",
+        "slot": "armor",
+        "stats": {
+          "hp": 80,
+          "def": 7,
+          "spd": 5,
+          "dex": 4
+        },
+        "dungeonId": null,
+        "score": 45,
+        "summary": "+80 HP, +7 DEF, +5 SPD, +4 DEX"
+      },
+      {
+        "slug": "pressure-gauge-band",
+        "name": "Pressure Gauge Band",
+        "slot": "ring",
+        "stats": {
+          "hp": 100,
+          "wis": 10,
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 45,
+        "summary": "+100 HP, +5 DEF, +10 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "cursed-cursebreaker-huntress-set",
+    "name": "Cursed Cursebreaker Huntress Set",
+    "className": "Huntress",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 MP, +3 SPD, +3 DEX",
+        "stats": {
+          "mp": 20,
+          "spd": 3,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+30 HP, +40 MP, +5 SPD, +5 DEX",
+        "stats": {
+          "hp": 30,
+          "mp": 40,
+          "spd": 5,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+70 HP, +3 DEF, +5 SPD, +5 DEX",
+        "stats": {
+          "hp": 70,
+          "def": 3,
+          "spd": 5,
+          "dex": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "silver-revolvers",
+        "name": "Silver Revolvers",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 195,
+        "summary": "160–195 dmg",
+        "description": "Ignores defense of target"
+      },
+      {
+        "slug": "consecrated-trap",
+        "name": "Consecrated Trap",
+        "slot": "ability",
+        "stats": {
+          "mp": 40,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 46,
+        "summary": "+40 MP, +5 DEX",
+        "description": "Woodland Blessing: Trap creates an Aura that provides Healing and Berserk within 4 Squares for as long as the trap remains untriggered."
+      },
+      {
+        "slug": "metal-plated-corset",
+        "name": "Metal-plated Corset",
+        "slot": "armor",
+        "stats": {
+          "def": 11,
+          "dex": 8,
+          "vit": 5,
+          "spd": 3
+        },
+        "dungeonId": null,
+        "score": 42,
+        "summary": "+11 DEF, +3 SPD, +8 DEX, +5 VIT"
+      },
+      {
+        "slug": "vial-of-sustenance",
+        "name": "Vial of Sustenance",
+        "slot": "ring",
+        "stats": {
+          "mp": 70,
+          "spd": 5,
+          "dex": 7
+        },
+        "dungeonId": null,
+        "score": 30,
+        "summary": "+70 MP, +5 SPD, +7 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "resurrected-huntress-set",
+    "name": "Resurrected Huntress Set",
+    "className": "Huntress",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "The Beekeeper"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +10 MP, +2 ATT, +2 VIT",
+        "stats": {
+          "hp": 20,
+          "mp": 10,
+          "att": 2,
+          "vit": 2
+        }
+      },
+      "three": {
+        "text": "+40 HP, +30 MP, +3 ATT, +2 DEF, +3 VIT",
+        "stats": {
+          "hp": 40,
+          "mp": 30,
+          "att": 3,
+          "def": 2,
+          "vit": 3
+        }
+      },
+      "four": {
+        "text": "+60 HP, +40 MP, +5 ATT, +3 DEF, +5 VIT",
+        "stats": {
+          "hp": 60,
+          "mp": 40,
+          "att": 5,
+          "def": 3,
+          "vit": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "bolt-thrower",
+        "name": "Bolt Thrower",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 125,
+        "summary": "110–125 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "lightning-rod",
+        "name": "Lightning Rod",
+        "slot": "ability",
+        "stats": {
+          "dex": 4
+        },
+        "dungeonId": null,
+        "score": 15,
+        "summary": "+4 DEX",
+        "description": "Elemental Energies: Zaps enemies for 250 damage every 0.2 seconds slowing for 2 seconds as long as the trap remains untriggered.On enemies: Slowed for 3 (+0.1 per WIS over 34) seconds"
+      },
+      {
+        "slug": "wedding-dress",
+        "name": "Wedding Dress",
+        "slot": "armor",
+        "stats": {
+          "def": 16,
+          "dex": 3,
+          "vit": 3
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+16 DEF, +3 DEX, +3 VIT"
+      },
+      {
+        "slug": "gothic-bouffant",
+        "name": "Gothic Bouffant",
+        "slot": "ring",
+        "stats": {
+          "hp": 60,
+          "att": 4,
+          "dex": 4,
+          "vit": 3
+        },
+        "dungeonId": null,
+        "score": 32,
+        "summary": "+60 HP, +4 ATT, +4 DEX, +3 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "horticultural-huntress-set",
+    "name": "Horticultural Huntress Set",
+    "className": "Huntress",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "magic-woods"
+    ],
+    "difficultyTier": 1,
+    "difficultyCategory": "starter",
+    "sources": [
+      "Fountain Spirit",
+      "Greater Fairies",
+      "Mighty Quest Chest",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 MP, +3 SPD, +3 DEX",
+        "stats": {
+          "mp": 20,
+          "spd": 3,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+30 HP, +40 MP, +5 SPD, +5 DEX",
+        "stats": {
+          "hp": 30,
+          "mp": 40,
+          "spd": 5,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+70 HP, +3 DEF, +5 SPD, +5 DEX",
+        "stats": {
+          "hp": 70,
+          "def": 3,
+          "spd": 5,
+          "dex": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "bergenia-bow",
+        "name": "Bergenia Bow",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "magic-woods",
+        "score": 195,
+        "summary": "160–195 dmg",
+        "description": "Ignores defense of target"
+      },
+      {
+        "slug": "lifebringing-lotus",
+        "name": "Lifebringing Lotus",
+        "slot": "ability",
+        "stats": {
+          "mp": 40,
+          "dex": 5
+        },
+        "dungeonId": "magic-woods",
+        "score": 46,
+        "summary": "+40 MP, +5 DEX",
+        "description": "Woodland Blessing: Trap creates an Aura that provides Healing and Berserk within 4 Squares for as long as the trap remains untriggered."
+      },
+      {
+        "slug": "hollyhock-hide",
+        "name": "Hollyhock Hide",
+        "slot": "armor",
+        "stats": {
+          "def": 11,
+          "dex": 8,
+          "vit": 5,
+          "spd": 3
+        },
+        "dungeonId": "magic-woods",
+        "score": 42,
+        "summary": "+11 DEF, +3 SPD, +8 DEX, +5 VIT"
+      },
+      {
+        "slug": "chrysanthemum-corsage",
+        "name": "Chrysanthemum Corsage",
+        "slot": "ring",
+        "stats": {
+          "mp": 70,
+          "spd": 5,
+          "dex": 7
+        },
+        "dungeonId": "magic-woods",
+        "score": 30,
+        "summary": "+70 MP, +5 SPD, +7 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "swarming-huntress-set",
+    "name": "Swarming Huntress Set",
+    "className": "Huntress",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "the-nest"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Blue Soldier Bee",
+      "Red Soldier Bee",
+      "Yellow Soldier Bee",
+      "Mini Killer Bee Nest",
+      "Honeyed Epic Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+5 DEF, +5 SPD",
+        "stats": {
+          "def": 5,
+          "spd": 5
+        }
+      },
+      "three": {
+        "text": "+40 HP, +5 ATT",
+        "stats": {
+          "hp": 40,
+          "att": 5
+        }
+      },
+      "four": {
+        "text": "+8 DEX",
+        "stats": {
+          "dex": 8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "nectar-crossfire",
+        "name": "Nectar Crossfire",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "the-nest",
+        "score": 135,
+        "summary": "125–135 dmg ×2",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "honeytomb-snare",
+        "name": "Honeytomb Snare",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "the-nest",
+        "score": 9,
+        "summary": "effect item",
+        "description": "On enemies: Slowed for 1.2 (+0.1s per DEX over 32) seconds"
+      },
+      {
+        "slug": "apiary-armor",
+        "name": "Apiary Armor",
+        "slot": "armor",
+        "stats": {
+          "def": 18,
+          "att": 3,
+          "spd": 3
+        },
+        "dungeonId": "the-nest",
+        "score": 45,
+        "summary": "+3 ATT, +18 DEF, +3 SPD"
+      },
+      {
+        "slug": "honey-circlet",
+        "name": "Honey Circlet",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "att": 4,
+          "spd": 4
+        },
+        "dungeonId": "the-nest",
+        "score": 32,
+        "summary": "+80 HP, +4 ATT, +4 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "tidal-wave-kensei-set",
+    "name": "Tidal Wave Kensei Set",
+    "className": "Kensei",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "lair-of-draconis"
+    ],
+    "difficultyTier": 3,
+    "difficultyCategory": "mid",
+    "sources": [
+      "Nikao the Azure Dragon",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +10 MP, +5 DEX, +5 DEF",
+        "stats": {
+          "hp": 30,
+          "mp": 10,
+          "dex": 5,
+          "def": 5
+        }
+      },
+      "three": {
+        "text": "+40 HP, +20 MP, +5 DEX, +5 DEF",
+        "stats": {
+          "hp": 40,
+          "mp": 20,
+          "dex": 5,
+          "def": 5
+        }
+      },
+      "four": {
+        "text": "+50 HP, +30 MP, +10 DEX",
+        "stats": {
+          "hp": 50,
+          "mp": 30,
+          "dex": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "saif-of-the-deep",
+        "name": "Saif of the Deep",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "lair-of-draconis",
+        "score": 310,
+        "summary": "70–85 dmg ×4",
+        "description": "Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "loch-sheath",
+        "name": "Loch Sheath",
+        "slot": "ability",
+        "stats": {
+          "dex": 5
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 16,
+        "summary": "+5 DEX",
+        "description": "Shots hit multiple targets Shots pass through obstaclesOn Dash: Summons Tornado for 8 secondsTornado Shot Damage: 50-100"
+      },
+      {
+        "slug": "barrier-reef",
+        "name": "Barrier Reef",
+        "slot": "armor",
+        "stats": {
+          "def": 21,
+          "dex": 4
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 48,
+        "summary": "+21 DEF, +4 DEX"
+      },
+      {
+        "slug": "alexander-s-band",
+        "name": "Alexander's Band",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "dex": 6
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 29,
+        "summary": "+80 HP, +6 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "fiery-kensei-set",
+    "name": "Fiery Kensei Set",
+    "className": "Kensei",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "lair-of-shaitan"
+    ],
+    "difficultyTier": 4,
+    "difficultyCategory": "high",
+    "sources": [
+      "Shaitan the Advisor",
+      "Standard Quest Chest",
+      "Mighty Quest Chest",
+      "Honeyed Epic Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, 5 ATT, 5 VIT",
+        "stats": {
+          "hp": 20,
+          "att": 5,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+40 HP, 5 ATT, 5 VIT",
+        "stats": {
+          "hp": 40,
+          "att": 5,
+          "vit": 5
+        }
+      },
+      "four": {
+        "text": "+60 HP, 10 ATT, 10 VIT",
+        "stats": {
+          "hp": 60,
+          "att": 10,
+          "vit": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "fiery-katana",
+        "name": "Fiery Katana",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "lair-of-shaitan",
+        "score": 170,
+        "summary": "115–170 dmg",
+        "description": "Burst: Shots are fired in bursts of 3 at an increased fire rate.Burst Count: 3Maximum Burst Delay: 1.2 secondsMinimum Burst Delay: 1 second"
+      },
+      {
+        "slug": "pyro-sheath",
+        "name": "Pyro Sheath",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": "lair-of-shaitan",
+        "score": 34,
+        "summary": "+5 DEF",
+        "description": "Shots hit multiple targets Shots pass through obstaclesOn Third Dash: 3 more shotsWith Full Set: Bullets deal 600 damage and travel longer distance"
+      },
+      {
+        "slug": "flame-guard",
+        "name": "Flame Guard",
+        "slot": "armor",
+        "stats": {
+          "hp": 50,
+          "def": 15
+        },
+        "dungeonId": "lair-of-shaitan",
+        "score": 43,
+        "summary": "+50 HP, +15 DEF"
+      },
+      {
+        "slug": "firelight-necklace",
+        "name": "Firelight Necklace",
+        "slot": "ring",
+        "stats": {
+          "hp": 50,
+          "mp": 40,
+          "att": 6
+        },
+        "dungeonId": "lair-of-shaitan",
+        "score": 33,
+        "summary": "+50 HP, +40 MP, +6 ATT"
+      }
+    ]
+  },
+  {
+    "slug": "blood-viking-knight-set",
+    "name": "Blood Viking Knight Set",
+    "className": "Knight",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+25 HP, +3 ATT, +2 SPD",
+        "stats": {
+          "hp": 25,
+          "att": 3,
+          "spd": 2
+        }
+      },
+      "three": {
+        "text": "+35 HP, +3 ATT, +4 SPD",
+        "stats": {
+          "hp": 35,
+          "att": 3,
+          "spd": 4
+        }
+      },
+      "four": {
+        "text": "+60 HP, +6 ATT, +6 SPD",
+        "stats": {
+          "hp": 60,
+          "att": 6,
+          "spd": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "blood-axe",
+        "name": "Blood Axe",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 225,
+        "summary": "205–225 dmg",
+        "description": "Increases the power of the Winter Boots if worn in conjunction"
+      },
+      {
+        "slug": "sun-star-buckler",
+        "name": "Sun Star Buckler",
+        "slot": "ability",
+        "stats": {
+          "def": 10,
+          "spd": 8,
+          "vit": 4
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+10 DEF, +8 SPD, +4 VIT",
+        "description": "Stunned for 2.5 seconds Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "fur-coat",
+        "name": "Fur Coat",
+        "slot": "armor",
+        "stats": {
+          "def": 20,
+          "spd": 6,
+          "vit": 6
+        },
+        "dungeonId": null,
+        "score": 52,
+        "summary": "+20 DEF, +6 SPD, +6 VIT"
+      },
+      {
+        "slug": "winter-boots",
+        "name": "Winter Boots",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "att": 4
+        },
+        "dungeonId": null,
+        "score": 28,
+        "summary": "+80 HP, +4 ATT",
+        "description": "With Blood Axe: Berserk for 5 seconds on ability use Cooldown: 7 seconds"
+      }
+    ]
+  },
+  {
+    "slug": "easter-knight-set",
+    "name": "Easter Knight Set",
+    "className": "Knight",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 MP, +3 SPD, +4 VIT",
+        "stats": {
+          "mp": 20,
+          "spd": 3,
+          "vit": 4
+        }
+      },
+      "three": {
+        "text": "+30 MP, +4 SPD, +4 WIS",
+        "stats": {
+          "mp": 30,
+          "spd": 4,
+          "wis": 4
+        }
+      },
+      "four": {
+        "text": "+40 MP, +6 SPD, +4 DEX",
+        "stats": {
+          "mp": 40,
+          "spd": 6,
+          "dex": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "eternal-graved-great-sword",
+        "name": "Eternal Graved Great Sword",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 153,
+        "summary": "350–400 dmg"
+      },
+      {
+        "slug": "spriteful-shield",
+        "name": "Spriteful Shield",
+        "slot": "ability",
+        "stats": {
+          "att": 4,
+          "def": 10,
+          "spd": 4
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+4 ATT, +10 DEF, +4 SPD",
+        "description": "Stunned for 4 seconds Shots hit multiple targets Shots pass through obstacles Ignores defense of target"
+      },
+      {
+        "slug": "eggre-battle-armor",
+        "name": "Eggre Battle Armor",
+        "slot": "armor",
+        "stats": {
+          "att": 6,
+          "def": 17,
+          "spd": 6,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 57,
+        "summary": "+6 ATT, +17 DEF, +6 SPD, +5 VIT"
+      },
+      {
+        "slug": "tiara-of-eggscellent-sturdiness",
+        "name": "Tiara of Eggscellent Sturdiness",
+        "slot": "ring",
+        "stats": {
+          "hp": 40,
+          "mp": 40,
+          "def": 10
+        },
+        "dungeonId": null,
+        "score": 38,
+        "summary": "+40 HP, +40 MP, +10 DEF"
+      }
+    ]
+  },
+  {
+    "slug": "mad-minotaur-set",
+    "name": "Mad Minotaur Set",
+    "className": "Knight",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Chief Beisa",
+      "Chancellor Dammah"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+10 HP, +20 MP, +2 ATT, +3 DEX",
+        "stats": {
+          "hp": 10,
+          "mp": 20,
+          "att": 2,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+10 HP, +30 MP, +3 ATT, +3 DEX",
+        "stats": {
+          "hp": 10,
+          "mp": 30,
+          "att": 3,
+          "dex": 3
+        }
+      },
+      "four": {
+        "text": "+10 HP, +50 MP, +5 ATT, +3 DEX",
+        "stats": {
+          "hp": 10,
+          "mp": 50,
+          "att": 5,
+          "dex": 3
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "fury-flail",
+        "name": "Fury Flail",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 345,
+        "summary": "300–345 dmg",
+        "description": "Bleeding for 3 seconds. (Bleed Damage: 15)Circle Turn Angle: 90Circle Turn Delay: .2 seconds Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "shockwave-shield",
+        "name": "Shockwave Shield",
+        "slot": "ability",
+        "stats": {
+          "def": 10
+        },
+        "dungeonId": null,
+        "score": 29,
+        "summary": "+10 DEF",
+        "description": "Stunned for 3 seconds Slowed for 3 seconds Cooldown: 0.5 seconds"
+      },
+      {
+        "slug": "cyclone-chestplate",
+        "name": "Cyclone Chestplate",
+        "slot": "armor",
+        "stats": {
+          "hp": 50,
+          "def": 17,
+          "dex": 4,
+          "vit": 4
+        },
+        "dungeonId": null,
+        "score": 57,
+        "summary": "+50 HP, +17 DEF, +4 DEX, +4 VIT"
+      },
+      {
+        "slug": "brass-knuckles",
+        "name": "Brass Knuckles",
+        "slot": "ring",
+        "stats": {
+          "hp": 30,
+          "def": 7,
+          "dex": 6
+        },
+        "dungeonId": null,
+        "score": 31,
+        "summary": "+30 HP, +7 DEF, +6 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "oryx-s-battle-attires-set",
+    "name": "Oryx's Battle Attires Set",
+    "className": "Knight",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Oryx the Mad God 2",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+5 ATT",
+        "stats": {
+          "att": 5
+        }
+      },
+      "three": {
+        "text": "+5 DEX, +15 DEF",
+        "stats": {
+          "dex": 5,
+          "def": 15
+        }
+      },
+      "four": {
+        "text": "+75 HP",
+        "stats": {
+          "hp": 75
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "oryx-s-greatsword",
+        "name": "Oryx's Greatsword",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 169,
+        "summary": "185–215 dmg",
+        "description": "Ignores defense of target"
+      },
+      {
+        "slug": "champion-s-bastion",
+        "name": "Champion's Bastion",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 8,
+        "summary": "effect item",
+        "description": "On self: DEF Boost (+15 DEF) for 2.5 seconds On enemies: Stunned for 1.5 seconds Shots hit multiple targets Shots pass through obstacles Wavy shots"
+      },
+      {
+        "slug": "mercy-s-bane",
+        "name": "Mercy's Bane",
+        "slot": "armor",
+        "stats": {
+          "def": 10,
+          "att": 7,
+          "dex": 7
+        },
+        "dungeonId": null,
+        "score": 45,
+        "summary": "+7 ATT, +10 DEF, +7 DEX"
+      },
+      {
+        "slug": "bloodstone-ring",
+        "name": "Bloodstone Ring",
+        "slot": "ring",
+        "stats": {
+          "hp": 120,
+          "def": 4
+        },
+        "dungeonId": null,
+        "score": 38,
+        "summary": "+120 HP, +4 DEF"
+      }
+    ]
+  },
+  {
+    "slug": "nordic-knight-set",
+    "name": "Nordic Knight Set",
+    "className": "Knight",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "ice-cave"
+    ],
+    "difficultyTier": 3,
+    "difficultyCategory": "mid",
+    "sources": [
+      "Esben the Neurotic",
+      "Iceion",
+      "Lizicle",
+      "Snow Bat",
+      "Yeti",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+25 HP, +3 ATT, +2 SPD",
+        "stats": {
+          "hp": 25,
+          "att": 3,
+          "spd": 2
+        }
+      },
+      "three": {
+        "text": "+35 HP, +3 ATT, +4 SPD",
+        "stats": {
+          "hp": 35,
+          "att": 3,
+          "spd": 4
+        }
+      },
+      "four": {
+        "text": "+60 HP, +6 ATT, +6 SPD",
+        "stats": {
+          "hp": 60,
+          "att": 6,
+          "spd": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "dalvar-s-battle-axe",
+        "name": "Dalvar's Battle Axe",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "ice-cave",
+        "score": 225,
+        "summary": "205–225 dmg",
+        "description": "Increases the power of the Gjallarhorn if worn in conjunction"
+      },
+      {
+        "slug": "sunken-buckler",
+        "name": "Sunken Buckler",
+        "slot": "ability",
+        "stats": {
+          "def": 10,
+          "spd": 8,
+          "vit": 4
+        },
+        "dungeonId": "ice-cave",
+        "score": 40,
+        "summary": "+10 DEF, +8 SPD, +4 VIT",
+        "description": "Stunned for 2.5 seconds Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "chainmail-body-armor",
+        "name": "Chainmail Body Armor",
+        "slot": "armor",
+        "stats": {
+          "def": 20,
+          "spd": 6,
+          "vit": 6
+        },
+        "dungeonId": "ice-cave",
+        "score": 52,
+        "summary": "+20 DEF, +6 SPD, +6 VIT"
+      },
+      {
+        "slug": "gjallarhorn",
+        "name": "Gjallarhorn",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "att": 4
+        },
+        "dungeonId": "ice-cave",
+        "score": 28,
+        "summary": "+80 HP, +4 ATT",
+        "description": "With Dalvar’s Battle Axe: Berserk for 5 seconds on ability use Cooldown: 7 seconds"
+      }
+    ]
+  },
+  {
+    "slug": "astral-arcanist-set",
+    "name": "Astral Arcanist Set",
+    "className": "Mystic",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Oryx the Mad God 3"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+33 HP, +33 MP, +4 ATT",
+        "stats": {
+          "hp": 33,
+          "mp": 33,
+          "att": 4
+        }
+      },
+      "three": {
+        "text": "+44 HP, +44 MP, +6 ATT",
+        "stats": {
+          "hp": 44,
+          "mp": 44,
+          "att": 6
+        }
+      },
+      "four": {
+        "text": "+55 HP, +55 MP, +8 ATT",
+        "stats": {
+          "hp": 55,
+          "mp": 55,
+          "att": 8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "nebular-rod",
+        "name": "Nebular Rod",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 168,
+        "summary": "140–168 dmg",
+        "description": "Shots pass through obstacles"
+      },
+      {
+        "slug": "cosmic-astrolabe",
+        "name": "Cosmic Astrolabe",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 22,
+        "summary": "effect item",
+        "description": "Hold [Shift] for 1 seconds to change modes Star Fire: Emit flaming stars for 185-315 damage. Empowerment: Gain additional stars while Energized. Teleport to Target MP Decrease (-50 MP) on self for 5 seconds. Ability 1: Space Warp Solar Flare: Curse enemies for"
+      },
+      {
+        "slug": "astronomer-s-gown",
+        "name": "Astronomer's Gown",
+        "slot": "armor",
+        "stats": {
+          "def": 15,
+          "att": 7
+        },
+        "dungeonId": null,
+        "score": 44,
+        "summary": "+7 ATT, +15 DEF"
+      },
+      {
+        "slug": "eye-of-divination",
+        "name": "Eye of Divination",
+        "slot": "ring",
+        "stats": {},
+        "dungeonId": null,
+        "score": 0,
+        "summary": "effect item"
+      }
+    ]
+  },
+  {
+    "slug": "phylactery-mystic-set",
+    "name": "Phylactery Mystic Set",
+    "className": "Mystic",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Phylactery Bearer",
+      "Shady Sect Leader",
+      "Lantern Holder",
+      "Haunted Spirit",
+      "Death Knight",
+      "Revenant"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +15 MP, +6 SPD, +7 WIS",
+        "stats": {
+          "hp": 20,
+          "mp": 15,
+          "spd": 6,
+          "wis": 7
+        }
+      },
+      "three": {
+        "text": "+20 HP, +15 MP, +6 DEF, +8 VIT",
+        "stats": {
+          "hp": 20,
+          "mp": 15,
+          "def": 6,
+          "vit": 8
+        }
+      },
+      "four": {
+        "text": "+20 HP, +15 MP, +7 ATT, +6 DEF",
+        "stats": {
+          "hp": 20,
+          "mp": 15,
+          "att": 7,
+          "def": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "the-phylactery",
+        "name": "The Phylactery",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 136,
+        "summary": "145–160 dmg"
+      },
+      {
+        "slug": "soul-of-the-bearer",
+        "name": "Soul of the Bearer",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 36,
+        "description": "On enemies: Stasis is centered on player Stasis Radius: 4.5 tiles Stasis Duration: 6 seconds On self: Speedy and Berserk Speedy & Berserk Duration: 2.5 (+0.1 per WIS over 55) seconds"
+      },
+      {
+        "slug": "soulless-robe",
+        "name": "Soulless Robe",
+        "slot": "armor",
+        "stats": {
+          "hp": 60,
+          "def": 15
+        },
+        "dungeonId": null,
+        "score": 45,
+        "summary": "+60 HP, +15 DEF"
+      },
+      {
+        "slug": "ring-of-the-covetous-heart",
+        "name": "Ring of the Covetous Heart",
+        "slot": "ring",
+        "stats": {
+          "mp": 80,
+          "att": 8,
+          "wis": 8
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+80 MP, +8 ATT, +8 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "totalia-mystic-set",
+    "name": "Totalia Mystic Set",
+    "className": "Mystic",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +15 MP, +6 SPD, +7 WIS",
+        "stats": {
+          "hp": 20,
+          "mp": 15,
+          "spd": 6,
+          "wis": 7
+        }
+      },
+      "three": {
+        "text": "+20 HP, +15 MP, +6 DEF, +8 VIT",
+        "stats": {
+          "hp": 20,
+          "mp": 15,
+          "def": 6,
+          "vit": 8
+        }
+      },
+      "four": {
+        "text": "+20 HP, +15 MP, +7 ATT, +6 DEF",
+        "stats": {
+          "hp": 20,
+          "mp": 15,
+          "att": 7,
+          "def": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "stygian-torch",
+        "name": "Stygian Torch",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 136,
+        "summary": "145–160 dmg"
+      },
+      {
+        "slug": "orb-of-the-sabbath",
+        "name": "Orb of the Sabbath",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 36,
+        "summary": "effect item",
+        "description": "On enemies: Stasis is centered on player Stasis Radius: 4.5 tiles Stasis Duration: 6 seconds On self: Speedy and Berserk Speedy & Berserk Duration: 2.5 (+0.1 per WIS over 55) seconds"
+      },
+      {
+        "slug": "robe-of-the-enchantress",
+        "name": "Robe of the Enchantress",
+        "slot": "armor",
+        "stats": {
+          "hp": 60,
+          "def": 15
+        },
+        "dungeonId": null,
+        "score": 45,
+        "summary": "+60 HP, +15 DEF"
+      },
+      {
+        "slug": "witch-s-brooch",
+        "name": "Witch's Brooch",
+        "slot": "ring",
+        "stats": {
+          "mp": 80,
+          "att": 8,
+          "wis": 8
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+80 MP, +8 ATT, +8 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "magmatic-mystic-set",
+    "name": "Magmatic Mystic Set",
+    "className": "Mystic",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "abyss-of-demons"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "Archdemon Malphas",
+      "Abyss Idol",
+      "White Demon of the Abyss",
+      "Red Demon",
+      "Mighty Quest Chest",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +3 ATT, +3 SPD, +5 VIT",
+        "stats": {
+          "hp": 30,
+          "att": 3,
+          "spd": 3,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+25 HP, +60 MP, +5 ATT, +10 VIT",
+        "stats": {
+          "hp": 25,
+          "mp": 60,
+          "att": 5,
+          "vit": 10
+        }
+      },
+      "four": {
+        "text": "+50 HP, +20 ATT, +5 SPD, +15 VIT",
+        "stats": {
+          "hp": 50,
+          "att": 20,
+          "spd": 5,
+          "vit": 15
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "staff-of-eruption",
+        "name": "Staff of Eruption",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "abyss-of-demons",
+        "score": 860,
+        "summary": "700–860 dmg"
+      },
+      {
+        "slug": "scorchium-stone",
+        "name": "Scorchium Stone",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "abyss-of-demons",
+        "score": 20,
+        "summary": "effect item",
+        "description": "Shoot a spread of fireballs at the cursor. Number of Shots: 5 (arc gap: 9°) Damage: 350 (+3 per VIT over 30) (total: 1750) Projectile Speed: 15 tiles/second Range: 5 tiles Effect on enemies: Curse for 5 seconds Shots pass through obstacles Ignores defense of t"
+      },
+      {
+        "slug": "molten-mantle",
+        "name": "Molten Mantle",
+        "slot": "armor",
+        "stats": {
+          "def": 12,
+          "mp": 80,
+          "spd": 4,
+          "att": 4
+        },
+        "dungeonId": "abyss-of-demons",
+        "score": 52,
+        "summary": "+80 MP, +4 ATT, +12 DEF, +4 SPD"
+      },
+      {
+        "slug": "ring-of-the-inferno",
+        "name": "Ring of the Inferno",
+        "slot": "ring",
+        "stats": {
+          "mp": 75,
+          "def": 4,
+          "spd": 4,
+          "att": 4
+        },
+        "dungeonId": "abyss-of-demons",
+        "score": 35,
+        "summary": "+75 MP, +4 ATT, +4 DEF, +4 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "cuboid-necromancer-set",
+    "name": "Cuboid Necromancer Set",
+    "className": "Necromancer",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Tesseract Goddess",
+      "Shadow Cube Blaster",
+      "Masquarerader",
+      "Cuboid Matriarch",
+      "Hyper Cube",
+      "Lesser Cube God",
+      "Mighty Quest Chest",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+5 DEF",
+        "stats": {
+          "def": 5
+        }
+      },
+      "three": {
+        "text": "+50 HP, +5 VIT",
+        "stats": {
+          "hp": 50,
+          "vit": 5
+        }
+      },
+      "four": {
+        "text": "+50 HP, +5 DEX, +10 VIT",
+        "stats": {
+          "hp": 50,
+          "dex": 5,
+          "vit": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "squaroid-staff",
+        "name": "Squaroid Staff",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 70,
+        "summary": "60–70 dmg ×2",
+        "description": "Shots pass through obstacles Ignores defense of target"
+      },
+      {
+        "slug": "cubic-frame",
+        "name": "Cubic Frame",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 10,
+        "summary": "+5 DEF",
+        "description": "Necromancy: raise 1 Cubic Undead to fight for you. Cubic Protection: Locks onto the closest player granting 20hp/sec within 3 sqrs."
+      },
+      {
+        "slug": "polygonal-garbs",
+        "name": "Polygonal Garbs",
+        "slot": "armor",
+        "stats": {
+          "def": 10,
+          "hp": 30,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 35,
+        "summary": "+30 HP, +10 DEF, +5 DEX",
+        "description": "With full set: Squarrier deals twice the damage and lasts twice as long"
+      },
+      {
+        "slug": "cuband",
+        "name": "Cuband",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 28,
+        "summary": "+80 HP, +5 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "globular-necromancer-set",
+    "name": "Globular Necromancer Set",
+    "className": "Necromancer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+5 DEF",
+        "stats": {
+          "def": 5
+        }
+      },
+      "three": {
+        "text": "+50 HP, +5 VIT",
+        "stats": {
+          "hp": 50,
+          "vit": 5
+        }
+      },
+      "four": {
+        "text": "+50 HP, +5 DEX, +10 VIT",
+        "stats": {
+          "hp": 50,
+          "dex": 5,
+          "vit": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "bloody-pitch-fork-staff",
+        "name": "Bloody Pitch Fork Staff",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 70,
+        "summary": "60–70 dmg ×2",
+        "description": "Shots pass through obstacles Ignores defense of target"
+      },
+      {
+        "slug": "blood-essence",
+        "name": "Blood Essence",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 10,
+        "summary": "+5 DEF",
+        "description": "Necromancy: raise 1 Blood Undead to fight for you. Cubic Protection: Locks onto the closest player granting 20hp/sec within 3 sqrs."
+      },
+      {
+        "slug": "curse-binding-robes",
+        "name": "Curse Binding Robes",
+        "slot": "armor",
+        "stats": {
+          "def": 10,
+          "hp": 30,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 35,
+        "summary": "+30 HP, +10 DEF, +5 DEX",
+        "description": "With full set: Blood spike deals twice the damage and lasts twice as long"
+      },
+      {
+        "slug": "spike-headband",
+        "name": "Spike Headband",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 28,
+        "summary": "+80 HP, +5 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "love-witch-necromancer-set",
+    "name": "Love Witch Necromancer Set",
+    "className": "Necromancer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+3 DEX, +5 VIT",
+        "stats": {
+          "dex": 3,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+50 HP, +3 ATT",
+        "stats": {
+          "hp": 50,
+          "att": 3
+        }
+      },
+      "four": {
+        "text": "+50 HP, +4 ATT, +4 DEX",
+        "stats": {
+          "hp": 50,
+          "att": 4,
+          "dex": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "gloves-of-love",
+        "name": "Gloves of Love",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 180,
+        "summary": "155–180 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "mask-of-passion",
+        "name": "Mask of Passion",
+        "slot": "ability",
+        "stats": {
+          "att": 4,
+          "dex": 2
+        },
+        "dungeonId": null,
+        "score": 50,
+        "summary": "+4 ATT, +2 DEX",
+        "description": "Necromancy: raise 1 Ritual Undead to fight for you. On ability Use: Summons ritual circle for 6 seconds Ritual Circle: Inflicts 225-275 Damage within 3 sqrs at the radius, scaling up to 1350-1650 Damage at the center every second Healing within 3 sqrs With Ess"
+      },
+      {
+        "slug": "boudoir-robe",
+        "name": "Boudoir Robe",
+        "slot": "armor",
+        "stats": {
+          "def": 11,
+          "att": 3,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 36,
+        "summary": "+3 ATT, +11 DEF, +5 DEX"
+      },
+      {
+        "slug": "essence-of-love",
+        "name": "Essence of Love",
+        "slot": "ring",
+        "stats": {
+          "att": 4,
+          "dex": 4,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 19,
+        "summary": "+4 ATT, +4 DEX, +5 VIT",
+        "description": "Blood Offering: Ritual Circle now also gives Berserk"
+      }
+    ]
+  },
+  {
+    "slug": "reaper-necromancer-set",
+    "name": "Reaper Necromancer Set",
+    "className": "Necromancer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Wine Cellar Event Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 MP, +3 DEF, 6 VIT",
+        "stats": {
+          "mp": 30,
+          "def": 3,
+          "vit": 6
+        }
+      },
+      "three": {
+        "text": "+45 HP, +7 ATT, +5 DEX, +4 VIT",
+        "stats": {
+          "hp": 45,
+          "att": 7,
+          "dex": 5,
+          "vit": 4
+        }
+      },
+      "four": {
+        "text": "+40 HP, +3 ATT, +4 DEF",
+        "stats": {
+          "hp": 40,
+          "att": 3,
+          "def": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "gravekeeper-s-scythe",
+        "name": "Gravekeeper's Scythe",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 270,
+        "summary": "55–125 dmg ×3"
+      },
+      {
+        "slug": "hooded-skull",
+        "name": "Hooded Skull",
+        "slot": "ability",
+        "stats": {
+          "vit": 5,
+          "att": 10
+        },
+        "dungeonId": null,
+        "score": 53,
+        "summary": "+10 ATT, +5 VIT",
+        "description": "Does not heal Necromancy: raise 1 Reaper Undead to fight for you. On self: Damaging for 3 seconds"
+      },
+      {
+        "slug": "executioner-s-garb",
+        "name": "Executioner's Garb",
+        "slot": "armor",
+        "stats": {
+          "mp": 35,
+          "att": 10,
+          "def": 13,
+          "vit": 4,
+          "dex": -4
+        },
+        "dungeonId": null,
+        "score": 51,
+        "summary": "+35 MP, +10 ATT, +13 DEF, -4 DEX, +4 VIT"
+      },
+      {
+        "slug": "grim-goblet",
+        "name": "Grim Goblet",
+        "slot": "ring",
+        "stats": {
+          "hp": 75,
+          "att": 5,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 34,
+        "summary": "+75 HP, +5 ATT, +5 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "rose-keeper-necromancer-set",
+    "name": "Rose Keeper Necromancer Set",
+    "className": "Necromancer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+5 SPD, +5 VIT",
+        "stats": {
+          "spd": 5,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+4 DEF, +5 VIT",
+        "stats": {
+          "def": 4,
+          "vit": 5
+        }
+      },
+      "four": {
+        "text": "+80 HP, +6 ATT, +5 SPD",
+        "stats": {
+          "hp": 80,
+          "att": 6,
+          "spd": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "spring-rose",
+        "name": "Spring Rose",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 240,
+        "summary": "130–240 dmg ×2",
+        "description": "Burst Count: 5 Maximum Burst Delay: 1.8 seconds Minimum Burst Delay: 1 second Shots face direction"
+      },
+      {
+        "slug": "ever-green-skull",
+        "name": "Ever Green Skull",
+        "slot": "ability",
+        "stats": {
+          "hp": 60,
+          "spd": 4,
+          "vit": 4
+        },
+        "dungeonId": null,
+        "score": 35,
+        "summary": "+60 HP, +4 SPD, +4 VIT",
+        "description": "Necromancy: raise 1 Perenial Undead to fight for you. On Ability Use: Create a perennial plant that lasts 5 seconds Healing: 50 HP/s Max Heal Targets: 5 players Range: 5 tiles"
+      },
+      {
+        "slug": "floral-corset",
+        "name": "Floral Corset",
+        "slot": "armor",
+        "stats": {
+          "att": 6,
+          "def": 13,
+          "spd": 6,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 49,
+        "summary": "+6 ATT, +13 DEF, +6 SPD, +5 VIT"
+      },
+      {
+        "slug": "rose-brooch",
+        "name": "Rose Brooch",
+        "slot": "ring",
+        "stats": {
+          "hp": 75,
+          "mp": 75,
+          "vit": 6,
+          "def": 6
+        },
+        "dungeonId": null,
+        "score": 52,
+        "summary": "+75 HP, +75 MP, +6 DEF, +6 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "shaman-necromancer-set",
+    "name": "Shaman Necromancer Set",
+    "className": "Necromancer",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Treasurer Gemsbok",
+      "Archbishop Leucoryx"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+3 DEX, +5 VIT",
+        "stats": {
+          "dex": 3,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+50 HP, +3 ATT",
+        "stats": {
+          "hp": 50,
+          "att": 3
+        }
+      },
+      "four": {
+        "text": "+50 HP, +4 ATT, +4 DEX",
+        "stats": {
+          "hp": 50,
+          "att": 4,
+          "dex": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "shaman-s-staff",
+        "name": "Shaman's Staff",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 180,
+        "summary": "155–180 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "ritual-skull",
+        "name": "Ritual Skull",
+        "slot": "ability",
+        "stats": {
+          "att": 4,
+          "dex": 2
+        },
+        "dungeonId": null,
+        "score": 50,
+        "summary": "+4 ATT, +2 DEX",
+        "description": "Necromancy: raise 1 Ritual Undead to fight for you. On ability Use: Summons ritual circle for 6 seconds Ritual Circle: Inflicts 225-275 Damage within 3 sqrs at the radius, scaling up to 1350-1650 Damage at the center every second Healing within 3 sqrs With Fan"
+      },
+      {
+        "slug": "ragged-robes",
+        "name": "Ragged Robes",
+        "slot": "armor",
+        "stats": {
+          "def": 11,
+          "att": 3,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 36,
+        "summary": "+3 ATT, +11 DEF, +5 DEX"
+      },
+      {
+        "slug": "fang-necklace",
+        "name": "Fang Necklace",
+        "slot": "ring",
+        "stats": {
+          "att": 4,
+          "dex": 4,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 19,
+        "summary": "+4 ATT, +4 DEX, +5 VIT",
+        "description": "Blood Offering: Ritual Circle now also gives Berserk"
+      }
+    ]
+  },
+  {
+    "slug": "hollow-king-necromancer-set",
+    "name": "Hollow King Necromancer Set",
+    "className": "Necromancer",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "undead-lair"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "Septavius the Ghost God",
+      "Lair Spectral Skeleton",
+      "Septavius, Master of the Undead",
+      "Heroic Lair Spectral Skeleton",
+      "Ghost King",
+      "Flesh Golem",
+      "Sinister Scarecrow",
+      "Heroic Septavius the Ghost God",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 MP, +3 DEF, 6 VIT",
+        "stats": {
+          "mp": 30,
+          "def": 3,
+          "vit": 6
+        }
+      },
+      "three": {
+        "text": "+45 HP, +7 ATT, +5 DEX, +4 VIT",
+        "stats": {
+          "hp": 45,
+          "att": 7,
+          "dex": 5,
+          "vit": 4
+        }
+      },
+      "four": {
+        "text": "+40 HP, +3 ATT, +4 DEF",
+        "stats": {
+          "hp": 40,
+          "att": 3,
+          "def": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "edictum-praetoris",
+        "name": "Edictum Praetoris",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "undead-lair",
+        "score": 167,
+        "summary": "55–125 dmg ×3"
+      },
+      {
+        "slug": "memento-mori",
+        "name": "Memento Mori",
+        "slot": "ability",
+        "stats": {
+          "vit": 5,
+          "att": 10
+        },
+        "dungeonId": null,
+        "score": 53,
+        "summary": "+10 ATT, +5 VIT",
+        "description": "Does not heal Necromancy: raise 1 Mori Undead to fight for you. On self: Damaging for 3 seconds"
+      },
+      {
+        "slug": "toga-picta",
+        "name": "Toga Picta",
+        "slot": "armor",
+        "stats": {
+          "mp": 35,
+          "att": 10,
+          "def": 13,
+          "vit": 4,
+          "dex": -4
+        },
+        "dungeonId": "undead-lair",
+        "score": 51,
+        "summary": "+35 MP, +10 ATT, +13 DEF, -4 DEX, +4 VIT"
+      },
+      {
+        "slug": "interregnum",
+        "name": "Interregnum",
+        "slot": "ring",
+        "stats": {
+          "hp": 75,
+          "att": 5,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 34,
+        "summary": "+75 HP, +5 ATT, +5 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "lei-gong-set",
+    "name": "Lei Gong Set",
+    "className": "Ninja",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+6 DEF, +3 DEX",
+        "stats": {
+          "def": 6,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+3 ATT, +8 DEF",
+        "stats": {
+          "att": 3,
+          "def": 8
+        }
+      },
+      "four": {
+        "text": "+90 HP, +10 DEF, +5 SPD",
+        "stats": {
+          "hp": 90,
+          "def": 10,
+          "spd": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "thunder-mallet",
+        "name": "Thunder Mallet",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 170,
+        "summary": "80–90 dmg ×2",
+        "description": "Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "enchanted-chisel",
+        "name": "Enchanted Chisel",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 0,
+        "summary": "effect item"
+      },
+      {
+        "slug": "daopao",
+        "name": "Daopao",
+        "slot": "armor",
+        "stats": {
+          "def": 9,
+          "att": 8,
+          "dex": 8
+        },
+        "dungeonId": null,
+        "score": 46,
+        "summary": "+8 ATT, +9 DEF, +8 DEX"
+      },
+      {
+        "slug": "mala-beads",
+        "name": "Mala Beads",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "def": 6,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 37,
+        "summary": "+80 HP, +6 DEF, +5 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "onmyoji-ninja-set",
+    "name": "Onmyoji Ninja Set",
+    "className": "Ninja",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Sage Genji",
+      "Drummer Kaguya",
+      "Dancer Miko"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+4 ATT, +4 DEF",
+        "stats": {
+          "att": 4,
+          "def": 4
+        }
+      },
+      "three": {
+        "text": "+4 DEX, +75 HP",
+        "stats": {
+          "dex": 4,
+          "hp": 75
+        }
+      },
+      "four": {
+        "text": "+6 ATT, +75 MP",
+        "stats": {
+          "att": 6,
+          "mp": 75
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "shakujo",
+        "name": "Shakujo",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 195,
+        "summary": "145–195 dmg",
+        "description": "Burst Count: 4 Maximum Burst Delay: 1.5 seconds Minimum Burst Delay: 0.5 seconds Shots hit multiple targets"
+      },
+      {
+        "slug": "invocation-scroll",
+        "name": "Invocation Scroll",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 0,
+        "summary": "effect item"
+      },
+      {
+        "slug": "divination-cloak",
+        "name": "Divination Cloak",
+        "slot": "armor",
+        "stats": {
+          "def": 15,
+          "dex": 5,
+          "mp": 50
+        },
+        "dungeonId": null,
+        "score": 48,
+        "summary": "+50 MP, +15 DEF, +5 DEX",
+        "description": "Divine Rage:Invocation Scroll Yin Shots do 48-60 armor piercing damageInvocation Scroll Yang Shots do 60-72 armor piercing damage"
+      },
+      {
+        "slug": "omamori",
+        "name": "Omamori",
+        "slot": "ring",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 30,
+        "summary": "+50 HP, +50 MP, +5 DEX",
+        "description": "Divine Strike: Invocation Scroll creates an additional 2 shots if used with Shakujo. These shots deal 25% more damage, but are not armor piercing."
+      }
+    ]
+  },
+  {
+    "slug": "valentine-s-day-ninja-set",
+    "name": "Valentine's Day Ninja Set",
+    "className": "Ninja",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +3 ATT, +2 WIS",
+        "stats": {
+          "hp": 20,
+          "att": 3,
+          "wis": 2
+        }
+      },
+      "three": {
+        "text": "+30 HP, +4 ATT, +3 WIS",
+        "stats": {
+          "hp": 30,
+          "att": 4,
+          "wis": 3
+        }
+      },
+      "four": {
+        "text": "+40 HP, +4 ATT, +8 WIS",
+        "stats": {
+          "hp": 40,
+          "att": 4,
+          "wis": 8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "heartseeker-katana",
+        "name": "Heartseeker Katana",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 0,
+        "summary": "effect item",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "eternal-star",
+        "name": "Eternal Star",
+        "slot": "ability",
+        "stats": {
+          "dex": 5,
+          "spd": -10
+        },
+        "dungeonId": null,
+        "score": -2,
+        "summary": "-10 SPD, +5 DEX"
+      },
+      {
+        "slug": "chocolate-armor",
+        "name": "Chocolate Armor",
+        "slot": "armor",
+        "stats": {
+          "def": 16,
+          "att": 15,
+          "dex": -7,
+          "vit": 8
+        },
+        "dungeonId": null,
+        "score": 60,
+        "summary": "+15 ATT, +16 DEF, -7 DEX, +8 VIT"
+      },
+      {
+        "slug": "sweetener-ring",
+        "name": "Sweetener Ring",
+        "slot": "ring",
+        "stats": {
+          "hp": 140,
+          "mp": 40
+        },
+        "dungeonId": null,
+        "score": 43,
+        "summary": "+140 HP, +40 MP"
+      }
+    ]
+  },
+  {
+    "slug": "raijin-disciple-set",
+    "name": "Raijin Disciple Set",
+    "className": "Ninja",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "secluded-thicket"
+    ],
+    "difficultyTier": 4,
+    "difficultyCategory": "high",
+    "sources": [
+      "Tezcacoatl the Great Basilisk",
+      "El Dorado",
+      "Xolotl the Lightning God",
+      "Insect Tribesman",
+      "Demon Tribesman",
+      "Bird Tribesman",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+6 DEF, +3 DEX",
+        "stats": {
+          "def": 6,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+3 ATT, +8 DEF",
+        "stats": {
+          "att": 3,
+          "def": 8
+        }
+      },
+      "four": {
+        "text": "+90 HP, +10 DEF, +5 SPD",
+        "stats": {
+          "hp": 90,
+          "def": 10,
+          "spd": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "reikoku",
+        "name": "Reikoku",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "secluded-thicket",
+        "score": 170,
+        "summary": "80–90 dmg ×2",
+        "description": "Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "daybreak-chakram",
+        "name": "Daybreak Chakram",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "secluded-thicket",
+        "score": 0,
+        "summary": "effect item"
+      },
+      {
+        "slug": "hirejou-tenne",
+        "name": "Hirejou Tenne",
+        "slot": "armor",
+        "stats": {
+          "def": 9,
+          "att": 8,
+          "dex": 8
+        },
+        "dungeonId": "secluded-thicket",
+        "score": 46,
+        "summary": "+8 ATT, +9 DEF, +8 DEX"
+      },
+      {
+        "slug": "heavenly-magatama",
+        "name": "Heavenly Magatama",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "def": 6,
+          "vit": 5
+        },
+        "dungeonId": "secluded-thicket",
+        "score": 37,
+        "summary": "+80 HP, +6 DEF, +5 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "crystal-kunoichi-set",
+    "name": "Crystal Kunoichi Set",
+    "className": "Ninja",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "crystal-cavern"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Crystal Worm Child",
+      "Cavecrawler Glowworm",
+      "Cavecrawler Leech",
+      "Cavecrawler Maggot",
+      "Crystallised Boomer",
+      "Crystallised Crawler",
+      "Crystallised Shrieker",
+      "Crystallised Charger",
+      "Crystallised Watcher",
+      "Cavern Crystal",
+      "Crystallized Epic Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +4 ATT, +5 VIT",
+        "stats": {
+          "hp": 30,
+          "att": 4,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+30 HP, +5 ATT, +5 VIT",
+        "stats": {
+          "hp": 30,
+          "att": 5,
+          "vit": 5
+        }
+      },
+      "four": {
+        "text": "+120 HP, +6 ATT, +5 DEF, +10 VIT",
+        "stats": {
+          "hp": 120,
+          "att": 6,
+          "def": 5,
+          "vit": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "quartz-cutter",
+        "name": "Quartz Cutter",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "crystal-cavern",
+        "score": 263,
+        "summary": "80–95 dmg ×3",
+        "description": "Shots hit multiple targetsFaces Direction Wavy shots"
+      },
+      {
+        "slug": "crystalline-kunai",
+        "name": "Crystalline Kunai",
+        "slot": "ability",
+        "stats": {
+          "vit": 4
+        },
+        "dungeonId": "crystal-cavern",
+        "score": 4,
+        "summary": "+4 VIT"
+      },
+      {
+        "slug": "luminous-armor",
+        "name": "Luminous Armor",
+        "slot": "armor",
+        "stats": {
+          "hp": 200,
+          "spd": 5,
+          "vit": 5
+        },
+        "dungeonId": "crystal-cavern",
+        "score": 60,
+        "summary": "+200 HP, +5 SPD, +5 VIT"
+      },
+      {
+        "slug": "radiant-heart",
+        "name": "Radiant Heart",
+        "slot": "ring",
+        "stats": {
+          "hp": 100,
+          "att": 5
+        },
+        "dungeonId": "crystal-cavern",
+        "score": 35,
+        "summary": "+100 HP, +5 ATT"
+      }
+    ]
+  },
+  {
+    "slug": "fresh-carrot-paladin-set",
+    "name": "Fresh Carrot Paladin Set",
+    "className": "Paladin",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+4 DEF, +5 VIT",
+        "stats": {
+          "def": 4,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+40 HP, +5 DEX",
+        "stats": {
+          "hp": 40,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+60 HP, +5 VIT, +10 DEX",
+        "stats": {
+          "hp": 60,
+          "vit": 5,
+          "dex": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "nutrient-rich-carrot-blade",
+        "name": "Nutrient Rich Carrot Blade",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 198,
+        "summary": "125–150 dmg ×2"
+      },
+      {
+        "slug": "carrot-cake-crest",
+        "name": "Carrot Cake Crest",
+        "slot": "ability",
+        "stats": {
+          "hp": 40,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 23,
+        "summary": "+40 HP, +5 VIT",
+        "description": "Summon a sweet carrot cake for 5 seconds Carrot Cake Effect: Sugar bombs enemies and deals 150-200 damage within 4.5 sqrs every 0.4 seconds Ignores defense of target"
+      },
+      {
+        "slug": "hardened-carrot-armor",
+        "name": "Hardened Carrot Armor",
+        "slot": "armor",
+        "stats": {
+          "hp": 40,
+          "def": 16,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 47,
+        "summary": "+40 HP, +16 DEF, +5 VIT"
+      },
+      {
+        "slug": "sun-bathed-straw-hat",
+        "name": "Sun Bathed Straw Hat",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "def": 8
+        },
+        "dungeonId": null,
+        "score": 36,
+        "summary": "+80 HP, +8 DEF"
+      }
+    ]
+  },
+  {
+    "slug": "frost-harbinger-set",
+    "name": "Frost Harbinger Set",
+    "className": "Paladin",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Esben the Neurotic"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +30 MP, +2 ATT, +2 DEF",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "att": 2,
+          "def": 2
+        }
+      },
+      "three": {
+        "text": "+35 HP, +35 MP, +3 ATT, +3 DEF",
+        "stats": {
+          "hp": 35,
+          "mp": 35,
+          "att": 3,
+          "def": 3
+        }
+      },
+      "four": {
+        "text": "+40 HP, +40 MP, +4 ATT, +4 DEF",
+        "stats": {
+          "hp": 40,
+          "mp": 40,
+          "att": 4,
+          "def": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "heartsteel-claymore",
+        "name": "Heartsteel Claymore",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 375,
+        "summary": "325–375 dmg"
+      },
+      {
+        "slug": "symbol-of-the-lost",
+        "name": "Symbol of the Lost",
+        "slot": "ability",
+        "stats": {
+          "def": 6,
+          "spd": -5
+        },
+        "dungeonId": null,
+        "score": 32,
+        "summary": "+6 DEF, -5 SPD",
+        "description": "Summon a Frostborn Crystal for 9 seconds Ally effect: Damaging within 7 squares Blizzard: Creates a swarm of snowflakes for 100 armor piercing damage Cold Snap: Deals 200 damage and inflicts Slowed for 2 seconds to enemies within 7 tiles every 2 seconds"
+      },
+      {
+        "slug": "hull-of-the-tundra",
+        "name": "Hull of the Tundra",
+        "slot": "armor",
+        "stats": {
+          "hp": 45,
+          "mp": 45,
+          "def": 19
+        },
+        "dungeonId": null,
+        "score": 58,
+        "summary": "+45 HP, +45 MP, +19 DEF"
+      },
+      {
+        "slug": "frozen-heart",
+        "name": "Frozen Heart",
+        "slot": "ring",
+        "stats": {
+          "spd": -5
+        },
+        "dungeonId": null,
+        "score": -5,
+        "summary": "-5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "swoll-paladin-set",
+    "name": "Swoll Paladin Set",
+    "className": "Paladin",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Gigacorn",
+      "Desire Troll",
+      "Spoiled Creampuff",
+      "MegaRototo",
+      "Swoll Fairy",
+      "Cupcake"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +25 MP, +2 ATT",
+        "stats": {
+          "hp": 30,
+          "mp": 25,
+          "att": 2
+        }
+      },
+      "three": {
+        "text": "+40 HP, +25 MP, +4 ATT",
+        "stats": {
+          "hp": 40,
+          "mp": 25,
+          "att": 4
+        }
+      },
+      "four": {
+        "text": "+50 HP, +50 MP, +6 ATT",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "pixie-enchanted-sword",
+        "name": "Pixie-Enchanted Sword",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 330,
+        "summary": "75–90 dmg ×4"
+      },
+      {
+        "slug": "seal-of-the-enchanted-forest",
+        "name": "Seal of the Enchanted Forest",
+        "slot": "ability",
+        "stats": {
+          "hp": 50,
+          "att": 4
+        },
+        "dungeonId": null,
+        "score": 49,
+        "summary": "+50 HP, +4 ATT",
+        "description": "On party: Damaging Damaging Range: 4.5 (+0.1 per WIS over 50) tiles Damaging Duration: 4 (+1 per 10 WIS over 50) seconds On self: +250 max HP for 6 seconds On self: Healing [40/s] for 3.2 seconds"
+      },
+      {
+        "slug": "fairy-plate",
+        "name": "Fairy Plate",
+        "slot": "armor",
+        "stats": {
+          "hp": 80,
+          "mp": 40,
+          "def": 16
+        },
+        "dungeonId": null,
+        "score": 60,
+        "summary": "+80 HP, +40 MP, +16 DEF"
+      },
+      {
+        "slug": "ring-of-pure-wishes",
+        "name": "Ring of Pure Wishes",
+        "slot": "ring",
+        "stats": {
+          "hp": 90,
+          "mp": 45,
+          "def": 4
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+90 HP, +45 MP, +4 DEF"
+      }
+    ]
+  },
+  {
+    "slug": "unholy-paladin-set",
+    "name": "Unholy Paladin Set",
+    "className": "Paladin",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +25 MP, +2 ATT",
+        "stats": {
+          "hp": 30,
+          "mp": 25,
+          "att": 2
+        }
+      },
+      "three": {
+        "text": "+40 HP, +25 MP, +4 ATT",
+        "stats": {
+          "hp": 40,
+          "mp": 25,
+          "att": 4
+        }
+      },
+      "four": {
+        "text": "+50 HP, +50 MP, +6 ATT",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "hellfire-broadsword",
+        "name": "Hellfire Broadsword",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 330,
+        "summary": "75–90 dmg ×4"
+      },
+      {
+        "slug": "sacrilege-seal",
+        "name": "Sacrilege Seal",
+        "slot": "ability",
+        "stats": {
+          "hp": 50,
+          "att": 4
+        },
+        "dungeonId": null,
+        "score": 49,
+        "summary": "+50 HP, +4 ATT",
+        "description": "On party: Damaging Damaging Range: 4.5 (+0.1 per WIS over 50) tiles Damaging Duration: 4 (+1 per 10 WIS over 50) seconds On self: +250 max HP for 6 seconds On self: Healing [40/s] for 3.2 seconds"
+      },
+      {
+        "slug": "tormentor-s-chainmail",
+        "name": "Tormentor's Chainmail",
+        "slot": "armor",
+        "stats": {
+          "hp": 80,
+          "mp": 40,
+          "def": 16
+        },
+        "dungeonId": null,
+        "score": 60,
+        "summary": "+80 HP, +40 MP, +16 DEF"
+      },
+      {
+        "slug": "horned-ring",
+        "name": "Horned Ring",
+        "slot": "ring",
+        "stats": {
+          "hp": 90,
+          "mp": 45,
+          "def": 4
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+90 HP, +45 MP, +4 DEF"
+      }
+    ]
+  },
+  {
+    "slug": "corrupted-paladin-set",
+    "name": "Corrupted Paladin Set",
+    "className": "Paladin",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "the-shatters"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Stone Gargoyle",
+      "Stone Monolith",
+      "Stone Knight",
+      "Stone Paladin",
+      "Stone Warrior",
+      "Stone Mage",
+      "Stone Ranger",
+      "Stone Idol"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+4 DEF, +5 VIT",
+        "stats": {
+          "def": 4,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+40 HP, +5 DEX",
+        "stats": {
+          "hp": 40,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+60 HP, +5 VIT, +10 DEX",
+        "stats": {
+          "hp": 60,
+          "vit": 5,
+          "dex": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "fallen-one-s-blade",
+        "name": "Fallen One's Blade",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "the-shatters",
+        "score": 198,
+        "summary": "125–150 dmg ×2"
+      },
+      {
+        "slug": "abyssal-insignia",
+        "name": "Abyssal Insignia",
+        "slot": "ability",
+        "stats": {
+          "hp": 40,
+          "vit": 5
+        },
+        "dungeonId": "the-shatters",
+        "score": 35,
+        "summary": "+40 HP, +5 VIT",
+        "description": "Summon a void rift for 5 seconds Rift Effect: Curses enemies and deals 150-200 damage within 4.5 sqrs every 0.4 seconds Ignores defense of target"
+      },
+      {
+        "slug": "vortex-plating",
+        "name": "Vortex Plating",
+        "slot": "armor",
+        "stats": {
+          "hp": 40,
+          "def": 16,
+          "vit": 5
+        },
+        "dungeonId": "the-shatters",
+        "score": 47,
+        "summary": "+40 HP, +16 DEF, +5 VIT"
+      },
+      {
+        "slug": "eye-of-the-void",
+        "name": "Eye of the Void",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "def": 8
+        },
+        "dungeonId": "the-shatters",
+        "score": 36,
+        "summary": "+80 HP, +8 DEF"
+      }
+    ]
+  },
+  {
+    "slug": "archexorcist-priest-set",
+    "name": "Archexorcist Priest Set",
+    "className": "Priest",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+4 DEX, +4 ATT",
+        "stats": {
+          "dex": 4,
+          "att": 4
+        }
+      },
+      "three": {
+        "text": "+5 DEX, +5 ATT",
+        "stats": {
+          "dex": 5,
+          "att": 5
+        }
+      },
+      "four": {
+        "text": "+100 HP, +6 DEX, +6 ATT",
+        "stats": {
+          "hp": 100,
+          "dex": 6,
+          "att": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "holy-artifact",
+        "name": "Holy Artifact",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 260,
+        "summary": "125–135 dmg ×2",
+        "description": "Shots hit multiple targets Wavy shots"
+      },
+      {
+        "slug": "tome-of-exorcism",
+        "name": "Tome of Exorcism",
+        "slot": "ability",
+        "stats": {
+          "att": 5,
+          "def": -5
+        },
+        "dungeonId": null,
+        "score": 12,
+        "summary": "+5 ATT, -5 DEF",
+        "description": "Heal: 120 (+0.88 per WIS over 70) HP Party Effect: Healing [60/s] (+0.44 per WIS over 70) for 4.4 seconds Self Effect: ATT Boost (+15 ATT) for 6 seconds"
+      },
+      {
+        "slug": "garb-of-the-ordained",
+        "name": "Garb of the Ordained",
+        "slot": "armor",
+        "stats": {
+          "att": 4,
+          "def": 14,
+          "dex": 3,
+          "vit": -5
+        },
+        "dungeonId": null,
+        "score": 36,
+        "summary": "+4 ATT, +14 DEF, +3 DEX, -5 VIT"
+      },
+      {
+        "slug": "pontifex-ring",
+        "name": "Pontifex Ring",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "def": 6,
+          "vit": -5,
+          "wis": 4
+        },
+        "dungeonId": null,
+        "score": 31,
+        "summary": "+80 HP, +6 DEF, -5 VIT, +4 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "mad-god-s-messenger-set",
+    "name": "Mad God's Messenger Set",
+    "className": "Priest",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Janus the Doorwarden",
+      "Oryx the Mad God",
+      "Stone Guardians",
+      "Suit of Armor",
+      "Brute of Oryx",
+      "Commander of Oryx",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+4 DEX, +4 ATT",
+        "stats": {
+          "dex": 4,
+          "att": 4
+        }
+      },
+      "three": {
+        "text": "+5 DEX, +5 ATT",
+        "stats": {
+          "dex": 5,
+          "att": 5
+        }
+      },
+      "four": {
+        "text": "+100 HP, +6 DEX, +6 ATT",
+        "stats": {
+          "hp": 100,
+          "dex": 6,
+          "att": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "theurgy-wand",
+        "name": "Theurgy Wand",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 260,
+        "summary": "125–135 dmg ×2",
+        "description": "Shots hit multiple targets Wavy shots"
+      },
+      {
+        "slug": "ceremonial-merlot",
+        "name": "Ceremonial Merlot",
+        "slot": "ability",
+        "stats": {
+          "att": 5,
+          "def": -5
+        },
+        "dungeonId": null,
+        "score": 12,
+        "summary": "+5 ATT, -5 DEF",
+        "description": "Heal: 120 (+0.88 per WIS over 70) HP Party Effect: Healing [60/s] (+0.44 per WIS over 70) for 4.4 seconds Self Effect: ATT Boost (+15 ATT) for 6 seconds"
+      },
+      {
+        "slug": "anointed-robe",
+        "name": "Anointed Robe",
+        "slot": "armor",
+        "stats": {
+          "att": 4,
+          "def": 14,
+          "dex": 3,
+          "vit": -5
+        },
+        "dungeonId": null,
+        "score": 36,
+        "summary": "+4 ATT, +14 DEF, +3 DEX, -5 VIT"
+      },
+      {
+        "slug": "ring-of-pagan-favor",
+        "name": "Ring of Pagan Favor",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "def": 6,
+          "vit": -5,
+          "wis": 4
+        },
+        "dungeonId": null,
+        "score": 31,
+        "summary": "+80 HP, +6 DEF, -5 VIT, +4 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "plague-doctor-priest-set",
+    "name": "Plague Doctor Priest Set",
+    "className": "Priest",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Doctor Lobotomik",
+      "Griefkeeper Zole"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+35 HP, +4 DEF, +5 DEX",
+        "stats": {
+          "hp": 35,
+          "def": 4,
+          "dex": 5
+        }
+      },
+      "three": {
+        "text": "+45 HP, +5 DEF, +6 DEX",
+        "stats": {
+          "hp": 45,
+          "def": 5,
+          "dex": 6
+        }
+      },
+      "four": {
+        "text": "+55 HP, +6 DEF, +7 DEX",
+        "stats": {
+          "hp": 55,
+          "def": 6,
+          "dex": 7
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "cane-of-caduceus",
+        "name": "Cane of Caduceus",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 85,
+        "summary": "50–85 dmg ×2",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "bloodletting-leeches",
+        "name": "Bloodletting Leeches",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 22,
+        "summary": "+5 DEF",
+        "description": "Summons a leech that drains enemy healthLeeches explodes with an AOE HealSwitch abilities to immediately detonate Leeches"
+      },
+      {
+        "slug": "doctor-s-overcoat",
+        "name": "Doctor's Overcoat",
+        "slot": "armor",
+        "stats": {
+          "def": 15,
+          "dex": 7,
+          "vit": 3
+        },
+        "dungeonId": null,
+        "score": 44,
+        "summary": "+15 DEF, +7 DEX, +3 VIT",
+        "description": "Nice Leeches: Leeches will heal players throughout their lifetime"
+      },
+      {
+        "slug": "plague-mask",
+        "name": "Plague Mask",
+        "slot": "ring",
+        "stats": {
+          "hp": 100,
+          "dex": 7,
+          "vit": 3
+        },
+        "dungeonId": null,
+        "score": 39,
+        "summary": "+100 HP, +7 DEX, +3 VIT",
+        "description": "Plump Leeches: Leeches inflict 100% more damage and deal a damaging AOE blast when they decay"
+      }
+    ]
+  },
+  {
+    "slug": "void-doctor-priest-set",
+    "name": "Void Doctor Priest Set",
+    "className": "Priest",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Event Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+35 HP, +4 DEF, +5 DEX",
+        "stats": {
+          "hp": 35,
+          "def": 4,
+          "dex": 5
+        }
+      },
+      "three": {
+        "text": "+45 HP, +5 DEF, +6 DEX",
+        "stats": {
+          "hp": 45,
+          "def": 5,
+          "dex": 6
+        }
+      },
+      "four": {
+        "text": "+55 HP, +6 DEF, +7 DEX",
+        "stats": {
+          "hp": 55,
+          "def": 6,
+          "dex": 7
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "cane-of-the-void",
+        "name": "Cane of the Void",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 85,
+        "summary": "50–85 dmg ×2",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "void-leeches",
+        "name": "Void Leeches",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 22,
+        "summary": "+5 DEF",
+        "description": "Summons a leech that drains enemy healthLeeches explodes with an AOE HealSwitch abilities to immediately detonate Leeches"
+      },
+      {
+        "slug": "darkness-overcoat",
+        "name": "Darkness Overcoat",
+        "slot": "armor",
+        "stats": {
+          "def": 15,
+          "dex": 7,
+          "wis": 3
+        },
+        "dungeonId": null,
+        "score": 44,
+        "summary": "+15 DEF, +7 DEX, +3 WIS",
+        "description": "Nice Leeches: Leeches will heal players throughout their lifetime"
+      },
+      {
+        "slug": "void-mask",
+        "name": "Void Mask",
+        "slot": "ring",
+        "stats": {
+          "hp": 100,
+          "dex": 7,
+          "wis": 3
+        },
+        "dungeonId": null,
+        "score": 39,
+        "summary": "+100 HP, +7 DEX, +3 WIS",
+        "description": "Plump Leeches: Leeches inflict 100% more damage and deal a damaging AOE blast when they decay"
+      }
+    ]
+  },
+  {
+    "slug": "priest-of-geb-set",
+    "name": "Priest of Geb Set",
+    "className": "Priest",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "tomb-of-the-ancients"
+    ],
+    "difficultyTier": 3,
+    "difficultyCategory": "mid",
+    "sources": [
+      "Geb",
+      "Sarcophagus",
+      "Treasure Sarcophagus",
+      "Nut",
+      "Bes",
+      "Worshipping Priest",
+      "Worshipping Priestess",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+5 ATT, +5 WIS",
+        "stats": {
+          "att": 5,
+          "wis": 5
+        }
+      },
+      "three": {
+        "text": "+5 ATT, +5 VIS",
+        "stats": {
+          "att": 5
+        }
+      },
+      "four": {
+        "text": "+150 HP, +150 MP, +5 VIT, +5 WIS",
+        "stats": {
+          "hp": 150,
+          "mp": 150,
+          "vit": 5,
+          "wis": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "wand-of-geb",
+        "name": "Wand of Geb",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "tomb-of-the-ancients",
+        "score": 162,
+        "summary": "150–170 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "book-of-geb",
+        "name": "Book of Geb",
+        "slot": "ability",
+        "stats": {
+          "vit": 5,
+          "wis": 5,
+          "def": 5
+        },
+        "dungeonId": "tomb-of-the-ancients",
+        "score": 40,
+        "summary": "+5 DEF, +5 VIT, +5 WIS",
+        "description": "Heal: 130 (+0.935 per WIS over 75) HP Party Effect: Healing [65/s] (+0.4675 per WIS over 75) for 4.4 seconds Damage Nova: Explodes 2 times for 0.8 seconds within 2.5 sqrs Self Effect: Speedy for 6 (+0.075 per WIS over 80) seconds"
+      },
+      {
+        "slug": "shendyt-of-geb",
+        "name": "Shendyt of Geb",
+        "slot": "armor",
+        "stats": {
+          "hp": 25,
+          "mp": 25,
+          "def": 15,
+          "vit": 7,
+          "wis": 7
+        },
+        "dungeonId": "tomb-of-the-ancients",
+        "score": 55,
+        "summary": "+25 HP, +25 MP, +15 DEF, +7 VIT, +7 WIS"
+      },
+      {
+        "slug": "geb-s-ring-of-wisdom",
+        "name": "Geb's Ring of Wisdom",
+        "slot": "ring",
+        "stats": {
+          "hp": 25,
+          "mp": 25,
+          "vit": 5,
+          "wis": 10
+        },
+        "dungeonId": "tomb-of-the-ancients",
+        "score": 26,
+        "summary": "+25 HP, +25 MP, +5 VIT, +10 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "spectral-sentry-rogue-set",
+    "name": "Spectral Sentry Rogue Set",
+    "className": "Rogue",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+3 SPD, +3 DEX",
+        "stats": {
+          "spd": 3,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+5 SPD, +5 DEX, +5 WIS",
+        "stats": {
+          "spd": 5,
+          "dex": 5,
+          "wis": 5
+        }
+      },
+      "four": {
+        "text": "+70 HP, +6 ATT, +6 DEX, +6 WIS",
+        "stats": {
+          "hp": 70,
+          "att": 6,
+          "dex": 6,
+          "wis": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "phantom-sickle",
+        "name": "Phantom Sickle",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 134,
+        "summary": "265–345 dmg"
+      },
+      {
+        "slug": "spectre-cloak",
+        "name": "Spectre Cloak",
+        "slot": "ability",
+        "stats": {
+          "spd": 5
+        },
+        "dungeonId": null,
+        "score": 17,
+        "summary": "+5 SPD",
+        "description": "Super Ghost Kamikazi Attack: Shooting while at full meter expells Ghostly Replicas that chase down enemies before exploding. Ghostly Replica: Deals 150 damage within 2sqrs. With Phantom Sickle: Ability meter fills twice as fast. With Reaper’s Shroud: Ghostly R"
+      },
+      {
+        "slug": "reaper-s-shroud",
+        "name": "Reaper's Shroud",
+        "slot": "armor",
+        "stats": {
+          "mp": 40,
+          "def": 16,
+          "att": 5
+        },
+        "dungeonId": null,
+        "score": 50,
+        "summary": "+40 MP, +5 ATT, +16 DEF"
+      },
+      {
+        "slug": "soul-necklace",
+        "name": "Soul Necklace",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "def": 5,
+          "wis": 5
+        },
+        "dungeonId": null,
+        "score": 35,
+        "summary": "+80 HP, +5 DEF, +5 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "skuld-2-the-reghostening-set",
+    "name": "Skuld 2 The ReGhostening Set",
+    "className": "Rogue",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "haunted-cemetery"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "Grave Caretaker",
+      "Pumpkin King",
+      "Ghost Bride",
+      "Troll Matriarch",
+      "Ghost of Skuld",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+4 WIS, +4 DEX",
+        "stats": {
+          "wis": 4,
+          "dex": 4
+        }
+      },
+      "three": {
+        "text": "+30 MP, +4 ATT, +4 WIS",
+        "stats": {
+          "mp": 30,
+          "att": 4,
+          "wis": 4
+        }
+      },
+      "four": {
+        "text": "+80 HP, +5 DEX, +5 ATT",
+        "stats": {
+          "hp": 80,
+          "dex": 5,
+          "att": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "etherite-dagger",
+        "name": "Etherite Dagger",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "haunted-cemetery",
+        "score": 199,
+        "summary": "95–195 dmg"
+      },
+      {
+        "slug": "ghastly-drape",
+        "name": "Ghastly Drape",
+        "slot": "ability",
+        "stats": {
+          "att": 5,
+          "wis": 3
+        },
+        "dungeonId": "haunted-cemetery",
+        "score": 42,
+        "summary": "+5 ATT, +3 WIS",
+        "description": "With Full Set: Ghastly Nova Paralyzed enemies for 2.5 seconds and fires more often. While Lethal Strike is active: Releases a Ghastly Nova. Shots: 6 Damage: 50-150 (average: 100) Total Damage: 300-900 (average: 600) Lifetime: 1.1 second Range: 4 tiles Shots hi"
+      },
+      {
+        "slug": "mantle-of-skuld",
+        "name": "Mantle of Skuld",
+        "slot": "armor",
+        "stats": {
+          "def": 10,
+          "wis": 8,
+          "mp": 120
+        },
+        "dungeonId": "haunted-cemetery",
+        "score": 52,
+        "summary": "+120 MP, +10 DEF, +8 WIS"
+      },
+      {
+        "slug": "spectral-ring-of-horrors",
+        "name": "Spectral Ring of Horrors",
+        "slot": "ring",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "wis": 8,
+          "dex": 3
+        },
+        "dungeonId": "haunted-cemetery",
+        "score": 35,
+        "summary": "+50 HP, +50 MP, +3 DEX, +8 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "vampire-rogue-set",
+    "name": "Vampire Rogue Set",
+    "className": "Rogue",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "manor-of-the-immortals"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "Lord Ruthven",
+      "Coffin",
+      "Lesser Bald Vampire",
+      "Lil Feratu",
+      "Armor Guard",
+      "Helmet Head",
+      "Hellhound",
+      "Nosferatu",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+5 DEX, +5 VIT",
+        "stats": {
+          "dex": 5,
+          "vit": 5
+        }
+      },
+      "three": {
+        "text": "+30 HP, +20 MP, +5 DEX, +10 VIT",
+        "stats": {
+          "hp": 30,
+          "mp": 20,
+          "dex": 5,
+          "vit": 10
+        }
+      },
+      "four": {
+        "text": "+30 HP, +30 MP, +5 DEF, +15 DEX, +20 VIT",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "def": 5,
+          "dex": 15,
+          "vit": 20
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "soulcursed-scythe",
+        "name": "Soulcursed Scythe",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "manor-of-the-immortals",
+        "score": 460,
+        "summary": "345–460 dmg",
+        "description": "While Lethal Strike is active: Shoots a powerful scythe Chain Damage: 50 ( Ignores defense of target) Blade Damage: 100-300 (average: 200) Scythe Range: 5.5 tiles Shots hit multiple targets (scythe/chain) Shots pass through obstacles (scythe/chain)"
+      },
+      {
+        "slug": "vampiric-cape",
+        "name": "Vampiric Cape",
+        "slot": "ability",
+        "stats": {
+          "spd": 5
+        },
+        "dungeonId": "manor-of-the-immortals",
+        "score": 29,
+        "summary": "+5 SPD",
+        "description": "Effect on Self: Healing for 4 seconds With Soulcursed Scythe: DEX Boost (+10 DEX) on ability use for 4 seconds With Ruthven’s Rosary: Spawns 3 bats summons that circle and deal 60-80 (70) Armor Piercing Damage every 0.4 seconds Sneak: Invisible for 5 seconds. "
+      },
+      {
+        "slug": "hallowed-hide",
+        "name": "Hallowed Hide",
+        "slot": "armor",
+        "stats": {
+          "hp": 30,
+          "def": 14,
+          "att": 5
+        },
+        "dungeonId": "manor-of-the-immortals",
+        "score": 46,
+        "summary": "+30 HP, +5 ATT, +14 DEF"
+      },
+      {
+        "slug": "ruthven-s-rosary",
+        "name": "Ruthven's Rosary",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "wis": 5,
+          "vit": 5
+        },
+        "dungeonId": "manor-of-the-immortals",
+        "score": 30,
+        "summary": "+80 HP, +5 VIT, +5 WIS",
+        "description": "Increases the power of the Hallowed Hide and Vampiric Cape if worn in conjunction"
+      }
+    ]
+  },
+  {
+    "slug": "daring-discoverer-samurai-set",
+    "name": "Daring Discoverer Samurai Set",
+    "className": "Samurai",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Cyclops God",
+      "Sword in the Stone?",
+      "Oasis Giant",
+      "Dragon’s Treasure",
+      "Phoenix Reborn",
+      "Insurgent Rebel Commander",
+      "Deathmage",
+      "Medusa"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+40 MP, +4 DEF, +4 SPD",
+        "stats": {
+          "mp": 40,
+          "def": 4,
+          "spd": 4
+        }
+      },
+      "three": {
+        "text": "+50 MP, +4 DEF, +4 ATT",
+        "stats": {
+          "mp": 50,
+          "def": 4,
+          "att": 4
+        }
+      },
+      "four": {
+        "text": "+40 HP, +8 ATT, +8 DEF",
+        "stats": {
+          "hp": 40,
+          "att": 8,
+          "def": 8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "kiritsukeru",
+        "name": "Kiritsukeru",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 280,
+        "summary": "240–280 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "watarimono",
+        "name": "Watarimono",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 8,
+        "summary": "effect item",
+        "description": "Shots pass through obstacles"
+      },
+      {
+        "slug": "reinforced-root-armor",
+        "name": "Reinforced Root Armor",
+        "slot": "armor",
+        "stats": {
+          "mp": 60,
+          "def": 20
+        },
+        "dungeonId": null,
+        "score": 52,
+        "summary": "+60 MP, +20 DEF"
+      },
+      {
+        "slug": "traveler-s-trinket",
+        "name": "Traveler's Trinket",
+        "slot": "ring",
+        "stats": {
+          "hp": 70,
+          "att": 3,
+          "spd": 6
+        },
+        "dungeonId": null,
+        "score": 30,
+        "summary": "+70 HP, +3 ATT, +6 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "frost-advisor-set",
+    "name": "Frost Advisor Set",
+    "className": "Samurai",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Esben the Neurotic"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+25 HP, +3 DEF, +3 DEX, -2 VIT",
+        "stats": {
+          "hp": 25,
+          "def": 3,
+          "dex": 3,
+          "vit": -2
+        }
+      },
+      "three": {
+        "text": "+30 HP, +4 DEF, +4 DEX, -3 VIT",
+        "stats": {
+          "hp": 30,
+          "def": 4,
+          "dex": 4,
+          "vit": -3
+        }
+      },
+      "four": {
+        "text": "+35 HP, +5 DEF, +5 DEX, -4 VIT",
+        "stats": {
+          "hp": 35,
+          "def": 5,
+          "dex": 5,
+          "vit": -4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "iceborn-arsenal",
+        "name": "Iceborn Arsenal",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 100,
+        "summary": "54–100 dmg ×2",
+        "description": "Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "sublimation-sidearm",
+        "name": "Sublimation Sidearm",
+        "slot": "ability",
+        "stats": {
+          "hp": 50
+        },
+        "dungeonId": null,
+        "score": 43,
+        "summary": "+50 HP",
+        "description": "Exposed for 2.8 seconds Ability uses can combo for increased effectiveness 1st attack: 3 shots deal 150-200 damage and applies MP Decrease (-25 MP) to self for 1.6 seconds 2nd attack: 4 shots deal 250-300 damage and applies WIS Decrease (-5 WIS) to self for 1."
+      },
+      {
+        "slug": "retainer-s-battlesuit",
+        "name": "Retainer's Battlesuit",
+        "slot": "armor",
+        "stats": {
+          "def": 16,
+          "dex": 7,
+          "vit": -6
+        },
+        "dungeonId": null,
+        "score": 37,
+        "summary": "+16 DEF, +7 DEX, -6 VIT"
+      },
+      {
+        "slug": "legacy-s-pendant",
+        "name": "Legacy's Pendant",
+        "slot": "ring",
+        "stats": {
+          "vit": -6
+        },
+        "dungeonId": null,
+        "score": -6,
+        "summary": "-6 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "valentine-s-day-samurai-set",
+    "name": "Valentine's Day Samurai Set",
+    "className": "Samurai",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +3 ATT, +2 DEX",
+        "stats": {
+          "hp": 20,
+          "att": 3,
+          "dex": 2
+        }
+      },
+      "three": {
+        "text": "+30 HP, +4 ATT, +3 DEX",
+        "stats": {
+          "hp": 30,
+          "att": 4,
+          "dex": 3
+        }
+      },
+      "four": {
+        "text": "+40 HP, +8 ATT, +9 DEX",
+        "stats": {
+          "hp": 40,
+          "att": 8,
+          "dex": 9
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "heartseeker-katana",
+        "name": "Heartseeker Katana",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 0,
+        "summary": "effect item",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "sweetcut-wakizashi",
+        "name": "Sweetcut Wakizashi",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+5 DEF",
+        "description": "Summons chocolate that orbits you for 5 seconds Valentine’s Chocolate: Shoots bursts at nearby enemies inflicting Exposed for 3 seconds, deals 250-300 (275) damage per hit Shots: 8 Total Damage: 2000-2400 (2200) Projectile Speed: 5 tiles/sec Projectile Lifetim"
+      },
+      {
+        "slug": "lovebite-armor",
+        "name": "Lovebite Armor",
+        "slot": "armor",
+        "stats": {
+          "hp": 50,
+          "def": 18,
+          "vit": 10
+        },
+        "dungeonId": null,
+        "score": 59,
+        "summary": "+50 HP, +18 DEF, +10 VIT"
+      },
+      {
+        "slug": "sweetener-ring",
+        "name": "Sweetener Ring",
+        "slot": "ring",
+        "stats": {
+          "hp": 140,
+          "mp": 40
+        },
+        "dungeonId": null,
+        "score": 43,
+        "summary": "+140 HP, +40 MP"
+      }
+    ]
+  },
+  {
+    "slug": "akuma-slayer-set",
+    "name": "Akuma Slayer Set",
+    "className": "Samurai",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "mountain-temple"
+    ],
+    "difficultyTier": 4,
+    "difficultyCategory": "high",
+    "sources": [
+      "Daichi the Fallen",
+      "Old Chest",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+2 DEF, +2 DEX, +4 SPD",
+        "stats": {
+          "def": 2,
+          "dex": 2,
+          "spd": 4
+        }
+      },
+      "three": {
+        "text": "+40 HP, +4 DEF, +4 DEX",
+        "stats": {
+          "hp": 40,
+          "def": 4,
+          "dex": 4
+        }
+      },
+      "four": {
+        "text": "+60 HP, +4 DEF, +6 DEX, +4 VIT",
+        "stats": {
+          "hp": 60,
+          "def": 4,
+          "dex": 6,
+          "vit": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "kazekiri",
+        "name": "Kazekiri",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "mountain-temple",
+        "score": 196,
+        "summary": "105–130 dmg ×2",
+        "description": "Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "ryu-s-blade",
+        "name": "Ryu's Blade",
+        "slot": "ability",
+        "stats": {
+          "dex": 8
+        },
+        "dungeonId": "mountain-temple",
+        "score": 42,
+        "summary": "+8 DEX",
+        "description": "Exposed for 4.5 seconds Shots hit multiple targets Shots pass through obstacles Ignores defense of target Wavy shots"
+      },
+      {
+        "slug": "kamishimo",
+        "name": "Kamishimo",
+        "slot": "armor",
+        "stats": {
+          "def": 16,
+          "hp": 60,
+          "dex": 5
+        },
+        "dungeonId": "mountain-temple",
+        "score": 55,
+        "summary": "+60 HP, +16 DEF, +5 DEX"
+      },
+      {
+        "slug": "akuma-s-tear",
+        "name": "Akuma's Tear",
+        "slot": "ring",
+        "stats": {
+          "hp": 60,
+          "mp": 60,
+          "dex": 4,
+          "spd": 4
+        },
+        "dungeonId": "mountain-temple",
+        "score": 37,
+        "summary": "+60 HP, +60 MP, +4 SPD, +4 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "incubus-sorcerer-set",
+    "name": "Incubus Sorcerer Set",
+    "className": "Sorcerer",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+3 DEF, +2 DEX",
+        "stats": {
+          "def": 3,
+          "dex": 2
+        }
+      },
+      "three": {
+        "text": "+4 DEF, +3 DEX, +5 WIS",
+        "stats": {
+          "def": 4,
+          "dex": 3,
+          "wis": 5
+        }
+      },
+      "four": {
+        "text": "-185 MP, +60 WIS",
+        "stats": {
+          "mp": -185,
+          "wis": 60
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "heartbreaker-wand",
+        "name": "Heartbreaker Wand",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 165,
+        "summary": "65–165 dmg",
+        "description": "Shots hit multiple targets Shots pass through obstacles Shots boomerang"
+      },
+      {
+        "slug": "lovesick-scepter",
+        "name": "Lovesick Scepter",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 16,
+        "summary": "effect item",
+        "description": "On self: WIS Boost (+20 WIS) for 5 seconds; With Full Set: MP Decrease (-50 MP) for 5 seconds"
+      },
+      {
+        "slug": "devilish-robes",
+        "name": "Devilish Robes",
+        "slot": "armor",
+        "stats": {
+          "hp": 30,
+          "def": 12,
+          "dex": 6,
+          "wis": 6,
+          "mp": -50
+        },
+        "dungeonId": null,
+        "score": 37,
+        "summary": "+30 HP, -50 MP, +12 DEF, +6 DEX, +6 WIS"
+      },
+      {
+        "slug": "devil-horn-headband",
+        "name": "Devil Horn Headband",
+        "slot": "ring",
+        "stats": {
+          "hp": 77,
+          "wis": 4,
+          "dex": 4
+        },
+        "dungeonId": null,
+        "score": 29,
+        "summary": "+77 HP, +4 DEX, +4 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "storm-shaman-set",
+    "name": "Storm Shaman Set",
+    "className": "Sorcerer",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Malus"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+10 HP, +50 MP, +4 SPD, +5 WIS",
+        "stats": {
+          "hp": 10,
+          "mp": 50,
+          "spd": 4,
+          "wis": 5
+        }
+      },
+      "three": {
+        "text": "+20 HP, +50 MP, +6 SPD, +10 WIS",
+        "stats": {
+          "hp": 20,
+          "mp": 50,
+          "spd": 6,
+          "wis": 10
+        }
+      },
+      "four": {
+        "text": "+30 HP, +50 MP, +10 SPD, +15 WIS",
+        "stats": {
+          "hp": 30,
+          "mp": 50,
+          "spd": 10,
+          "wis": 15
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "lightning-wand",
+        "name": "Lightning Wand",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 444,
+        "summary": "44–444 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "totem-scepter",
+        "name": "Totem Scepter",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 13,
+        "summary": "effect item",
+        "description": "Totems: deals 80-160 damage and Paralyzed enemies for 0.3 seconds in a 5 tile area. with 2 pieces: 100-200 damage with 3 pieces: 120-240 damage with 4 pieces: 140-280 damage Lifetime: 10 seconds Cooldown: 0.3 seconds"
+      },
+      {
+        "slug": "thunderstorm-tunic",
+        "name": "Thunderstorm Tunic",
+        "slot": "armor",
+        "stats": {
+          "mp": 30,
+          "def": 13,
+          "att": 5,
+          "spd": 5
+        },
+        "dungeonId": null,
+        "score": 47,
+        "summary": "+30 MP, +5 ATT, +13 DEF, +5 SPD"
+      },
+      {
+        "slug": "bolt-in-a-bottle",
+        "name": "Bolt in a Bottle",
+        "slot": "ring",
+        "stats": {
+          "mp": 30,
+          "def": 6,
+          "spd": 4
+        },
+        "dungeonId": null,
+        "score": 22,
+        "summary": "+30 MP, +6 DEF, +4 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "court-magician-sorcerer-set",
+    "name": "Court Magician Sorcerer Set",
+    "className": "Sorcerer",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "puppet-masters-theatre"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "The Puppet Master",
+      "The Puppet Master (Encore)",
+      "Oryx Puppet",
+      "Theatre Puppets",
+      "Encore Puppets",
+      "Mighty Quest Chest",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+3 DEF, +2 DEX",
+        "stats": {
+          "def": 3,
+          "dex": 2
+        }
+      },
+      "three": {
+        "text": "+4 DEF, +3 DEX, +5 WIS",
+        "stats": {
+          "def": 4,
+          "dex": 3,
+          "wis": 5
+        }
+      },
+      "four": {
+        "text": "-185 MP, +60 WIS",
+        "stats": {
+          "mp": -185,
+          "wis": 60
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "puppet-masters-theatre",
+        "score": 165,
+        "summary": "65–165 dmg",
+        "description": "Shots hit multiple targets Shots pass through obstacles Shots boomerang"
+      },
+      {
+        "slug": "lightshow-scepter",
+        "name": "Lightshow Scepter",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "puppet-masters-theatre",
+        "score": 16,
+        "summary": "effect item",
+        "description": "On self: WIS Boost (+20 WIS) for 5 seconds; With Full Set: MP Decrease (-50 MP) for 5 seconds"
+      },
+      {
+        "slug": "magician-s-robe",
+        "name": "Magician's Robe",
+        "slot": "armor",
+        "stats": {
+          "hp": 30,
+          "def": 12,
+          "dex": 6,
+          "wis": 6,
+          "mp": -50
+        },
+        "dungeonId": "puppet-masters-theatre",
+        "score": 37,
+        "summary": "+30 HP, -50 MP, +12 DEF, +6 DEX, +6 WIS"
+      },
+      {
+        "slug": "performer-s-hat",
+        "name": "Performer's Hat",
+        "slot": "ring",
+        "stats": {
+          "hp": 77,
+          "wis": 4,
+          "dex": 4
+        },
+        "dungeonId": "puppet-masters-theatre",
+        "score": 29,
+        "summary": "+77 HP, +4 DEX, +4 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "horrific-sorcerer-set",
+    "name": "Horrific Sorcerer Set",
+    "className": "Sorcerer",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "mad-lab"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "Horrific Creation",
+      "Dr. Terrible",
+      "Crusher Abomination",
+      "Escaped Experiment",
+      "Mighty Quest Chest",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+3 DEF, +3 SPD, +3 WIS",
+        "stats": {
+          "def": 3,
+          "spd": 3,
+          "wis": 3
+        }
+      },
+      "three": {
+        "text": "+4 ATT, +5 DEF, +4 WIS",
+        "stats": {
+          "att": 4,
+          "def": 5,
+          "wis": 4
+        }
+      },
+      "four": {
+        "text": "+40 HP, +10 DEF, +10 SPD",
+        "stats": {
+          "hp": 40,
+          "def": 10,
+          "spd": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "abomination-s-wrath",
+        "name": "Abomination's Wrath",
+        "slot": "weapon",
+        "stats": {
+          "spd": 4
+        },
+        "dungeonId": "mad-lab",
+        "score": 202,
+        "summary": "300–335 dmg"
+      },
+      {
+        "slug": "grotesque-scepter",
+        "name": "Grotesque Scepter",
+        "slot": "ability",
+        "stats": {
+          "spd": 4
+        },
+        "dungeonId": "mad-lab",
+        "score": 12,
+        "summary": "+4 SPD",
+        "description": "On self: Inflicts Hexed for 1 second; Dazed for 1 second"
+      },
+      {
+        "slug": "garment-of-the-beast",
+        "name": "Garment of the Beast",
+        "slot": "armor",
+        "stats": {
+          "def": 10,
+          "hp": 50,
+          "spd": 5,
+          "att": 4,
+          "wis": 5
+        },
+        "dungeonId": "mad-lab",
+        "score": 51,
+        "summary": "+50 HP, +4 ATT, +10 DEF, +5 SPD, +5 WIS"
+      },
+      {
+        "slug": "horrific-claws",
+        "name": "Horrific Claws",
+        "slot": "ring",
+        "stats": {
+          "hp": 60,
+          "mp": 60,
+          "att": 3,
+          "spd": 5
+        },
+        "dungeonId": "mad-lab",
+        "score": 38,
+        "summary": "+60 HP, +60 MP, +3 ATT, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "chocolate-bunny-summoner-set",
+    "name": "Chocolate Bunny Summoner Set",
+    "className": "Summoner",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +6 VIT, +2 ATT",
+        "stats": {
+          "hp": 30,
+          "vit": 6,
+          "att": 2
+        }
+      },
+      "three": {
+        "text": "+40 HP, +20 MP, +4 DEF, +3 ATT",
+        "stats": {
+          "hp": 40,
+          "mp": 20,
+          "def": 4,
+          "att": 3
+        }
+      },
+      "four": {
+        "text": "+60 HP, +40 MP, +10 ATT",
+        "stats": {
+          "hp": 60,
+          "mp": 40,
+          "att": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "sweet-desire-wand",
+        "name": "Sweet Desire Wand",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 405,
+        "summary": "125–145 dmg ×3",
+        "description": "Circle Turn Angle: 90 Circle Turn Delay: .333 seconds Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "chocolate-egg-mace",
+        "name": "Chocolate Egg Mace",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 18,
+        "summary": "+5 DEF",
+        "description": "Reflect attack: Summons only shoot when they are hit. Shots hit multiple targets Shots pass through obstacles Ignores defense of target"
+      },
+      {
+        "slug": "chocolate-glazed-robe",
+        "name": "Chocolate Glazed Robe",
+        "slot": "armor",
+        "stats": {
+          "def": 20,
+          "dex": -5,
+          "vit": 4
+        },
+        "dungeonId": null,
+        "score": 37,
+        "summary": "+20 DEF, -5 DEX, +4 VIT"
+      },
+      {
+        "slug": "chocolate-bunny-ears",
+        "name": "Chocolate Bunny Ears",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "mp": 40,
+          "def": 4
+        },
+        "dungeonId": null,
+        "score": 36,
+        "summary": "+80 HP, +40 MP, +4 DEF",
+        "description": "Sweet Hop: Increases Chocolate Egg Mace summon damage to 800-1200, health to 2000, and defense to 30."
+      }
+    ]
+  },
+  {
+    "slug": "ghostly-banshee-summoner-set",
+    "name": "Ghostly Banshee Summoner Set",
+    "className": "Summoner",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +2 ATT, +2 VIT",
+        "stats": {
+          "hp": 20,
+          "att": 2,
+          "vit": 2
+        }
+      },
+      "three": {
+        "text": "+30 HP, +5 ATT, +3 DEF",
+        "stats": {
+          "hp": 30,
+          "att": 5,
+          "def": 3
+        }
+      },
+      "four": {
+        "text": "+60 HP, +60 MP, +8 ATT, +2 DEF, +3 VIT",
+        "stats": {
+          "hp": 60,
+          "mp": 60,
+          "att": 8,
+          "def": 2,
+          "vit": 3
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "tormented-shriek",
+        "name": "Tormented Shriek",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 285,
+        "summary": "80–110 dmg ×3",
+        "description": "Burst: Fires a burst of shots, with the delay between bursts decreasing with your DEX and status effects Burst Count: 5 Burst Delay: 2 seconds Minimum Burst Delay: 1 second"
+      },
+      {
+        "slug": "ghastly-mace",
+        "name": "Ghastly Mace",
+        "slot": "ability",
+        "stats": {
+          "att": 5
+        },
+        "dungeonId": null,
+        "score": 23,
+        "summary": "+5 ATT",
+        "description": "Unbearable Presence: The Terrible Specter, unbound from its world, becomes unstable after 5 seconds. Unbearable Presence: Shoots 3 paralyzing shots thrice, then explodes for 1250 damage in 4.5 squares. Shots hit multiple targets"
+      },
+      {
+        "slug": "lacerated-gown",
+        "name": "Lacerated Gown",
+        "slot": "armor",
+        "stats": {
+          "att": 5,
+          "def": 12,
+          "spd": 5,
+          "vit": 10
+        },
+        "dungeonId": null,
+        "score": 49,
+        "summary": "+5 ATT, +12 DEF, +5 SPD, +10 VIT"
+      },
+      {
+        "slug": "unresolved-grudge",
+        "name": "Unresolved Grudge",
+        "slot": "ring",
+        "stats": {
+          "hp": 50,
+          "def": 8,
+          "spd": 5
+        },
+        "dungeonId": null,
+        "score": 34,
+        "summary": "+50 HP, +8 DEF, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "scientific-summoner-set",
+    "name": "Scientific Summoner Set",
+    "className": "Summoner",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "mad-lab"
+    ],
+    "difficultyTier": 2,
+    "difficultyCategory": "low",
+    "sources": [
+      "F.E.R.A.L.",
+      "A.E.G.I.S.",
+      "Mighty Quest Chest",
+      "Standard Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +2 ATT, +2 VIT",
+        "stats": {
+          "hp": 20,
+          "att": 2,
+          "vit": 2
+        }
+      },
+      "three": {
+        "text": "+30 HP, +5 ATT, +3 DEF",
+        "stats": {
+          "hp": 30,
+          "att": 5,
+          "def": 3
+        }
+      },
+      "four": {
+        "text": "+60 HP, +60 MP, +8 ATT, +2 DEF, +3 VIT",
+        "stats": {
+          "hp": 60,
+          "mp": 60,
+          "att": 8,
+          "def": 2,
+          "vit": 3
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "c-l-a-w",
+        "name": "C.L.A.W.",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 285,
+        "summary": "80–110 dmg ×3",
+        "description": "Burst: Fires a burst of shots, with the delay between bursts decreasing with your DEX and status effects Burst Count: 5 Burst Delay: 2 seconds Minimum Burst Delay: 1 second Shots hit multiple targets"
+      },
+      {
+        "slug": "b-o-o-m",
+        "name": "B.O.O.M.",
+        "slot": "ability",
+        "stats": {
+          "att": 5
+        },
+        "dungeonId": null,
+        "score": 23,
+        "summary": "+5 ATT",
+        "description": "Early Prototype: The M.E.R.V. becomes unstable after 5 seconds. Unstable M.E.R.V: Shoots 3 paralyzing shots thrice, then explodes for 1250 damage in 4.5 squares. Shots hit multiple targets"
+      },
+      {
+        "slug": "a-r-m-o-r",
+        "name": "A.R.M.O.R.",
+        "slot": "armor",
+        "stats": {
+          "att": 5,
+          "def": 12,
+          "spd": 5,
+          "vit": 10
+        },
+        "dungeonId": null,
+        "score": 49,
+        "summary": "+5 ATT, +12 DEF, +5 SPD, +10 VIT"
+      },
+      {
+        "slug": "c-o-n-t-r-o-l-l-e-r",
+        "name": "C.O.N.T.R.O.L.L.E.R.",
+        "slot": "ring",
+        "stats": {
+          "hp": 50,
+          "def": 8,
+          "spd": 5
+        },
+        "dungeonId": "mad-lab",
+        "score": 34,
+        "summary": "+50 HP, +8 DEF, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "earthen-bulwark-summoner-set",
+    "name": "Earthen Bulwark Summoner Set",
+    "className": "Summoner",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "lair-of-draconis"
+    ],
+    "difficultyTier": 3,
+    "difficultyCategory": "mid",
+    "sources": [
+      "Limoz the Viridian Dragon",
+      "Standard Quest Chest",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +6 VIT, +2 ATT",
+        "stats": {
+          "hp": 30,
+          "vit": 6,
+          "att": 2
+        }
+      },
+      "three": {
+        "text": "+40 HP, +20 MP, +4 DEF, +3 ATT",
+        "stats": {
+          "hp": 40,
+          "mp": 20,
+          "def": 4,
+          "att": 3
+        }
+      },
+      "four": {
+        "text": "+60 HP, +40 MP, +10 ATT",
+        "stats": {
+          "hp": 60,
+          "mp": 40,
+          "att": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "earthen-ward",
+        "name": "Earthen Ward",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "lair-of-draconis",
+        "score": 405,
+        "summary": "125–145 dmg ×3",
+        "description": "Circle Turn Angle: 90 Circle Turn Delay: .333 seconds Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "stonemould-mace",
+        "name": "Stonemould Mace",
+        "slot": "ability",
+        "stats": {
+          "def": 5
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 18,
+        "summary": "+5 DEF",
+        "description": "Reflect attack: Summons only shoot when they are hit. Shots hit multiple targets Shots pass through obstacles Ignores defense of target"
+      },
+      {
+        "slug": "rocky-robe",
+        "name": "Rocky Robe",
+        "slot": "armor",
+        "stats": {
+          "def": 20,
+          "dex": -5,
+          "vit": 4
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 37,
+        "summary": "+20 DEF, -5 DEX, +4 VIT"
+      },
+      {
+        "slug": "steadfast-glyph",
+        "name": "Steadfast Glyph",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "mp": 40,
+          "def": 4
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 36,
+        "summary": "+80 HP, +40 MP, +4 DEF",
+        "description": "Runic Stone: Increases Stonemould Mace summon damage to 800-1200, health to 2000, and defense to 30."
+      }
+    ]
+  },
+  {
+    "slug": "scarecrow-trickster-set",
+    "name": "Scarecrow Trickster Set",
+    "className": "Trickster",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+3 DEF, +15 VIT",
+        "stats": {
+          "def": 3,
+          "vit": 15
+        }
+      },
+      "three": {
+        "text": "+5 ATT, +5 DEX",
+        "stats": {
+          "att": 5,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+80 HP, +5 ATT, +5 DEF, +5 DEX",
+        "stats": {
+          "hp": 80,
+          "att": 5,
+          "def": 5,
+          "dex": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "maize-machete",
+        "name": "Maize Machete",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 170,
+        "summary": "155–170 dmg"
+      },
+      {
+        "slug": "pumpkin-prism",
+        "name": "Pumpkin Prism",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 18,
+        "summary": "effect item",
+        "description": "No teleport; summons a stationary scarecrow decoy that explodes at the end of its duration Explosion: Inflicts Dazed for 2 seconds on enemies within 1.75 tiles; 0 damage"
+      },
+      {
+        "slug": "withered-poncho",
+        "name": "Withered Poncho",
+        "slot": "armor",
+        "stats": {
+          "def": 15,
+          "att": 8,
+          "vit": 7
+        },
+        "dungeonId": null,
+        "score": 53,
+        "summary": "+8 ATT, +15 DEF, +7 VIT"
+      },
+      {
+        "slug": "burlap-hat",
+        "name": "Burlap Hat",
+        "slot": "ring",
+        "stats": {
+          "hp": 70,
+          "def": 5,
+          "spd": 5
+        },
+        "dungeonId": null,
+        "score": 33,
+        "summary": "+70 HP, +5 DEF, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "spellbound-soulthief-set",
+    "name": "Spellbound Soulthief Set",
+    "className": "Trickster",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Soulwarden Murcian"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +4 DEF, +5 DEX",
+        "stats": {
+          "hp": 30,
+          "def": 4,
+          "dex": 5
+        }
+      },
+      "three": {
+        "text": "+40 HP, +5 DEF, +7 DEX",
+        "stats": {
+          "hp": 40,
+          "def": 5,
+          "dex": 7
+        }
+      },
+      "four": {
+        "text": "+50 HP, +5 DEF, +9 DEX",
+        "stats": {
+          "hp": 50,
+          "def": 5,
+          "dex": 9
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "blade-of-fates",
+        "name": "Blade of Fates",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 500,
+        "summary": "180–500 dmg ×2",
+        "description": "Shots pass through obstacles"
+      },
+      {
+        "slug": "accursed-memory",
+        "name": "Accursed Memory",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 34,
+        "summary": "effect item",
+        "description": "Ether Purge: Teleport to cursor, Deal 1000 damage to enemies within 5 tiles. Soul Drain: Heal 75 hit points for each enemy hit. 3+ Hits: Gain Armored for 6 seconds."
+      },
+      {
+        "slug": "gravetender-s-vest",
+        "name": "Gravetender's Vest",
+        "slot": "armor",
+        "stats": {
+          "spd": -5
+        },
+        "dungeonId": null,
+        "score": -5,
+        "summary": "-5 SPD"
+      },
+      {
+        "slug": "jewel-of-vengeance",
+        "name": "Jewel of Vengeance",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "dex": 7
+        },
+        "dungeonId": null,
+        "score": 31,
+        "summary": "+80 HP, +7 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "daeva-trickster-set",
+    "name": "Daeva Trickster Set",
+    "className": "Trickster",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "the-shatters"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Tablet of the Monarchy"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +20 MP, +5 VIT, +5 WIS",
+        "stats": {
+          "hp": 20,
+          "mp": 20,
+          "vit": 5,
+          "wis": 5
+        }
+      },
+      "three": {
+        "text": "+20 HP, +20 MP, +2 ATT, +2 DEF",
+        "stats": {
+          "hp": 20,
+          "mp": 20,
+          "att": 2,
+          "def": 2
+        }
+      },
+      "four": {
+        "text": "+30 HP, +30 MP, +3 ATT, +3 DEF",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "att": 3,
+          "def": 3
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "archangel-s-judgement",
+        "name": "Archangel's Judgement",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "the-shatters",
+        "score": 75,
+        "summary": "60–75 dmg ×4"
+      },
+      {
+        "slug": "daevite-progenitor",
+        "name": "Daevite Progenitor",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "the-shatters",
+        "score": 18,
+        "summary": "effect item",
+        "description": "Divine Blessing: Each piece of the set provides a unique attribute to the DecoyWhen worn with weapon: 150% Decoy DamageWhen worn with armor: 150% Decoy RangeWhen worn with ring: 150% Decoy Duration Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "seraphim-s-guard",
+        "name": "Seraphim's Guard",
+        "slot": "armor",
+        "stats": {
+          "mp": 50,
+          "def": 16,
+          "vit": 7,
+          "wis": 7
+        },
+        "dungeonId": "the-shatters",
+        "score": 56,
+        "summary": "+50 MP, +16 DEF, +7 VIT, +7 WIS"
+      },
+      {
+        "slug": "flames-of-genesis",
+        "name": "Flames of Genesis",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "vit": 8
+        },
+        "dungeonId": "the-shatters",
+        "score": 28,
+        "summary": "+80 HP, +8 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "lost-golem-set",
+    "name": "Lost Golem Set",
+    "className": "Trickster",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "lost-halls"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Agonized Titan",
+      "Marble Defender",
+      "Tormented Golem",
+      "Golem of Anger",
+      "Golem of Fear",
+      "Golem of Sorrow",
+      "Marble Epic Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+3 DEF, +15 VIT",
+        "stats": {
+          "def": 3,
+          "vit": 15
+        }
+      },
+      "three": {
+        "text": "+5 ATT, +5 DEX",
+        "stats": {
+          "att": 5,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+80 HP, +5 ATT, +5 DEF, +5 DEX",
+        "stats": {
+          "hp": 80,
+          "att": 5,
+          "def": 5,
+          "dex": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "carved-golem-remains",
+        "name": "Carved Golem Remains",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "lost-halls",
+        "score": 141,
+        "summary": "155–170 dmg"
+      },
+      {
+        "slug": "brain-of-the-golem",
+        "name": "Brain of the Golem",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "lost-halls",
+        "score": 18,
+        "summary": "effect item",
+        "description": "No teleport; summons a stationary golem decoy that explodes at the end of its duration Explosion: Dazed for 2 seconds on enemies within 1.75 tiles; 0 damage"
+      },
+      {
+        "slug": "golem-garments",
+        "name": "Golem Garments",
+        "slot": "armor",
+        "stats": {
+          "def": 15,
+          "att": 8,
+          "vit": 7
+        },
+        "dungeonId": "lost-halls",
+        "score": 53,
+        "summary": "+8 ATT, +15 DEF, +7 VIT"
+      },
+      {
+        "slug": "rusty-cuffs",
+        "name": "Rusty Cuffs",
+        "slot": "ring",
+        "stats": {
+          "hp": 70,
+          "def": 5,
+          "spd": 5
+        },
+        "dungeonId": "lost-halls",
+        "score": 33,
+        "summary": "+70 HP, +5 DEF, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "killbilly-warrior-set",
+    "name": "Killbilly Warrior Set",
+    "className": "Warrior",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Killer Bee Queen"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+25 HP, +4 DEX, +2 DEF",
+        "stats": {
+          "hp": 25,
+          "dex": 4,
+          "def": 2
+        }
+      },
+      "three": {
+        "text": "+40 HP, +6 DEX, +4 DEF",
+        "stats": {
+          "hp": 40,
+          "dex": 6,
+          "def": 4
+        }
+      },
+      "four": {
+        "text": "+75 HP, +4 SPD, +15 DEX, +6 DEF",
+        "stats": {
+          "hp": 75,
+          "spd": 4,
+          "dex": 15,
+          "def": 6
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "jagged-hatchet",
+        "name": "Jagged Hatchet",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 200,
+        "summary": "175–200 dmg",
+        "description": "Bleeding on enemies for 3 seconds. (Bleed Damage: 85)"
+      },
+      {
+        "slug": "burlap-cowl",
+        "name": "Burlap Cowl",
+        "slot": "ability",
+        "stats": {
+          "def": 8,
+          "dex": 4
+        },
+        "dungeonId": null,
+        "score": 48,
+        "summary": "+8 DEF, +4 DEX",
+        "description": "On party: Berserk for 5 (+0.1 per WIS over 30) seconds On self: DEX Boost (+8 DEX) for 3 seconds On self: SPD Boost (+4 SPD) for 3 seconds On self: Bleeding for 3 seconds (Bleed Damage: 20)"
+      },
+      {
+        "slug": "overalls-of-endurance",
+        "name": "Overalls of Endurance",
+        "slot": "armor",
+        "stats": {
+          "hp": 40,
+          "def": 14,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 46,
+        "summary": "+40 HP, +14 DEF, +5 DEX"
+      },
+      {
+        "slug": "headless-ted",
+        "name": "Headless Ted",
+        "slot": "ring",
+        "stats": {
+          "hp": 90,
+          "dex": 6,
+          "spd": 4
+        },
+        "dungeonId": null,
+        "score": 36,
+        "summary": "+90 HP, +4 SPD, +6 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "lycan-warrior-set",
+    "name": "Lycan Warrior Set",
+    "className": "Warrior",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +30 MP, +5 ATT, -2 DEX",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "att": 5,
+          "dex": -2
+        }
+      },
+      "three": {
+        "text": "+50 HP, +50 MP, +10 ATT, -3 DEX",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 10,
+          "dex": -3
+        }
+      },
+      "four": {
+        "text": "+80 HP, +80 MP, +15 ATT, -5 SPD, -8 DEX",
+        "stats": {
+          "hp": 80,
+          "mp": 80,
+          "att": 15,
+          "spd": -5,
+          "dex": -8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "savage-claws",
+        "name": "Savage Claws",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 280,
+        "summary": "275–280 dmg",
+        "description": "Wavy shots"
+      },
+      {
+        "slug": "beastly-mane",
+        "name": "Beastly Mane",
+        "slot": "ability",
+        "stats": {
+          "def": 7
+        },
+        "dungeonId": null,
+        "score": 32,
+        "summary": "+7 DEF",
+        "description": "On party: Berserk for 4 (+0.1 per WIS over 30) seconds Shoot Moon Blast: Damage: 1000 Projectile Speed: 7 tiles/second Lifetime: 1 seconds Range: 7 tiles Hitbox Size: 2 Shots hit multiple targets"
+      },
+      {
+        "slug": "ragetorn-armor",
+        "name": "Ragetorn Armor",
+        "slot": "armor",
+        "stats": {
+          "def": 19,
+          "vit": 6,
+          "spd": 3,
+          "dex": -2,
+          "att": 8
+        },
+        "dungeonId": null,
+        "score": 60,
+        "summary": "+8 ATT, +19 DEF, +3 SPD, -2 DEX, +6 VIT"
+      },
+      {
+        "slug": "moonstone-ring",
+        "name": "Moonstone Ring",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "att": 12,
+          "dex": -5
+        },
+        "dungeonId": null,
+        "score": 37,
+        "summary": "+80 HP, +12 ATT, -5 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "pirate-king-warrior-set",
+    "name": "Pirate King Warrior Set",
+    "className": "Warrior",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Jon Bilgewater the Pirate King",
+      "Calamity Crab",
+      "Commotion Crab",
+      "Bilgewater’s Booty",
+      "Deadwater Admiral",
+      "Deadwater Captain",
+      "Deadwater Lieutenant",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +30 MP, +5 ATT, -2 DEX",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "att": 5,
+          "dex": -2
+        }
+      },
+      "three": {
+        "text": "+50 HP, +50 MP, +10 ATT, -3 DEX",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 10,
+          "dex": -3
+        }
+      },
+      "four": {
+        "text": "+80 HP, +80 MP, +15 ATT, -5 SPD, -8 DEX",
+        "stats": {
+          "hp": 80,
+          "mp": 80,
+          "att": 15,
+          "spd": -5,
+          "dex": -8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "swashbuckler-s-sickle",
+        "name": "Swashbuckler's Sickle",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 280,
+        "summary": "275–280 dmg",
+        "description": "Wavy shots"
+      },
+      {
+        "slug": "tricorne-of-the-high-seas",
+        "name": "Tricorne of the High Seas",
+        "slot": "ability",
+        "stats": {
+          "def": 7
+        },
+        "dungeonId": null,
+        "score": 32,
+        "summary": "+7 DEF",
+        "description": "On party: Berserk for 4 (+0.1 per WIS over 30) seconds Shoot Cannonball: Damage: 1000 Projectile Speed: 7 tiles/second Lifetime: 1 seconds Range: 7 tiles Hitbox Size: 2 Shots hit multiple targets"
+      },
+      {
+        "slug": "naval-uniform",
+        "name": "Naval Uniform",
+        "slot": "armor",
+        "stats": {
+          "def": 19,
+          "vit": 6,
+          "spd": 3,
+          "dex": -2,
+          "att": 8
+        },
+        "dungeonId": null,
+        "score": 60,
+        "summary": "+8 ATT, +19 DEF, +3 SPD, -2 DEX, +6 VIT"
+      },
+      {
+        "slug": "first-mate-s-hook",
+        "name": "First Mate's Hook",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "att": 12,
+          "dex": -5
+        },
+        "dungeonId": null,
+        "score": 37,
+        "summary": "+80 HP, +12 ATT, -5 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "dragon-tamer-set",
+    "name": "Dragon Tamer Set",
+    "className": "Warrior",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "lair-of-draconis"
+    ],
+    "difficultyTier": 3,
+    "difficultyCategory": "mid",
+    "sources": [
+      "Pyyr the Crimson Dragon",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+5 ATT, +10 SPD",
+        "stats": {
+          "att": 5,
+          "spd": 10
+        }
+      },
+      "three": {
+        "text": "+30 HP, +30 MP, +5 DEF, +5 DEX",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "def": 5,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+55 HP, +50 MP, +5 ATT, +5 SPD, +5 DEX",
+        "stats": {
+          "hp": 55,
+          "mp": 50,
+          "att": 5,
+          "spd": 5,
+          "dex": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "indomptable",
+        "name": "Indomptable",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "lair-of-draconis",
+        "score": 108,
+        "summary": "550–600 dmg",
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "helm-of-draconic-dominance",
+        "name": "Helm of Draconic Dominance",
+        "slot": "ability",
+        "stats": {
+          "def": 10,
+          "spd": 5
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 43,
+        "summary": "+10 DEF, +5 SPD",
+        "description": "On self: HP Boost (+150 HP) for 6 secondsOn self: Berserk for 2 (+0.1 per WIS over 30) secondsShoots 3 fireballsHitbox Size: 1.5 Shots hit multiple targets"
+      },
+      {
+        "slug": "zaarvox-s-heart",
+        "name": "Zaarvox's Heart",
+        "slot": "armor",
+        "stats": {
+          "def": 17,
+          "spd": 8
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 42,
+        "summary": "+17 DEF, +8 SPD"
+      },
+      {
+        "slug": "amulet-of-drakefyre",
+        "name": "Amulet of Drakefyre",
+        "slot": "ring",
+        "stats": {
+          "hp": 115,
+          "spd": 5
+        },
+        "dungeonId": "lair-of-draconis",
+        "score": 34,
+        "summary": "+115 HP, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "kogbold-pyrotechnician-wizard-set",
+    "name": "Kogbold Pyrotechnician Wizard Set",
+    "className": "Wizard",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Kogbold Flying Machine"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+15 HP, +10 MP, +3 DEX, +1 DEF",
+        "stats": {
+          "hp": 15,
+          "mp": 10,
+          "dex": 3,
+          "def": 1
+        }
+      },
+      "three": {
+        "text": "+25 HP, +20 MP, +5 DEX, +2 DEF",
+        "stats": {
+          "hp": 25,
+          "mp": 20,
+          "dex": 5,
+          "def": 2
+        }
+      },
+      "four": {
+        "text": "+50 HP, +30 MP, +8 DEX, +3 DEF",
+        "stats": {
+          "hp": 50,
+          "mp": 30,
+          "dex": 8,
+          "def": 3
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "rocket-launcher",
+        "name": "Rocket Launcher",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 95,
+        "summary": "80–95 dmg ×2",
+        "description": "Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "unstable-firework",
+        "name": "Unstable Firework",
+        "slot": "ability",
+        "stats": {
+          "dex": 3
+        },
+        "dungeonId": null,
+        "score": 13,
+        "summary": "+3 DEX",
+        "description": "Piercing Barrage: Shoots centered novas of 8 Ignores defense of target projectiles. Blasting Barrage: Tosses randomized novas of 8 Shots hit multiple targets projectiles. Barrages: 6"
+      },
+      {
+        "slug": "blast-proof-robes",
+        "name": "Blast Proof Robes",
+        "slot": "armor",
+        "stats": {
+          "hp": 70,
+          "def": 10,
+          "dex": 2
+        },
+        "dungeonId": null,
+        "score": 41,
+        "summary": "+70 HP, +10 DEF, +2 DEX"
+      },
+      {
+        "slug": "lucky-grenade",
+        "name": "Lucky Grenade",
+        "slot": "ring",
+        "stats": {
+          "hp": 75,
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 26,
+        "summary": "+75 HP, +5 DEX",
+        "description": "High Explosive: When placing an Unstable Firework, releases a cone of bullets towards the mouse pointer. Bullets deal 150-175 damage. 1 second cooldown."
+      }
+    ]
+  },
+  {
+    "slug": "paranormal-wizard-set",
+    "name": "Paranormal Wizard Set",
+    "className": "Wizard",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "The Shatters"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+15 HP, +15 MP, +3 DEF",
+        "stats": {
+          "hp": 15,
+          "mp": 15,
+          "def": 3
+        }
+      },
+      "three": {
+        "text": "+15 HP, +15 MP, +3 DEF",
+        "stats": {
+          "hp": 15,
+          "mp": 15,
+          "def": 3
+        }
+      },
+      "four": {
+        "text": "+15 HP, +15 MP, +3 DEF",
+        "stats": {
+          "hp": 15,
+          "mp": 15,
+          "def": 3
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "supernatural-staff",
+        "name": "Supernatural Staff",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 210,
+        "summary": "175–210 dmg"
+      },
+      {
+        "slug": "spectral-spell",
+        "name": "Spectral Spell",
+        "slot": "ability",
+        "stats": {
+          "mp": 20,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 26,
+        "summary": "+20 MP, +5 VIT",
+        "description": "With Phantom Pendant: Summons Animated Staff for 4.8 seconds that deals 130-150 armor piercing damage Summons Spectral Skull for 4.8 seconds that deals 90-100 damage and inflicts Slowed for 3 seconds Cooldown: 5.8 seconds Ignores defense of target"
+      },
+      {
+        "slug": "immortal-mantle",
+        "name": "Immortal Mantle",
+        "slot": "armor",
+        "stats": {
+          "hp": 60,
+          "mp": 50,
+          "def": 10,
+          "spd": 5
+        },
+        "dungeonId": null,
+        "score": 50,
+        "summary": "+60 HP, +50 MP, +10 DEF, +5 SPD"
+      },
+      {
+        "slug": "phantom-pendant",
+        "name": "Phantom Pendant",
+        "slot": "ring",
+        "stats": {
+          "hp": 60,
+          "mp": 20,
+          "def": 5,
+          "spd": 5
+        },
+        "dungeonId": null,
+        "score": 34,
+        "summary": "+60 HP, +20 MP, +5 DEF, +5 SPD",
+        "description": "Wearing Spectral Spell along with this ring allows you to summon Animated Staff and Spectral Skull for 4.8 seconds. Cooldown: 5.8 seconds"
+      }
+    ]
+  },
+  {
+    "slug": "undersea-phantom-wizard-set",
+    "name": "Undersea Phantom Wizard Set",
+    "className": "Wizard",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +2 DEF, +2 SPD",
+        "stats": {
+          "hp": 20,
+          "def": 2,
+          "spd": 2
+        }
+      },
+      "three": {
+        "text": "+30 HP, +4 DEF, +3 SPD",
+        "stats": {
+          "hp": 30,
+          "def": 4,
+          "spd": 3
+        }
+      },
+      "four": {
+        "text": "+40 HP, +10 ATT, +6 DEF, +4 SPD",
+        "stats": {
+          "hp": 40,
+          "att": 10,
+          "def": 6,
+          "spd": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "cursed-harpoon",
+        "name": "Cursed Harpoon",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 315,
+        "summary": "85–125 dmg ×3"
+      },
+      {
+        "slug": "depth-charge",
+        "name": "Depth Charge",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 0,
+        "summary": "effect item",
+        "description": "SPD Boost (+25 SPD) for 3 secondsDamage Nova: explodes 2 (+1 per 25 SPD over 42) times every 0.4 seconds for 5 (+1 per 10 SPD over 42) seconds."
+      },
+      {
+        "slug": "phosphorescent-rags",
+        "name": "Phosphorescent Rags",
+        "slot": "armor",
+        "stats": {
+          "hp": 55,
+          "def": 8,
+          "spd": 8
+        },
+        "dungeonId": null,
+        "score": 38,
+        "summary": "+55 HP, +8 DEF, +8 SPD"
+      },
+      {
+        "slug": "diving-weights",
+        "name": "Diving Weights",
+        "slot": "ring",
+        "stats": {
+          "hp": 55,
+          "spd": 8
+        },
+        "dungeonId": null,
+        "score": 22,
+        "summary": "+55 HP, +8 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "slurp-scion-wizard-set",
+    "name": "Slurp Scion Wizard Set",
+    "className": "Wizard",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "ocean-trench"
+    ],
+    "difficultyTier": 3,
+    "difficultyCategory": "mid",
+    "sources": [
+      "Thessal the Mermaid Goddess",
+      "Coral Gift",
+      "Fishman Warrior",
+      "Giant Squid",
+      "Sea Mare",
+      "Sea Slurp Home",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+20 HP, +2 DEF, +2 SPD",
+        "stats": {
+          "hp": 20,
+          "def": 2,
+          "spd": 2
+        }
+      },
+      "three": {
+        "text": "+30 HP, +4 DEF, +3 SPD",
+        "stats": {
+          "hp": 30,
+          "def": 4,
+          "spd": 3
+        }
+      },
+      "four": {
+        "text": "+40 HP, +10 ATT, +6 DEF, +4 SPD",
+        "stats": {
+          "hp": 40,
+          "att": 10,
+          "def": 6,
+          "spd": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "tideturner-trident",
+        "name": "Tideturner Trident",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "ocean-trench",
+        "score": 315,
+        "summary": "85–125 dmg ×3"
+      },
+      {
+        "slug": "slurpian-sea-scroll",
+        "name": "Slurpian Sea Scroll",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": "ocean-trench",
+        "score": 0,
+        "summary": "effect item",
+        "description": "SPD Boost (+25 SPD) for 3 secondsDamage Nova: explodes 2 (+1 per 25 SPD over 42) times, once every 0.4 seconds."
+      },
+      {
+        "slug": "oceanic-apparel",
+        "name": "Oceanic Apparel",
+        "slot": "armor",
+        "stats": {
+          "hp": 55,
+          "def": 8,
+          "spd": 8
+        },
+        "dungeonId": "ocean-trench",
+        "score": 38,
+        "summary": "+55 HP, +8 DEF, +8 SPD"
+      },
+      {
+        "slug": "imperial-keepsake",
+        "name": "Imperial Keepsake",
+        "slot": "ring",
+        "stats": {
+          "hp": 55,
+          "spd": 8
+        },
+        "dungeonId": "ocean-trench",
+        "score": 22,
+        "summary": "+55 HP, +8 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "twilight-archmage-set",
+    "name": "Twilight Archmage Set",
+    "className": "Wizard",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "the-shatters"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Avatar of the Forgotten King",
+      "Pyro Warlock",
+      "Cryo Warlock",
+      "Fire Mage",
+      "Fire Adept",
+      "Archmage of Flame",
+      "Ice Mage",
+      "Ice Adept",
+      "Glacier Archmage",
+      "Royal Epic Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+15 HP, +15 MP, +3 DEF, +5 WIS",
+        "stats": {
+          "hp": 15,
+          "mp": 15,
+          "def": 3,
+          "wis": 5
+        }
+      },
+      "three": {
+        "text": "+15 HP, +25 MP, +3 DEF, +5 WIS",
+        "stats": {
+          "hp": 15,
+          "mp": 25,
+          "def": 3,
+          "wis": 5
+        }
+      },
+      "four": {
+        "text": "+20 HP, +30 MP, +4 DEF, +5 VIT, +10 WIS",
+        "stats": {
+          "hp": 20,
+          "mp": 30,
+          "def": 4,
+          "vit": 5,
+          "wis": 10
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "corruption-tether",
+        "name": "Corruption Tether",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "the-shatters",
+        "score": 170,
+        "summary": "175–210 dmg"
+      },
+      {
+        "slug": "ancient-eminence",
+        "name": "Ancient Eminence",
+        "slot": "ability",
+        "stats": {
+          "mp": 20,
+          "vit": 5
+        },
+        "dungeonId": "the-shatters",
+        "score": 26,
+        "summary": "+20 MP, +5 VIT",
+        "description": "With Defiled Equilibrium: Summons Inferno for 4.8 seconds that deals 130-150 armor piercing damage Summons Blizzard for 4.8 seconds that deals 90-100 damage and inflicts Slowed for 3 seconds Cooldown: 5.8 seconds Ignores defense of target"
+      },
+      {
+        "slug": "twilight-shroud",
+        "name": "Twilight Shroud",
+        "slot": "armor",
+        "stats": {
+          "hp": 60,
+          "mp": 50,
+          "def": 10,
+          "spd": 5
+        },
+        "dungeonId": "the-shatters",
+        "score": 50,
+        "summary": "+60 HP, +50 MP, +10 DEF, +5 SPD"
+      },
+      {
+        "slug": "defiled-equilibrium",
+        "name": "Defiled Equilibrium",
+        "slot": "ring",
+        "stats": {
+          "hp": 60,
+          "mp": 20,
+          "def": 5,
+          "spd": 5
+        },
+        "dungeonId": "the-shatters",
+        "score": 34,
+        "summary": "+60 HP, +20 MP, +5 DEF, +5 SPD",
+        "description": "Wearing Ancient Eminence along with this ring allows you to summon Blizzard and Inferno for 4.8 seconds. Cooldown: 5.8 seconds"
+      }
+    ]
+  }
+]

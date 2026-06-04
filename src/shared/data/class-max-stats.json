@@ -1,0 +1,192 @@
+{
+  "archer": {
+    "hp": 750,
+    "mp": 300,
+    "att": 75,
+    "def": 25,
+    "spd": 55,
+    "dex": 40,
+    "vit": 50,
+    "wis": 50
+  },
+  "assassin": {
+    "hp": 750,
+    "mp": 350,
+    "att": 65,
+    "def": 25,
+    "spd": 65,
+    "dex": 40,
+    "vit": 60,
+    "wis": 75
+  },
+  "bard": {
+    "hp": 750,
+    "mp": 400,
+    "att": 55,
+    "def": 25,
+    "spd": 55,
+    "dex": 45,
+    "vit": 75,
+    "wis": 70
+  },
+  "druid": {
+    "hp": 750,
+    "mp": 350,
+    "att": 60,
+    "def": 25,
+    "spd": 60,
+    "dex": 40,
+    "vit": 75,
+    "wis": 65
+  },
+  "huntress": {
+    "hp": 750,
+    "mp": 350,
+    "att": 65,
+    "def": 25,
+    "spd": 50,
+    "dex": 40,
+    "vit": 60,
+    "wis": 60
+  },
+  "kensei": {
+    "hp": 800,
+    "mp": 300,
+    "att": 65,
+    "def": 25,
+    "spd": 60,
+    "dex": 60,
+    "vit": 50,
+    "wis": 65
+  },
+  "knight": {
+    "hp": 800,
+    "mp": 300,
+    "att": 50,
+    "def": 40,
+    "spd": 50,
+    "dex": 75,
+    "vit": 50,
+    "wis": 50
+  },
+  "mystic": {
+    "hp": 700,
+    "mp": 400,
+    "att": 65,
+    "def": 25,
+    "spd": 60,
+    "dex": 40,
+    "vit": 75,
+    "wis": 65
+  },
+  "necromancer": {
+    "hp": 700,
+    "mp": 400,
+    "att": 75,
+    "def": 25,
+    "spd": 50,
+    "dex": 40,
+    "vit": 75,
+    "wis": 60
+  },
+  "ninja": {
+    "hp": 800,
+    "mp": 300,
+    "att": 70,
+    "def": 25,
+    "spd": 60,
+    "dex": 60,
+    "vit": 70,
+    "wis": 70
+  },
+  "paladin": {
+    "hp": 800,
+    "mp": 300,
+    "att": 55,
+    "def": 30,
+    "spd": 55,
+    "dex": 60,
+    "vit": 75,
+    "wis": 55
+  },
+  "priest": {
+    "hp": 700,
+    "mp": 400,
+    "att": 65,
+    "def": 25,
+    "spd": 55,
+    "dex": 40,
+    "vit": 75,
+    "wis": 60
+  },
+  "rogue": {
+    "hp": 750,
+    "mp": 300,
+    "att": 55,
+    "def": 25,
+    "spd": 65,
+    "dex": 40,
+    "vit": 50,
+    "wis": 75
+  },
+  "samurai": {
+    "hp": 800,
+    "mp": 300,
+    "att": 75,
+    "def": 30,
+    "spd": 55,
+    "dex": 60,
+    "vit": 60,
+    "wis": 55
+  },
+  "sorcerer": {
+    "hp": 700,
+    "mp": 400,
+    "att": 70,
+    "def": 25,
+    "spd": 60,
+    "dex": 75,
+    "vit": 60,
+    "wis": 60
+  },
+  "summoner": {
+    "hp": 700,
+    "mp": 400,
+    "att": 60,
+    "def": 25,
+    "spd": 60,
+    "dex": 40,
+    "vit": 75,
+    "wis": 75
+  },
+  "trickster": {
+    "hp": 750,
+    "mp": 300,
+    "att": 65,
+    "def": 25,
+    "spd": 75,
+    "dex": 40,
+    "vit": 60,
+    "wis": 75
+  },
+  "warrior": {
+    "hp": 800,
+    "mp": 300,
+    "att": 75,
+    "def": 25,
+    "spd": 50,
+    "dex": 75,
+    "vit": 50,
+    "wis": 50
+  },
+  "wizard": {
+    "hp": 700,
+    "mp": 400,
+    "att": 60,
+    "def": 25,
+    "spd": 50,
+    "dex": 40,
+    "vit": 60,
+    "wis": 75
+  }
+}

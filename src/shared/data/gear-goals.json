@@ -1,0 +1,42 @@
+[
+  {
+    "id": "early-dagger",
+    "classes": ["Rogue", "Assassin", "Trickster", "Ninja", "Kensei"],
+    "slot": "weapon",
+    "item": "an early UT dagger",
+    "dungeonId": "snake-pit",
+    "minMaxed": 0,
+    "maxMaxed": 5,
+    "note": "EXAMPLE — set the exact dagger you want to chase here"
+  },
+  {
+    "id": "rogue-cloak",
+    "classes": ["Rogue"],
+    "slot": "ability",
+    "item": "a better cloak",
+    "dungeonId": "toxic-sewers",
+    "minMaxed": 2,
+    "maxMaxed": 6,
+    "note": "EXAMPLE — Sewers treasure room; set the exact cloak"
+  },
+  {
+    "id": "hivemaster-helm",
+    "classes": ["Warrior", "Knight", "Paladin"],
+    "slot": "ability",
+    "item": "Hivemaster Helm",
+    "dungeonId": "the-hive",
+    "minMaxed": 6,
+    "maxMaxed": 8,
+    "note": "Group ATT/SPD buff helm — a staple upgrade"
+  },
+  {
+    "id": "apiary-armor",
+    "classes": [],
+    "slot": "armor",
+    "item": "Apiary Armor",
+    "dungeonId": "the-nest",
+    "minMaxed": 7,
+    "maxMaxed": 8,
+    "note": "Strong robe from The Nest"
+  }
+]

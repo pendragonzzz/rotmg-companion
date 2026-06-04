@@ -1,0 +1,39 @@
+{
+  "_comment": "CURATED Realm Rework data. Source: RealmEye /wiki/the-realm + /wiki/beacons + DECA Realm Rework notes (https://remaster.realmofthemadgod.com/?p=4117), 2026-06. The realm is now biomes (rookie->adept->veteran). Each biome has a Beacon guarded by a Beacon Guardian; killing the guardian activates the beacon (minimap fast-travel + safe heal zone + speed-boost roads) and the guardian (a 'Hero of Oryx') has a RARE chance to drop that biome's UT and to spawn an Encounter. 'statPots' = stat potions that biome's open-world (Godlands-tier) enemies drop. 'ut' = null where not yet verified per-page (TODO: fill via scraper). 'dungeons' = dungeon portal ids that spawn in that biome.",
+
+  "tiers": {
+    "rookie": "Leveling biomes (no stat pots). Level to 20 here.",
+    "adept": "Godlands-tier. Primary source of the 6 stat pots.",
+    "veteran": "Tougher. Adds the once-dungeon-exclusive Life & Mana pots + the Wine Cellar gear tier.",
+    "seasonal": "Rotating event biomes (Oryxmas / Easter)."
+  },
+
+  "biomes": {
+    "beach":          { "tier": "rookie", "guardian": null, "statPots": [], "dungeons": [], "ut": null, "note": "Shore — beacon active by default." },
+    "low-forest":     { "tier": "rookie", "guardian": "Legion Forest Guard", "statPots": [], "dungeons": [], "ut": null },
+    "undead-forest":  { "tier": "rookie", "guardian": "Legion Undead Forest Guard", "statPots": [], "dungeons": [], "ut": null },
+    "mid-plains":     { "tier": "rookie", "guardian": "Legion Plains Guard", "statPots": [], "dungeons": ["the-hive"], "ut": null },
+    "nature-ruins":   { "tier": "rookie", "guardian": "Legion Forest Guard", "statPots": [], "dungeons": [], "ut": null },
+    "mid-desert":     { "tier": "rookie", "guardian": "Legion Desert Guard", "statPots": [], "dungeons": [], "ut": null },
+    "high-plains":    { "tier": "rookie", "guardian": "Legion Plains Guard", "statPots": [], "dungeons": [], "ut": null },
+    "high-forest":    { "tier": "rookie", "guardian": "Legion Forest Guard", "statPots": [], "dungeons": [], "ut": null },
+    "high-desert":    { "tier": "rookie", "guardian": "Legion Desert Guard", "statPots": [], "dungeons": [], "ut": null },
+
+    "coral-reefs":    { "tier": "adept", "guardian": null, "statPots": [], "dungeons": [], "ut": null, "note": "Fishing hub — beacon active by default." },
+    "sprite-forest":  { "tier": "adept", "guardian": "Legion Fey Guardian", "statPots": ["dex", "spd", "vit"], "dungeons": ["sprite-world", "magic-woods"], "ut": null },
+    "haunted-hallows":{ "tier": "adept", "guardian": "Legion Graveyard Guardian", "statPots": ["wis"], "dungeons": ["undead-lair", "mad-lab", "cursed-library"], "ut": null },
+    "shipwreck-cove": { "tier": "adept", "guardian": "Legion Cove Guardian", "statPots": ["spd", "dex"], "dungeons": ["ancient-ruins", "cave-of-a-thousand-treasures"], "ut": null },
+    "dead-church":    { "tier": "adept", "guardian": "Legion Church Guardian", "statPots": ["att", "wis"], "dungeons": ["haunted-cemetery"], "ut": null },
+    "risen-hell":     { "tier": "adept", "guardian": "Legion Hell Guardian", "statPots": ["vit", "def"], "dungeons": ["manor-of-the-immortals", "abyss-of-demons", "cursed-library"], "ut": null },
+    "abandoned-city": { "tier": "adept", "guardian": "Legion City Guardian", "statPots": ["att", "def"], "dungeons": ["ancient-ruins", "mad-lab", "toxic-sewers"], "ut": null, "note": "Mixed pots." },
+
+    "deep-sea-abyss": { "tier": "veteran", "guardian": null, "statPots": ["att", "vit", "mp"], "dungeons": ["ocean-trench", "cnidarian-reef", "davy-jones-locker"], "ut": null, "note": "Beacon active by default." },
+    "carboniferous":  { "tier": "veteran", "guardian": "Legion Colonel", "statPots": ["vit", "wis", "mp"], "dungeons": ["woodland-labyrinth", "crawling-depths"], "ut": null },
+    "floral-escape":  { "tier": "veteran", "guardian": "Legion Commissioner", "statPots": ["spd", "vit", "hp"], "dungeons": ["lair-of-draconis", "mountain-temple", "sulfurous-wetlands"], "ut": null },
+    "sanguine-forest":{ "tier": "veteran", "guardian": "Legion Missionary", "statPots": ["att", "wis", "hp"], "dungeons": ["tomb-of-the-ancients", "lair-of-shaitan", "parasite-chambers"], "ut": null },
+    "runic-tundra":   { "tier": "veteran", "guardian": "Legion Principal", "statPots": ["vit", "def", "wis", "mp"], "dungeons": ["kogbold-steamworks", "ocean-trench", "ice-citadel"], "ut": null },
+
+    "eternal-frost":    { "tier": "seasonal", "guardian": null, "statPots": [], "dungeons": ["ice-tomb", "ice-cave", "high-tech-terror"], "ut": null, "note": "Oryxmas event biome." },
+    "relentless-springs":{ "tier": "seasonal", "guardian": null, "statPots": [], "dungeons": ["queen-bunny-chamber", "crystal-cavern", "moonlight-village"], "ut": null, "note": "Easter event biome." }
+  }
+}

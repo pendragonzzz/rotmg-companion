@@ -1,0 +1,4008 @@
+{
+  "pirate-cave": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "corsair-ring",
+        "name": "Corsair Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Warrior"
+        ],
+        "score": 9,
+        "summary": "+20 HP, +2 DEF"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-dreadstump",
+        "name": "Mark of Dreadstump"
+      },
+      {
+        "slug": "pirate-rum",
+        "name": "Pirate Rum"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Scallywag Slurp Pet Skin"
+      }
+    ]
+  },
+  "forest-maze": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "cocoon-quiver",
+        "name": "Cocoon Quiver",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Archer"
+        ],
+        "score": 21,
+        "description": "Paralyzed for 2 seconds Shots hit multiple targets Shots pass through obstacles"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-mama-megamoth",
+        "name": "Mark of Mama Megamoth"
+      },
+      {
+        "slug": "speed-sprout",
+        "name": "Speed Sprout"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Common Pet Eggs"
+      },
+      {
+        "slug": "bramble-bow",
+        "name": "Bramble Bow"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Sapling Buddy"
+      }
+    ]
+  },
+  "spider-den": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "poison-fang-dagger",
+        "name": "Poison Fang Dagger",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Trickster"
+        ],
+        "score": 88,
+        "summary": "75–115 dmg",
+        "powerLevel": 88
+      },
+      {
+        "slug": "spider-s-eye-ring",
+        "name": "Spider's Eye Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Samurai"
+        ],
+        "score": 15,
+        "summary": "+5 DEF, +5 VIT",
+        "powerLevel": 20
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of Arachna"
+      },
+      {
+        "slug": "healing-ichor",
+        "name": "Healing Ichor"
+      },
+      {
+        "slug": "spider-shuriken",
+        "name": "Spider Shuriken"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Eggshell Spider Pet Skin"
+      }
+    ]
+  },
+  "snake-pit": {
+    "potions": [
+      "spd"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "snake-eye-ring",
+        "name": "Snake Eye Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Archer",
+          "Assassin",
+          "Trickster",
+          "Warrior"
+        ],
+        "score": 38,
+        "summary": "+50 HP, +5 ATT, +5 DEF, +5 SPD",
+        "powerLevel": 12
+      },
+      {
+        "slug": "snake-charmer-pungi",
+        "name": "Snake Charmer Pungi",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Bard"
+        ],
+        "score": 15,
+        "summary": "+7 SPD",
+        "description": "Party Effect: Within 4.5 squares DEF Boost (+4 DEF) for 5 seconds On self: Speedy for 4 seconds"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-stheno",
+        "name": "Mark of Stheno"
+      },
+      {
+        "slug": "snake-oil",
+        "name": "Snake Oil"
+      },
+      {
+        "slug": "snakeskin-shield",
+        "name": "Snakeskin Shield"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "assassin-skins",
+        "name": "Mini Stheno Skin"
+      },
+      {
+        "slug": "assassin-skins",
+        "name": "Mini Flying Stheno Pet Skin"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "wand-of-the-bulwark",
+        "name": "Wand of the Bulwark"
+      },
+      {
+        "slug": "snakeskin-armor",
+        "name": "Snakeskin Armor"
+      },
+      {
+        "slug": "eternal-snowflake-wand",
+        "name": "Eternal Snowflake Wand"
+      },
+      {
+        "slug": "acidic-armor",
+        "name": "Acidic Armor"
+      },
+      {
+        "slug": "pernicious-peridot",
+        "name": "Pernicious Peridot"
+      }
+    ]
+  },
+  "forbidden-jungle": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "robe-of-the-tlatoani",
+        "name": "Robe of the Tlatoani",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Bard"
+        ],
+        "score": 26,
+        "summary": "+90 MP, +8 WIS",
+        "powerLevel": 30
+      },
+      {
+        "slug": "crystal-bone-ring",
+        "name": "Crystal Bone Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Kensei",
+          "Necromancer",
+          "Ninja"
+        ],
+        "score": 10,
+        "summary": "+4 DEX, +4 WIS",
+        "powerLevel": 16
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of Mixcoatl"
+      },
+      {
+        "slug": "pollen-powder",
+        "name": ""
+      },
+      {
+        "slug": "staff-of-the-crystal-serpent",
+        "name": "Staff of the Crystal Serpent"
+      },
+      {
+        "slug": "cracked-crystal-skull",
+        "name": "Cracked Crystal Skull"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Baby Basilisk"
+      }
+    ]
+  },
+  "magic-woods": {
+    "potions": [
+      "spd",
+      "dex"
+    ],
+    "greaterPotions": [],
+    "gear": [],
+    "other": [
+      {
+        "slug": "mark-of-the-fountain-spirit",
+        "name": "Mark of the Fountain Spirit"
+      },
+      {
+        "slug": "fairy-dust",
+        "name": "Fairy Dust"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Fountain Child Pet Skin"
+      },
+      {
+        "slug": "bergenia-bow",
+        "name": "Bergenia Bow"
+      },
+      {
+        "slug": "lifebringing-lotus",
+        "name": "Lifebringing Lotus"
+      },
+      {
+        "slug": "hollyhock-hide",
+        "name": "Hollyhock Hide"
+      },
+      {
+        "slug": "chrysanthemum-corsage",
+        "name": "Crysanthemum Corsage"
+      },
+      {
+        "slug": "spirit-staff",
+        "name": "Spirit Staff"
+      },
+      {
+        "slug": "enchantment-orb",
+        "name": "Enchantment Orb"
+      },
+      {
+        "slug": "shield-of-flowing-clarity",
+        "name": "Shield of Flowing Clarity"
+      },
+      {
+        "slug": "woodland-robe",
+        "name": "Woodland Robe"
+      },
+      {
+        "slug": "fairy-ring",
+        "name": "Fairy Ring"
+      }
+    ]
+  },
+  "cave-of-a-thousand-treasures": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "jewel-eye-katana",
+        "name": "Jewel Eye Katana (Shiny)",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Kensei",
+          "Ninja"
+        ],
+        "score": 137,
+        "summary": "110–175 dmg",
+        "powerLevel": 137,
+        "description": "Shots hit multiple targets"
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of the Effigy"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "stat-increase-potions",
+        "name": "Stat Increase Potions"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "ornate-armor",
+        "name": "Ornate Armor"
+      }
+    ]
+  },
+  "sprite-world": {
+    "potions": [
+      "dex",
+      "def",
+      "att"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "staff-of-extreme-prejudice",
+        "name": "Staff of Extreme Prejudice",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Wizard"
+        ],
+        "score": 291,
+        "summary": "95–110 dmg ×10",
+        "powerLevel": 291
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-limon",
+        "name": "Mark of Limon"
+      },
+      {
+        "slug": "sprite-wand",
+        "name": "Sprite Wand"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Mini Limon Pet Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Sprite Star Pet Skin"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "cloak-of-the-planewalker",
+        "name": "Cloak of the Planewalker"
+      },
+      {
+        "slug": "mace-of-the-celestial-forest",
+        "name": "Mace of the Celestial Forest"
+      },
+      {
+        "slug": "staff-of-iceblast",
+        "name": "Staff of Iceblast"
+      }
+    ]
+  },
+  "ancient-ruins": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "amber-encrusted-helmet",
+        "name": "Amber Encrusted Helmet",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Warrior"
+        ],
+        "score": 36,
+        "summary": "+6 DEF, +6 SPD",
+        "description": "Party Effect: Berserk for 5 seconds"
+      },
+      {
+        "slug": "sandstone-seal",
+        "name": "Sandstone Seal",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Paladin"
+        ],
+        "score": 31,
+        "summary": "+40 HP, +3 DEX",
+        "description": "Party Effect: Damaging and VIT Boost (+15 VIT) Damaging Range: 5 (+0.1 per WIS over 50) tiles Damaging Duration: 5 (+0.1 per WIS over 50) seconds VIT Boost Range: 5 tiles VIT Boost Duration: 5 seconds"
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of the Sandstone Titan"
+      },
+      {
+        "slug": "cactus-juice",
+        "name": "Cactus Juice"
+      },
+      {
+        "slug": "stat-increase-potions",
+        "name": "Stat Increase Potions"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "arcane-rapier",
+        "name": "Arcane Rapier"
+      },
+      {
+        "slug": "resplendent-bow",
+        "name": "Resplendent Bow"
+      },
+      {
+        "slug": "embellished-quiver",
+        "name": "Embellished Quiver"
+      },
+      {
+        "slug": "ornate-armor",
+        "name": "Ornate Armor"
+      },
+      {
+        "slug": "aquamarine-amulet",
+        "name": "Aquamarine Amulet"
+      },
+      {
+        "slug": "trickster-skins",
+        "name": "Sand Wanderer Trickster Skin"
+      }
+    ]
+  },
+  "undead-lair": {
+    "potions": [
+      "wis"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "doom-bow",
+        "name": "Doom Bow",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Bard"
+        ],
+        "score": 147,
+        "summary": "500–600 dmg",
+        "powerLevel": 147,
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "ring-of-skeletal-specters",
+        "name": "Ring of Skeletal Specters",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Assassin",
+          "Warrior"
+        ],
+        "score": 33,
+        "summary": "+80 HP, +3 ATT, +7 WIS"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-septavius",
+        "name": "Mark of Septavius"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "spectral-arrowhead",
+        "name": "Spectral Arrowhead"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Possessed Staff Pet Skin"
+      },
+      {
+        "slug": "edictum-praetoris",
+        "name": "Edictum Praetoris"
+      },
+      {
+        "slug": "toga-picta",
+        "name": "Toga Picta"
+      },
+      {
+        "slug": "spectral-sword",
+        "name": "Spectral Sword"
+      },
+      {
+        "slug": "wandering-souls-spell",
+        "name": "Wandering Souls Spell"
+      },
+      {
+        "slug": "bow-of-the-morning-star",
+        "name": "Bow of the Morning Star"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Lil' Ghost Egg"
+      }
+    ]
+  },
+  "abyss-of-demons": {
+    "potions": [
+      "vit",
+      "def",
+      "att"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "demon-blade",
+        "name": "Demon Blade",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Warrior"
+        ],
+        "score": 229,
+        "summary": "150–175 dmg ×2",
+        "powerLevel": 229
+      },
+      {
+        "slug": "sword-of-illumination",
+        "name": "Sword of Illumination",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Knight"
+        ],
+        "score": 229,
+        "summary": "150–175 dmg ×2",
+        "powerLevel": 229
+      },
+      {
+        "slug": "volcanic-sheath",
+        "name": "Volcanic Sheath",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 5,
+        "summary": "+5 WIS",
+        "description": "Area Damage: 400 (+10 per WIS over 50)"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-malphas",
+        "name": "Mark of Malphas"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "adamantine-ingot",
+        "name": "Adamantine Ingot"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Demon Frog Pet Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Horned Wyrm Pet Skin"
+      },
+      {
+        "slug": "staff-of-eruption",
+        "name": "Staff of Eruption"
+      },
+      {
+        "slug": "scorchium-stone",
+        "name": "Scorchium Stone"
+      },
+      {
+        "slug": "molten-mantle",
+        "name": "Molten Mantle"
+      },
+      {
+        "slug": "ring-of-the-inferno",
+        "name": "Ring of the Inferno"
+      },
+      {
+        "slug": "berserker-s-breastplate",
+        "name": "Berserker's Breastplate"
+      }
+    ]
+  },
+  "manor-of-the-immortals": {
+    "potions": [
+      "att"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "st-abraham-s-wand",
+        "name": "St. Abraham's Wand",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Priest"
+        ],
+        "score": 170,
+        "summary": "155–180 dmg",
+        "powerLevel": 170,
+        "description": "Hitbox Size: 1.2 Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "tome-of-purification",
+        "name": "Tome of Purification",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Priest"
+        ],
+        "score": 32,
+        "summary": "+10 VIT, +10 WIS",
+        "description": "Heal: 150 (+0.935 per VIT over 45) HP Party Effect: Healing [75/s] (+0.4675 per VIT over 45) for 4.4 seconds Effect on Self: Removes negative status effects"
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of Ruthven"
+      },
+      {
+        "slug": "holy-water",
+        "name": "Holy Water"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Bat Egg"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "character-skins",
+        "name": "Vampire Lord"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "soulcursed-scythe",
+        "name": "Soulcursed Scythe"
+      },
+      {
+        "slug": "vampiric-cape",
+        "name": "Vampiric Cape"
+      },
+      {
+        "slug": "hallowed-hide",
+        "name": "Hallowed Hide"
+      },
+      {
+        "slug": "ruthven-s-rosary",
+        "name": "Ruthven's Rosary"
+      },
+      {
+        "slug": "bone-dagger",
+        "name": "Bone Dagger"
+      },
+      {
+        "slug": "kyuuketsuki-hitogoroshi",
+        "name": "Kyuuketsuki Hitogoroshi"
+      },
+      {
+        "slug": "chasuble-of-holy-light",
+        "name": "Chasuble of Holy Light"
+      },
+      {
+        "slug": "ring-of-divine-faith",
+        "name": "Ring of Divine Faith"
+      },
+      {
+        "slug": "dungeon-treasures",
+        "name": "Golden Candelabra"
+      },
+      {
+        "slug": "dungeon-treasures",
+        "name": "Death Tarot Card"
+      }
+    ]
+  },
+  "toxic-sewers": {
+    "potions": [
+      "def"
+    ],
+    "greaterPotions": [],
+    "gear": [],
+    "other": [
+      {
+        "slug": "mark-of-gulpord",
+        "name": "Mark of Gulpord"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "power-pizza",
+        "name": "Power Pizza"
+      },
+      {
+        "slug": "character-skins",
+        "name": "Slurp Knight Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Turtle Pet Skin"
+      },
+      {
+        "slug": "toxin-tooth",
+        "name": "Toxin Tooth"
+      },
+      {
+        "slug": "virulent-venom",
+        "name": "Virulent Venom"
+      },
+      {
+        "slug": "acidic-armor",
+        "name": "Acidic Armor"
+      },
+      {
+        "slug": "pernicious-peridot",
+        "name": "Pernicious Peridot"
+      },
+      {
+        "slug": "void-blade",
+        "name": "Void Blade"
+      },
+      {
+        "slug": "murky-toxin",
+        "name": "Murky Toxin"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Turtle Egg"
+      }
+    ]
+  },
+  "cursed-library": {
+    "potions": [
+      "def",
+      "vit",
+      "wis",
+      "att"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "quiver-of-shrieking-specters",
+        "name": "Quiver of Shrieking Specters",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Archer"
+        ],
+        "score": 29,
+        "summary": "+4 SPD",
+        "description": "Slowed for 2.5 seconds on enemies Speedy on self for 3 seconds Wavy shots Shots pass through obstacles Shots hit multiple targets"
+      },
+      {
+        "slug": "revenant-ring",
+        "name": "Revenant Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Archer"
+        ],
+        "score": 28,
+        "summary": "+60 HP, +4 ATT, +5 SPD"
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of the Archivist"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Cultured Bookwyrm Pet Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Enlightened Bookwyrm Pet Skin"
+      },
+      {
+        "slug": "deathless-crossbow",
+        "name": "Deathless Crossbow"
+      },
+      {
+        "slug": "wraith-s-brigandine",
+        "name": "Wraith's Brigandine"
+      },
+      {
+        "slug": "ronin-s-wakizashi",
+        "name": "Ronin's Wakizashi"
+      },
+      {
+        "slug": "wand-of-hidden-knowledge",
+        "name": "Wand of Hidden Knowledge"
+      },
+      {
+        "slug": "necronomicon",
+        "name": "Necronomicon"
+      },
+      {
+        "slug": "scholar-s-seal",
+        "name": "Scholar's Seal"
+      },
+      {
+        "slug": "corruption-cutter",
+        "name": "Corruption Cutter"
+      }
+    ]
+  },
+  "mad-lab": {
+    "potions": [
+      "wis",
+      "att",
+      "def"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "conducting-wand",
+        "name": "Conducting Wand",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Druid",
+          "Sorcerer"
+        ],
+        "score": 199,
+        "summary": "100–175 dmg",
+        "powerLevel": 199
+      },
+      {
+        "slug": "experimental-ring",
+        "name": "Experimental Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Archer",
+          "Assassin",
+          "Samurai",
+          "Summoner",
+          "Wizard"
+        ],
+        "score": 42,
+        "summary": "+60 HP, +60 MP, +5 DEF, +5 VIT",
+        "powerLevel": 53
+      },
+      {
+        "slug": "robe-of-the-mad-scientist",
+        "name": "Robe of the Mad Scientist",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Necromancer",
+          "Priest",
+          "Wizard"
+        ],
+        "score": 34,
+        "summary": "+12 DEF, +5 VIT, +5 WIS",
+        "powerLevel": 46,
+        "description": "Scientist’s Expertise: Reduces the Magic casting cost of your ability by 15%"
+      },
+      {
+        "slug": "scepter-of-fulmination",
+        "name": "Scepter of Fulmination",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Sorcerer"
+        ],
+        "score": 15,
+        "summary": "+2 ATT, +2 WIS",
+        "description": "On enemies: Slowed for 3 seconds"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-dr-terrible",
+        "name": "Mark of Dr Terrible"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Robobuddy Pet Skin"
+      },
+      {
+        "slug": "abomination-s-wrath",
+        "name": "Abomination's Wrath"
+      },
+      {
+        "slug": "grotesque-scepter",
+        "name": "Grotesque Scepter"
+      },
+      {
+        "slug": "garment-of-the-beast",
+        "name": "Garment of the Beast"
+      },
+      {
+        "slug": "horrific-claws",
+        "name": "Horrific Claws"
+      },
+      {
+        "slug": "golden-nut",
+        "name": "Golden Nut"
+      },
+      {
+        "slug": "golden-bolt",
+        "name": "Golden Bolt"
+      },
+      {
+        "slug": "the-magician-tarot-card",
+        "name": "The Magician Tarot Card"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Robobuddy Egg"
+      },
+      {
+        "slug": "c-o-n-t-r-o-l-l-e-r",
+        "name": "C.O.N.T.R.O.L.L.E.R."
+      }
+    ]
+  },
+  "haunted-cemetery": {
+    "potions": [
+      "spd",
+      "wis",
+      "vit",
+      "dex",
+      "att",
+      "def"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "soul-s-guidance",
+        "name": "Soul's Guidance",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Sorcerer"
+        ],
+        "score": 154,
+        "summary": "115–165 dmg",
+        "powerLevel": 154,
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "resurrected-warrior-s-armor",
+        "name": "Resurrected Warrior's Armor",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Kensei",
+          "Knight",
+          "Samurai",
+          "Warrior"
+        ],
+        "score": 74,
+        "summary": "+150 MP, +17 DEF, +10 WIS",
+        "powerLevel": 108
+      },
+      {
+        "slug": "mantle-of-skuld",
+        "name": "Mantle of Skuld",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Rogue"
+        ],
+        "score": 52,
+        "summary": "+120 MP, +10 DEF, +8 WIS",
+        "powerLevel": 65
+      },
+      {
+        "slug": "ghastly-drape",
+        "name": "Ghastly Drape",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Rogue"
+        ],
+        "score": 42,
+        "summary": "+5 ATT, +3 WIS",
+        "description": "With Full Set: Ghastly Nova Paralyzed enemies for 2.5 seconds and fires more often. While Lethal Strike is active: Releases a Ghastly Nova. Shots: 6 Damage: 50-150 (average: 100) Total Damage: 300-900 (average: 600) Lifetime: 1.1 second Range: 4 tiles Shots hi"
+      },
+      {
+        "slug": "amulet-of-dispersion",
+        "name": "Amulet of Dispersion",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Assassin",
+          "Mystic"
+        ],
+        "score": 35,
+        "summary": "+40 HP, +40 MP, +2 ATT, +2 DEF, +2 SPD, +2 DEX, +2 VIT, +2 WIS",
+        "powerLevel": 54
+      },
+      {
+        "slug": "plague-poison",
+        "name": "Plague Poison",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Assassin"
+        ],
+        "score": 12,
+        "summary": "+4 ATT, +4 WIS"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-skuld",
+        "name": "Mark of Skuld"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Werewolf Cub Pet Skin"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "etherite-dagger",
+        "name": "Etherite Dagger"
+      },
+      {
+        "slug": "spectral-ring-of-horrors",
+        "name": "Spectral Ring of Horrors"
+      }
+    ]
+  },
+  "puppet-masters-theatre": {
+    "potions": [
+      "att"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "harlequin-armor",
+        "name": "Harlequin Armor",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Assassin"
+        ],
+        "score": 54,
+        "summary": "+80 MP, +15 DEF, +3 SPD, +5 WIS",
+        "powerLevel": 73
+      },
+      {
+        "slug": "prism-of-dancing-swords",
+        "name": "Prism of Dancing Swords",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Trickster"
+        ],
+        "score": 32,
+        "summary": "+40 HP, +4 ATT, +4 SPD",
+        "description": "No teleport If used when moving, spawns two moving decoys in opposite directions If used when standing still, spawns two moving decoys in random directions"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-puppet-master",
+        "name": "Mark of the Puppet Master"
+      },
+      {
+        "slug": "cloths",
+        "name": "Jester Argyle Cloths"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "tarot-card-pack",
+        "name": "Tarot Card Pack"
+      },
+      {
+        "slug": "assassin-skins",
+        "name": "Puppet Master Skin"
+      },
+      {
+        "slug": "trickster-skins",
+        "name": "Jester Skin"
+      },
+      {
+        "slug": "magic-wand",
+        "name": "Magic Wand"
+      },
+      {
+        "slug": "lightshow-scepter",
+        "name": "Lightshow Scepter"
+      },
+      {
+        "slug": "magician-s-robe",
+        "name": "Magician's Robe"
+      },
+      {
+        "slug": "performer-s-hat",
+        "name": "Performer's Hat"
+      },
+      {
+        "slug": "marionette-ravager",
+        "name": "Marionette Ravager"
+      }
+    ]
+  },
+  "crawling-depths": {
+    "potions": [
+      "mp",
+      "wis",
+      "spd",
+      "vit",
+      "def"
+    ],
+    "greaterPotions": [
+      "def",
+      "wis"
+    ],
+    "gear": [
+      {
+        "slug": "mace-of-the-depths",
+        "name": "Mace of the Depths",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Summoner"
+        ],
+        "score": 15,
+        "summary": "+6 SPD",
+        "description": "Slowed for 3 seconds Shots hit multiple targets Explosion Damage: 100-200 Explosion Cooldown: 0.4"
+      },
+      {
+        "slug": "silken-sigil",
+        "name": "Silken Sigil",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Druid"
+        ],
+        "score": 13,
+        "summary": "+30 HP, +5 SPD",
+        "description": "Spider Form: Stat Boost, Reduced weapon range, Poison Burst, firing double the shots Requires full meter to transform Switches back only automatically after 12 seconds."
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-son-of-arachna",
+        "name": "Mark of the Son of Arachna"
+      },
+      {
+        "slug": "healing-ichor",
+        "name": "Healing Ichor"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "spider-silk-bow",
+        "name": "Spider Silk Bow"
+      },
+      {
+        "slug": "doku-no-ken",
+        "name": "Doku No Ken"
+      }
+    ]
+  },
+  "ice-cave": {
+    "potions": [
+      "mp",
+      "dex"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "esben-s-shaman-attire",
+        "name": "Esben's Shaman Attire",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Bard",
+          "Mystic",
+          "Necromancer",
+          "Priest",
+          "Sorcerer",
+          "Summoner"
+        ],
+        "score": 57,
+        "summary": "+60 HP, +6 ATT, +15 DEF",
+        "powerLevel": 72
+      },
+      {
+        "slug": "esben-s-wedding-ring",
+        "name": "Esben's Wedding Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Druid"
+        ],
+        "score": 46,
+        "summary": "+80 HP, +80 MP, +10 ATT, -5 DEF"
+      },
+      {
+        "slug": "skullish-remains-of-esben",
+        "name": "Skullish Remains of Esben",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Necromancer"
+        ],
+        "score": 15,
+        "summary": "+40 HP, +4 ATT, -3 SPD",
+        "description": "Necromancy: raise 1 Esben Undead to fight for you."
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-esben",
+        "name": "Mark of Esben"
+      },
+      {
+        "slug": "dalvar-s-battle-axe",
+        "name": "Dalvar's Battle Axe"
+      },
+      {
+        "slug": "sunken-buckler",
+        "name": "Sunken Buckler"
+      },
+      {
+        "slug": "chainmail-body-armor",
+        "name": "Chainmail Body Armor"
+      },
+      {
+        "slug": "gjallarhorn",
+        "name": "Gjallarhorn"
+      },
+      {
+        "slug": "staff-of-esben",
+        "name": "Staff of Esben"
+      }
+    ]
+  },
+  "davy-jones-locker": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [],
+    "other": []
+  },
+  "tomb-of-the-ancients": {
+    "potions": [
+      "att",
+      "def",
+      "spd",
+      "hp"
+    ],
+    "greaterPotions": [
+      "att",
+      "def",
+      "spd"
+    ],
+    "gear": [
+      {
+        "slug": "ring-of-the-pyramid",
+        "name": "Ring of the Pyramid",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Mystic",
+          "Summoner"
+        ],
+        "score": 41,
+        "summary": "+100 HP, +4 ATT, +4 DEF",
+        "powerLevel": 70
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of Geb"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Pet Eggs"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "character-skins",
+        "name": "Mini Nut Archer Skin"
+      },
+      {
+        "slug": "character-skins",
+        "name": "Mini Geb Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Bes' Artifact"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Nut's Artifact"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Geb's Artifact"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Tomb Snake Skin Unlocker"
+      },
+      {
+        "slug": "wand-of-geb",
+        "name": "Wand of Geb"
+      },
+      {
+        "slug": "book-of-geb",
+        "name": "Book of Geb"
+      },
+      {
+        "slug": "shendyt-of-geb",
+        "name": "Shendyt of Geb"
+      },
+      {
+        "slug": "geb-s-ring-of-wisdom",
+        "name": "Geb's Ring of Wisdom"
+      },
+      {
+        "slug": "ascension-ankh",
+        "name": "Ascension Ankh"
+      },
+      {
+        "slug": "tome-of-holy-protection",
+        "name": "Tome of Holy Protection"
+      },
+      {
+        "slug": "ring-of-the-sphinx",
+        "name": "Ring of the Sphinx"
+      },
+      {
+        "slug": "pharaoh-s-requiem",
+        "name": "Pharaoh's Requiem"
+      },
+      {
+        "slug": "ring-of-the-nile",
+        "name": "Ring of the Nile"
+      },
+      {
+        "slug": "tome-of-frigid-protection",
+        "name": "Tome of Frigid Protection"
+      },
+      {
+        "slug": "dungeon-treasures",
+        "name": "Golden Ankh"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Tomb Snake Egg"
+      }
+    ]
+  },
+  "ocean-trench": {
+    "potions": [
+      "mp"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "tideturner-trident",
+        "name": "Tideturner Trident",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Wizard"
+        ],
+        "score": 315,
+        "summary": "85–125 dmg ×3"
+      },
+      {
+        "slug": "coral-silk-armor",
+        "name": "Coral Silk Armor",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Assassin",
+          "Huntress",
+          "Trickster"
+        ],
+        "score": 48,
+        "summary": "+14 DEF, +8 DEX, +8 WIS",
+        "powerLevel": 66
+      },
+      {
+        "slug": "oceanic-apparel",
+        "name": "Oceanic Apparel",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Priest",
+          "Wizard"
+        ],
+        "score": 38,
+        "summary": "+55 HP, +8 DEF, +8 SPD"
+      },
+      {
+        "slug": "coral-venom-trap",
+        "name": "Coral Venom Trap",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Huntress"
+        ],
+        "score": 23,
+        "summary": "+4 SPD, +4 DEX",
+        "description": "On enemies: Inflicts Paralyzed for 3 (+0.1s per SPD over 40) seconds"
+      },
+      {
+        "slug": "imperial-keepsake",
+        "name": "Imperial Keepsake",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Priest"
+        ],
+        "score": 22,
+        "summary": "+55 HP, +8 SPD"
+      },
+      {
+        "slug": "slurpian-sea-scroll",
+        "name": "Slurpian Sea Scroll",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Wizard"
+        ],
+        "score": 0,
+        "summary": "effect item",
+        "description": "SPD Boost (+25 SPD) for 3 secondsDamage Nova: explodes 2 (+1 per 25 SPD over 42) times, once every 0.4 seconds."
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-thessal",
+        "name": "Mark of Thessal"
+      },
+      {
+        "slug": "coral-juice",
+        "name": "Coral Juice"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Sea Slurp Egg"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Sea Slurp Skin Unlocker"
+      },
+      {
+        "slug": "coral-bow",
+        "name": "Coral Bow"
+      },
+      {
+        "slug": "coral-ring",
+        "name": "Coral Ring"
+      },
+      {
+        "slug": "sharktooth-sigil",
+        "name": "Sharktooth Sigil"
+      },
+      {
+        "slug": "arctic-bow",
+        "name": "Arctic Bow"
+      },
+      {
+        "slug": "dungeon-treasures",
+        "name": "Golden Cockle"
+      },
+      {
+        "slug": "dungeon-treasures",
+        "name": "The Moon Tarot Card"
+      }
+    ]
+  },
+  "woodland-labyrinth": {
+    "potions": [
+      "hp"
+    ],
+    "greaterPotions": [
+      "vit",
+      "att"
+    ],
+    "gear": [
+      {
+        "slug": "leaf-bow",
+        "name": "Leaf Bow",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Archer",
+          "Bard",
+          "Huntress"
+        ],
+        "score": 177,
+        "summary": "120–175 dmg",
+        "powerLevel": 177,
+        "description": "Wavy shots"
+      },
+      {
+        "slug": "wakizashi-of-eastern-winds",
+        "name": "Wakizashi of Eastern Winds",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Samurai"
+        ],
+        "score": 40,
+        "summary": "+5 SPD, +3 DEX",
+        "description": "Inflicts Exposed for 4.5 seconds Shots hit multiple targets Shots pass through obstacles"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-megamoth",
+        "name": "Mark of the Megamoth"
+      },
+      {
+        "slug": "speed-sprout",
+        "name": "Speed Sprout"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "elder-heartwood-staff",
+        "name": "Elder Heartwood Staff"
+      },
+      {
+        "slug": "labyrinth-dweller-s-sheath",
+        "name": "Labyrinth Dweller's Sheath"
+      },
+      {
+        "slug": "huntress-skins",
+        "name": "Woodland Huntress Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Blessed Blade Pet Skin"
+      }
+    ]
+  },
+  "lair-of-draconis": {
+    "potions": [],
+    "greaterPotions": [
+      "att",
+      "spd",
+      "wis",
+      "vit",
+      "def",
+      "dex",
+      "mp"
+    ],
+    "gear": [
+      {
+        "slug": "celestial-blade",
+        "name": "Celestial Blade",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Samurai"
+        ],
+        "score": 216,
+        "summary": "205–225 dmg",
+        "powerLevel": 216
+      },
+      {
+        "slug": "fire-dragon-battle-armor",
+        "name": "Fire Dragon Battle Armor",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Kensei",
+          "Knight",
+          "Samurai",
+          "Warrior"
+        ],
+        "score": 57,
+        "summary": "+6 ATT, +17 DEF, +6 SPD, +5 VIT",
+        "powerLevel": 80
+      },
+      {
+        "slug": "leaf-dragon-hide-armor",
+        "name": "Leaf Dragon Hide Armor",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Assassin"
+        ],
+        "score": 52,
+        "summary": "+50 HP, +14 DEF, +6 SPD, +5 VIT",
+        "powerLevel": 81
+      },
+      {
+        "slug": "water-dragon-silk-robe",
+        "name": "Water Dragon Silk Robe",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Priest",
+          "Sorcerer",
+          "Wizard"
+        ],
+        "score": 49,
+        "summary": "+6 ATT, +13 DEF, +6 SPD, +5 VIT",
+        "powerLevel": 68
+      },
+      {
+        "slug": "midnight-star",
+        "name": "Midnight Star",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Ninja"
+        ],
+        "score": 18,
+        "summary": "+10 SPD",
+        "description": "Afterimages: 3 extra afterimages follow each starHitbox Size: 2 Shots hit multiple targets Shots pass through obstacles"
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of the Wyvern"
+      },
+      {
+        "slug": "cloths",
+        "name": "Midnight Dragon Scale Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Green Dragon Scale Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Blue Dragon Scale Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Red Dragon Scale Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Ivory Dragon Scale Cloths"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "character-skins",
+        "name": "Wicked Dragon Wizard Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Mini Nikao Pet Skin"
+      },
+      {
+        "slug": "hailstorm",
+        "name": "Hailstorm"
+      },
+      {
+        "slug": "thundering-chorus",
+        "name": "Thundering Chorus"
+      },
+      {
+        "slug": "wind-dancer-robe",
+        "name": "Wind Dancer Robe"
+      },
+      {
+        "slug": "augur-of-the-tempest",
+        "name": "Augur of the Tempest"
+      },
+      {
+        "slug": "earthen-ward",
+        "name": "Earthen Ward"
+      },
+      {
+        "slug": "stonemould-mace",
+        "name": "Stonemould Mace"
+      },
+      {
+        "slug": "rocky-robe",
+        "name": "Rocky Robe"
+      },
+      {
+        "slug": "steadfast-glyph",
+        "name": "Steadfast Glyph"
+      },
+      {
+        "slug": "saif-of-the-deep",
+        "name": "Saif of the Deep"
+      },
+      {
+        "slug": "loch-sheath",
+        "name": "Loch Sheath"
+      },
+      {
+        "slug": "barrier-reef",
+        "name": "Barrier Reef"
+      },
+      {
+        "slug": "alexander-s-band",
+        "name": "Alexander's Band"
+      },
+      {
+        "slug": "indomptable",
+        "name": "Indomptable"
+      },
+      {
+        "slug": "helm-of-draconic-dominance",
+        "name": "Helm of Draconic Dominance"
+      },
+      {
+        "slug": "zaarvox-s-heart",
+        "name": "Zaarvox's Heart"
+      },
+      {
+        "slug": "amulet-of-drakefyre",
+        "name": "Amulet of Drakefyre"
+      },
+      {
+        "slug": "ivory-heart",
+        "name": "Ivory Heart"
+      },
+      {
+        "slug": "vision-of-draconis",
+        "name": "Vision of Draconis"
+      },
+      {
+        "slug": "draconic-insignia",
+        "name": "Draconic Insignia"
+      },
+      {
+        "slug": "dungeon-treasures",
+        "name": "The World Tarot Card"
+      }
+    ]
+  },
+  "the-hive": {
+    "potions": [
+      "dex"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "honey-scepter",
+        "name": "Honey Scepter",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Sorcerer"
+        ],
+        "score": 0
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of the Queen Bee"
+      },
+      {
+        "slug": "bottled-honey",
+        "name": "Bottled Honey"
+      },
+      {
+        "slug": "pet-eggs",
+        "name": "Bee Egg"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "orb-of-sweet-demise",
+        "name": "Orb of Sweet Demise"
+      }
+    ]
+  },
+  "cnidarian-reef": {
+    "potions": [
+      "mp",
+      "def",
+      "vit",
+      "wis",
+      "spd"
+    ],
+    "greaterPotions": [
+      "def",
+      "att"
+    ],
+    "gear": [
+      {
+        "slug": "bottled-medusozoan",
+        "name": "Bottled Medusozoan",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Assassin"
+        ],
+        "score": 18,
+        "summary": "+2 DEF, +4 DEX",
+        "description": "Poison: 2500 damage over 3 seconds within 3.5-4.5 squares Ignores defense of target"
+      },
+      {
+        "slug": "cnidaria-rod",
+        "name": "Cnidaria Rod",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Sorcerer"
+        ],
+        "score": 9,
+        "summary": "+2 DEF, +2 DEX, +2 WIS"
+      }
+    ],
+    "other": [
+      {
+        "slug": "trickster-skins",
+        "name": "Jellyhead Trickster Skin"
+      },
+      {
+        "slug": "shield-rune",
+        "name": "Shield Rune"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      }
+    ]
+  },
+  "lair-of-shaitan": {
+    "potions": [
+      "hp",
+      "att",
+      "vit"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "skull-of-endless-torment",
+        "name": "Skull of Endless Torment",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Necromancer"
+        ],
+        "score": 23,
+        "summary": "+50 HP, +3 DEF, +3 DEX",
+        "description": "On Ability use with full meter: Purify status effects within 4 squares Necromancy: raise 1 Endless Torment Undead to fight for you."
+      }
+    ],
+    "other": [
+      {
+        "slug": "cloths",
+        "name": "Flame Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Heavy Chainmail Cloths"
+      },
+      {
+        "slug": "tincture-of-vitality",
+        "name": "Tincture of Vitality"
+      },
+      {
+        "slug": "effusion-of-vitality",
+        "name": "Effusion of Vitality"
+      },
+      {
+        "slug": "shield-rune",
+        "name": "Shield Rune"
+      },
+      {
+        "slug": "fiery-katana",
+        "name": "Fiery Katana"
+      },
+      {
+        "slug": "pyro-sheath",
+        "name": "Pyro Sheath"
+      },
+      {
+        "slug": "flame-guard",
+        "name": "Flame Guard"
+      },
+      {
+        "slug": "firelight-necklace",
+        "name": "Firelight Necklace"
+      },
+      {
+        "slug": "wakizashi-of-crossing-fires",
+        "name": "Wakizashi of Crossing Fires"
+      },
+      {
+        "slug": "igneous-starblossom",
+        "name": "Igneous Starblossom"
+      },
+      {
+        "slug": "dungeon-treasures",
+        "name": "The Chariot Tarot Card"
+      }
+    ]
+  },
+  "sulfurous-wetlands": {
+    "potions": [
+      "mp",
+      "wis"
+    ],
+    "greaterPotions": [
+      "mp"
+    ],
+    "gear": [],
+    "other": [
+      {
+        "slug": "mark-of-the-wetlands",
+        "name": "Mark of the Wetlands"
+      },
+      {
+        "slug": "stat-increase-potions",
+        "name": "Stat Increase Potions"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Swamped Panda Pet Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Bogged Panda Pet Skin"
+      },
+      {
+        "slug": "bogwood-crook",
+        "name": "Bogwood Crook"
+      },
+      {
+        "slug": "brambletooth-tachi",
+        "name": "Brambletooth Tachi"
+      },
+      {
+        "slug": "sulfuric-stone",
+        "name": "Sulfuric Stone"
+      },
+      {
+        "slug": "warped-mantle",
+        "name": "Warped Mantle"
+      },
+      {
+        "slug": "thistleleaf-necklace",
+        "name": "Thistleleaf Necklace"
+      }
+    ]
+  },
+  "parasite-chambers": {
+    "potions": [
+      "att",
+      "mp"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "tome-of-pain",
+        "name": "Tome of Pain",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Priest"
+        ],
+        "score": 22,
+        "summary": "+5 ATT, +5 SPD, -5 VIT",
+        "description": "Heal: 120 (+0.88 per ATT over 65) HP Party Effect: Healing [60/s] (+0.44 per ATT over 65) for 4.4 seconds"
+      },
+      {
+        "slug": "recurring-terror-spell",
+        "name": "Recurring Terror Spell",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Wizard"
+        ],
+        "score": 12,
+        "summary": "-20 HP, +2 ATT, +2 DEF, +4 DEX, -5 VIT",
+        "description": "Shots pass through obstacles Shots are parametric"
+      },
+      {
+        "slug": "scepter-of-devastation",
+        "name": "Scepter of Devastation",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Sorcerer"
+        ],
+        "score": 0,
+        "summary": "-20 HP, +4 ATT, -5 VIT, +2 WIS"
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of Parasitic Horrors"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "symbiotic-ripper",
+        "name": "Symbiotic Ripper"
+      },
+      {
+        "slug": "parasitic-concoction",
+        "name": "Parasitic Concoction"
+      },
+      {
+        "slug": "rags-of-the-host",
+        "name": "Rags of the Host"
+      },
+      {
+        "slug": "hivemind-circlet",
+        "name": "Hivemind Circlet"
+      },
+      {
+        "slug": "maw-of-malignance",
+        "name": "Maw of Malignance"
+      }
+    ]
+  },
+  "secluded-thicket": {
+    "potions": [
+      "att",
+      "def",
+      "mp",
+      "hp"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "tlatoani-s-shroud",
+        "name": "Tlatoani's Shroud",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Mystic"
+        ],
+        "score": 52,
+        "summary": "+180 MP, +16 WIS",
+        "powerLevel": 61
+      },
+      {
+        "slug": "sealed-crystal-skull",
+        "name": "Sealed Crystal Skull",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Necromancer"
+        ],
+        "score": 23,
+        "summary": "+50 HP, +4 DEX, +4 VIT",
+        "description": "Necromancy: raise 1 Sealed Crystal Undead to fight for you."
+      }
+    ],
+    "other": [
+      {
+        "slug": "shield-rune",
+        "name": "Shield Rune"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Good Mask Spirit Pet Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Evil Mask Spirit Pet Skin"
+      },
+      {
+        "slug": "tezcacoatl-s-tail",
+        "name": "Tezcacoatl's Tail"
+      },
+      {
+        "slug": "penetrating-blast-spell",
+        "name": "Penetrating Blast Spell"
+      },
+      {
+        "slug": "reikoku",
+        "name": "Reikoku"
+      },
+      {
+        "slug": "daybreak-chakram",
+        "name": "Daybreak Chakram"
+      },
+      {
+        "slug": "hirejou-tenne",
+        "name": "Hirejou Tenne"
+      },
+      {
+        "slug": "heavenly-magatama",
+        "name": ""
+      }
+    ]
+  },
+  "mountain-temple": {
+    "potions": [
+      "hp"
+    ],
+    "greaterPotions": [
+      "def"
+    ],
+    "gear": [
+      {
+        "slug": "kaiken",
+        "name": "Kaiken",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 31,
+        "summary": "+4 ATT, +4 DEX",
+        "description": "Shots hit multiple targets Shots pass through obstacles Inflicts Slowed for 2 seconds"
+      },
+      {
+        "slug": "orb-of-aether",
+        "name": "Orb of Aether",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Mystic"
+        ],
+        "score": 22,
+        "description": "Creates an Aether Trap at the target location On enemy: Inflicts Slowed and Paralyzed Slowed Radius: 4.5 tiles Slowed Duration: 5 seconds Paralyze Radius: 2.5 tiles Paralyze Duration: 2 seconds"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-daichi",
+        "name": "Mark of Daichi"
+      },
+      {
+        "slug": "wine-cellar-incantation",
+        "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "stat-increase-potions",
+        "name": "Stat Increase Potions"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Possessed Lantern Pet Skin"
+      },
+      {
+        "slug": "kazekiri",
+        "name": "Kazekiri"
+      },
+      {
+        "slug": "ryu-s-blade",
+        "name": "Ryu's Blade"
+      },
+      {
+        "slug": "kamishimo",
+        "name": "Kamishimo"
+      },
+      {
+        "slug": "akuma-s-tear",
+        "name": "Akuma's Tear"
+      },
+      {
+        "slug": "wand-of-the-fallen",
+        "name": "Wand of the Fallen"
+      },
+      {
+        "slug": "jade-storm",
+        "name": "Jade Storm"
+      }
+    ]
+  },
+  "kogbold-steamworks": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "laser-pointer",
+        "name": "Laser Pointer",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Druid",
+          "Sorcerer",
+          "Summoner"
+        ],
+        "score": 227,
+        "summary": "95–130 dmg",
+        "powerLevel": 227,
+        "description": "Ignores defense of target"
+      },
+      {
+        "slug": "steam-pipe",
+        "name": "Steam Pipe",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Mystic"
+        ],
+        "score": 85,
+        "summary": "65–85 dmg ×2",
+        "description": "Shots hit multiple targets Acceleration: -22.2/-50 tiles/sec2"
+      },
+      {
+        "slug": "brain-cube",
+        "name": "Brain Cube",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Necromancer"
+        ],
+        "score": 19,
+        "summary": "+50 MP, +6 DEX",
+        "description": "Necromancy: raise 1 Brain Undead to fight for you.On Use: Produces 4 explosions at the aim point.Subsequent bursts deal decreasing damage over a wider area."
+      },
+      {
+        "slug": "kogbold-cower-shield",
+        "name": "Kogbold Cower Shield",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Knight"
+        ],
+        "score": 18,
+        "summary": "+5 SPD, +5 VIT",
+        "description": "Damage Reduction: On ability use, you receive 70% damage for 5 seconds Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "overclocking-amulet",
+        "name": "Overclocking Amulet",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Assassin",
+          "Bard",
+          "Druid"
+        ],
+        "score": 12,
+        "summary": "+8 ATT, -8 DEF, +8 DEX",
+        "powerLevel": 16
+      },
+      {
+        "slug": "scepter-of-rust",
+        "name": "Scepter of Rust",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Sorcerer"
+        ],
+        "score": 7,
+        "summary": "+7 WIS",
+        "description": "On enemies: Weak for 4 seconds"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-control-core",
+        "name": "Mark of the Control Core"
+      },
+      {
+        "slug": "greater-health-potion",
+        "name": "Greater Health Potion"
+      },
+      {
+        "slug": "greater-magic-potion",
+        "name": "Greater Magic Potion"
+      },
+      {
+        "slug": "sword-rune",
+        "name": "Sword Rune"
+      },
+      {
+        "slug": "kogbold-inventor-archer-set-shard",
+        "name": "Kogbold Inventor Archer Set Shard"
+      },
+      {
+        "slug": "kogbold-pyrotechnician-wizard-set-shard",
+        "name": "Kogbold Pyrotechnician Wizard Set Shard"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Kogbold Maid Pet Skin"
+      },
+      {
+        "slug": "precision-cog",
+        "name": "Precision Cog"
+      },
+      {
+        "slug": "chain-dagger",
+        "name": "Chain Dagger"
+      },
+      {
+        "slug": "kogbold-enhancement-core",
+        "name": "Kogbold Enhancement Core"
+      }
+    ]
+  },
+  "the-shatters": {
+    "potions": [],
+    "greaterPotions": [
+      "att",
+      "def",
+      "mp",
+      "wis",
+      "hp",
+      "vit"
+    ],
+    "gear": [
+      {
+        "slug": "dusky-catalyst",
+        "name": "Dusky Catalyst",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Druid",
+          "Priest",
+          "Sorcerer",
+          "Summoner"
+        ],
+        "score": 240,
+        "summary": "100–186 dmg",
+        "powerLevel": 240,
+        "description": "Reduces the Magic casting cost of your Ability by 5% Shots hit multiple targets Wavy shots"
+      },
+      {
+        "slug": "warmonger",
+        "name": "Warmonger",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Archer",
+          "Bard",
+          "Huntress"
+        ],
+        "score": 213,
+        "summary": "95–110 dmg ×2",
+        "powerLevel": 213,
+        "description": "Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "valor",
+        "name": "Valor",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Kensei",
+          "Ninja",
+          "Samurai"
+        ],
+        "score": 212,
+        "summary": "480–555 dmg",
+        "powerLevel": 212,
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "mantle-of-the-monarchy",
+        "name": "Mantle of the Monarchy",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Priest"
+        ],
+        "score": 71,
+        "summary": "+60 HP, +60 MP, +12 DEF, +20 VIT"
+      },
+      {
+        "slug": "royal-guard-s-cuirass",
+        "name": "Royal Guard's Cuirass",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 65,
+        "summary": "+60 HP, +20 DEF, +10 VIT"
+      },
+      {
+        "slug": "bracer-of-the-guardian",
+        "name": "Bracer of the Guardian",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 65,
+        "summary": "+90 HP, +80 MP, +4 ATT, +9 DEF",
+        "powerLevel": 100
+      },
+      {
+        "slug": "vest-of-abandoned-shadows",
+        "name": "Vest of Abandoned Shadows",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Archer",
+          "Rogue",
+          "Trickster"
+        ],
+        "score": 58,
+        "summary": "+50 HP, +15 DEF, +15 VIT"
+      },
+      {
+        "slug": "vanguard-s-visage",
+        "name": "Vanguard's Visage",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Warrior"
+        ],
+        "score": 56,
+        "summary": "+4 ATT, +9 DEF, +4 VIT",
+        "description": "On party: Berserk for 3 (+0.1 per WIS over 30) seconds Eternal Defender: Fires a sword of projectiles towards your cursor Shots hit multiple targets Ignores defense of target Shots pass through obstacles"
+      },
+      {
+        "slug": "chrysalis-of-eternity",
+        "name": "Chrysalis of Eternity",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Archer",
+          "Bard",
+          "Druid",
+          "Huntress",
+          "Kensei",
+          "Knight",
+          "Mystic",
+          "Necromancer",
+          "Ninja",
+          "Paladin",
+          "Priest",
+          "Rogue",
+          "Samurai",
+          "Sorcerer",
+          "Summoner",
+          "Warrior"
+        ],
+        "score": 55,
+        "summary": "+120 HP, +7 ATT, +7 DEX"
+      },
+      {
+        "slug": "the-forgotten-crown",
+        "name": "The Forgotten Crown",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Huntress",
+          "Necromancer",
+          "Paladin",
+          "Sorcerer",
+          "Warrior"
+        ],
+        "score": 49,
+        "summary": "+110 HP, +6 ATT, +6 DEX",
+        "powerLevel": 85
+      },
+      {
+        "slug": "ice-crown",
+        "name": "Ice Crown",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Archer",
+          "Huntress",
+          "Sorcerer"
+        ],
+        "score": 49,
+        "summary": "+110 HP, +6 ATT, +6 DEX",
+        "powerLevel": 85
+      },
+      {
+        "slug": "sentinel-s-sidearm",
+        "name": "Sentinel's Sidearm",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Samurai"
+        ],
+        "score": 48,
+        "summary": "+5 ATT, +5 DEX",
+        "description": "Fire 3 swords that pause and target the nearest enemy. Exposed for 3 seconds Ignores defense of target Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "the-twilight-gemstone",
+        "name": "The Twilight Gemstone",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Archer",
+          "Assassin",
+          "Bard",
+          "Huntress",
+          "Kensei",
+          "Knight",
+          "Mystic",
+          "Necromancer",
+          "Ninja",
+          "Paladin",
+          "Priest",
+          "Samurai",
+          "Sorcerer",
+          "Trickster",
+          "Wizard"
+        ],
+        "score": 48,
+        "summary": "+110 MP, +8 DEF, +5 SPD, +5 WIS",
+        "powerLevel": 66,
+        "description": "Reduces the Magic casting cost of your ability by 20%"
+      },
+      {
+        "slug": "noble-mandolin",
+        "name": "Noble Mandolin",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Bard"
+        ],
+        "score": 42,
+        "summary": "+30 HP, +5 DEF",
+        "description": "Self Only: On use, lowers your shot speed by half for 4 seconds. ATT Boost (+10 ATT) for 4.5s Party Effect: Within 5 squares Damaging for 4.5 seconds Shots hit multiple targets Shots pass through obstacles Turning: 150 degrees/sec Circular Motion: After 0.6s, "
+      },
+      {
+        "slug": "the-forgotten-ring",
+        "name": "The Forgotten Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Paladin"
+        ],
+        "score": 40,
+        "summary": "+160 HP",
+        "powerLevel": 89
+      },
+      {
+        "slug": "primal-arcana",
+        "name": "Primal Arcana",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Mystic"
+        ],
+        "score": 32,
+        "summary": "+8 DEX",
+        "description": "Your weapon fires two (33% chance for third bullet) more bullets, each dealing 100-120 damage with cooldown 0.2 (0 for third bullet) seconds Curse for 5s Shots hit multiple targets Shots pass through obstacles"
+      },
+      {
+        "slug": "polarity-poison",
+        "name": "Polarity Poison",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Assassin"
+        ],
+        "score": 17,
+        "summary": "+8 WIS",
+        "description": "Secondary Bombs: Slowed for 3s"
+      },
+      {
+        "slug": "peacekeeper",
+        "name": "Peacekeeper",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Summoner"
+        ],
+        "score": 15,
+        "summary": "+30 HP, +5 DEX",
+        "description": "Archer’s Bow: 500-600 damage Raider’s Spear: 100-150 damage Knight’s Slash: 100-250 damage Knight’s Flurry: 100-200 damage"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-forgotten-king",
+        "name": "Mark of the Forgotten King"
+      },
+      {
+        "slug": "herbal-tincture",
+        "name": "Herbal Tincture"
+      },
+      {
+        "slug": "greater-health-potion",
+        "name": "Greater Health Potion"
+      },
+      {
+        "slug": "greater-magic-potion",
+        "name": "Greater Magic Potion"
+      },
+      {
+        "slug": "corruption-tether",
+        "name": "Corruption Tether"
+      },
+      {
+        "slug": "ancient-eminence",
+        "name": "Ancient Eminence"
+      },
+      {
+        "slug": "twilight-shroud",
+        "name": "Twilight Shroud"
+      },
+      {
+        "slug": "defiled-equilibrium",
+        "name": "Defiled Equilibrium"
+      },
+      {
+        "slug": "archangel-s-judgement",
+        "name": "Archangel's Judgement"
+      },
+      {
+        "slug": "daevite-progenitor",
+        "name": "Daevite Progenitor"
+      },
+      {
+        "slug": "seraphim-s-guard",
+        "name": "Seraphim's Guard"
+      },
+      {
+        "slug": "flames-of-genesis",
+        "name": "Flames of Genesis"
+      },
+      {
+        "slug": "fallen-one-s-blade",
+        "name": "Fallen One's Blade"
+      },
+      {
+        "slug": "abyssal-insignia",
+        "name": "Abyssal Insignia"
+      },
+      {
+        "slug": "vortex-plating",
+        "name": "Vortex Plating"
+      },
+      {
+        "slug": "eye-of-the-void",
+        "name": "Eye of the Void"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Sentinel Watchdog Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Shadow Stormbird Pet Skin"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Royal Void Cat Pet Skin"
+      },
+      {
+        "slug": "dungeon-treasures",
+        "name": "The Tower Tarot Card"
+      }
+    ]
+  },
+  "the-nest": {
+    "potions": [
+      "dex",
+      "def",
+      "hp"
+    ],
+    "greaterPotions": [
+      "hp",
+      "dex"
+    ],
+    "gear": [
+      {
+        "slug": "queen-s-stinger",
+        "name": "Queen's Stinger",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Assassin",
+          "Trickster"
+        ],
+        "score": 127,
+        "summary": "150–170 dmg",
+        "powerLevel": 127,
+        "description": "Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "beekeeper-s-flamethrower",
+        "name": "Beekeeper's Flamethrower",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Druid",
+          "Priest",
+          "Summoner"
+        ],
+        "score": 125,
+        "summary": "85–125 dmg ×3",
+        "description": "Ignores defense of target Shots pass through obstacles"
+      },
+      {
+        "slug": "hivemaster-helm",
+        "name": "Hivemaster Helm",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Warrior"
+        ],
+        "score": 48,
+        "summary": "+6 DEF, +6 SPD",
+        "description": "On party: Inflicts Berserk within 4 tiles for 6 seconds Summon 3 bees to aid the player in combat for 6 seconds Bee Attack: 120 damage every 0.6 seconds Bee Range: 4 sqrs Red Bee Effect: Inflicts Curse for 4 seconds after being active for 1.6 seconds"
+      },
+      {
+        "slug": "apiary-armor",
+        "name": "Apiary Armor",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Druid"
+        ],
+        "score": 45,
+        "summary": "+3 ATT, +18 DEF, +3 SPD",
+        "powerLevel": 63
+      },
+      {
+        "slug": "swarmlord-s-sigil",
+        "name": "Swarmlord's Sigil",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Druid"
+        ],
+        "score": 14,
+        "summary": "+4 ATT, +4 DEX",
+        "description": "Bee Form: Stat Boost, Reduced weapon range, improving the ability attack Requires full meter to transform Switches back only automatically after 7.6 seconds."
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-killer-bee-queen",
+        "name": "Mark of the Killer Bee Queen"
+      },
+      {
+        "slug": "royal-jelly",
+        "name": "Royal Jelly"
+      },
+      {
+        "slug": "blue-beehemoth-armor",
+        "name": "Blue Beehemoth Armor"
+      },
+      {
+        "slug": "red-beehemoth-armor",
+        "name": "Red Beehemoth Armor"
+      },
+      {
+        "slug": "yellow-beehemoth-armor",
+        "name": "Yellow Beehemoth Armor"
+      },
+      {
+        "slug": "sword-rune",
+        "name": "Sword Rune"
+      },
+      {
+        "slug": "killbilly-warrior-set-shard",
+        "name": "Killbilly Warrior Set Shard"
+      },
+      {
+        "slug": "resurrected-huntress-set-shard",
+        "name": "Resurrected Huntress Set Shard"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Killer Bee Queen Pet Skin"
+      },
+      {
+        "slug": "nectar-crossfire",
+        "name": "Nectar Crossfire"
+      },
+      {
+        "slug": "honeytomb-snare",
+        "name": "Honeytomb Snare"
+      },
+      {
+        "slug": "honey-circlet",
+        "name": "Honey Circlet"
+      },
+      {
+        "slug": "amber-honeycomb",
+        "name": "Amber Honeycomb"
+      },
+      {
+        "slug": "combcutter-kunai",
+        "name": "Combcutter Kunai"
+      },
+      {
+        "slug": "hivemind-mace",
+        "name": "Hivemind Mace"
+      }
+    ]
+  },
+  "fungal-cavern": {
+    "potions": [],
+    "greaterPotions": [],
+    "gear": [],
+    "other": []
+  },
+  "crystal-cavern": {
+    "potions": [
+      "hp"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "fractal-blades",
+        "name": "Fractal Blades",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Assassin",
+          "Rogue",
+          "Trickster"
+        ],
+        "score": 105,
+        "summary": "75–105 dmg ×2",
+        "description": "Shots pass through obstacles Shots hit multiple targets"
+      },
+      {
+        "slug": "luminous-armor",
+        "name": "Luminous Armor",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Ninja"
+        ],
+        "score": 60,
+        "summary": "+200 HP, +5 SPD, +5 VIT"
+      },
+      {
+        "slug": "ring-of-decades",
+        "name": "Ring of Decades",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Warrior"
+        ],
+        "score": 40,
+        "summary": "+160 HP",
+        "powerLevel": 82
+      },
+      {
+        "slug": "fractured-gemstone-wakizashi",
+        "name": "Fractured Gemstone Wakizashi",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Samurai"
+        ],
+        "score": 40,
+        "summary": "+5 DEF",
+        "description": "Summons a sentient crystal star that orbits you for 5 seconds Crystal Star: Shoots bursts at nearby enemies inflicting Exposed for 3 seconds, deals 250-300 (275) damage per hit Shots: 8 Total Damage: 2000-2400 (2200) Projectile Speed: 5 tiles/sec Projectile Li"
+      },
+      {
+        "slug": "cloak-of-refraction",
+        "name": "Cloak of Refraction",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Rogue"
+        ],
+        "score": 34,
+        "summary": "+3 DEF, +10 SPD",
+        "description": "Summon: 3 Mirror Images - the center is a decoy, the outer two orbit the center and fire 1 shot inwards and 2 shots outwards Damage: 200-300 (average: 250) Range: 6 tiles Shots hit multiple targets Shots pass through obstacles After exiting sneak: Fire 2 addit"
+      },
+      {
+        "slug": "irradiance-sheath",
+        "name": "Irradiance Sheath",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 20,
+        "summary": "+40 HP, +5 ATT",
+        "description": "Shots hit multiple targets Wavy shots"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-crystal-entity",
+        "name": "Mark of the Crystal Entity"
+      },
+      {
+        "slug": "sword-rune",
+        "name": "Sword Rune"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Crystal Cobra Pet Skin"
+      },
+      {
+        "slug": "quartz-cutter",
+        "name": "Quartz Cutter"
+      },
+      {
+        "slug": "crystalline-kunai",
+        "name": "Crystalline Kunai"
+      },
+      {
+        "slug": "radiant-heart",
+        "name": "Radiant Heart"
+      },
+      {
+        "slug": "echoes-prism",
+        "name": "Echoes Prism"
+      },
+      {
+        "slug": "star-of-enlightenment",
+        "name": "Star of Enlightenment"
+      },
+      {
+        "slug": "crystallised-mist",
+        "name": "Crystallised Mist"
+      },
+      {
+        "slug": "crystalline-sigil",
+        "name": "Crystalline Sigil"
+      }
+    ]
+  },
+  "spectral-penitentiary": {
+    "potions": [
+      "def",
+      "dex",
+      "spd",
+      "vit",
+      "wis",
+      "att",
+      "mp"
+    ],
+    "greaterPotions": [
+      "def",
+      "mp"
+    ],
+    "gear": [
+      {
+        "slug": "tools-of-the-tarnished",
+        "name": "Tools of the Tarnished",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 75,
+        "summary": "65–75 dmg",
+        "description": "Turn Rate: -25 Turn Stop Time: 0.4 seconds Shots hit multiple targets"
+      },
+      {
+        "slug": "cackling-straitjacket",
+        "name": "Cackling Straitjacket",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Druid",
+          "Huntress"
+        ],
+        "score": 58,
+        "summary": "+20 ATT, +15 DEF, -5 SPD, -5 DEX"
+      },
+      {
+        "slug": "motivational-megaphone",
+        "name": "Motivational Megaphone",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Bard"
+        ],
+        "score": 45,
+        "summary": "+5 ATT, +5 VIT",
+        "description": "Long-Range Assault: Buffs are centered on cursor instead of on user Party Effect: Within 4 squares Berserk for 4 seconds. On hitting at least one target: Gain Healing for 3 seconds."
+      },
+      {
+        "slug": "wretched-rags",
+        "name": "Wretched Rags",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Mystic",
+          "Necromancer",
+          "Summoner"
+        ],
+        "score": 38,
+        "summary": "+10 DEF, +5 DEX, +10 WIS"
+      },
+      {
+        "slug": "command-cornea",
+        "name": "Command Cornea",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Mystic"
+        ],
+        "score": 32,
+        "summary": "+5 DEF, +10 WIS",
+        "description": "On enemies: Curse Curse Radius: 6.5 (+0.1 per WIS over 50) tiles Curse Duration: 5.5 (+1 per 10 WIS over 50) seconds"
+      },
+      {
+        "slug": "ocular-entrapment",
+        "name": "Ocular Entrapment",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Huntress"
+        ],
+        "score": 22,
+        "summary": "+5 DEX, +5 WIS",
+        "description": "Eyebawl Toss: Summon a lingering eyebawl that lasts for 10 seconds Upon repeated throws targeting an Eyebawl, it deals 1200 damage within 6 sqrs Eyebawl Damage Cooldown: 0.8 seconds Eyebawl Toss Cooldown: 2 seconds On enemies: Inflicts Slowed for 3 seconds"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-soulwarden",
+        "name": "Mark of the Soulwarden"
+      },
+      {
+        "slug": "plague-doctor-priest-set-shard",
+        "name": "Plague Doctor Priest Set Shard"
+      },
+      {
+        "slug": "alchemist-assassin-set-shard",
+        "name": "Alchemist Assassin Set Shard"
+      },
+      {
+        "slug": "spellbound-soulthief-set-shard",
+        "name": "Spellbound Soulthief Set Shard"
+      },
+      {
+        "slug": "sinister-syringes",
+        "name": "Sinister Syringes"
+      },
+      {
+        "slug": "overwhelming-axehead",
+        "name": "Overwhelming Axehead"
+      },
+      {
+        "slug": "damnation",
+        "name": "Damnation"
+      },
+      {
+        "slug": "vial-of-soul-extract",
+        "name": "Vial of Soul Extract"
+      },
+      {
+        "slug": "pet-skins",
+        "name": "Penitent Frog Pet Skin"
+      }
+    ]
+  },
+  "moonlight-village": {
+    "potions": [],
+    "greaterPotions": [
+      "hp",
+      "wis",
+      "vit"
+    ],
+    "gear": [
+      {
+        "slug": "sage-s-wakibiki",
+        "name": "Sage's Wakibiki",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 70,
+        "summary": "+20 DEF, +15 VIT, +15 WIS",
+        "powerLevel": 130
+      },
+      {
+        "slug": "taiko-drums",
+        "name": "Taiko Drums",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Bard"
+        ],
+        "score": 65,
+        "summary": "+6 DEF, +6 DEX",
+        "description": "Within 4.5 tiles Inspired for 6.5 seconds. Tempo Change: Control the rhythm of the drums to match the situation Ability 1: Crescendo Effect on self: Berserk for 5 seconds. Blitz Rhythm: Greatly increases shot speed, whilst boosting effective weapon range Abili"
+      },
+      {
+        "slug": "flowering-kimono",
+        "name": "Flowering Kimono",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Bard",
+          "Summoner",
+          "Wizard"
+        ],
+        "score": 63,
+        "summary": "+120 MP, +10 DEF, +7 SPD, +12 WIS",
+        "powerLevel": 98
+      },
+      {
+        "slug": "kagenohikari",
+        "name": "Kagenohikari",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Archer",
+          "Bard",
+          "Kensei",
+          "Sorcerer",
+          "Wizard"
+        ],
+        "score": 55,
+        "summary": "+100 HP, +100 MP, +5 VIT, +5 WIS",
+        "powerLevel": 85,
+        "description": "Reduces the Magic casting cost of your ability by 10%"
+      },
+      {
+        "slug": "elegant-parasol",
+        "name": "Elegant Parasol",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 45,
+        "summary": "+8 ATT, +8 VIT",
+        "description": "Trail of Seasons: Call forth a line of diverging projectiles that paralyzes enemies Shots hit multiple targets Shots pass through obstacles Ignores defense of target Paralyzed for 3 seconds Blossoming Power: Release an explosion at the end of each dash dealing"
+      },
+      {
+        "slug": "tezutsu-hanabi",
+        "name": "Tezutsu Hanabi",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Sorcerer"
+        ],
+        "score": 18,
+        "summary": "+50 HP, +5 VIT",
+        "description": "Hold [Shift] for 0.75 seconds to change modes Light Show: On Ability Use: Summon an orbiting Friendly Spirit which chases and attacks enemies. The spirit synergizes in the presence of other spirits. Upgrade Levels: 1: 150-200 damage shotgun. 2: 150-200 damage "
+      },
+      {
+        "slug": "makakoyumi",
+        "name": "Makakoyumi",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Archer",
+          "Bard"
+        ],
+        "score": 0,
+        "summary": "effect item",
+        "powerLevel": 226,
+        "description": "Shots hit multiple targets Shots pass through obstacles"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-moonlight",
+        "name": "Mark of Moonlight"
+      },
+      {
+        "slug": "mark-of-the-kitsune",
+        "name": "Mark of the Kitsune"
+      },
+      {
+        "slug": "stat-increase-potions",
+        "name": ""
+      },
+      {
+        "slug": "onmyoji-ninja-set-shard",
+        "name": ""
+      },
+      {
+        "slug": "ethereal-happi",
+        "name": "Ethereal Happi"
+      },
+      {
+        "slug": "rain-maker",
+        "name": "Rain Maker"
+      },
+      {
+        "slug": "the-princess-and-the-fox",
+        "name": "The Princess and the Fox: Page 1-6"
+      },
+      {
+        "slug": "concentrated-soul-fire",
+        "name": "Concentrated Soul Fire"
+      },
+      {
+        "slug": "the-night-prince",
+        "name": "The Night Prince: Page 1-5"
+      },
+      {
+        "slug": "the-night-prince-unlocker",
+        "name": "The Night Prince Unlocker"
+      },
+      {
+        "slug": "akuma-ramen",
+        "name": "Akuma Ramen"
+      },
+      {
+        "slug": "barbecued-shrimp",
+        "name": "Barbecued Shrimp"
+      },
+      {
+        "slug": "grilled-fish",
+        "name": "Grilled Fish"
+      },
+      {
+        "slug": "onigiri",
+        "name": "Onigiri"
+      },
+      {
+        "slug": "salmon-roe",
+        "name": "Salmon Roe"
+      },
+      {
+        "slug": "seafood-bento",
+        "name": "Seafood Bento"
+      },
+      {
+        "slug": "sizzled-tentacle",
+        "name": "Sizzled Tentacle"
+      },
+      {
+        "slug": "steamed-clam",
+        "name": "Steamed Clam"
+      },
+      {
+        "slug": "sushi-roll",
+        "name": "Sushi Roll"
+      },
+      {
+        "slug": "takoyaki",
+        "name": "Takoyaki"
+      },
+      {
+        "slug": "tuna-nigiri",
+        "name": "Tuna Nigiri"
+      },
+      {
+        "slug": "unadon",
+        "name": "Unadon"
+      },
+      {
+        "slug": "mysterious-crate",
+        "name": "Mysterious Crate"
+      },
+      {
+        "slug": "basic-fishing-rod",
+        "name": ""
+      },
+      {
+        "slug": "intermediate-fishing-rod",
+        "name": ""
+      },
+      {
+        "slug": "expert-fishing-rod",
+        "name": ""
+      },
+      {
+        "slug": "master-fishing-rod",
+        "name": ""
+      }
+    ]
+  },
+  "lost-halls": {
+    "potions": [
+      "att",
+      "def",
+      "hp",
+      "mp"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "sword-of-the-colossus",
+        "name": "Sword of the Colossus",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Paladin",
+          "Warrior"
+        ],
+        "score": 214,
+        "summary": "280–295 dmg",
+        "powerLevel": 214
+      },
+      {
+        "slug": "breastplate-of-new-life",
+        "name": "Breastplate of New Life",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Knight",
+          "Paladin"
+        ],
+        "score": 68,
+        "summary": "+160 HP, +14 DEF",
+        "powerLevel": 122
+      },
+      {
+        "slug": "magical-lodestone",
+        "name": "Magical Lodestone",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Bard"
+        ],
+        "score": 47,
+        "summary": "+30 HP, +6 ATT, +6 DEF, +6 SPD, +6 DEX",
+        "powerLevel": 60
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of the Colossus"
+      },
+      {
+        "slug": "gravel",
+        "name": "Gravel"
+      },
+      {
+        "slug": "helmet-rune",
+        "name": "Helmet Rune"
+      },
+      {
+        "slug": "stat-increase-potions",
+        "name": "Stat Increase Potions"
+      },
+      {
+        "slug": "marble-seal",
+        "name": "Marble Seal"
+      },
+      {
+        "slug": "carved-golem-remains",
+        "name": "Carved Golem Remains"
+      },
+      {
+        "slug": "brain-of-the-golem",
+        "name": "Brain of the Golem"
+      },
+      {
+        "slug": "golem-garments",
+        "name": "Golem Garments"
+      },
+      {
+        "slug": "rusty-cuffs",
+        "name": "Rusty Cuffs"
+      }
+    ]
+  },
+  "cultist-hideout": {
+    "potions": [
+      "hp",
+      "mp"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "staff-of-unholy-sacrifice",
+        "name": "Staff of Unholy Sacrifice",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Mystic",
+          "Wizard"
+        ],
+        "score": 278,
+        "summary": "155–185 dmg ×4",
+        "powerLevel": 278,
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "ritual-robe",
+        "name": "Ritual Robe",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Bard",
+          "Necromancer",
+          "Priest",
+          "Sorcerer",
+          "Summoner"
+        ],
+        "score": 64,
+        "summary": "+50 MP, +5 ATT, +12 DEF, +20 WIS",
+        "powerLevel": 78
+      },
+      {
+        "slug": "bloodshed-ring",
+        "name": "Bloodshed Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Kensei"
+        ],
+        "score": 48,
+        "summary": "+110 HP, +6 DEF, +8 WIS",
+        "powerLevel": 79
+      },
+      {
+        "slug": "skull-of-corrupted-souls",
+        "name": "Skull of Corrupted Souls",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Necromancer"
+        ],
+        "score": 23,
+        "summary": "+66 HP, +6 VIT",
+        "description": "Necromancy: raise 1 Corrupted Souls Undead to fight for you."
+      }
+    ],
+    "other": [
+      {
+        "slug": "marks",
+        "name": "Mark of Malus"
+      },
+      {
+        "slug": "helmet-rune",
+        "name": "Helmet Rune"
+      },
+      {
+        "slug": "vial-of-pure-darkness",
+        "name": "Vial of Pure Darkness"
+      },
+      {
+        "slug": "storm-shaman-set-shard",
+        "name": "Storm Shaman Set Shard"
+      },
+      {
+        "slug": "sorcerer-skins",
+        "name": "Mini Malus Sorcerer Skin"
+      },
+      {
+        "slug": "burial-blades",
+        "name": "Burial Blades"
+      }
+    ]
+  },
+  "the-void": {
+    "potions": [
+      "hp",
+      "mp"
+    ],
+    "greaterPotions": [],
+    "gear": [
+      {
+        "slug": "bow-of-the-void",
+        "name": "Bow of the Void",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Archer",
+          "Huntress"
+        ],
+        "score": 194,
+        "summary": "180–255 dmg",
+        "powerLevel": 194,
+        "description": "Shots hit multiple targets"
+      },
+      {
+        "slug": "omnipotence-ring",
+        "name": "Omnipotence Ring",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Archer",
+          "Knight",
+          "Summoner",
+          "Warrior"
+        ],
+        "score": 82,
+        "summary": "+90 HP, +90 MP, +4 ATT, +5 DEF, +5 SPD, +4 DEX, +6 VIT, +6 WIS",
+        "powerLevel": 108
+      },
+      {
+        "slug": "armor-of-nil",
+        "name": "Armor of Nil",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Ninja"
+        ],
+        "score": 55,
+        "summary": "+30 DEF, -5 SPD",
+        "powerLevel": 80
+      },
+      {
+        "slug": "quiver-of-shadows",
+        "name": "Quiver of Shadows",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Archer"
+        ],
+        "score": 18,
+        "summary": "+6 DEF, -2 SPD",
+        "description": "Shots hit multiple targets Ignores defense of target Shots pass through obstacles"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-void-entity",
+        "name": "Mark of the Void Entity"
+      },
+      {
+        "slug": "helmet-rune",
+        "name": "Helmet Rune"
+      },
+      {
+        "slug": "sourcestone",
+        "name": "Sourcestone"
+      }
+    ]
+  },
+  "oryx-sanctuary": {
+    "potions": [],
+    "greaterPotions": [
+      "hp",
+      "mp"
+    ],
+    "gear": [
+      {
+        "slug": "lumiaire",
+        "name": "Lumiaire",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Sorcerer",
+          "Summoner"
+        ],
+        "score": 272,
+        "summary": "80–100 dmg ×2",
+        "powerLevel": 272
+      },
+      {
+        "slug": "superior",
+        "name": "Superior",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Mystic",
+          "Necromancer",
+          "Wizard"
+        ],
+        "score": 241,
+        "summary": "55–90 dmg ×4",
+        "powerLevel": 241
+      },
+      {
+        "slug": "enforcer",
+        "name": "Enforcer",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Kensei",
+          "Ninja",
+          "Samurai"
+        ],
+        "score": 239,
+        "summary": "105–145 dmg ×2",
+        "powerLevel": 239
+      },
+      {
+        "slug": "avarice",
+        "name": "Avarice",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Assassin",
+          "Rogue",
+          "Trickster"
+        ],
+        "score": 215,
+        "summary": "190–215 dmg",
+        "powerLevel": 215
+      },
+      {
+        "slug": "divinity",
+        "name": "Divinity",
+        "tier": "UT",
+        "slot": "weapon",
+        "classes": [
+          "Knight",
+          "Paladin",
+          "Warrior"
+        ],
+        "score": 114,
+        "summary": "275–325 dmg",
+        "powerLevel": 114,
+        "description": "Shots hit multiple targets Celestial Strength: Attack with Exalted Beams Exalted Beam: Deals 600-800 damage in a 2.25 square radius, scaling with your Attack and Status Effects Beam Range: Instantly strikes 4 tiles away in the direction of your attack Beam Eff"
+      },
+      {
+        "slug": "gladiator-guard",
+        "name": "Gladiator Guard",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Kensei",
+          "Knight",
+          "Paladin",
+          "Samurai",
+          "Warrior"
+        ],
+        "score": 65,
+        "summary": "+5 ATT, +20 DEF, +7 SPD, +5 DEX"
+      },
+      {
+        "slug": "divine-coronation",
+        "name": "Divine Coronation",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Druid",
+          "Necromancer",
+          "Summoner"
+        ],
+        "score": 61,
+        "summary": "+110 HP, +55 MP, +5 DEF, +8 DEX",
+        "powerLevel": 107
+      },
+      {
+        "slug": "diplomatic-robe",
+        "name": "Diplomatic Robe",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Bard",
+          "Mystic",
+          "Summoner",
+          "Wizard"
+        ],
+        "score": 55,
+        "summary": "+50 HP, +10 ATT, +11 DEF",
+        "powerLevel": 78
+      },
+      {
+        "slug": "chancellor-s-cranium",
+        "name": "Chancellor's Cranium",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Bard",
+          "Huntress",
+          "Mystic",
+          "Priest",
+          "Trickster",
+          "Warrior",
+          "Wizard"
+        ],
+        "score": 47,
+        "summary": "+120 HP, +6 DEF, +3 DEX",
+        "powerLevel": 87
+      },
+      {
+        "slug": "collector-s-monocle",
+        "name": "Collector's Monocle",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Assassin",
+          "Rogue",
+          "Sorcerer"
+        ],
+        "score": 47,
+        "summary": "+140 HP, +8 DEX",
+        "powerLevel": 86
+      },
+      {
+        "slug": "vesture-of-duality",
+        "name": "Vesture of Duality",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Bard",
+          "Mystic",
+          "Necromancer",
+          "Priest",
+          "Sorcerer",
+          "Summoner",
+          "Wizard"
+        ],
+        "score": 47,
+        "summary": "+40 MP, +5 ATT, +12 DEF, +5 SPD",
+        "powerLevel": 66
+      },
+      {
+        "slug": "centaur-s-shielding",
+        "name": "Centaur's Shielding",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Archer",
+          "Assassin",
+          "Druid",
+          "Huntress",
+          "Ninja",
+          "Rogue",
+          "Trickster"
+        ],
+        "score": 47,
+        "summary": "+5 ATT, +13 DEF, +7 DEX",
+        "powerLevel": 70
+      },
+      {
+        "slug": "turncoat-cape",
+        "name": "Turncoat Cape",
+        "tier": "UT",
+        "slot": "armor",
+        "classes": [
+          "Archer",
+          "Huntress",
+          "Ninja",
+          "Rogue",
+          "Trickster"
+        ],
+        "score": 46,
+        "summary": "+18 DEF, +10 SPD",
+        "powerLevel": 74
+      },
+      {
+        "slug": "exalted-god-s-horn",
+        "name": "Exalted God's Horn",
+        "tier": "UT",
+        "slot": "ring",
+        "classes": [
+          "Assassin",
+          "Bard",
+          "Kensei",
+          "Knight",
+          "Mystic",
+          "Summoner",
+          "Trickster",
+          "Wizard"
+        ],
+        "score": 45,
+        "summary": "+140 HP, +5 DEF"
+      },
+      {
+        "slug": "oryx-s-escutcheon",
+        "name": "Oryx's Escutcheon",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Knight"
+        ],
+        "score": 35,
+        "summary": "+10 DEF, +7 SPD",
+        "description": "On Ability Use: Summons three consecutive Exalted Beams that each deal 1000-1200 damage in a 2.75 square radius, inflicting Stunned for 2 seconds Ignores defense of target"
+      },
+      {
+        "slug": "chaotic-scripture",
+        "name": "Chaotic Scripture",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Priest"
+        ],
+        "score": 33,
+        "summary": "+60 HP, +6 VIT",
+        "description": "Heal: 90 (+0.715 per ATT over 60) HP Damage Nova: Explodes once within 2.5 sqrs"
+      },
+      {
+        "slug": "gambler-s-fate",
+        "name": "Gambler's Fate",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Trickster"
+        ],
+        "score": 24,
+        "summary": "+4 ATT, +4 DEX",
+        "description": "On Ability Use: Summons a coin that acts as a decoy. Each second it has a 50% chance to become silver or continue to exist. Silver Coin: Acts as a decoy. Each second it has a 50% chance to disappear or continue to exist."
+      },
+      {
+        "slug": "ballistic-star",
+        "name": "Ballistic Star",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Ninja"
+        ],
+        "score": 20,
+        "summary": "effect item",
+        "description": "On Ability Use: Throws 4 parametric stars Inner Circle: Throws an additional 4 parametric stars at half the range which inflict Stunned on enemies for 3 seconds Hitbox Size: 2 Shots hit multiple targets Ignores defense of target Shots pass through obstacles Sh"
+      },
+      {
+        "slug": "genesis-spell",
+        "name": "Genesis Spell",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Wizard"
+        ],
+        "score": 0,
+        "summary": "effect item",
+        "description": "On Ability Use: Summons 4 portals which zap enemies and deal 350 damage in a radius of 6 squares every 0.4 seconds"
+      }
+    ],
+    "other": [
+      {
+        "slug": "mark-of-the-exalted-god",
+        "name": "Mark of the Exalted God"
+      },
+      {
+        "slug": "tincture-of-courage",
+        "name": "Tincture of Courage"
+      },
+      {
+        "slug": "tincture-of-fear",
+        "name": "Tincture of Fear"
+      },
+      {
+        "slug": "cloths",
+        "name": "Sanctuary Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Dammah Symbol Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Gemsbok Symbol Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Leucoryx Symbol Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Beisa Symbol Cloths"
+      },
+      {
+        "slug": "cloths",
+        "name": "Oryx Symbol Cloths"
+      },
+      {
+        "slug": "shaman-necromancer-set-shard",
+        "name": "Shaman Necromancer Set Shard"
+      },
+      {
+        "slug": "mad-minotaur-set-shard",
+        "name": "Mad Minotaur Set Shard"
+      },
+      {
+        "slug": "astral-arcanist-set-shard",
+        "name": "Astral Arcanist Set Shard"
+      },
+      {
+        "slug": "harmonious-harp",
+        "name": "Harmonious Harp"
+      },
+      {
+        "slug": "angel-s-fanfare",
+        "name": "Angel's Fanfare"
+      },
+      {
+        "slug": "wings-of-sanctity",
+        "name": "Wings of Sanctity"
+      },
+      {
+        "slug": "heavenly-halo",
+        "name": "Heavenly Halo"
+      },
+      {
+        "slug": "battalion-banner",
+        "name": "Battalion Banner"
+      }
+    ]
+  }
+}

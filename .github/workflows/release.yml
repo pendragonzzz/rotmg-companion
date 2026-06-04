@@ -1,0 +1,29 @@
+name: Release
+
+# Push a tag like v0.1.0 to build the Windows installer + portable exe and
+# attach them to a GitHub Release automatically.
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build + package + publish to GitHub Release
+        run: npm run dist:win -- --publish always
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,22 @@
+{
+  "_comment": "CURATED+VERIFIED exaltation map. Source: RealmEye /wiki/exaltation per-stat lists, cross-checked against each dungeon's own wiki page (Kogbold->Vit, Fungal->Wis, Crystal->Wis, Nest->Dex confirmed 2026-06). Completing an exalt dungeon on an 8/8 character banks progress; milestones give PERMANENT, per-class stat bonuses. 'efficiency' = community consensus on fame/exalt-per-hour (high = grind these; low = run for loot/completion, not as a grind). Edit freely as the game changes.",
+
+  "milestones": { "5": 1, "10": 2, "15": 3, "20": 4, "25": 5 },
+  "lifeManaMultiplier": 5,
+  "_milestoneNote": "5/10/15/20/25 completions of a given dungeon = +1/+2/+3/+4/+5 to its stat(s); Life & Mana give 5x (max +25). Per class, permanent.",
+
+  "dungeons": {
+    "the-nest": { "stats": ["dex"], "efficiency": "high", "note": "Killer Bee Queen -> Dexterity. Fast & repeatable; Advanced Nest gives +90% XP. The go-to Dex exalt grind." },
+    "ice-cave": { "stats": ["spd"], "efficiency": "high", "note": "Esben the Neurotic -> Speed. Quick, low-risk Speed exalt + good fame." },
+    "kogbold-steamworks": { "stats": ["vit"], "efficiency": "high", "note": "Factory Control Core -> Vitality. Dangerous but fast; also rains greater pots. Best Vit exalt." },
+    "fungal-cavern": { "stats": ["wis"], "efficiency": "moderate", "note": "Crystal Worm Mother -> Wisdom. Greater pots of all 6 + Life pots + heavy white-bag UTs." },
+    "crystal-cavern": { "stats": ["wis"], "efficiency": "moderate", "note": "Crystal Entity -> Wisdom. Easter seasonal. Greater pots of all 6 + Life." },
+    "spectral-penitentiary": { "stats": ["att"], "efficiency": "moderate", "note": "Soulwarden Murcian -> Attack." },
+    "lost-halls": { "stats": ["def"], "efficiency": "moderate", "note": "Marble Colossus -> Defense. Gateway to Cultist Hideout (Speed) and The Void (Mana/Def)." },
+    "cultist-hideout": { "stats": ["spd"], "efficiency": "moderate", "note": "Malus -> Speed. Opened from inside Lost Halls." },
+    "the-void": { "stats": ["mp", "def"], "efficiency": "low", "note": "Void Entity -> Mana; consuming a Vial of Pure Darkness -> Defense. Top difficulty, opened from Lost Halls." },
+    "moonlight-village": { "stats": ["hp", "mp", "att"], "efficiency": "moderate", "note": "Last dancer decides the stat: Sage Genji -> Life, Drummer Kaguya -> Mana, Dancer Miko -> Attack." },
+    "the-shatters": { "stats": ["att", "hp", "mp"], "efficiency": "low", "note": "Twilight Archmage -> Attack; The Forgotten King -> Life + Mana. Long & dangerous — run for completion/loot, not as a fame/exalt grind." },
+    "oryx-sanctuary": { "stats": ["hp"], "efficiency": "low", "note": "Oryx 3 -> Life. Very time-consuming; run for loot/exaltation completion, not as a fame grind." }
+  }
+}

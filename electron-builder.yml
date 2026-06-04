@@ -1,0 +1,33 @@
+appId: com.rotmgcompanion.app
+productName: RotMG Companion
+directories:
+  buildResources: build
+  output: dist
+# Package only the built output (out/) + production node_modules (electron-builder
+# auto-includes prod deps). Source, scripts, fixtures and configs are excluded.
+files:
+  - 'out/**/*'
+  - 'package.json'
+  - '!**/.vscode/*'
+  - '!{src,scripts,fixtures}/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintignore,.eslintrc.cjs,.gitignore,.prettierignore,.prettierrc,.editorconfig,README.md,CONTEXT.md,META-2025.md}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json,electron-builder.yml,refresh.log}'
+win:
+  executableName: RotMG Companion
+  target:
+    - nsis
+    - portable
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  artifactName: RotMG-Companion-${version}-setup.${ext}
+  shortcutName: RotMG Companion
+  uninstallDisplayName: RotMG Companion
+  createDesktopShortcut: always
+portable:
+  artifactName: RotMG-Companion-${version}-portable.${ext}
+# In GitHub Actions, owner/repo are inferred from the workflow environment.
+publish:
+  provider: github

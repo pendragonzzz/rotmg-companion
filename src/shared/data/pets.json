@@ -1,0 +1,27 @@
+{
+  "_comment": "CURATED pet reference, verified vs RealmEye Pet Maxing/Fusing guides (2025). NOTE: feeding costs NO fame/gold — you feed unwanted items for their Feed Power.",
+  "rarities": [
+    { "name": "Common", "maxAbility": 30, "abilities": 1, "note": "First ability only." },
+    { "name": "Uncommon", "maxAbility": 50, "abilities": 2, "note": "Unlocks the 2nd ability." },
+    { "name": "Rare", "maxAbility": 70, "abilities": 2, "note": "" },
+    { "name": "Legendary", "maxAbility": 90, "abilities": 3, "note": "Unlocks the 3rd ability." },
+    { "name": "Divine", "maxAbility": 100, "abilities": 3, "note": "Max rarity." }
+  ],
+  "abilities": [
+    { "name": "Heal", "tier": "S", "slot": "1st", "desc": "Restores HP over time — your core survivability. Aim for this as ability 1." },
+    { "name": "Magic Heal", "tier": "S", "slot": "2nd", "desc": "Restores MP — lets casters spam spells, Knights chain-stun, Rogues stay cloaked. Aim for ability 2." },
+    { "name": "Electric", "tier": "A", "slot": "3rd", "desc": "Paralyzes + damages nearby enemies. Strong 3rd ability (can nudge boss positioning, though)." },
+    { "name": "Decoy", "tier": "B", "slot": "3rd", "desc": "Pulls enemy shots/aggro for a moment — situational alternative 3rd." },
+    { "name": "Attack / Savage", "tier": "F", "slot": "—", "desc": "Negligible flat damage — skip it; it wastes a slot that could be Heal/MHeal/Electric." }
+  ],
+  "feeding": [
+    "Feed unwanted items for Feed Power (FP), shown in each item's tooltip — there is no fame/gold cost to feed.",
+    "FP applies in FULL to every unlocked ability, so a 3-ability pet effectively levels faster than a 1-ability one.",
+    "Spare UT/ST whites you don't need are the best fodder; plain tiered gear gives very little FP."
+  ],
+  "fusing": [
+    "Fuse two pets of the SAME family and SAME rarity to upgrade rarity (Common→…→Divine).",
+    "Max the 1st ability before fusing — the new pet's level cap = the average of the two pets' 1st-ability levels + 20 (+10 when fusing Legendary → Divine).",
+    "Best practice: max ALL abilities on both pets before fusing, for the highest possible result."
+  ]
+}

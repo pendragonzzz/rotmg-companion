@@ -4,6 +4,7 @@ import { pickActive } from './activeChar';
 import { CharacterCard } from './components/CharacterCard';
 import { SetsPage } from './components/SetsPage';
 import { OverlayPage } from './components/OverlayPage';
+import { PetsPage } from './components/PetsPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Dropdown } from './components/Dropdown';
 import { Icon } from './components/Icon';
@@ -22,7 +23,7 @@ type Phase =
   | { kind: 'error'; message: string }
   | { kind: 'loaded'; profile: PlayerProfile };
 
-type View = { kind: 'characters' } | { kind: 'sets'; className?: string } | { kind: 'overlay' };
+type View = { kind: 'characters' } | { kind: 'sets'; className?: string } | { kind: 'overlay' } | { kind: 'pets' };
 
 export function App() {
   const [name, setName] = useState('');
@@ -69,6 +70,7 @@ export function App() {
         <div className="brand">
           <span className="brand-mark">⚔</span>
           <span className="brand-name">RotMG <b>Companion</b></span>
+          <span className="app-version" title="App version">v{__APP_VERSION__}</span>
         </div>
         <nav className="nav-tabs">
           <button
@@ -88,6 +90,12 @@ export function App() {
             onClick={() => setView({ kind: 'overlay' })}
           >
             <Icon name="layout" size={15} /> Overlay
+          </button>
+          <button
+            className={`nav-tab ${view.kind === 'pets' ? 'active' : ''}`}
+            onClick={() => setView({ kind: 'pets' })}
+          >
+            <Icon name="paw" size={15} /> Pets
           </button>
         </nav>
         <div className="topbar-right">
@@ -118,7 +126,9 @@ export function App() {
       </header>
 
       <main className="content">
-        {view.kind === 'overlay' ? (
+        {view.kind === 'pets' ? (
+          <PetsPage />
+        ) : view.kind === 'overlay' ? (
           <OverlayPage characters={phase.kind === 'loaded' ? sortCharacters(phase.profile.characters) : []} />
         ) : view.kind === 'sets' ? (
           <SetsPage initialClass={view.className} />

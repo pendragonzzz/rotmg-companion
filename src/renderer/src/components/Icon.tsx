@@ -65,6 +65,15 @@ const PATHS: Record<string, JSX.Element> = {
       <path d="M3 9h18M9 9v11" />
     </>
   ),
+  paw: (
+    <>
+      <circle cx="6" cy="11" r="1.9" />
+      <circle cx="10.3" cy="7.2" r="1.9" />
+      <circle cx="13.7" cy="7.2" r="1.9" />
+      <circle cx="18" cy="11" r="1.9" />
+      <path d="M8.2 15.2c1-1 1.8-1.7 3.8-1.7s2.8.7 3.8 1.7c1.6 1.6 1.3 4-1 4-1.1 0-1.9-.5-2.8-.5s-1.7.5-2.8.5c-2.3 0-2.6-2.4-1-4z" />
+    </>
+  ),
 };
 
 const STAT_ICONS: Record<StatKey, string> = {

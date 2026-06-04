@@ -587,6 +587,44 @@ button.goal-where.toggle { font: inherit; cursor: pointer; }
 .brand-name { font-size: 15px; font-weight: 500; letter-spacing: 0.3px; color: var(--muted); }
 .brand-name b { color: var(--text); font-weight: 800; }
 .brand-mark { font-size: 20px; margin: 0; }
+.app-version {
+  font-size: 10px; font-weight: 700; color: var(--muted-2); letter-spacing: 0.3px;
+  border: 1px solid var(--line); border-radius: 10px; padding: 1px 7px; margin-left: 4px; align-self: center;
+}
+
+/* ---- pets page ---- */
+.pets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 16px; margin-top: 16px; align-items: start; }
+.pet-panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.pet-h { margin: 0 0 12px; font-size: 14px; }
+.pet-rarities { display: flex; flex-direction: column; gap: 4px; }
+.pet-rarity { display: flex; align-items: center; gap: 10px; border-left: 3px solid var(--line); padding: 6px 0 6px 10px; }
+.pet-rarity-name { font-weight: 800; min-width: 86px; }
+.pet-rarity[data-rarity='common'] { border-left-color: #9aa3b2; }
+.pet-rarity[data-rarity='uncommon'] { border-left-color: #4ade80; }
+.pet-rarity[data-rarity='rare'] { border-left-color: #38bdf8; }
+.pet-rarity[data-rarity='legendary'] { border-left-color: var(--gold); }
+.pet-rarity[data-rarity='divine'] { border-left-color: #c084fc; }
+.pet-rarity-cap { font-size: 12.5px; white-space: nowrap; }
+.pet-rarity-meta { margin-left: auto; font-size: 11px; color: var(--muted); text-align: right; }
+
+.pet-abilities { display: flex; flex-direction: column; gap: 9px; }
+.pet-ability { display: flex; gap: 10px; }
+.pet-tier {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 6px; display: inline-flex;
+  align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: #0b0d12;
+}
+.pet-tier.tier-S { background: linear-gradient(135deg, var(--gold), #ffce6b); }
+.pet-tier.tier-A { background: var(--cyan); }
+.pet-tier.tier-B { background: #84cc16; }
+.pet-tier.tier-F { background: var(--red); color: #fff; }
+.pet-ability-body { min-width: 0; }
+.pet-ability-top { display: flex; align-items: baseline; gap: 8px; }
+.pet-ability-name { font-weight: 700; }
+.pet-ability-slot { font-size: 10px; color: var(--muted-2); text-transform: uppercase; letter-spacing: 0.5px; }
+.pet-ability-desc { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+.pet-list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.pet-list li { font-size: 12.5px; line-height: 1.45; }
 
 .search-field { position: relative; display: flex; align-items: center; }
 .search-ico { position: absolute; left: 11px; color: var(--muted-2); pointer-events: none; }

@@ -220,3 +220,7 @@ RealmEye import (all chars, sorted, error-isolated) · goals panel (level/stat/g
     "destroy Mixcoatl's totems", Crawling Depths "pop egg sacks", Toxic Sewers boss name (Gulpord). Rejected the
     sheet's errors (Hive mislabeled Tier-1, Ocean Trench "answer the prompt" fabrication, dubious boss names,
     speculative trading tab). Pet/status-effect tabs are accurate but not yet surfaced in UI (future).
+21. **v0.1.1 (shipped):** fixed overlay lifecycle — `mainWin` 'closed' now destroys `overlayWin` so the
+    process fully exits (the hidden always-on-top window was keeping it alive). Added **recent player searches**
+    (`useRecentPlayers` in hooks.ts, localStorage `rotmg-recent-players`): `<datalist>` autocomplete on the
+    search box + clickable recent chips (with ✕ remove) on the home screen. Released via the gh/Actions pipeline.

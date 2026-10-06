@@ -46,7 +46,9 @@ src/shared/            # isomorphic — used by BOTH main and renderer
                        # carryCharacter, diffProfiles → LiveEvents (maxed/gear/level/exalts/pots/new/gone), LiveSettings/LiveState
   dropTables.ts        # PER-ENEMY LOOT: buildEnemyTables(drops, tierOf) inverts "Drops of Interest" (dropsFrom) into
                        # EnemyDropTable[] {name, variants?, loot[] {slug,name,kind,tier,stat}}; drops junk (marks/skins/eggs/
-                       # tarot/dyes), folds colour variants (Soldier Bees), sorts enemies by rare-loot score
+                       # tarot/dyes), folds colour variants anywhere in the name (Soldier Bees, Adolescent Blue/Red/Yellow
+                       # Beehemoth), merges different enemies with identical loot (`sharedBy`: O3 Minister/Judge/Ambassador),
+                       # sorts enemies by rare-loot score; knownItemTiers(drops, sets) → slug→UT/ST for withKnownTiers
   gameDataBundle.ts    # SELF-UPDATING DATA contract: DATA_SCHEMA, DATA_FILES (10 JSONs), DataManifest/DataBundle/DataStatus,
                        # DATA_BASE_URL (raw.githubusercontent …/main/src/shared/data), validateBundle (sanity floors), validateManifest
   overlay.ts           # OverlaySettings (+ peekSeconds, peekOnChange, theme, dungeonCard, widgets.liveToasts) / OverlayState (+ toast) types, DEFAULT_OVERLAY_SETTINGS, mergeOverlaySettings (1-level deep), OVERLAY_PRESETS, HOTKEY_ACTIONS

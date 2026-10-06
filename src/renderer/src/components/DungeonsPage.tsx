@@ -203,9 +203,10 @@ function EnemyCard({ e, rareOnly, mine }: { e: EnemyDropTable; rareOnly: boolean
   const wiki = (slug: string) => void window.api.openExternal(`https://www.realmeye.com/wiki/${slug}`);
   return (
     <div className="enemy-card">
-      <div className="enemy-head" title={e.variants ? e.variants.join(' · ') : undefined}>
-        <b>{e.name}</b>
-        {e.variants && <span className="muted small">×{e.variants.length} variants</span>}
+      <div className="enemy-head" title={(e.sharedBy ?? e.variants)?.join(' · ')}>
+        <b>{e.sharedBy ? e.sharedBy.slice(0, e.sharedBy.length > 3 ? 2 : 3).join(' · ') : e.name}</b>
+        {e.sharedBy && e.sharedBy.length > 3 && <span className="muted small">+{e.sharedBy.length - 2} more</span>}
+        {e.variants && !e.sharedBy && <span className="muted small">×{e.variants.length} variants</span>}
         <span className="spacer" />
         {gear.length > 0 && <span className="enemy-count">{gear.length} UT/ST</span>}
       </div>

@@ -24,6 +24,8 @@ export interface EnemyDropTable {
   name: string;
   /** The original names when colour variants were folded together. */
   variants?: string[];
+  /** Different enemies with exactly this loot (O3's Minister / Judge / Ambassador), `name` first. */
+  sharedBy?: string[];
   loot: LootItem[];
 }
 
@@ -36,7 +38,8 @@ const POTION_RE = /^(Greater )?Potion of (Life|Mana|Attack|Defense|Speed|Dexteri
 const POTION_STAT: Record<string, StatKey> = {
   Life: 'hp', Mana: 'mp', Attack: 'att', Defense: 'def', Speed: 'spd', Dexterity: 'dex', Vitality: 'vit', Wisdom: 'wis',
 };
-const COLOR_RE = /^(Blue|Red|Yellow|Green|Purple|White|Black|Orange|Pink|Gold|Golden|Silver|Brown|Gray|Grey)\s+/;
+// A colour word anywhere in an enemy name ("Blue Soldier Bee", "Adolescent Blue Beehemoth").
+const COLOR_RE = /\b(Blue|Red|Yellow|Green|Purple|White|Black|Orange|Pink|Gold|Golden|Silver|Brown|Gray|Grey)\s+/;
 
 const KIND_RANK: Record<LootKind, number> = { gear: 0, greater: 1, potion: 2, key: 3, other: 4 };
 const tierRank = (t?: string) => (t === 'UT' ? 0 : t === 'ST' ? 1 : 2);
@@ -101,9 +104,21 @@ export function buildEnemyTables(drops: DungeonDrop[], tierOf: (slug: string) =>
     });
     return { name: g.names[0]!.replace(COLOR_RE, ''), variants: g.names, loot: sortLoot(loot), first: order.indexOf(g.names[0]!) };
   });
+  // Different enemies with exactly the same loot share one card.
+  const merged = new Map<string, EnemyDropTable & { first: number }>();
+  for (const t of tables) {
+    const key = t.loot.map((l) => `${l.kind}:${l.name}`).sort().join(';');
+    const m = merged.get(key);
+    if (!m) merged.set(key, t);
+    else {
+      m.sharedBy = [...(m.sharedBy ?? [m.name]), t.name];
+      m.first = Math.min(m.first, t.first);
+    }
+  }
+
   const score = (t: EnemyDropTable) =>
     t.loot.reduce((n, l) => n + (l.kind === 'gear' ? 3 : l.kind === 'greater' ? 2 : isRare(l) ? 1 : 0), 0);
-  return tables
+  return [...merged.values()]
     .sort((a, b) => score(b) - score(a) || a.first - b.first)
     .map(({ first: _first, ...t }) => t);
 }

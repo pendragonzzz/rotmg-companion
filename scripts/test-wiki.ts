@@ -35,7 +35,7 @@ console.log({ name: ct.name, tier: ct.tier, tierType: ct.tierType, generation: c
 import assert from 'node:assert/strict';
 import { buildEnemyTables } from '../src/shared/dropTables';
 // Tiers as the refresh resolves them (player-universe / item pages); unknown → null.
-const KNOWN_UT = new Set(['hivemaster-helm', 'hivemind-mace', 'queen-s-stinger', 'combcutter-kunai', 'swarmlord-s-sigil', 'apiary-armor', 'honey-circlet', 'nectar-crossfire', 'honeytomb-snare', 'beekeeper-s-flamethrower']);
+const KNOWN_UT = new Set(['hivemaster-helm', 'hivemind-mace', 'queen-s-stinger', 'combcutter-kunai', 'swarmlord-s-sigil', 'apiary-armor', 'honey-circlet', 'nectar-crossfire', 'honeytomb-snare', 'beekeeper-s-flamethrower', 'blue-beehemoth-armor', 'red-beehemoth-armor', 'yellow-beehemoth-armor']);
 const tables = buildEnemyTables(drops, (slug) => (KNOWN_UT.has(slug) ? 'UT' : null));
 console.log('\n=== DROP TABLES: the-nest (rare loot per enemy) ===');
 for (const t of tables) {
@@ -50,6 +50,18 @@ const soldiers = tables.find((t) => t.name === 'Soldier Bee')!;
 assert.ok(soldiers?.variants?.length === 3, 'Blue/Red/Yellow Soldier Bees folded into one row');
 assert.ok(!tables.some((t) => /Killer Bee$/.test(t.name) && !/Queen/.test(t.name)), 'Royal-Jelly-only minions dropped (no rare loot)');
 assert.ok(tables.some((t) => t.name === 'The Beekeeper' && t.loot.some((l) => l.name === "Beekeeper's Flamethrower")), 'Beekeeper has its own table');
+const adol = tables.find((t) => t.name === 'Adolescent Beehemoth');
+assert.ok(adol?.variants?.length === 3 && adol.loot.some((l) => l.name === 'Blue/Red/Yellow Beehemoth Armor'), 'mid-name colours fold too (Adolescent Blue/Red/Yellow Beehemoth)');
+const o3ish = buildEnemyTables(
+  [
+    { slug: 'harmonious-harp', name: 'Harmonious Harp', dropsFrom: ['Oryx Minister', 'Oryx Judge', 'Oryx Ambassador'] },
+    { slug: 'divinity', name: 'Divinity', dropsFrom: ['Oryx the Mad God 3'] },
+    { slug: 'potion-of-life', name: 'Greater Potion of Life', dropsFrom: ['Oryx the Mad God 3'] },
+  ],
+  (slug) => (slug === 'divinity' ? 'UT' : slug === 'harmonious-harp' ? 'ST' : null),
+);
+assert.ok(o3ish.length === 2 && o3ish[0]!.name === 'Oryx the Mad God 3', 'boss first, minions after');
+assert.deepEqual(o3ish[1]!.sharedBy, ['Oryx Minister', 'Oryx Judge', 'Oryx Ambassador'], 'identical-loot minions share one card');
 console.log(`✓ drop-table checks passed (${tables.length} enemies with rare loot)`);
 
 // ---- item kind (slot learning in the refresh) ----

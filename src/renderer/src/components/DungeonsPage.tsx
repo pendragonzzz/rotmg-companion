@@ -2,6 +2,7 @@ import { Fragment, useEffect, useMemo, useState } from 'react';
 import { STAT_KEYS, type Character, type StatKey } from '../../../shared/types';
 import { isStatFarmObsolete, type DungeonCategory } from '../../../shared/engine';
 import { dungeonInfo, verdictMap, type DungeonInfo, type SourceStatus } from '../../../shared/planner';
+import { isRare, type EnemyDropTable } from '../../../shared/dropTables';
 import { dungeonWikiUrl, dungeons, plannerData } from '../gameData';
 import type { OverlayApi } from '../hooks';
 import { POT_LABEL, STAT_LABEL } from '../labels';
@@ -151,6 +152,93 @@ export function DungeonsPage({
   );
 }
 
+/** Which enemy drops what — one card per boss / miniboss / notable enemy with rare loot. */
+function DropTables({ info, character }: { info: DungeonInfo; character: Character | null }) {
+  const [rareOnly, setRareOnly] = useState(true);
+  const cls = character?.className.toLowerCase();
+  // Gear the active class can use (known from the dungeon's class-tagged gear list).
+  const mine = new Set(
+    cls ? info.gear.filter((g) => g.classes.some((c) => c.toLowerCase() === cls)).map((g) => g.slug) : [],
+  );
+  return (
+    <Panel
+      title={`Drop tables${info.enemies.length ? ` · ${info.enemies.length} enemies with rare loot` : ''}`}
+      icon="chest"
+      className="dd-wide"
+      actions={
+        info.enemies.length > 0 && (
+          <Segmented<'rare' | 'all'>
+            value={rareOnly ? 'rare' : 'all'}
+            onChange={(v) => setRareOnly(v === 'rare')}
+            options={[
+              { value: 'rare', label: 'Rare loot' },
+              { value: 'all', label: 'Everything' },
+            ]}
+          />
+        )
+      }
+    >
+      {info.enemies.length === 0 ? (
+        <p className="muted small">
+          Per-enemy drop tables haven&apos;t been pulled for this dungeon yet — they arrive with the next automatic
+          data refresh (the app updates its game data on its own).
+        </p>
+      ) : (
+        <div className="enemy-grid">
+          {info.enemies.map((e) => (
+            <EnemyCard key={e.name} e={e} rareOnly={rareOnly} mine={mine} />
+          ))}
+        </div>
+      )}
+    </Panel>
+  );
+}
+
+function EnemyCard({ e, rareOnly, mine }: { e: EnemyDropTable; rareOnly: boolean; mine: Set<string> }) {
+  const loot = rareOnly ? e.loot.filter(isRare) : e.loot;
+  const gear = loot.filter((l) => l.kind === 'gear');
+  const pots = loot.filter((l) => l.kind === 'potion' || l.kind === 'greater');
+  const keys = loot.filter((l) => l.kind === 'key');
+  const other = loot.filter((l) => l.kind === 'other');
+  const wiki = (slug: string) => void window.api.openExternal(`https://www.realmeye.com/wiki/${slug}`);
+  return (
+    <div className="enemy-card">
+      <div className="enemy-head" title={e.variants ? e.variants.join(' · ') : undefined}>
+        <b>{e.name}</b>
+        {e.variants && <span className="muted small">×{e.variants.length} variants</span>}
+        <span className="spacer" />
+        {gear.length > 0 && <span className="enemy-count">{gear.length} UT/ST</span>}
+      </div>
+      {gear.length > 0 && (
+        <div className="enemy-loot">
+          {gear.map((l) => (
+            <button key={l.slug + l.name} className={`loot-gear ${mine.has(l.slug) ? 'mine' : ''}`} onClick={() => wiki(l.slug)} title={mine.has(l.slug) ? 'Your active class can use this' : 'Open on RealmEye'}>
+              <TierBadge tier={l.tier} />
+              {l.name}
+              {mine.has(l.slug) && <span className="loot-mine">★</span>}
+            </button>
+          ))}
+        </div>
+      )}
+      {pots.length > 0 && (
+        <div className="row-chips">
+          {pots.map((l) => (l.stat ? <StatChip key={l.name} stat={l.stat} greater={l.kind === 'greater'} /> : null))}
+        </div>
+      )}
+      {keys.length > 0 && (
+        <div className="row-chips">
+          {keys.map((l) => (
+            <span key={l.name} className="key-chip">
+              {l.name}
+            </span>
+          ))}
+        </div>
+      )}
+      {other.length > 0 && <div className="enemy-other muted small">{other.map((l) => l.name).join(' · ')}</div>}
+    </div>
+  );
+}
+
 function FlagChip({ on, onClick, label }: { on: boolean; onClick: () => void; label: string }) {
   return (
     <button type="button" className={`flag-chip ${on ? 'on' : ''}`} onClick={onClick} aria-pressed={on}>
@@ -233,6 +321,8 @@ function DungeonDetail({
         <Panel title="Strategy" icon="info" className="dd-wide">
           <p className="dd-note">{d.note}</p>
         </Panel>
+
+        <DropTables info={info} character={character} />
 
         <Panel title="Potions" icon="flask">
           {info.potions.length + info.greater.length === 0 ? (

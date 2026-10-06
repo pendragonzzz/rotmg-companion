@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { HOTKEY_ACTIONS } from '../../../shared/overlay';
-import { classMax, dungeons, exaltation, meta, sets } from '../gameData';
+import { classMax, dataManifest, dataSource, dungeons, exaltation, meta, sets } from '../gameData';
+import type { DataStatus } from '../../../shared/gameDataBundle';
+import type { CleanupReport } from '../../../main/cleanupRules';
+import { timeAgo } from '../hooks';
 import { THEMES, type DeclinedApi, type Density, type OverlayApi, type Prefs, type RecentApi } from '../hooks';
 import { PAGES, type Nav, type PageId } from '../pages';
 import type { LiveState } from '../../../shared/live';
@@ -19,8 +22,16 @@ export function SettingsPage({
   overlay,
   live,
   now,
+  dataStatus,
+  onDataStatus,
+  cleanup,
+  onCleanup,
   nav,
 }: {
+  dataStatus: DataStatus | null;
+  onDataStatus: (s: DataStatus) => void;
+  cleanup: CleanupReport | null;
+  onCleanup: (r: CleanupReport) => void;
   live: LiveState | null;
   now: number;
   prefs: Prefs;
@@ -204,6 +215,50 @@ export function SettingsPage({
           )}
         </div>
         <ConfirmButton label="Reset all preferences" confirmLabel="Click again to reset" onConfirm={resetPrefs} />
+      </Panel>
+
+      <Panel title="Game data & updates" icon="refresh">
+        <div className="kbd-list">
+          <div className="kbd-row">
+            <span>Game data in use</span>
+            <b>
+              rev {dataManifest.revision} · {dataManifest.updated} · {dataSource === 'downloaded' ? 'auto-updated' : 'bundled'}
+            </b>
+          </div>
+          <div className="kbd-row">
+            <span>Last checked</span>
+            <span>{dataStatus?.lastCheck ? timeAgo(dataStatus.lastCheck, now) : 'not yet this session'}</span>
+          </div>
+        </div>
+        {dataStatus?.error && <p className="muted small bad-text">{dataStatus.error}</p>}
+        {dataStatus?.pending && (
+          <p className="small">
+            Revision {dataStatus.pending.revision} is downloaded —{' '}
+            <button className="link-btn small" onClick={() => void window.api.data.apply()}>
+              apply now
+            </button>
+          </p>
+        )}
+        <p className="ov-note">
+          Drop tables, sets and the meta refresh weekly from RealmEye and arrive here on their own — no reinstall. The app
+          itself auto-updates from GitHub Releases and installs on quit.
+        </p>
+        <div className="row-chips">
+          <button className="btn btn-ghost btn-sm" onClick={() => void window.api.data.check().then(onDataStatus)}>
+            <Icon name="refresh" size={12} /> Check for new game data
+          </button>
+          <button className="btn btn-ghost btn-sm" onClick={() => void window.api.app.tidyNow().then(onCleanup)}>
+            <Icon name="trash" size={12} /> Tidy old copies off my Desktop
+          </button>
+        </div>
+        {cleanup?.ran && (
+          <p className="muted small">
+            {cleanup.removed.length
+              ? `Last tidy moved ${cleanup.removed.map((r) => r.name).join(', ')} to the Recycle Bin.`
+              : 'Last tidy found no old copies on your Desktop.'}
+            {cleanup.prunedInstallers ? ` Pruned ${cleanup.prunedInstallers} applied installer(s).` : ''}
+          </p>
+        )}
       </Panel>
 
       <Panel title="About" icon="info">

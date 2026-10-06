@@ -1,5 +1,6 @@
 import { STAT_KEYS, SLOT_NAMES, type StatKey, type Stats, type Character } from './types';
 import { POT_LABEL, STAT_LABEL } from './labels';
+import type { EnemyDropTable } from './dropTables';
 
 /** How much one regular potion raises each stat. */
 export const POT_INCREMENT: Record<StatKey, number> = {
@@ -97,6 +98,8 @@ export interface DungeonDropData {
   greaterPotions?: StatKey[];
   gear: GearDropItem[];
   other: { slug: string; name: string }[];
+  /** Per-enemy rare-loot tables (added by the 2026-10 refresh; absent in older data). */
+  enemies?: EnemyDropTable[];
 }
 export type DungeonDropTable = Record<string, DungeonDropData>;
 

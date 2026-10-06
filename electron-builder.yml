@@ -31,3 +31,5 @@ portable:
 # In GitHub Actions, owner/repo are inferred from the workflow environment.
 publish:
   provider: github
+  # Publish straight away (not a draft) so installed copies auto-update to it.
+  releaseType: release

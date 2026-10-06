@@ -1,4 +1,4 @@
-import petsData from '../../../shared/data/pets.json';
+import { pets as petsData } from '../gameData';
 
 interface Rarity {
   name: string;

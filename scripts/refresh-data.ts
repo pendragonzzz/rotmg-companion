@@ -35,6 +35,9 @@ import {
   type ItemInfo,
 } from '../src/shared/realmeye-wiki';
 import { STAT_KEYS, SLOT_NAMES, type Stats, type StatKey } from '../src/shared/types';
+import { JUNK_RE, KEY_RE, buildEnemyTables, type EnemyDropTable } from '../src/shared/dropTables';
+import { DATA_FILES, validateBundle, type DataFile } from '../src/shared/gameDataBundle';
+import { bumpManifest } from './bump-data';
 
 const STAT_WEIGHT: Record<StatKey, number> = {
   def: 2, att: 2, dex: 1.5, vit: 1, spd: 1, wis: 1, hp: 0.25, mp: 0.2,
@@ -133,7 +136,7 @@ async function fetchCached(url: string, key: string): Promise<string | null> {
     if (wait > 0) await sleep(wait);
     lastNet = Date.now();
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': UA } });
+      const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30_000) });
       if (res.status === 404) return null;
       const html = await res.text();
       if (res.ok && html.length > 500) {
@@ -196,6 +199,26 @@ interface DungeonDropData {
   greaterPotions: StatKey[];
   gear: GearDrop[];
   other: { slug: string; name: string }[];
+  /** Per-enemy rare-loot tables (boss / minibosses / notable enemies). */
+  enemies: EnemyDropTable[];
+}
+
+// Item tiers for drop tables: the player-page universe knows equipped UT/STs; anything else
+// that could be gear gets its (cached) wiki item page checked once.
+const itemTier = new Map<string, string | null>();
+async function resolveTier(slug: string, name: string): Promise<string | null> {
+  if (itemTier.has(slug)) return itemTier.get(slug)!;
+  const u = universe.get(slug);
+  let tier: string | null = u?.tier === 'UT' || u?.tier === 'ST' ? u.tier : null;
+  if (!tier && !POTION_RE.test(name) && !JUNK_RE.test(name) && !KEY_RE.test(name)) {
+    const html = await fetchCached(`https://www.realmeye.com/wiki/${slug}`, `item-${slug}`);
+    if (html) {
+      const info = parseItemPage(html, slug);
+      tier = info.tierType === 'UT' || info.tierType === 'ST' ? info.tierType : info.tier;
+    }
+  }
+  itemTier.set(slug, tier);
+  return tier;
 }
 
 const dungeons = JSON.parse(readFileSync(join(dataDir, 'dungeons.json'), 'utf-8')) as {
@@ -233,8 +256,10 @@ for (const d of dungeons) {
       other.push({ slug: drop.slug, name: drop.name });
     }
   }
-  dungeonDrops[d.id] = { potions: [...potions], greaterPotions: [...greaterPotions], gear, other };
-  console.log(`  ${d.id}: ${gear.length} gear, ${potions.size}+${greaterPotions.size} pot types`);
+  for (const drop of drops) await resolveTier(drop.slug, drop.name);
+  const enemies = buildEnemyTables(drops, (slug) => itemTier.get(slug) ?? null);
+  dungeonDrops[d.id] = { potions: [...potions], greaterPotions: [...greaterPotions], gear, other, enemies };
+  console.log(`  ${d.id}: ${gear.length} gear, ${potions.size}+${greaterPotions.size} pot types, ${enemies.length} enemy drop tables`);
 }
 
 // ---- enrich gear with stats/score from item pages (cached, so weekly re-runs are cheap) ----
@@ -377,19 +402,32 @@ if (setIndexHtml) {
     if (wait > 0) await sleep(wait);
     lastNet = Date.now();
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': UA } });
+      const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30_000) });
       if (res.ok) { writeFileSync(file, Buffer.from(await res.arrayBuffer())); got++; }
     } catch { /* skip a missing icon */ }
   }
   console.log(`Class icons: ${got}/${classIcons.length} in assets/classes`);
 }
 
-// ---- write outputs ----
+// ---- write outputs (only if the scrape looks healthy — installed apps pull this data) ----
 mkdirSync(dataDir, { recursive: true });
 const sortedClasses = Object.fromEntries(Object.entries(classMax).sort(([a], [b]) => a.localeCompare(b)));
-writeFileSync(join(dataDir, 'class-max-stats.json'), JSON.stringify(sortedClasses, null, 2) + '\n');
-writeFileSync(join(dataDir, 'dungeon-drops.json'), JSON.stringify(dungeonDrops, null, 2) + '\n');
-writeFileSync(join(dataDir, 'sets.json'), JSON.stringify(sets, null, 2) + '\n');
+const outputs: Partial<Record<DataFile, string>> = {
+  'class-max-stats.json': JSON.stringify(sortedClasses, null, 2) + '\n',
+  'dungeon-drops.json': JSON.stringify(dungeonDrops, null, 2) + '\n',
+  'sets.json': JSON.stringify(sets, null, 2) + '\n',
+};
+const readData = (f: DataFile) => (existsSync(join(dataDir, f)) ? readFileSync(join(dataDir, f), 'utf-8') : '');
+const candidate = Object.fromEntries(DATA_FILES.map((f) => [f, JSON.parse(outputs[f] ?? (readData(f) || 'null'))]));
+const problem = validateBundle(candidate);
+if (problem) {
+  console.error(`\n✗ Scrape looks broken — NOT writing data (${problem}). RealmEye blocked or changed?`);
+  process.exit(1);
+}
+const changed = (Object.keys(outputs) as DataFile[]).filter((f) => readData(f) !== outputs[f]);
+for (const f of changed) writeFileSync(join(dataDir, f), outputs[f]!);
+if (changed.length) bumpManifest(`RealmEye refresh: ${changed.join(', ')}`);
+else console.log('\nData unchanged — manifest revision kept.');
 
 console.log(`\nWrote class-max-stats.json (${Object.keys(sortedClasses).length} classes)`);
 console.log(`Wrote dungeon-drops.json (${Object.keys(dungeonDrops).length} dungeons)`);

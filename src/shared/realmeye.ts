@@ -177,6 +177,8 @@ let lastFetch = 0;
 const cache = new Map<string, { profile: PlayerProfile; ts: number }>();
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const MIN_GAP_MS = 1000;
+/** A stalled request must never hang the app (or live sync, which waits on it). */
+const FETCH_TIMEOUT_MS = 20_000;
 
 async function politeDelay(): Promise<void> {
   const wait = lastFetch + MIN_GAP_MS - Date.now();
@@ -195,7 +197,13 @@ export async function fetchPlayer(name: string, force = false): Promise<PlayerPr
 
   await politeDelay();
   const url = `${BASE}/player/${encodeURIComponent(name.trim())}`;
-  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+  let res: Response;
+  try {
+    res = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+  } catch (err) {
+    const timedOut = err instanceof Error && (err.name === 'TimeoutError' || err.name === 'AbortError');
+    throw new Error(timedOut ? `RealmEye didn't respond within ${FETCH_TIMEOUT_MS / 1000}s — will retry.` : `Couldn't reach RealmEye (${err instanceof Error ? err.message : String(err)}).`);
+  }
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`RealmEye returned ${res.status} for ${name}`);
 

@@ -96,3 +96,10 @@
   .page-title span { display: none; }
   .search .search-field input { width: 170px; }
 }
+
+/* load error strip under the top bar (shown on every page) */
+.load-error {
+  display: flex; align-items: center; gap: 9px; margin: 12px 22px 0; padding: 9px 13px; border-radius: 8px;
+  background: rgba(248, 113, 113, 0.1); border: 1px solid rgba(248, 113, 113, 0.5); color: var(--red); font-size: 13px;
+}
+.load-error span { flex: 1; }

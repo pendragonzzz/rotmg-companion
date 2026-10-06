@@ -109,6 +109,19 @@
 .drop-row { display: flex; align-items: center; gap: 8px; padding: 5px 2px; border-bottom: 1px solid var(--line-soft); font-size: 12.5px; flex-wrap: wrap; }
 .drop-row:last-child { border-bottom: none; }
 .drop-classes { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.enemy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.enemy-card { display: flex; flex-direction: column; gap: 7px; padding: 10px 12px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--line-soft); border-top: 3px solid var(--gold); }
+.enemy-head { display: flex; align-items: baseline; gap: 7px; }
+.enemy-count { font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 8px; background: var(--accent-soft); color: var(--gold); border: 1px solid var(--accent-line); white-space: nowrap; }
+.enemy-loot { display: flex; flex-direction: column; gap: 3px; }
+.loot-gear {
+  display: flex; align-items: center; gap: 6px; background: none; border: none; padding: 2px 0; text-align: left;
+  color: var(--text); font: inherit; font-size: 12.5px; cursor: pointer;
+}
+.loot-gear:hover { color: var(--gold); }
+.loot-gear.mine { font-weight: 700; }
+.loot-mine { color: var(--gold); font-size: 11px; }
+.enemy-other { line-height: 1.4; }
 
 /* ---- Settings ---- */
 .settings { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: var(--gap); align-items: start; }

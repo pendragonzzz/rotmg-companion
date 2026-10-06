@@ -7,6 +7,10 @@ import { LiveSync } from './liveSync';
 import { carryCharacter, charKey, type LiveEvent, type LiveSettings, type LiveState } from '../shared/live';
 import type { ClassMaxTable } from '../shared/engine';
 import classMaxData from '../shared/data/class-max-stats.json';
+import bundledManifest from '../shared/data/data-manifest.json';
+import { GameDataUpdater } from './gameDataUpdater';
+import { tidyOldCopies, type CleanupReport } from './cleanup';
+import type { DataManifest, DataStatus } from '../shared/gameDataBundle';
 
 const { autoUpdater } = electronUpdater;
 import type { Character, PlayerProfile } from '../shared/types';
@@ -127,6 +131,10 @@ function peekOverlay(ms = Math.max(1, overlayState.settings.peekSeconds) * 1000)
 
 // ---- live sync: background RealmEye polling ----
 let live: LiveSync | null = null;
+let gameData: GameDataUpdater | null = null;
+let cleanup: Promise<CleanupReport> | null = null;
+const APP_UPDATE_EVERY_MS = 6 * 60 * 60 * 1000;
+const DATA_CHECK_EVERY_MS = 6 * 60 * 60 * 1000;
 
 /**
  * A live sync finished. Push the new state to the app, keep the overlay on the same
@@ -280,10 +288,34 @@ app.whenReady().then(() => {
   if (!gotLock) return; // a second launch only hands focus to the first one
   loadSettings();
 
+  // Game data that updates itself: newest valid download wins over the bundled JSON.
+  gameData = new GameDataUpdater(
+    join(app.getPath('userData'), 'game-data'),
+    bundledManifest as DataManifest,
+    (s: DataStatus) => {
+      if (mainWin && !mainWin.isDestroyed()) mainWin.webContents.send('data:status', s);
+    },
+  );
+  gameData.loadInstalled();
+  ipcMain.handle('data:get', () => gameData!.get());
+  ipcMain.handle('data:status', () => gameData!.status());
+  ipcMain.handle('data:check', () => gameData!.check());
+  ipcMain.handle('data:apply', () => {
+    if (!gameData!.apply()) return false;
+    // Reload both windows so every module re-reads the new data at startup.
+    for (const w of [mainWin, overlayWin]) if (w && !w.isDestroyed()) w.webContents.reload();
+    return true;
+  });
+  if (app.isPackaged) {
+    // Installed builds check shortly after launch, then every few hours.
+    setTimeout(() => void gameData!.check(), 15_000);
+    setInterval(() => void gameData!.check(), DATA_CHECK_EVERY_MS);
+  }
+
   live = new LiveSync(
     {
       fetch: fetchPlayer,
-      classMax: classMaxData as ClassMaxTable,
+      classMax: () => (gameData?.get()?.files['class-max-stats.json'] as ClassMaxTable | undefined) ?? (classMaxData as ClassMaxTable),
       onState: onLiveState,
       saveSettings: (s) => {
         try {
@@ -350,11 +382,27 @@ app.whenReady().then(() => {
   registerHotkeys();
 
   // Auto-update from GitHub Releases (packaged builds only). Downloads a newer version
-  // in the background and installs it on quit; errors (offline etc.) are non-fatal.
+  // in the background and installs it on quit; checks again every few hours since the
+  // app stays open for days. Errors (offline etc.) are non-fatal.
   if (app.isPackaged) {
+    autoUpdater.autoInstallOnAppQuit = true;
     autoUpdater.on('error', () => {});
     autoUpdater.checkForUpdatesAndNotify().catch(() => {});
+    setInterval(() => void autoUpdater.checkForUpdates().catch(() => {}), APP_UPDATE_EVERY_MS);
   }
+
+  // First launch of a new version: move old copies off the Desktop (Recycle Bin) and prune
+  // installers the updater already applied. Once per version; Settings can re-run it.
+  cleanup = tidyOldCopies().catch((err) => ({
+    version: app.getVersion(),
+    at: Date.now(),
+    ran: false,
+    removed: [],
+    prunedInstallers: 0,
+    errors: [String(err)],
+  }));
+  ipcMain.handle('app:cleanupReport', () => cleanup);
+  ipcMain.handle('app:tidyNow', () => (cleanup = tidyOldCopies(true)));
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

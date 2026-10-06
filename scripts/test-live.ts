@@ -114,7 +114,7 @@ const sync = new LiveSync(
       if (s instanceof Error) throw s;
       return s;
     },
-    classMax,
+    classMax: () => classMax,
     onState: (s, events) => {
       states.push(s.status);
       emitted.push(events.length);

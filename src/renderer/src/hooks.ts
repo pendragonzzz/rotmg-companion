@@ -11,6 +11,7 @@ export const THEMES = [
   { value: 'sprite', label: 'Sprite Forest · Green', swatch: ['#0a110b', '#121c14', '#84cc16'] },
   { value: 'midnight', label: 'Midnight · Blue', swatch: ['#05070c', '#0d1220', '#60a5fa'] },
   { value: 'daylight', label: 'Daylight · Light', swatch: ['#eef1f6', '#ffffff', '#c8861a'] },
+  { value: 'contrast', label: 'High contrast', swatch: ['#000000', '#0a0a0a', '#ffd400'] },
 ];
 
 // ---- app preferences (one localStorage record) ----
@@ -42,9 +43,11 @@ const DEFAULT_PREFS: Prefs = {
 function loadPrefs(): Prefs {
   try {
     const saved = JSON.parse(localStorage.getItem(PREFS_KEY) ?? '{}') as Partial<Prefs>;
-    // Carry the theme over from the pre-0.2 'rotmg-theme' key.
+    // Carry the theme over from the pre-0.2 'rotmg-theme' key; on a true first launch,
+    // follow the OS light/dark setting until the user picks a theme.
     const legacyTheme = localStorage.getItem('rotmg-theme');
-    return { ...DEFAULT_PREFS, ...(legacyTheme ? { theme: legacyTheme } : {}), ...saved };
+    const osTheme = window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'daylight' : 'realm';
+    return { ...DEFAULT_PREFS, theme: legacyTheme ?? osTheme, ...saved };
   } catch {
     return DEFAULT_PREFS;
   }

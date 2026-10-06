@@ -17,10 +17,13 @@
     "pack": "electron-vite build && electron-builder --dir",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "refresh": "tsx scripts/refresh-data.ts",
+    "data:bump": "tsx scripts/bump-data.ts",
     "parse:fixture": "tsx scripts/parse-fixture.ts",
     "test:readiness": "tsx scripts/test-readiness.ts",
     "test:planner": "tsx scripts/test-planner.ts",
     "test:live": "tsx scripts/test-live.ts",
+    "test:cleanup": "tsx scripts/test-cleanup.ts",
+    "test:data": "tsx scripts/test-data-update.ts",
     "test:wiki": "tsx scripts/test-wiki.ts"
   },
   "dependencies": {

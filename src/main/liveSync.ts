@@ -12,7 +12,8 @@ import {
 
 export interface LiveSyncDeps {
   fetch: (name: string, force: boolean) => Promise<PlayerProfile | null>;
-  classMax: ClassMaxTable;
+  /** Current class max table (a getter — downloaded game data can replace it at runtime). */
+  classMax: () => ClassMaxTable;
   /** Called whenever the state changes; `events` are the NEW events from this sync (if any). */
   onState: (state: LiveState, events: LiveEvent[], prev: PlayerProfile | null) => void;
   saveSettings: (s: LiveSettings) => void;
@@ -161,7 +162,7 @@ export class LiveSync {
   private apply(profile: PlayerProfile): LiveEvent[] {
     const now = Date.now();
     const prev = this.state.profile;
-    const events = prev ? diffProfiles(prev, profile, this.deps.classMax, now) : [];
+    const events = prev ? diffProfiles(prev, profile, this.deps.classMax(), now) : [];
     this.state = {
       ...this.state,
       profile,

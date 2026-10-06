@@ -27,3 +27,11 @@ jobs:
         run: npm run dist:win -- --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # One-line installer for machines without the app yet (or still on the old .bat launcher):
+      #   irm https://github.com/pendragonzzz/rotmg-companion/releases/latest/download/install.ps1 | iex
+      - name: Attach install.ps1
+        shell: bash
+        run: gh release upload "${GITHUB_REF_NAME}" scripts/install.ps1 --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

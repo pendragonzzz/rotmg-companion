@@ -16,9 +16,24 @@ Grab the latest from the [**Releases**](../../releases) page:
 - **`RotMG-Companion-x.y.z-setup.exe`** — installer (Start-menu + desktop shortcut, uninstaller).
 - **`RotMG-Companion-x.y.z-portable.exe`** — single file, just double-click, no install.
 
+Or install the latest in one line from PowerShell (downloads the setup, checks its SHA-256, installs silently, launches):
+
+```powershell
+irm https://github.com/pendragonzzz/rotmg-companion/releases/latest/download/install.ps1 | iex
+```
+
 The app isn't code-signed, so Windows SmartScreen may warn on first run — click **More info → Run anyway**.
 
-The **installer auto-updates**: once you're on v0.1.2+, new releases download in the background and install on quit.
+**It keeps itself current, three ways:**
+
+- **App updates** — the installer build checks GitHub Releases on launch and every 6 h, downloads in the background,
+  and installs on quit.
+- **Game-data updates** — drop tables, sets, class maxes and the meta are refreshed weekly by CI and pulled by the app
+  on their own (no reinstall): a notice offers **Apply now**, or it switches over on the next launch.
+- **Desktop tidy** — the first launch of each new version moves old copies of the app off your Desktop (old
+  `RotMG Companion.bat` launchers, old `RotMG-Companion-x.y.z-portable/setup.exe` files, dead shortcuts) to the
+  **Recycle Bin**, and deletes installers it has already applied. Nothing else is touched; Settings → *Tidy old copies*
+  runs it again.
 
 Then type a **public** RealmEye username and hit Load.
 
@@ -34,12 +49,13 @@ Then type a **public** RealmEye username and hit Load.
 - **Gear** — equipped vs best-you-can-farm-now vs endgame best-in-slot for every slot, with score deltas and
   ST set progress.
 - **Dungeons** — a searchable encyclopedia: readiness for your character, the key mechanic, pots (regular /
-  Greater / guaranteed), exalts, biome + beacon, O3 runes, and UT/ST drops for your class.
+  Greater / guaranteed), exalts, biome + beacon, O3 runes, and **per-enemy drop tables** — which boss or mini-boss
+  drops each UT/ST, Greater pot and key (★ = usable by your class), straight from RealmEye.
 - **Characters** — your roster with each character's quest log (stats, exalts, gear, unlocks, sets).
 - **Meta, Sets, Pets** — the current realm meta, every ST set, and pet ability priorities.
 - **Game overlay** — transparent, click-through HUD (`Ctrl+Shift+O`) with your next goal, beacons, and a
   current-dungeon card; presets, 3×3 positioning, rebindable hotkeys, and an in-game quick-pick (`Ctrl+Shift+D`).
-- **Settings** — 7 themes, compact density, startup behavior, keyboard shortcuts (`Ctrl+1–9`, `/`, `F5`), and
+- **Settings** — 8 themes (incl. high contrast; first launch follows your OS light/dark), compact density, startup behavior, keyboard shortcuts (`Ctrl+1–9`, `/`, `F5`), and
   your data.
 
 ## Run from source (dev)
@@ -50,7 +66,11 @@ npm run dev        # launch the desktop app (electron-vite, HMR)
 ```
 
 The bundled game data (dungeons, sets, class maxes, sprites) is committed, so the app runs without any
-network/data step. To refresh that data from RealmEye later: `npm run refresh` (token-free scraper).
+network/data step. To refresh that data from RealmEye later: `npm run refresh` (token-free scraper; refuses to write
+if the scrape looks broken, and bumps `src/shared/data/data-manifest.json` so installed apps pick it up from `main`).
+After hand-editing a curated JSON file, run `npm run data:bump` to publish it the same way.
+
+Tests (headless, no network): `npm run typecheck`, `test:planner`, `test:live`, `test:data`, `test:cleanup`, `test:wiki`.
 
 ## Build a launchable locally
 
@@ -66,11 +86,12 @@ npm run dist:win   # → dist/RotMG-Companion-x.y.z-setup.exe  +  -portable.exe
 Push a version tag and GitHub Actions builds the Windows installer + portable and attaches them to a Release:
 
 ```powershell
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.2.0
+git push origin v0.2.0
 ```
 
-(See `.github/workflows/release.yml`. CI also typechecks + builds every push via `ci.yml`.)
+(See `.github/workflows/release.yml` — it also attaches `install.ps1`. CI typechecks + builds every push via `ci.yml`,
+and `refresh-data.yml` re-scrapes RealmEye every Monday and commits the new data.)
 
 ## Project layout
 

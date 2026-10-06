@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "updated": "2026-10-06",
+  "files": [
+    "dungeons.json",
+    "dungeon-drops.json",
+    "class-max-stats.json",
+    "stat-priority.json",
+    "pot-routing.json",
+    "biomes.json",
+    "exaltation.json",
+    "sets.json",
+    "meta.json",
+    "pets.json"
+  ]
+}

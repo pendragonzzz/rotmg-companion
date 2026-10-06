@@ -21,6 +21,9 @@ import { OverlayPage } from './components/OverlayPage';
 import { SettingsPage } from './components/SettingsPage';
 import { NeedCharacter } from './components/NeedCharacter';
 import { LiveBadge, Toasts } from './components/Live';
+import { Notices } from './components/Notices';
+import type { DataStatus } from '../../shared/gameDataBundle';
+import type { CleanupReport } from '../../main/cleanupRules';
 
 /** How long a live-change toast stays in the corner. */
 const TOAST_MS = 7000;
@@ -51,6 +54,8 @@ export function App() {
   const [dungeonId, setDungeonId] = useState('');
   const [live, setLive] = useState<LiveState | null>(null);
   const [toasts, setToasts] = useState<LiveEvent[]>([]);
+  const [dataStatus, setDataStatus] = useState<DataStatus | null>(null);
+  const [cleanup, setCleanup] = useState<CleanupReport | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
 
   const profile = phase.kind === 'loaded' ? phase.profile : null;
@@ -130,6 +135,16 @@ export function App() {
     };
     window.api.live.getState().then(onLive).catch(() => {});
     return window.api.live.onState(onLive);
+  }, []);
+
+  // Self-updating game data: show "Apply" when a newer revision has been downloaded.
+  useEffect(() => {
+    window.api.data.status().then(setDataStatus).catch(() => {});
+    return window.api.data.onStatus(setDataStatus);
+  }, []);
+  // One-time report after an update moved old copies off the Desktop.
+  useEffect(() => {
+    window.api.app.cleanupReport().then(setCleanup).catch(() => {});
   }, []);
 
   // Remember the open page.
@@ -252,6 +267,10 @@ export function App() {
             overlay={overlay}
             live={live}
             now={now}
+            dataStatus={dataStatus}
+            onDataStatus={setDataStatus}
+            cleanup={cleanup}
+            onCleanup={setCleanup}
             nav={nav}
           />
         );
@@ -310,6 +329,16 @@ export function App() {
           <CharacterSwitcher characters={characters} active={active} onSelect={selectCharacter} />
         </header>
 
+        {/* Load errors are visible on every page (Characters / empty states show their own). */}
+        {phase.kind === 'error' && page !== 'characters' && !(def.needsCharacter && !active) && (
+          <div className="load-error" role="alert">
+            <Icon name="info" size={14} />
+            <span>{phase.message}</span>
+            <button className="toast-x" onClick={() => setPhase({ kind: 'idle' })} aria-label="Dismiss">
+              ✕
+            </button>
+          </div>
+        )}
         <main className="content">
           <ErrorBoundary key={page} label={def.label}>
             {renderPage()}
@@ -317,6 +346,11 @@ export function App() {
         </main>
       </div>
       <Toasts toasts={toasts} onDismiss={(id) => setToasts((t) => t.filter((x) => x.id !== id))} />
+      <Notices
+        data={dataStatus}
+        cleanup={cleanup}
+        onDismissCleanup={() => setCleanup((c) => (c ? { ...c, removed: [] } : c))}
+      />
     </div>
   );
 }

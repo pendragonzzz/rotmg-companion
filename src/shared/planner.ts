@@ -31,6 +31,7 @@ import {
   type STSet,
   type StatPriority,
 } from './engine';
+import type { EnemyDropTable } from './dropTables';
 
 /** A Greater potion is worth two regular ones (+2 stat, +10 Life/Mana). */
 export const GREATER_MULTIPLIER = 2;
@@ -398,6 +399,8 @@ export interface DungeonInfo {
   gear: GearDropItem[];
   /** Progression items: O3 runes, Wine Cellar incantations, vials, keys. */
   keyItems: string[];
+  /** Which enemy drops what (rare loot only); empty until the data has been refreshed. */
+  enemies: EnemyDropTable[];
 }
 
 const SLOT_ORDER: Record<string, number> = { weapon: 0, ability: 1, armor: 2, ring: 3 };
@@ -428,5 +431,6 @@ export function dungeonInfo(id: string, data: PlannerData): DungeonInfo | null {
       (x, y) => (SLOT_ORDER[x.slot] ?? 9) - (SLOT_ORDER[y.slot] ?? 9) || (y.score ?? 0) - (x.score ?? 0),
     ),
     keyItems: [...new Set((drop?.other ?? []).map((o) => o.name).filter((n) => n && KEY_ITEM_RE.test(n)))],
+    enemies: drop?.enemies ?? [],
   };
 }

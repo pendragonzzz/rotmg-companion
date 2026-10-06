@@ -86,3 +86,14 @@
 .ov-toast-body b { color: var(--text); font-size: 12px; }
 .ov-toast-body span { color: var(--muted); font-size: 11px; }
 .ov-toast-more { font-size: 10px; font-weight: 800; padding: 0 6px; border-radius: 8px; border: 1px solid; }
+
+/* ---- app notices (bottom-left): data update ready, desktop tidy-up report ---- */
+.notices { position: fixed; left: calc(var(--sidebar-w) + 18px); bottom: 18px; z-index: 60; display: flex; flex-direction: column; gap: 8px; width: 460px; max-width: calc(100vw - var(--sidebar-w) - 400px); min-width: 300px; }
+.notice {
+  display: flex; align-items: center; gap: 12px; padding: 11px 13px; border-radius: 10px;
+  background: var(--panel); border: 1px solid var(--accent-line); box-shadow: var(--shadow-lg); animation: toast-in 0.25s ease-out;
+}
+.notice-icon { color: var(--gold); flex-shrink: 0; }
+.notice-icon.good { color: var(--green); }
+.notice-body { display: flex; flex-direction: column; flex: 1; min-width: 0; font-size: 12.5px; }
+.notice-body span { color: var(--muted); font-size: 12px; }

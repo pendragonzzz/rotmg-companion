@@ -1,0 +1,9 @@
+{
+  "name": "mission-control",
+  "version": "0.1.0",
+  "description": "A live project board: where we are, what Claude needs from you, the build queue, and what's happening right now.",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "pendragonzzz"
+  }
+}

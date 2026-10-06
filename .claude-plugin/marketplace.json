@@ -1,0 +1,13 @@
+{
+  "name": "rotmg-companion",
+  "owner": {
+    "name": "pendragonzzz"
+  },
+  "plugins": [
+    {
+      "name": "mission-control",
+      "source": "./mods/mission-control"
+    }
+  ],
+  "description": "Claude Code mods for working on RotMG Companion."
+}

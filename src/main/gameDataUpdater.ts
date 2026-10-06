@@ -76,11 +76,13 @@ export class GameDataUpdater {
     return this.checking;
   }
 
-  private async getJson(file: string): Promise<unknown> {
+  /** `optional` → a 404 resolves to null instead of throwing. */
+  private async getJson(file: string, optional = false): Promise<unknown> {
     const res = await this.fetchFn(`${DATA_BASE_URL}/${file}?t=${Date.now()}`, {
       headers: { 'Cache-Control': 'no-cache' },
       signal: AbortSignal.timeout(30_000),
     });
+    if (optional && res.status === 404) return null;
     if (!res.ok) throw new Error(`${file}: HTTP ${res.status}`);
     return res.json();
   }
@@ -88,7 +90,12 @@ export class GameDataUpdater {
   private async doCheck(): Promise<DataStatus> {
     this.lastCheck = Date.now();
     try {
-      const manifest = await this.getJson('data-manifest.json');
+      const manifest = await this.getJson('data-manifest.json', true);
+      if (manifest === null) {
+        // Nothing published on main yet — the data we have is the newest there is.
+        this.error = null;
+        return this.done();
+      }
       if (!validateManifest(manifest)) throw new Error('remote manifest is malformed');
       if (manifest.schema !== DATA_SCHEMA) {
         this.error = 'Newer game data needs an app update (it will arrive with the next release).';

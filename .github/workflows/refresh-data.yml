@@ -66,4 +66,6 @@ jobs:
           fi
           rev=$(node -p "require('./src/shared/data/data-manifest.json').revision")
           git commit -m "chore(data): RealmEye refresh (data rev ${rev})"
-          git push
+          # Someone may have pushed while we scraped — replay the data commit on top.
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

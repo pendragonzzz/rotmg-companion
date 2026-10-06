@@ -68,6 +68,8 @@ s = await future.check();
 ok(!s.pending && /app update/.test(s.error ?? ''), 'newer schema → wait for an app update');
 s = await new GameDataUpdater(dir, bundled, () => {}, fakeFetch({}, true)).check();
 ok(s.error === 'offline' && !s.pending, 'offline → error status, nothing changes');
+s = await new GameDataUpdater(dir, bundled, () => {}, fakeFetch({})).check();
+ok(s.error === null && !s.pending, 'nothing published yet (404) → quietly up to date');
 
 // 6) An older bundle on disk is ignored in favour of newer bundled data.
 const stale = new GameDataUpdater(dir, { ...bundled, revision: 50 }, () => {});

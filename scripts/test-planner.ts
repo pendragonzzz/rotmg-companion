@@ -109,8 +109,11 @@ const kog = dungeonInfo('kogbold-steamworks', data)!;
 ok(kog.greater.length === 6, 'Kogbold: 6 greater pots (curated flag)');
 const sw = dungeonInfo('sprite-world', data)!;
 ok(sw.guaranteed.includes('dex'), 'Sprite World guarantees DEX');
-const ic = dungeonInfo('ice-citadel', data)!;
-ok(!ic.hasDropData && ic.exalt?.stats[0] === 'spd', 'Ice Citadel: no scraped drops yet, SPD exalt');
+ok(dungeonInfo('ice-citadel', data)!.exalt?.stats[0] === 'spd', 'Ice Citadel → SPD exalt');
+// A dungeon the scraper hasn't reached yet still gets its curated info (data-independent).
+const { ['ice-citadel']: _unscraped, ...dropsWithoutIc } = data.drops;
+const icBare = dungeonInfo('ice-citadel', { ...data, drops: dropsWithoutIc })!;
+ok(!icBare.hasDropData && icBare.exalt?.stats[0] === 'spd', 'unscraped dungeon → curated info, no drop data');
 ok(dungeonInfo('nope', data) === null, 'unknown dungeon → null');
 
 console.log(`\n✓ ${checks} planner checks passed`);

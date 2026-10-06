@@ -187,6 +187,20 @@ async function politeDelay(): Promise<void> {
 }
 
 /**
+ * Fill in item tiers the player page left blank (RealmEye's item tooltips can be empty) from
+ * the game data's known UT/STs. The planner relies on these to tell a UT from plain gear.
+ */
+export function withKnownTiers(profile: PlayerProfile, tiers: ReadonlyMap<string, string>): PlayerProfile {
+  return {
+    ...profile,
+    characters: profile.characters.map((c) => ({
+      ...c,
+      equipment: c.equipment.map((e) => (e.tier || !tiers.has(e.slug) ? e : { ...e, tier: tiers.get(e.slug)! })),
+    })),
+  };
+}
+
+/**
  * Fetch and parse a player's RealmEye profile.
  * Returns null if the player does not exist (404). `force` skips the 5-minute cache.
  */

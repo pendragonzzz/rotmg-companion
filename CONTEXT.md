@@ -141,6 +141,11 @@ fixtures/              # saved RealmEye pages for offline parser tests
   sets have no tracked dungeon → difficulty "Other", with boss/chest `sources` as the fallback "where").
 - **Per-enemy drop tables:** each drop's `dropsFrom` is inverted per enemy (`buildEnemyTables`); tiers come from the item
   universe or the item page. Stored as `dungeon-drops.json[id].enemies`.
+- **Gear classification (2026-10 fix):** RealmEye **player tooltips are now blank** (no "UT"/"ST", no name), so the player
+  sample only gives slot + classes. Tier comes from each item's wiki page; slot + classes from the player sample → last
+  run's `dungeon-drops.json` → `sets.json` rosters → **learned item kinds** (`parseItemPage().itemType`, e.g. "Swords":
+  the table on the page that lists the item in bold). Gear `classes` = every class seen using that kind, not just
+  the sampled wearer. The scraper logs the kinds it learned and any UT/ST of an unknown kind.
 - **Safety:** every fetch has a 30 s timeout; before writing, the bundle is checked with `validateBundle` — a broken
   scrape exits 1 and writes nothing. Only changed files are written, then `bumpManifest` bumps the revision.
 - **Self-updating game data:** apps fetch `data-manifest.json` from `main` (15 s after launch, then every 6 h); a higher
@@ -179,6 +184,9 @@ fixtures/              # saved RealmEye pages for offline parser tests
 - **Preload builds to `index.mjs`** (package is `type: module`); main references `../preload/index.mjs`.
 - **`parseDungeonDrops` must emit one drop per item anchor** — a single drops cell can hold multiple items (e.g. Sprite World's Dex+Def pots together); keeping only the last silently dropped data.
 - **Player `data-stats`** = `[[curr8],[bonus8],classId,level,maxedMask]`, stats `[hp,mp,att,def,spd,dex,vit,wis]`. **base = curr − bonus**; for 8/8, base == class max.
+- **Equipped-item tiers:** because of the blank tooltips, main fills tiers in with `withKnownTiers(profile,
+  knownItemTiers(drops, sets))` (ST set pieces + dungeon gear + per-enemy loot) before the profile reaches the UI or
+  LiveSync. Otherwise the planner would treat equipped UTs as plain gear.
 - **Network calls always time out** (`AbortSignal.timeout`: RealmEye 20 s, data updater / scraper 30 s) — a stalled request
   used to hang the load + live sync forever. Load errors show as a strip under the top bar on every page.
 - **Desktop tidy must stay narrow:** only recognised top-level Desktop *files* (regex in `cleanupRules.ts`), always to the
@@ -348,7 +356,9 @@ RealmEye import (all chars, sorted, error-isolated) · goals panel (level/stat/g
     `refresh-data.yml` commits fresh scrapes (refuses broken ones). **Desktop tidy:** first launch of each version
     recycles old launchers / versioned exes / dead shortcuts and prunes applied installers (`cleanupRules.ts` +
     `cleanup.ts`, Settings → Tidy). Auto-update now also re-checks every 6 h. **Fixes:** network timeouts everywhere
-    (a stalled RealmEye request hung loading); load errors visible on every page. New **High contrast** theme; first
+    (a stalled RealmEye request hung loading); load errors visible on every page. **RealmEye changed:** player tooltips
+    are blank now — the scraper takes tiers from item pages and learns slot/classes per item kind (CI's first scrape
+    found 0 gear and the validator refused to publish it); the app fills equipped tiers back in from the game data. New **High contrast** theme; first
     launch follows OS light/dark. `install.ps1` one-liner attached to releases. Verified: typecheck + test:planner (82) +
     test:live (28) + test:data (14) + test:cleanup (12) + test:wiki + build (97 modules) + a real Electron smoke run
     (both windows, IPC, failed-load path, second-instance exit, window-state save; 0 errors).

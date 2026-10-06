@@ -107,3 +107,24 @@ export function buildEnemyTables(drops: DungeonDrop[], tierOf: (slug: string) =>
     .sort((a, b) => score(b) - score(a) || a.first - b.first)
     .map(({ first: _first, ...t }) => t);
 }
+
+/**
+ * slug → "UT" / "ST" for every item the game data knows: ST set pieces, dungeon gear and
+ * per-enemy loot. RealmEye's player pages stopped tagging equipped items with their tier,
+ * so the app fills it back in from here (see `withKnownTiers`).
+ */
+export function knownItemTiers(
+  drops: Record<string, { gear?: { slug: string; tier: string }[]; enemies?: EnemyDropTable[] }>,
+  sets: { members: { slug: string }[] }[],
+): Map<string, string> {
+  const tiers = new Map<string, string>();
+  const add = (slug: string, tier: string | undefined) => {
+    if ((tier === 'UT' || tier === 'ST') && !tiers.has(slug)) tiers.set(slug, tier);
+  };
+  for (const s of sets) for (const m of s.members) add(m.slug, 'ST');
+  for (const d of Object.values(drops)) {
+    for (const g of d.gear ?? []) add(g.slug, g.tier);
+    for (const e of d.enemies ?? []) for (const l of e.loot) add(l.slug, l.tier);
+  }
+  return tiers;
+}

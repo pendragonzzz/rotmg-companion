@@ -51,3 +51,29 @@ assert.ok(soldiers?.variants?.length === 3, 'Blue/Red/Yellow Soldier Bees folded
 assert.ok(!tables.some((t) => /Killer Bee$/.test(t.name) && !/Queen/.test(t.name)), 'Royal-Jelly-only minions dropped (no rare loot)');
 assert.ok(tables.some((t) => t.name === 'The Beekeeper' && t.loot.some((l) => l.name === "Beekeeper's Flamethrower")), 'Beekeeper has its own table');
 console.log(`✓ drop-table checks passed (${tables.length} enemies with rare loot)`);
+
+// ---- item kind (slot learning in the refresh) ----
+const kindOf = (f: string, slug: string) => parseItemPage(readFileSync(join(fx, f), 'utf-8'), slug).itemType;
+assert.equal(kindOf('wiki-demon-blade.html', 'demon-blade'), 'Swords', 'Demon Blade is a Sword');
+assert.equal(kindOf('wiki-hivemaster-helm.html', 'hivemaster-helm'), 'Helms', 'Hivemaster Helm is a Helm');
+assert.equal(kindOf('item-corruption-tether.html', 'corruption-tether'), 'Staves', 'Corruption Tether is a Staff (not its set)');
+
+// ---- RealmEye player tooltips without tiers → filled in from the game data ----
+import { parsePlayer, withKnownTiers } from '../src/shared/realmeye';
+import { knownItemTiers } from '../src/shared/dropTables';
+const playerHtml = readFileSync(join(fx, 'player-active.html'), 'utf-8');
+const tagged = parsePlayer(playerHtml);
+const blank = parsePlayer(playerHtml.replace(/(<span class="item[^"]*" title=")[^"]*"/g, '$1"'));
+const taggedUT = tagged.characters.flatMap((c) => c.equipment).filter((e) => e.tier === 'UT' || e.tier === 'ST');
+assert.ok(taggedUT.length > 10 && blank.characters.flatMap((c) => c.equipment).every((e) => !e.tier), 'blank tooltips → no tiers (the RealmEye change)');
+const dataDir = join(here, '..', 'src', 'shared', 'data');
+const tiers = knownItemTiers(
+  JSON.parse(readFileSync(join(dataDir, 'dungeon-drops.json'), 'utf-8')),
+  JSON.parse(readFileSync(join(dataDir, 'sets.json'), 'utf-8')),
+);
+const filled = withKnownTiers(blank, tiers).characters.flatMap((c) => c.equipment);
+const restored = filled.filter((e) => e.tier === 'UT' || e.tier === 'ST').length;
+assert.ok(restored >= taggedUT.length * 0.6, `known UT/STs restored (${restored}/${taggedUT.length})`);
+assert.ok(filled.every((e) => !e.tier || tiers.get(e.slug) === e.tier), 'only tiers the data knows are filled in');
+assert.ok(withKnownTiers(tagged, new Map()).characters[0]!.equipment[0]!.tier === tagged.characters[0]!.equipment[0]!.tier, 'tiers RealmEye did send are kept');
+console.log(`✓ item-kind + tier fill-in checks passed (${restored}/${taggedUT.length} UT/ST restored from data)`);

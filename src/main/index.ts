@@ -2,12 +2,15 @@ import { app, BrowserWindow, ipcMain, globalShortcut, screen, shell } from 'elec
 import { join } from 'node:path';
 import { readFileSync, writeFileSync } from 'node:fs';
 import electronUpdater from 'electron-updater';
-import { fetchPlayer } from '../shared/realmeye';
+import { fetchPlayer, withKnownTiers } from '../shared/realmeye';
+import { knownItemTiers } from '../shared/dropTables';
 import { LiveSync } from './liveSync';
 import { carryCharacter, charKey, type LiveEvent, type LiveSettings, type LiveState } from '../shared/live';
 import type { ClassMaxTable } from '../shared/engine';
 import classMaxData from '../shared/data/class-max-stats.json';
 import bundledManifest from '../shared/data/data-manifest.json';
+import bundledDrops from '../shared/data/dungeon-drops.json';
+import bundledSets from '../shared/data/sets.json';
 import { GameDataUpdater } from './gameDataUpdater';
 import { tidyOldCopies, type CleanupReport } from './cleanup';
 import type { DataManifest, DataStatus } from '../shared/gameDataBundle';
@@ -21,6 +24,25 @@ import {
   type OverlaySettings,
   type OverlayState,
 } from '../shared/overlay';
+
+let gameData: GameDataUpdater | null = null;
+
+// RealmEye's player tooltips can come back without the item tier; fill UT/ST back in from the
+// game data in use (downloaded bundle or the one we shipped), rebuilt when that changes.
+let tierCache: { source: unknown; tiers: Map<string, string> } | null = null;
+function itemTiers(): Map<string, string> {
+  const bundle = gameData?.get() ?? null;
+  if (!tierCache || tierCache.source !== bundle) {
+    const drops = (bundle?.files['dungeon-drops.json'] ?? bundledDrops) as Parameters<typeof knownItemTiers>[0];
+    const sets = (bundle?.files['sets.json'] ?? bundledSets) as Parameters<typeof knownItemTiers>[1];
+    tierCache = { source: bundle, tiers: knownItemTiers(drops, sets) };
+  }
+  return tierCache.tiers;
+}
+async function fetchPlayerWithTiers(name: string, force: boolean): Promise<PlayerProfile | null> {
+  const profile = await fetchPlayer(name, force);
+  return profile && withKnownTiers(profile, itemTiers());
+}
 
 let mainWin: BrowserWindow | null = null;
 let overlayWin: BrowserWindow | null = null;
@@ -131,7 +153,6 @@ function peekOverlay(ms = Math.max(1, overlayState.settings.peekSeconds) * 1000)
 
 // ---- live sync: background RealmEye polling ----
 let live: LiveSync | null = null;
-let gameData: GameDataUpdater | null = null;
 let cleanup: Promise<CleanupReport> | null = null;
 const APP_UPDATE_EVERY_MS = 6 * 60 * 60 * 1000;
 const DATA_CHECK_EVERY_MS = 6 * 60 * 60 * 1000;
@@ -314,7 +335,7 @@ app.whenReady().then(() => {
 
   live = new LiveSync(
     {
-      fetch: fetchPlayer,
+      fetch: fetchPlayerWithTiers,
       classMax: () => (gameData?.get()?.files['class-max-stats.json'] as ClassMaxTable | undefined) ?? (classMaxData as ClassMaxTable),
       onState: onLiveState,
       saveSettings: (s) => {
@@ -336,7 +357,7 @@ app.whenReady().then(() => {
   // RealmEye fetch happens in the main process: no CORS, one place for the polite UA / rate-limit.
   ipcMain.handle('player:get', async (_event, name: string, force?: boolean) => {
     try {
-      const profile = await fetchPlayer(name, !!force);
+      const profile = await fetchPlayerWithTiers(name, !!force);
       return { ok: true as const, profile };
     } catch (err) {
       return { ok: false as const, error: err instanceof Error ? err.message : String(err) };

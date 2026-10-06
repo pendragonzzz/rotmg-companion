@@ -32,6 +32,7 @@ import {
   parseSetIndex,
   parseSetPage,
   parseClassIcons,
+  type DungeonDrop,
   type ItemInfo,
 } from '../src/shared/realmeye-wiki';
 import { STAT_KEYS, SLOT_NAMES, type Stats, type StatKey } from '../src/shared/types';
@@ -234,21 +235,26 @@ interface DungeonDropData {
   enemies: EnemyDropTable[];
 }
 
-// Item tiers for drop tables: the player-page universe knows equipped UT/STs; anything else
-// that could be gear gets its (cached) wiki item page checked once.
+// Item facts for drop tables: tier + kind ("Swords", "Helms") from each item's (cached) wiki
+// page. The player sample only covers what those players wear, and RealmEye's player tooltips
+// no longer carry the tier, so the item page is the source of truth.
 const itemTier = new Map<string, string | null>();
-async function resolveTier(slug: string, name: string): Promise<string | null> {
+const itemKind = new Map<string, string | null>();
+async function resolveItem(slug: string, name: string): Promise<string | null> {
   if (itemTier.has(slug)) return itemTier.get(slug)!;
   const u = universe.get(slug);
   let tier: string | null = u?.tier === 'UT' || u?.tier === 'ST' ? u.tier : null;
-  if (!tier && !POTION_RE.test(name) && !JUNK_RE.test(name) && !KEY_RE.test(name)) {
+  let kind: string | null = null;
+  if (!POTION_RE.test(name) && !JUNK_RE.test(name) && !KEY_RE.test(name)) {
     const html = await fetchCached(`https://www.realmeye.com/wiki/${slug}`, `item-${slug}`);
     if (html) {
       const info = parseItemPage(html, slug);
-      tier = info.tierType === 'UT' || info.tierType === 'ST' ? info.tierType : info.tier;
+      tier ??= info.tierType === 'UT' || info.tierType === 'ST' ? info.tierType : info.tier;
+      kind = info.itemType;
     }
   }
   itemTier.set(slug, tier);
+  itemKind.set(slug, kind);
   return tier;
 }
 
@@ -260,15 +266,46 @@ const dungeons = JSON.parse(readFileSync(join(dataDir, 'dungeons.json'), 'utf-8'
 }[];
 const dungeonDrops: Record<string, DungeonDropData> = {};
 const failed: string[] = [];
-const unplaced = new Set<string>();
+const rawDrops = new Map<string, DungeonDrop[]>();
 
 console.log(`\nReading ${dungeons.length} dungeon wiki pages...`);
 for (const d of dungeons) {
   const slug = WIKI_SLUG[d.id] ?? d.id;
   const html = await fetchCached(`https://www.realmeye.com/wiki/${slug}`, `dungeon-${d.id}`);
   if (!html) { failed.push(`${d.id} (${slug})`); continue; }
-
   const drops = parseDungeonDrops(html);
+  for (const drop of drops) await resolveItem(drop.slug, drop.name);
+  rawDrops.set(d.id, drops);
+}
+
+// Learn each item kind's slot + classes from the gear we can already place (player sample, last
+// run, ST rosters). Every item of a kind fits the same classes, so a UT nobody in the sample
+// wears (Bramble Bow, Spirit Staff…) still lands in the right slot, and a sword is offered to
+// every sword class — not just the ones a sampled player happened to be.
+const kindPlacement = new Map<string, { slots: Record<string, number>; classes: Set<string> }>();
+for (const [slug, kind] of itemKind) {
+  const own = kind ? placementOf(slug) : null;
+  if (!kind || !own) continue;
+  const k = kindPlacement.get(kind) ?? { slots: {}, classes: new Set<string>() };
+  k.slots[own.slot] = (k.slots[own.slot] ?? 0) + 1;
+  for (const c of own.classes) k.classes.add(c);
+  kindPlacement.set(kind, k);
+}
+console.log(`  learned ${kindPlacement.size} item kinds: ${[...kindPlacement.keys()].sort().join(', ')}`);
+
+function placeGear(slug: string): { slot: string; classes: string[] } | null {
+  const own = placementOf(slug);
+  const kind = itemKind.get(slug);
+  const k = kind ? kindPlacement.get(kind) : undefined;
+  if (!own && !k) return null;
+  const slot = own?.slot ?? Object.entries(k!.slots).sort((a, b) => b[1] - a[1])[0]![0];
+  return { slot, classes: [...new Set([...(own?.classes ?? []), ...(k?.classes ?? [])])].sort() };
+}
+
+const unplaced = new Set<string>();
+for (const d of dungeons) {
+  const drops = rawDrops.get(d.id);
+  if (!drops) continue;
   const potions = new Set<StatKey>();
   const greaterPotions = new Set<StatKey>();
   const gear: GearDrop[] = [];
@@ -281,8 +318,8 @@ for (const d of dungeons) {
       (potMatch[1] ? greaterPotions : potions).add(stat);
       continue;
     }
-    const tier = await resolveTier(drop.slug, drop.name);
-    const place = tier === 'UT' || tier === 'ST' ? placementOf(drop.slug) : null;
+    const tier = itemTier.get(drop.slug) ?? null;
+    const place = tier === 'UT' || tier === 'ST' ? placeGear(drop.slug) : null;
     if (place) {
       gear.push({ slug: drop.slug, name: drop.name, tier: tier!, slot: place.slot, classes: place.classes });
     } else {
@@ -296,7 +333,7 @@ for (const d of dungeons) {
 }
 
 if (unplaced.size) {
-  console.log(`  (${unplaced.size} UT/ST drops with no known slot yet — shown in enemy tables only: ${[...unplaced].slice(0, 8).join(', ')}${unplaced.size > 8 ? '…' : ''})`);
+  console.log(`  (${unplaced.size} UT/ST drops of an unknown kind — shown in enemy tables only: ${[...unplaced].slice(0, 8).join(', ')}${unplaced.size > 8 ? '…' : ''})`);
 }
 
 // ---- enrich gear with stats/score from item pages (cached, so weekly re-runs are cheap) ----

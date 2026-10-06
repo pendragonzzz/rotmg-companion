@@ -233,3 +233,11 @@
   .pot-biome { display: none; }
   .dungeons { grid-template-columns: 290px minmax(0, 1fr); }
 }
+
+/* ---- loaded player, but RealmEye lists no characters ---- */
+.empty-roster {
+  max-width: 720px; padding: 18px 20px; border-radius: 10px; background: var(--panel); border: 1px solid var(--accent-line);
+}
+.empty-roster h3 { font-size: 16px; margin-bottom: 6px; }
+.empty-roster ol { margin: 10px 0 12px 18px; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; }
+.empty-roster-actions { display: flex; gap: 8px; margin-bottom: 8px; }

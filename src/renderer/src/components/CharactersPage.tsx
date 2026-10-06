@@ -70,16 +70,46 @@ export function CharactersPage({
   if (phase.kind !== 'loaded') return null;
 
   const { profile } = phase;
-  if (profile.isPrivate) {
-    return <div className="error-box">{profile.name}&apos;s profile is set to private on RealmEye.</div>;
-  }
   if (!profile.characters.length) {
+    const url = `https://www.realmeye.com/player/${encodeURIComponent(profile.name)}`;
     return (
-      <div className="hint">
-        <p>
-          <strong>{profile.name}</strong> has no active characters on RealmEye right now.
+      <div className="empty-roster">
+        <h3>
+          {profile.isPrivate ? (
+            <>
+              <strong>{profile.name}</strong>&apos;s characters are hidden on RealmEye
+            </>
+          ) : (
+            <>
+              RealmEye shows no characters for <strong>{profile.name}</strong>
+            </>
+          )}
+        </h3>
+        <p className="muted">
+          The app can only plan for characters RealmEye shows publicly (it never reads the game). Usually it&apos;s one of:
         </p>
-        <p className="muted">New accounts often aren&apos;t indexed until linked on RealmEye.</p>
+        <ol>
+          <li>
+            <b>Characters hidden.</b> On RealmEye, sign in to your verified account and set your characters to be visible
+            to everyone in your profile settings.
+          </li>
+          <li>
+            <b>Not on RealmEye yet.</b> New or unverified accounts may not show up — verify the account on RealmEye, then
+            play a few minutes so it refreshes.
+          </li>
+          <li>
+            <b>No living characters</b> on that account right now, or a typo in the name.
+          </li>
+        </ol>
+        <div className="empty-roster-actions">
+          <button className="btn btn-primary btn-sm" onClick={() => void window.api.openExternal(url)}>
+            Open {profile.name} on RealmEye
+          </button>
+          <button className="btn btn-ghost btn-sm" onClick={() => void window.api.live.syncNow()}>
+            Check again
+          </button>
+        </div>
+        <p className="muted small">Once they show up, live sync picks them up on its own within a few minutes.</p>
       </div>
     );
   }

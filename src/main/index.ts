@@ -448,6 +448,20 @@ function createMainWindow(show = true): void {
     },
   });
   if (ws.maximized && show) mainWin.maximize();
+  // No stock File/Edit/View menu bar — the app has its own UI. Keep page zoom on Ctrl +/−/0.
+  if (process.platform !== 'darwin') {
+    mainWin.removeMenu();
+    mainWin.webContents.on('before-input-event', (e, input) => {
+      if (input.type !== 'keyDown' || !(input.control || input.meta) || input.alt) return;
+      const wc = mainWin?.webContents;
+      if (!wc) return;
+      if (input.key === '=' || input.key === '+') wc.setZoomLevel(Math.min(wc.getZoomLevel() + 0.5, 3));
+      else if (input.key === '-') wc.setZoomLevel(Math.max(wc.getZoomLevel() - 0.5, -3));
+      else if (input.key === '0') wc.setZoomLevel(0);
+      else return;
+      e.preventDefault();
+    });
+  }
   rendererTarget(mainWin);
   mainWin.on('close', (e) => {
     if (mainWin) saveWindowState(mainWin);

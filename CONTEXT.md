@@ -18,6 +18,7 @@ that's a ToS violation / ban. All data comes from public RealmEye pages + bundle
 ## Stack & how to run
 - **Electron + React + TypeScript + cheerio**, bundled by **electron-vite**. (No Rust → Tauri was rejected.)
 - Dev: `npm run dev` (electron-vite, renderer HMR). Build: `npm run build`. Typecheck: `npm run typecheck`.
+- Headless tests: `npm run test:planner` (82 asserts on potion/gear/route/dungeon plans), `npm run test:readiness`, `npm run test:wiki`.
 - One-click: **`RotMG Companion.bat`** on the Desktop (resolves the emoji folder via `for /d %%D in ("%USERPROFILE%\Desktop\*Scripts")`, installs deps, runs `npm run refresh` if data missing, launches).
 - Data refresh: **`npm run refresh`** — token-free Node scraper; a Windows scheduled task ("RotMG Companion Refresh") runs it weekly (Sun 4AM, StartWhenAvailable).
 
@@ -28,8 +29,9 @@ src/shared/            # isomorphic — used by BOTH main and renderer
   labels.ts            # STAT_LABEL, POT_LABEL
   realmeye.ts          # parsePlayer(html) + fetchPlayer(name) (player pages)
   realmeye-wiki.ts     # parseDungeonDrops + parseItemPage (now also set membership + ST generation) + parseSetIndex + parseSetPage
-  engine.ts            # PURE logic: evaluateReadiness, buildGoals, potsToMax, potionSources + biomesForStat, exaltDungeonsForStat, isStatFarmObsolete, setsForClass, recommendSetFor; Biome/Exaltation/STSet types
-  overlay.ts           # OverlaySettings/OverlayState/OverlayWidgets types + DEFAULT_OVERLAY_SETTINGS + OVERLAY_TOGGLE_HOTKEY
+  engine.ts            # PURE logic: evaluateReadiness, buildGoals, potsToMax, potionSources (now carry dungeon id) + biomesForStat, exaltDungeonsForStat, isStatFarmObsolete, setsForClass, recommendSetFor; Biome/Exaltation/STSet types
+  planner.ts           # PURE planners behind the v0.2 pages: potionPlan (pots/greaters per stat, bestNow, nextUnlock), farmRoute (Adept-then-Veteran biome set-cover), exaltPlan, gearPlan (equipped vs best-now vs BiS, set progress), dungeonInfo, verdictMap
+  overlay.ts           # OverlaySettings (+ peekSeconds, theme, dungeonCard) / OverlayState types, DEFAULT_OVERLAY_SETTINGS, mergeOverlaySettings (1-level deep), OVERLAY_PRESETS, HOTKEY_ACTIONS
   data/
     dungeons.json          # CURATED: dungeon ladder (id,name,category,tier,recommendedMaxed,minHp,note + biome,greaterPots,exaltStats,obsoleteAtMaxed). note = guide-sourced mechanic/strategy tip (shown in overlay current-dungeon card)
     biomes.json            # CURATED (2025 Realm Rework): biome -> {tier,guardian,statPots,dungeons,ut,encounters} — see META.md
@@ -43,27 +45,41 @@ src/shared/            # isomorphic — used by BOTH main and renderer
     meta.json              # CURATED: "state of the realm" for the Meta tab — season timeline, grind rules, corrections (asOf)
     gear-goals.json        # ORPHANED (superseded by dungeon-drops gear); safe to delete
 src/main/index.ts      # Electron main: MAIN window + OVERLAY window (transparent/frameless/always-on-top/click-through);
-                       # ipcMain 'player:get' + 'overlay:*' (getState/setSettings/setCharacter/toggle); global hotkey; persists overlay-settings.json
-src/preload/index.ts   # contextBridge -> window.api.{getPlayer, overlay.{getState,setSettings,setCharacter,toggle,onState}}
+                       # single-instance lock; window size/position memory (window-state.json); ipcMain 'player:get'(name, force),
+                       # 'app:openExternal' (allow-list: realmeye.com + this repo), 'overlay:*'; global hotkeys; persists overlay-settings.json
+src/preload/index.ts   # contextBridge -> window.api.{getPlayer(name,force), openExternal, overlay.{getState,setSettings,setCharacter,toggle,setPicker,onState}}
 src/renderer/
   index.html           # single entry; #overlay hash selects the overlay root (no 2nd build entry needed)
   src/main.tsx         # renders <App/> normally, <OverlayApp/> when location.hash === '#overlay' (+ body.overlay-mode)
-  src/App.tsx, env.d.ts, styles.css, labels.ts (re-exports shared)
-  src/OverlayApp.tsx   # overlay-window root: subscribes to overlay:state, renders OverlayHud at the chosen corner
+  src/App.tsx          # SHELL: Sidebar + top bar (search, refresh, CharacterSwitcher) + page router; owns the profile, the ONE
+                       # active character (drives every page + the overlay), startup auto-load, Ctrl+1–9 / "/" / F5 shortcuts
+  src/pages.ts         # PAGES registry (id/label/icon/group/blurb/needsCharacter) + Nav (go/openDungeon/browseSets)
+  src/gameData.ts      # every bundled JSON imported + typed ONCE; plannerData, goalCtx, dungeonById, effectiveTier, wiki URLs
+  src/hooks.ts         # usePrefs (theme/density/autoLoad/lastPlayer/startPage/lastPage/sidebar → 'rotmg-prefs'), THEMES (7),
+                       # useRecentPlayers, useDeclined (+clearClass/clearAll), useOverlaySettings, useNow/timeAgo
+  src/OverlayApp.tsx   # overlay-window root: subscribes to overlay:state, applies the synced theme, renders OverlayHud / DungeonPicker
+  src/activeChar.ts    # charKey + remembered active character (pickActive/rememberActive)
   src/classIcons.ts    # import.meta.glob loader for bundled class sprites (assets/classes/*.png); monogram fallback
-  src/beacons.ts       # shared BEACON colors by biome tier + beaconForBiome(slug) + biomeName(slug) (cards/HUD/picker)
-  src/assets/classes/  # 19 RotMG class sprites, downloaded by refresh (pixelated)
-  hooks.ts             # useTheme + THEMES; useDeclined (localStorage)
-  components/CharacterCard.tsx   # card + GoalRow + stat grid (icons) / gear / readiness (expandable) + recommended-set row + class sprite
-  components/SetsPage.tsx        # ST set browser: class + difficulty filters; per-set members/stats/where/bonuses
-  components/OverlayPage.tsx     # "Overlay" tab: active-char picker + widget toggles + position/opacity/scale/maxGoals + live preview
-  components/PetsPage.tsx        # "Pets" tab: rarity/ability caps, ability tier list (Heal/MHeal first), feeding + fusing tips
-  components/MetaPage.tsx        # "Meta" tab: grind-in-order rules, exaltation map (by stat, efficiency pills), season timeline, corrections
-  components/OverlayHud.tsx      # the compact HUD (shared by overlay window + preview): goals/header/set per settings
-  components/Icon.tsx            # inline-SVG icon set (8 stat glyphs + UI icons) + StatIcon
-  components/Dropdown.tsx, ErrorBoundary.tsx
+  src/beacons.ts       # shared BEACON colors by biome tier + beaconForBiome(slug) + biomeName(slug)
+  src/styles/          # tokens.css (vars + 7 themes + density) · base.css (component kit) · shell.css · characters.css · pages.css · overlay.css (index.css imports all)
+  components/ui.tsx              # shared kit: Panel, StatTile, Switch, ToggleRow, Segmented, EmptyState, TierBadge, StatusPill, BeaconTag, StatChip, ClassSprite, Bar, DungeonLink
+  components/Sidebar.tsx         # grouped nav (Plan/Browse/App), live badges (pots left, gear upgrades), collapse
+  components/CharacterSwitcher.tsx # top-bar active-character picker (sprites, n/8, level)
+  components/CharactersPage.tsx  # roster tiles + sort/filter toolbar + CharacterCards; Welcome screen when no player
+  components/CharacterCard.tsx   # card + actions (Set active / Potions / Gear) + GoalRow quest log + stats/gear/readiness (chips open Dungeons)
+  components/PotionsPage.tsx     # potion planner: tiles, class-ordered stat rows (bar, pots / Greaters, best-now, biome), per-stat sources, farm route; 8/8 → exalt list
+  components/GearPage.tsx        # gear planner: 4 slot cards (equipped / best now + delta / endgame BiS / all options), set progress, recommended set
+  components/DungeonsPage.tsx    # encyclopedia: filterable list (category, exalt, greater, ready, favorites, stat) + detail (readiness, strategy, pots, exalt, biome, key items, drops)
+  components/SettingsPage.tsx    # themes (swatch cards), density, sidebar, startup, overlay, shortcuts, your data (recents/declined/reset), about
+  components/NeedCharacter.tsx   # empty state for character-driven pages
+  components/SetsPage.tsx        # ST set browser: search + class + difficulty filters; per-set members/stats/where/bonuses
+  components/OverlayPage.tsx     # "Overlay" tab: status, presets, 3×3 position grid + sliders, widgets, dungeon-card options, peek + hotkeys, sticky live preview
+  components/OverlayHud.tsx      # the HUD (overlay window + preview): header/target/beacons/goals/set + rich dungeon card (readiness, exalt, pots, class drops, key items, strategy)
+  components/DungeonPicker.tsx   # in-game quick-pick: ↑/↓/Enter/Esc, readiness dots, exalt tags, ★ favorites, "For your goals", clear
+  components/PetsPage.tsx, MetaPage.tsx (exalt pills open Dungeons), Icon.tsx (IconName-typed SVG set), Dropdown.tsx, ErrorBoundary.tsx
 scripts/
   refresh-data.ts      # THE data pipeline (see below). `npm run refresh`
+  test-planner.ts      # headless: potion/gear/route/dungeon plans for fixture chars + a synthetic 2/8 beginner, with asserts. `npm run test:planner`
   test-readiness.ts    # headless: prints goals/readiness for a fixture. `npm run test:readiness`
   test-wiki.ts         # headless: tests wiki parsers. `npm run test:wiki`
   parse-fixture.ts, gen-class-maxes.ts (orphaned), count-live.ts
@@ -118,10 +134,12 @@ fixtures/              # saved RealmEye pages for offline parser tests
 - Shared imports are **extensionless** (works under tsx + electron-vite esbuild).
 - Number cells like account fame read "74945 (7745th)" → parse FIRST integer only.
 
-## Current state (works, verified by typecheck + build + headless tests)
+## Current state (works, verified by typecheck + build + headless tests + Playwright screenshots of every page)
 RealmEye import (all chars, sorted, error-isolated) · goals panel (level/stat/gear/unlock) · verified pot routing w/ GUARANTEED+GREATER badges · maxed-count readiness · gear ranking incl. abilities · UT/ST + pot expandable dropdowns · decline/restore · 5 themes + custom Dropdown · sharper edges · weekly auto-refresh scheduled · 2025→2026 meta (biomes/exalts/obsolescence, re-verified 2026-10) wired into goals · ST set browser tab + per-character recommended-set · icon system + game class sprites · **transparent click-through game overlay + Overlay customization tab (hotkey Ctrl+Shift+O)** · Pets tab · **Meta tab (2026-10 meta: grind order, exalt map, season timeline)**.
 
 ## Open items / next
+- **v0.2 polish ideas:** per-character exalt counts (if RealmEye exposes them) to weight exalt goals; drag-to-place
+  overlay; tray icon; item sprites.
 - **Meta re-research (2026-10) follow-ups** (see `META.md` §10): Neo Wormhole exalt colours, Druid stat
   priority, a few portal biomes; run `npm run refresh` to scrape the 3 new dungeons (ice-citadel, deadwater-docks,
   puppet-masters-encore).
@@ -249,3 +267,16 @@ RealmEye import (all chars, sorted, error-isolated) · goals panel (level/stat/g
     Realm Legions notes; rebuilt `pot-routing.json` from the scraped RealmEye drop tables (mid-game Life/Mana).
     Level goal now says Rookie biomes. New **Meta** tab (`MetaPage` + `meta.json`): grind-in-order rules,
     exaltation map, 2026 season timeline, corrections. typecheck + test:readiness + test:wiki + build pass (79 modules).
+25. **v0.2.0 top-down rebuild (QoL · potions · gear · dungeons · overlay):** new **shell** — grouped sidebar (live badges:
+    pots left, gear upgrades; collapsible), top bar with player search + F5 refresh + **one global active character**
+    (CharacterSwitcher) that drives every page and the overlay; startup auto-load of the last player; remembered page;
+    Ctrl+1–9 / "/" / F5 shortcuts; single-instance lock; remembered window size; safe "open on RealmEye" links.
+    New pure **`planner.ts`** (+ `test:planner`, 82 asserts): potionPlan / farmRoute (Adept biomes for the 6, then
+    Veteran for Life/Mana — fixed a bug that sent a 2/8 into a Veteran biome first) / exaltPlan / gearPlan / dungeonInfo.
+    New pages: **Potions** (class-ordered stat rows, pots vs Greaters, best source you can run now or the next unlock,
+    biome route), **Gear** (equipped vs best-now vs endgame BiS with score deltas, all options, set progress),
+    **Dungeons** (filterable encyclopedia + detail: readiness, strategy, pots, exalt, biome, runes, class drops,
+    favorite / show-on-overlay), **Settings** (7 themes incl. new Sprite Forest + Midnight, density, startup, shortcuts,
+    data management, about). **Overlay:** presets, 3×3 position grid, configurable peek, HUD follows the app theme,
+    richer dungeon card (readiness, exalt, pots, class-usable drops, key items), quick-pick arrow-key nav + clear.
+    CSS split into `styles/` layers; shared `gameData.ts` + `ui.tsx` kit. typecheck + build (91 modules) + all tests pass.

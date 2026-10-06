@@ -1,7 +1,7 @@
 {
   "name": "rotmg-companion",
   "private": true,
-  "version": "0.1.3",
+  "version": "0.2.0",
   "type": "module",
   "description": "Realm of the Mad God Exalt new-player companion (desktop).",
   "author": "RotMG Companion",
@@ -19,6 +19,7 @@
     "refresh": "tsx scripts/refresh-data.ts",
     "parse:fixture": "tsx scripts/parse-fixture.ts",
     "test:readiness": "tsx scripts/test-readiness.ts",
+    "test:planner": "tsx scripts/test-planner.ts",
     "test:wiki": "tsx scripts/test-wiki.ts"
   },
   "dependencies": {

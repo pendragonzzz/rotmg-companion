@@ -11,7 +11,7 @@ files:
   - '!**/.vscode/*'
   - '!{src,scripts,fixtures}/*'
   - '!electron.vite.config.{js,ts,mjs,cjs}'
-  - '!{.eslintignore,.eslintrc.cjs,.gitignore,.prettierignore,.prettierrc,.editorconfig,README.md,CONTEXT.md,META-2025.md}'
+  - '!{.eslintignore,.eslintrc.cjs,.gitignore,.prettierignore,.prettierrc,.editorconfig,README.md,CONTEXT.md,META.md}'
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json,electron-builder.yml,refresh.log}'
 win:
   executableName: RotMG Companion

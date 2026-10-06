@@ -7,7 +7,9 @@ export type GetPlayerResult =
   | { ok: false; error: string };
 
 const api = {
-  getPlayer: (name: string): Promise<GetPlayerResult> => ipcRenderer.invoke('player:get', name),
+  getPlayer: (name: string, force = false): Promise<GetPlayerResult> => ipcRenderer.invoke('player:get', name, force),
+  /** Open a RealmEye / project link in the user's browser (main allow-lists the URL). */
+  openExternal: (url: string): Promise<boolean> => ipcRenderer.invoke('app:openExternal', url),
   overlay: {
     getState: (): Promise<OverlayState> => ipcRenderer.invoke('overlay:getState'),
     setSettings: (s: Partial<OverlaySettings>): Promise<OverlaySettings> =>

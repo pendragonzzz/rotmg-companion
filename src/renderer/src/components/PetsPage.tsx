@@ -25,11 +25,10 @@ const pets = petsData as unknown as PetsData;
 export function PetsPage() {
   return (
     <>
-      <div className="profile-head">
-        <h1>Pets</h1>
-        <div className="profile-meta">
-          <span>Your pet&apos;s Heal / Magic Heal is most of your survivability. Aim for those two, then level it up.</span>
-        </div>
+      <div className="page-intro">
+        <span className="muted">
+          Your pet&apos;s Heal / Magic Heal is most of your survivability. Aim for those two, then level it up.
+        </span>
       </div>
 
       <div className="pets-grid">

@@ -102,6 +102,8 @@ export type DungeonDropTable = Record<string, DungeonDropData>;
 
 /** One place to farm a given potion. */
 export interface PotSource {
+  /** Dungeon id (dungeons.json). */
+  id: string;
   name: string;
   /** Dungeon difficulty tier 1–5 (sorted easiest first). */
   tier: number;
@@ -133,13 +135,19 @@ export function potionSources(
 
   let out: PotSource[] = (routing?.[stat] ?? []).map((r) => {
     const d = byId.get(r.dungeonId);
-    return { name: d?.name ?? r.dungeonId, tier: d?.tier ?? 9, greater: greaterAt(r.dungeonId), guaranteed: !!r.guaranteed };
+    return {
+      id: r.dungeonId,
+      name: d?.name ?? r.dungeonId,
+      tier: d?.tier ?? 9,
+      greater: greaterAt(r.dungeonId),
+      guaranteed: !!r.guaranteed,
+    };
   });
 
   if (out.length === 0 && drops) {
     out = dungeons
       .filter((d) => (drops[d.id]?.potions ?? []).includes(stat) || greaterAt(d.id))
-      .map((d) => ({ name: d.name, tier: d.tier, greater: greaterAt(d.id), guaranteed: false }));
+      .map((d) => ({ id: d.id, name: d.name, tier: d.tier, greater: greaterAt(d.id), guaranteed: false }));
   }
 
   return out.sort(
@@ -413,7 +421,7 @@ export function goalDungeonIds(goals: Goal[], dungeons: DungeonGate[]): string[]
   };
   for (const g of goals) {
     if (g.kind === 'exalt' || g.kind === 'unlock') add(g.id.split(':')[1]);
-    for (const s of g.sources ?? []) add(nameToId.get(s.name));
+    for (const s of g.sources ?? []) add(s.id);
     if (g.where) for (const nm of g.where.split(',')) add(nameToId.get(nm.trim()));
   }
   return ids;

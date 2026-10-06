@@ -1,13 +1,11 @@
 import { useMemo, useState } from 'react';
-import type { SetTable, STSet, DungeonGate } from '../../../shared/engine';
-import setsData from '../../../shared/data/sets.json';
-import dungeonsData from '../../../shared/data/dungeons.json';
+import type { STSet } from '../../../shared/engine';
+import { dungeonById, sets } from '../gameData';
 import { Dropdown } from './Dropdown';
-import { classIcon } from '../classIcons';
+import { Icon } from './Icon';
+import { ClassSprite } from './ui';
 
-const sets = setsData as unknown as SetTable;
-const dungeons = dungeonsData as DungeonGate[];
-const dungeonName = new Map(dungeons.map((d) => [d.id, d.name]));
+const dungeonName = new Map([...dungeonById].map(([id, d]) => [id, d.name]));
 
 const DIFFICULTY_ORDER: Record<string, number> = { starter: 0, low: 1, mid: 2, high: 3, endgame: 4, other: 5 };
 const DIFFICULTY_LABEL: Record<string, string> = {
@@ -21,6 +19,7 @@ function diffKey(s: STSet): string {
 export function SetsPage({ initialClass }: { initialClass?: string }) {
   const [classFilter, setClassFilter] = useState(initialClass ?? 'all');
   const [diffFilter, setDiffFilter] = useState('all');
+  const [q, setQ] = useState('');
 
   const classes = useMemo(
     () => [...new Set(sets.map((s) => s.className))].sort((a, b) => a.localeCompare(b)),
@@ -35,13 +34,17 @@ export function SetsPage({ initialClass }: { initialClass?: string }) {
     return sets
       .filter((s) => classFilter === 'all' || s.className === classFilter)
       .filter((s) => diffFilter === 'all' || diffKey(s) === diffFilter)
+      .filter((s) => {
+        const ql = q.trim().toLowerCase();
+        return !ql || s.name.toLowerCase().includes(ql) || s.members.some((m) => m.name.toLowerCase().includes(ql));
+      })
       .sort(
         (a, b) =>
           (DIFFICULTY_ORDER[diffKey(a)] ?? 9) - (DIFFICULTY_ORDER[diffKey(b)] ?? 9) ||
           a.className.localeCompare(b.className) ||
           a.name.localeCompare(b.name),
       );
-  }, [classFilter, diffFilter]);
+  }, [classFilter, diffFilter, q]);
 
   if (sets.length === 0) {
     return (
@@ -60,9 +63,12 @@ export function SetsPage({ initialClass }: { initialClass?: string }) {
 
   return (
     <>
-      <div className="sets-head">
-        <h1>Set-Tier Items</h1>
+      <div className="toolbar">
         <div className="sets-filters">
+          <span className="search-field">
+            <Icon name="search" size={14} className="search-ico" />
+            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search sets or pieces…" spellCheck={false} />
+          </span>
           <Dropdown label="Class" value={classFilter} options={classOpts} onChange={setClassFilter} />
           <Dropdown label="Difficulty" value={diffFilter} options={diffOpts} onChange={setDiffFilter} />
           <span className="char-count">{shown.length} sets</span>
@@ -83,15 +89,10 @@ function SetCard({ set }: { set: STSet }) {
     (m.dungeonId && dungeonName.get(m.dungeonId)) ||
     (set.sourceDungeonIds[0] && dungeonName.get(set.sourceDungeonIds[0])) ||
     null;
-  const icon = classIcon(set.className);
   return (
     <section className="set-card" data-class={set.className.toLowerCase()}>
       <header className="set-card-head row">
-        {icon ? (
-          <img className="class-sprite sm" src={icon} alt="" width={28} height={28} />
-        ) : (
-          <span className="class-sprite sm mono">{set.className.slice(0, 2)}</span>
-        )}
+        <ClassSprite className={set.className} size={28} />
         <div className="set-title-wrap">
           <div className="set-title">{set.name}</div>
           <div className="set-badges">

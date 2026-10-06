@@ -183,12 +183,12 @@ async function politeDelay(): Promise<void> {
 
 /**
  * Fetch and parse a player's RealmEye profile.
- * Returns null if the player does not exist (404).
+ * Returns null if the player does not exist (404). `force` skips the 5-minute cache.
  */
-export async function fetchPlayer(name: string): Promise<PlayerProfile | null> {
+export async function fetchPlayer(name: string, force = false): Promise<PlayerProfile | null> {
   const key = name.trim().toLowerCase();
   const cached = cache.get(key);
-  if (cached && Date.now() - cached.ts < CACHE_TTL_MS) return cached.profile;
+  if (!force && cached && Date.now() - cached.ts < CACHE_TTL_MS) return cached.profile;
 
   await politeDelay();
   const url = `${BASE}/player/${encodeURIComponent(name.trim())}`;

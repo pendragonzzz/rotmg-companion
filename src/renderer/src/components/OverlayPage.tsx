@@ -1,199 +1,230 @@
-import { useEffect, useState, type KeyboardEvent } from 'react';
+import { useState, type KeyboardEvent } from 'react';
 import type { Character } from '../../../shared/types';
 import {
-  DEFAULT_OVERLAY_SETTINGS,
   HOTKEY_ACTIONS,
-  type OverlaySettings,
+  OVERLAY_PRESETS,
   type OverlayCorner,
+  type OverlayDungeonCard,
   type OverlayWidgets,
-  type OverlayHotkeys,
 } from '../../../shared/overlay';
-import type { DungeonGate } from '../../../shared/engine';
-import dungeonsData from '../../../shared/data/dungeons.json';
+import type { DungeonCategory } from '../../../shared/engine';
+import { dungeons } from '../gameData';
+import type { OverlayApi } from '../hooks';
+import type { Nav } from '../pages';
 import { OverlayHud } from './OverlayHud';
-import { Dropdown } from './Dropdown';
-import { charKey, pickActive, rememberActive } from '../activeChar';
+import { Icon } from './Icon';
+import { ClassSprite, Panel, ToggleRow } from './ui';
 
-const dungeonOpts = [
-  { value: '', label: 'None' },
-  ...(dungeonsData as DungeonGate[]).map((d) => ({ value: d.id, label: d.name })),
-];
 const hk = (a: string) => a.replace('CommandOrControl', 'Ctrl');
 
-const CORNERS: { value: OverlayCorner; label: string }[] = [
-  { value: 'top-left', label: 'Top-left' },
-  { value: 'top-center', label: 'Top-center' },
-  { value: 'top-right', label: 'Top-right' },
-  { value: 'left-center', label: 'Left-center' },
-  { value: 'right-center', label: 'Right-center' },
-  { value: 'bottom-left', label: 'Bottom-left' },
-  { value: 'bottom-center', label: 'Bottom-center' },
-  { value: 'bottom-right', label: 'Bottom-right' },
+/** 3×3 anchor grid (center cell unused). */
+const GRID: (OverlayCorner | null)[] = [
+  'top-left', 'top-center', 'top-right',
+  'left-center', null, 'right-center',
+  'bottom-left', 'bottom-center', 'bottom-right',
 ];
-const WIDGET_LABELS: { key: keyof OverlayWidgets; label: string; hint: string }[] = [
+
+const WIDGETS: { key: keyof OverlayWidgets; label: string; hint: string }[] = [
   { key: 'header', label: 'Character header', hint: 'Class sprite, level, n/8' },
-  { key: 'target', label: 'Target biome / beacon', hint: 'Where to head + dungeon to enter' },
-  { key: 'beacons', label: 'Beacons to farm', hint: 'All beacons across your goals + what they give' },
+  { key: 'target', label: 'Target biome / beacon', hint: 'Where to head + the dungeon to enter' },
+  { key: 'beacons', label: 'Beacons to farm', hint: 'Every beacon across your goals + what it drops' },
   { key: 'goals', label: 'Next goals', hint: 'The prioritized to-do list' },
+  { key: 'locations', label: 'Where-to-farm tags', hint: 'Dungeon name on each goal' },
   { key: 'setToFarm', label: 'Recommended set', hint: 'Best ST set to farm' },
-  { key: 'locations', label: 'Where-to-farm tags', hint: 'Dungeon/biome on each line' },
-  { key: 'currentDungeon', label: 'Current-dungeon card', hint: 'Drops + strategy for the dungeon set below' },
+  { key: 'currentDungeon', label: 'Current-dungeon card', hint: 'Details for the dungeon you picked' },
 ];
 
-export function OverlayPage({ characters }: { characters: Character[] }) {
-  const [settings, setSettings] = useState<OverlaySettings>(DEFAULT_OVERLAY_SETTINGS);
-  const [selectedKey, setSelectedKey] = useState<string>('');
+const CARD: { key: keyof OverlayDungeonCard; label: string; hint: string }[] = [
+  { key: 'strategy', label: 'Strategy tip', hint: 'The one mechanic that matters' },
+  { key: 'exalt', label: 'Exalt stat', hint: 'If the dungeon grants one' },
+  { key: 'pots', label: 'Potions', hint: 'Regular + Greater (marked +)' },
+  { key: 'drops', label: 'UT / ST drops', hint: 'Top 4 by score' },
+  { key: 'classDropsOnly', label: 'Only my class’s drops', hint: 'Hide gear the active class can’t use' },
+  { key: 'keyItems', label: 'Key items', hint: 'O3 runes, Wine Cellar incantations' },
+];
 
-  useEffect(() => {
-    window.api.overlay.getState().then((s) => setSettings(s.settings)).catch(() => {});
-    return window.api.overlay.onState((s) => setSettings(s.settings));
-  }, []);
+const CAT_ORDER: DungeonCategory[] = ['starter', 'low', 'mid', 'high', 'endgame'];
 
-  const active = characters.find((c) => charKey(c) === selectedKey) ?? pickActive(characters);
-  const activeId = active ? charKey(active) : '';
-  useEffect(() => {
-    window.api.overlay.setCharacter(active ?? null).catch(() => {});
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeId]);
-
-  const patch = (p: Partial<OverlaySettings>) => {
-    setSettings((s) => ({ ...s, ...p }));
-    window.api.overlay.setSettings(p).catch(() => {});
-  };
-  const patchWidget = (k: keyof OverlayWidgets, v: boolean) =>
-    patch({ widgets: { ...settings.widgets, [k]: v } });
-
-  const charOpts = characters.map((c) => ({ value: charKey(c), label: `${c.className} · ${c.statsMaxed} · Lv ${c.level}` }));
+export function OverlayPage({ character, overlay, nav }: { character: Character | null; overlay: OverlayApi; nav: Nav }) {
+  const { settings, patch } = overlay;
 
   return (
-    <>
-      <div className="profile-head">
-        <h1>Game Overlay</h1>
-        <div className="profile-meta">
-          <span>
-            Click-through HUD over the game. Toggle <kbd>{hk(settings.hotkeys.toggle)}</kbd> · Peek{' '}
-            <kbd>{hk(settings.hotkeys.peek)}</kbd> · Quick-pick <kbd>{hk(settings.hotkeys.picker)}</kbd>
-          </span>
-        </div>
-      </div>
-
-      <div className="ov-page">
-        <div className="ov-controls">
-          <label className="ov-switch-row">
-            <span>
-              <strong>Show overlay</strong>
-              <em>The transparent HUD window</em>
-            </span>
-            <button
-              className={`switch ${settings.enabled ? 'on' : ''}`}
-              onClick={() => patch({ enabled: !settings.enabled })}
-              aria-pressed={settings.enabled}
-            >
-              <span className="knob" />
-            </button>
-          </label>
-
-          <div className="ov-field">
-            <label>Active character</label>
-            {characters.length ? (
-              <Dropdown
-                value={activeId}
-                options={charOpts}
-                onChange={(v) => {
-                  setSelectedKey(v);
-                  const c = characters.find((x) => charKey(x) === v);
-                  if (c) rememberActive(c);
-                }}
-              />
+    <div className="ov-page">
+      <div className="ov-controls">
+        <Panel title="Status" icon="layout">
+          <ToggleRow
+            title="Show overlay"
+            hint="Transparent, click-through, always on top of the game"
+            on={settings.enabled}
+            onChange={(enabled) => patch({ enabled })}
+          />
+          <div className="ov-active">
+            {character ? (
+              <>
+                <ClassSprite className={character.className} size={26} />
+                <span>
+                  Following <b>{character.className}</b> · {character.statsMaxed} · Lv {character.level}
+                </span>
+              </>
             ) : (
-              <p className="muted">Load a player on the Characters tab first.</p>
+              <span className="muted">No character yet — load a player first.</span>
             )}
-            <p className="ov-note">
-              The app can&apos;t read the game (ToS), so pick which loaded character you&apos;re playing — the
-              overlay shows its goals.
-            </p>
+            <span className="muted small">Switch in the top bar</span>
           </div>
+          <p className="ov-note">
+            The app can&apos;t read the game (that would break DECA&apos;s ToS), so the overlay follows the character
+            you pick here and the dungeon you choose with <kbd>{hk(settings.hotkeys.picker)}</kbd>.
+          </p>
+        </Panel>
 
-          <div className="ov-field">
-            <label>Position</label>
-            <Dropdown value={settings.corner} options={CORNERS} onChange={(v) => patch({ corner: v as OverlayCorner })} />
+        <Panel title="Layout presets" icon="star">
+          <div className="preset-grid">
+            {OVERLAY_PRESETS.map((p) => (
+              <button key={p.id} className="preset" onClick={() => patch(p.apply)}>
+                <b>{p.label}</b>
+                <span>{p.hint}</span>
+              </button>
+            ))}
           </div>
+        </Panel>
 
-          <div className="ov-field">
-            <label>Opacity — {Math.round(settings.opacity * 100)}%</label>
-            <input type="range" min={0.3} max={1} step={0.02} value={settings.opacity}
-              onChange={(e) => patch({ opacity: Number(e.target.value) })} />
+        <Panel title="Position & size" icon="pin">
+          <div className="pos-row">
+            <div className="pos-grid" role="radiogroup" aria-label="Overlay position">
+              {GRID.map((c, i) =>
+                c ? (
+                  <button
+                    key={c}
+                    role="radio"
+                    aria-checked={settings.corner === c}
+                    className={`pos-cell ${settings.corner === c ? 'on' : ''}`}
+                    onClick={() => patch({ corner: c })}
+                    title={c.replace('-', ' ')}
+                  />
+                ) : (
+                  <span key={`x${i}`} className="pos-cell void" />
+                ),
+              )}
+            </div>
+            <div className="pos-sliders">
+              <Slider label={`Opacity — ${Math.round(settings.opacity * 100)}%`} min={0.3} max={1} step={0.02} value={settings.opacity} onChange={(opacity) => patch({ opacity })} />
+              <Slider label={`Scale — ${settings.scale.toFixed(2)}×`} min={0.8} max={1.5} step={0.05} value={settings.scale} onChange={(scale) => patch({ scale })} />
+              <Slider label={`Goals shown — ${settings.maxGoals}`} min={1} max={6} step={1} value={settings.maxGoals} onChange={(maxGoals) => patch({ maxGoals })} />
+            </div>
           </div>
-          <div className="ov-field">
-            <label>Scale — {settings.scale.toFixed(2)}×</label>
-            <input type="range" min={0.8} max={1.5} step={0.05} value={settings.scale}
-              onChange={(e) => patch({ scale: Number(e.target.value) })} />
-          </div>
-          <div className="ov-field">
-            <label>Goals shown — {settings.maxGoals}</label>
-            <input type="range" min={1} max={6} step={1} value={settings.maxGoals}
-              onChange={(e) => patch({ maxGoals: Number(e.target.value) })} />
-          </div>
+          <ToggleRow title="Compact goals" hint="Titles only, no detail line" on={settings.compact} onChange={(compact) => patch({ compact })} />
+        </Panel>
 
-          <div className="ov-field">
-            <label>Current dungeon</label>
-            <Dropdown
-              value={settings.currentDungeon}
-              options={dungeonOpts}
-              onChange={(v) => patch({ currentDungeon: v })}
+        <Panel title="Widgets" icon="sets">
+          {WIDGETS.map((w) => (
+            <ToggleRow
+              key={w.key}
+              title={w.label}
+              hint={w.hint}
+              on={settings.widgets[w.key]}
+              onChange={(v) => patch({ widgets: { ...settings.widgets, [w.key]: v } })}
             />
-            <p className="ov-note">
-              Or press <kbd>{hk(settings.hotkeys.picker)}</kbd> in-game to open the quick-pick menu (search +
-              ★ favorites) — no alt-tab needed.
-            </p>
-          </div>
+          ))}
+        </Panel>
 
-          <label className="ov-check">
-            <input type="checkbox" checked={settings.compact} onChange={(e) => patch({ compact: e.target.checked })} />
-            Compact (titles only)
-          </label>
-
-          <div className="ov-field">
-            <label>Show widgets</label>
-            <div className="ov-widgets">
-              {WIDGET_LABELS.map((w) => (
-                <label key={w.key} className="ov-check" title={w.hint}>
-                  <input
-                    type="checkbox"
-                    checked={settings.widgets[w.key]}
-                    onChange={(e) => patchWidget(w.key, e.target.checked)}
-                  />
-                  {w.label}
-                </label>
+        <Panel
+          title="Dungeon card"
+          icon="castle"
+          actions={
+            <button className="link-btn small" onClick={() => nav.go('dungeons')}>
+              Browse dungeons ▸
+            </button>
+          }
+        >
+          <div className="settings-row">
+            <span className="settings-label">
+              <strong>Current dungeon</strong>
+              <em>
+                Or press <kbd>{hk(settings.hotkeys.picker)}</kbd> in-game
+              </em>
+            </span>
+            <select className="select" value={settings.currentDungeon} onChange={(e) => patch({ currentDungeon: e.target.value })}>
+              <option value="">None</option>
+              {CAT_ORDER.map((cat) => (
+                <optgroup key={cat} label={cat[0]!.toUpperCase() + cat.slice(1)}>
+                  {dungeons
+                    .filter((d) => d.category === cat)
+                    .map((d) => (
+                      <option key={d.id} value={d.id}>
+                        {d.name}
+                      </option>
+                    ))}
+                </optgroup>
               ))}
-            </div>
+            </select>
           </div>
+          {CARD.map((c) => (
+            <ToggleRow
+              key={c.key}
+              title={c.label}
+              hint={c.hint}
+              on={settings.dungeonCard[c.key]}
+              onChange={(v) => patch({ dungeonCard: { ...settings.dungeonCard, [c.key]: v } })}
+            />
+          ))}
+        </Panel>
 
-          <div className="ov-field">
-            <label>Hotkeys</label>
-            <div className="ov-hotkeys">
-              {HOTKEY_ACTIONS.map((a) => (
-                <div className="ov-hotkey-row" key={a.key}>
-                  <span>{a.label}</span>
-                  <HotkeyInput
-                    value={settings.hotkeys[a.key]}
-                    onChange={(accel) => patch({ hotkeys: { ...settings.hotkeys, [a.key]: accel } })}
-                  />
-                </div>
-              ))}
-            </div>
-            <p className="ov-note">Click a binding, then press your combo (Esc cancels). Include a modifier (Ctrl/Alt/Shift) so it fires while the game is focused.</p>
+        <Panel title="Behavior & hotkeys" icon="keyboard">
+          <Slider
+            label={`Peek lasts — ${settings.peekSeconds}s`}
+            min={2}
+            max={15}
+            step={1}
+            value={settings.peekSeconds}
+            onChange={(peekSeconds) => patch({ peekSeconds })}
+          />
+          <div className="ov-hotkeys">
+            {HOTKEY_ACTIONS.map((a) => (
+              <div className="ov-hotkey-row" key={a.key}>
+                <span>{a.label}</span>
+                <HotkeyInput value={settings.hotkeys[a.key]} onChange={(accel) => patch({ hotkeys: { ...settings.hotkeys, [a.key]: accel } })} />
+              </div>
+            ))}
           </div>
+          <p className="ov-note">
+            Click a binding, then press your combo (Esc cancels). Include Ctrl/Alt/Shift so it fires while the game has focus.
+          </p>
+        </Panel>
+      </div>
+
+      <div className="ov-preview">
+        <div className="ov-preview-label">
+          <Icon name="layout" size={12} /> Live preview
+          <span className={`pill ${settings.enabled ? 'on' : ''}`}>{settings.enabled ? 'Overlay on' : 'Overlay off'}</span>
         </div>
-
-        <div className="ov-preview">
-          <div className="ov-preview-label">Live preview</div>
-          <div className={`ov-preview-stage corner-${settings.corner}`}>
-            <OverlayHud character={active} settings={{ ...settings, opacity: 1 }} />
-          </div>
+        <div className={`ov-preview-stage corner-${settings.corner}`}>
+          <OverlayHud character={character} settings={{ ...settings, opacity: 1 }} />
         </div>
       </div>
-    </>
+    </div>
+  );
+}
+
+function Slider({
+  label,
+  min,
+  max,
+  step,
+  value,
+  onChange,
+}: {
+  label: string;
+  min: number;
+  max: number;
+  step: number;
+  value: number;
+  onChange: (v: number) => void;
+}) {
+  return (
+    <label className="slider">
+      <span>{label}</span>
+      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(Number(e.target.value))} />
+    </label>
   );
 }
 

@@ -17,6 +17,11 @@ export function OverlayApp() {
     return window.api.overlay.onState(setState);
   }, []);
 
+  // Match the main window's theme (pushed through the overlay settings).
+  useEffect(() => {
+    document.documentElement.dataset.theme = state.settings.theme;
+  }, [state.settings.theme]);
+
   const visible = state.settings.enabled || state.peek;
   if (!visible && !state.picker) return null;
 

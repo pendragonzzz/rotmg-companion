@@ -4,7 +4,7 @@ import type { StatKey } from '../../../shared/types';
  * Inline-SVG icon set (stroke = currentColor) so icons inherit text color and
  * theme without any external assets — important under our strict CSP.
  */
-const PATHS: Record<string, JSX.Element> = {
+const PATHS = {
   // --- stats ---
   hp: <path d="M20.8 5.6a5 5 0 0 0-8-1.3L12 5l-.8-.7a5 5 0 0 0-8 5.4C4 14 12 20 12 20s8-6 8.8-10.3a5 5 0 0 0 0-4.1z" />,
   mp: <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" />,
@@ -74,9 +74,71 @@ const PATHS: Record<string, JSX.Element> = {
       <path d="M8.2 15.2c1-1 1.8-1.7 3.8-1.7s2.8.7 3.8 1.7c1.6 1.6 1.3 4-1 4-1.1 0-1.9-.5-2.8-.5s-1.7.5-2.8.5c-2.3 0-2.6-2.4-1-4z" />
     </>
   ),
+  flask: (
+    <>
+      <path d="M9 3h6M10 3v6.2L4.8 18.3A1.8 1.8 0 0 0 6.4 21h11.2a1.8 1.8 0 0 0 1.6-2.7L14 9.2V3" />
+      <path d="M7.3 15h9.4" />
+    </>
+  ),
+  castle: (
+    <>
+      <path d="M4 21V9h3V6h2v3h2V4h2v5h2V6h2v3h3v12z" />
+      <path d="M10 21v-4a2 2 0 0 1 4 0v4" />
+    </>
+  ),
+  cog: (
+    <>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" />
+    </>
+  ),
+  refresh: (
+    <>
+      <path d="M21 12a9 9 0 0 1-15.5 6.2L3 15.7" />
+      <path d="M3 12A9 9 0 0 1 18.5 5.8L21 8.3" />
+      <path d="M21 3v5.3h-5.3M3 21v-5.3h5.3" />
+    </>
+  ),
+  external: <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />,
+  lock: (
+    <>
+      <rect x="5" y="11" width="14" height="10" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    </>
+  ),
+  up: <path d="M12 19V5M6 11l6-6 6 6" />,
+  star: <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z" />,
+  keyboard: (
+    <>
+      <rect x="2.5" y="6" width="19" height="12" rx="2" />
+      <path d="M6 10h.01M9.5 10h.01M13 10h.01M16.5 10h.01M7 14h10" />
+    </>
+  ),
+  trash: <path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" />,
+  info: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 16v-4.5M12 8h.01" />
+    </>
+  ),
+  sidebar: (
+    <>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M9 4v16" />
+    </>
+  ),
+  route: (
+    <>
+      <circle cx="6" cy="19" r="2.2" />
+      <circle cx="18" cy="5" r="2.2" />
+      <path d="M8.2 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.8" />
+    </>
+  ),
 };
 
-const STAT_ICONS: Record<StatKey, string> = {
+export type IconName = keyof typeof PATHS;
+
+const STAT_ICONS: Record<StatKey, IconName> = {
   hp: 'hp', mp: 'mp', att: 'att', def: 'def', spd: 'spd', dex: 'dex', vit: 'vit', wis: 'wis',
 };
 

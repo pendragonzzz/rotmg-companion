@@ -1,28 +1,9 @@
 import type { StatKey } from '../../../shared/types';
-import type { DungeonGate, ExaltationData, ExaltEfficiency } from '../../../shared/engine';
-import metaData from '../../../shared/data/meta.json';
-import exaltationData from '../../../shared/data/exaltation.json';
-import dungeonsData from '../../../shared/data/dungeons.json';
+import type { ExaltEfficiency } from '../../../shared/engine';
+import { dungeonName, exaltation, meta } from '../gameData';
 import { POT_LABEL } from '../labels';
+import type { Nav } from '../pages';
 import { StatIcon } from './Icon';
-
-interface SeasonEntry {
-  season: string;
-  name: string;
-  date: string;
-  highlights: string[];
-}
-interface MetaData {
-  asOf: string;
-  current: string;
-  timeline: SeasonEntry[];
-  rules: string[];
-  corrections: string[];
-}
-
-const meta = metaData as unknown as MetaData;
-const exaltation = exaltationData as unknown as ExaltationData;
-const dungeonName = new Map((dungeonsData as DungeonGate[]).map((d) => [d.id, d.name]));
 
 /** Exalt stats in the in-game order; Life/Mana first since they're the big (×5) ones. */
 const EXALT_ORDER: StatKey[] = ['hp', 'mp', 'att', 'def', 'spd', 'dex', 'vit', 'wis'];
@@ -39,16 +20,13 @@ function exaltsByStat(): [StatKey, { id: string; efficiency: ExaltEfficiency }[]
   ]);
 }
 
-export function MetaPage() {
+export function MetaPage({ nav }: { nav: Nav }) {
   const timeline = [...meta.timeline].reverse(); // newest first
   return (
     <>
-      <div className="profile-head">
-        <h1>Realm Meta</h1>
-        <div className="profile-meta">
-          <span>Researched {meta.asOf}</span>
-          <span>{meta.current}</span>
-        </div>
+      <div className="page-intro">
+        <span className="pill">Researched {meta.asOf}</span>
+        <span className="muted">{meta.current}</span>
       </div>
 
       <div className="pets-grid">
@@ -71,9 +49,14 @@ export function MetaPage() {
                 </span>
                 <span className="meta-exalt-dungeons">
                   {rows.map((r) => (
-                    <span key={r.id} className={`meta-eff eff-${r.efficiency}`} title={exaltation.dungeons[r.id]?.note}>
-                      {dungeonName.get(r.id) ?? r.id}
-                    </span>
+                    <button
+                      key={r.id}
+                      className={`meta-eff eff-${r.efficiency}`}
+                      title={exaltation.dungeons[r.id]?.note}
+                      onClick={() => nav.openDungeon(r.id)}
+                    >
+                      {dungeonName(r.id)}
+                    </button>
                   ))}
                 </span>
               </div>
@@ -81,8 +64,8 @@ export function MetaPage() {
           </div>
           <p className="ov-note">
             Run these on an <b>8/8</b> character: every 5 clears (up to 25) = a permanent <b>+1</b> for that class
-            (Life/Mana <b>+5</b>). Green = fast grind, amber = moderate, red = run for loot, not speed. Hover a
-            dungeon for its note.
+            (Life/Mana <b>+5</b>). Green = fast grind, amber = moderate, red = run for loot, not speed. Hover for the
+            note, click to open the dungeon.
           </p>
         </section>
 

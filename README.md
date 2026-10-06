@@ -24,16 +24,20 @@ Then type a **public** RealmEye username and hit Load.
 
 ## Features
 
-- **Per-character goals** — stat maxing (with the biome/beacon to farm), gear upgrades, and exaltations.
-- **Beacons & biomes** — the 2025 Realm Rework: which tier-colored beacon to head to for what you need.
-- **Dungeon readiness + guide-sourced tips** — when you're ready, and the key mechanic ("don't hit the Puppet
-  Master clones", etc.).
-- **ST set browser** — filter by class & difficulty; see pieces, stats, where to farm, and set bonuses.
-- **Meta tab** — the current realm meta at a glance: the grind in order, an exaltation map (which dungeon
-  gives which stat, color-coded by grind efficiency), the 2026 season timeline, and what changed.
-- **Game overlay** — transparent, click-through HUD (hotkey `Ctrl+Shift+O`) showing the active character's
-  next goals, beacons to farm, recommended set, and a current-dungeon card with drops + strategy. Fully
-  customizable on the **Overlay** tab (layout, opacity, which widgets, rebindable hotkeys, a dungeon quick-pick).
+- **One active character, every page** — pick it in the top-right switcher; Potions, Gear, Dungeons and the
+  overlay all plan for it. Your last player reloads on launch.
+- **Potions** — pots left per stat in your class's maxing order, the best dungeon you can run *now* (or what
+  unlocks next), Greater-pot math, and the fewest-biomes **farm route** with beacon colors.
+- **Gear** — equipped vs best-you-can-farm-now vs endgame best-in-slot for every slot, with score deltas and
+  ST set progress.
+- **Dungeons** — a searchable encyclopedia: readiness for your character, the key mechanic, pots (regular /
+  Greater / guaranteed), exalts, biome + beacon, O3 runes, and UT/ST drops for your class.
+- **Characters** — your roster with each character's quest log (stats, exalts, gear, unlocks, sets).
+- **Meta, Sets, Pets** — the current realm meta, every ST set, and pet ability priorities.
+- **Game overlay** — transparent, click-through HUD (`Ctrl+Shift+O`) with your next goal, beacons, and a
+  current-dungeon card; presets, 3×3 positioning, rebindable hotkeys, and an in-game quick-pick (`Ctrl+Shift+D`).
+- **Settings** — 7 themes, compact density, startup behavior, keyboard shortcuts (`Ctrl+1–9`, `/`, `F5`), and
+  your data.
 
 ## Run from source (dev)
 

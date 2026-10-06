@@ -1,80 +1,31 @@
 import { useMemo } from 'react';
 import type { Character } from '../../../shared/types';
-import {
-  buildGoals,
-  evaluateReadiness,
-  recommendSetFor,
-  type DungeonGate,
-  type ClassMaxTable,
-  type DungeonDropTable,
-  type StatPriority,
-  type PotRouting,
-  type BiomeData,
-  type ExaltationData,
-  type SetTable,
-} from '../../../shared/engine';
+import { buildGoals, recommendSetFor } from '../../../shared/engine';
+import { dungeonInfo, verdictMap, type SourceStatus } from '../../../shared/planner';
 import type { OverlaySettings } from '../../../shared/overlay';
-import dungeonsData from '../../../shared/data/dungeons.json';
-import classMaxData from '../../../shared/data/class-max-stats.json';
-import dungeonDropsData from '../../../shared/data/dungeon-drops.json';
-import statPriorityData from '../../../shared/data/stat-priority.json';
-import potRoutingData from '../../../shared/data/pot-routing.json';
-import biomesData from '../../../shared/data/biomes.json';
-import exaltationData from '../../../shared/data/exaltation.json';
-import setsData from '../../../shared/data/sets.json';
-import { Icon } from './Icon';
+import { biomes, classMax, dungeons, dungeonName, goalCtx, plannerData, sets, tierClass } from '../gameData';
+import { Icon, StatIcon } from './Icon';
 import { classIcon } from '../classIcons';
 import { beaconForBiome, biomeName } from '../beacons';
 import { STAT_LABEL } from '../labels';
 
-const dungeons = dungeonsData as DungeonGate[];
-const dungeonName = new Map(dungeons.map((d) => [d.id, d.name]));
-const dungeonById = new Map(dungeons.map((d) => [d.id, d]));
-const tierCls = (t: string) => (t === 'ST' ? 'st' : t === 'UT' ? 'ut' : 't');
-const classMax = classMaxData as ClassMaxTable;
-const dungeonDrops = dungeonDropsData as DungeonDropTable;
-const statPriority = statPriorityData as StatPriority;
-const potRouting = potRoutingData as unknown as PotRouting;
-const biomes = biomesData as unknown as BiomeData;
-const exaltation = exaltationData as unknown as ExaltationData;
-const sets = setsData as unknown as SetTable;
+const STATUS_WORD: Record<SourceStatus, string> = { ready: 'Ready', risky: 'Risky', notReady: 'Not ready', unknown: '' };
 
-export function OverlayHud({
-  character,
-  settings,
-}: {
-  character: Character | null;
-  settings: OverlaySettings;
-}) {
+export function OverlayHud({ character, settings }: { character: Character | null; settings: OverlaySettings }) {
   const goals = useMemo(
-    () =>
-      character
-        ? buildGoals(
-            character,
-            dungeons,
-            classMax,
-            { dungeonDrops, statPriority, potRouting, biomes, exaltation },
-            settings.maxGoals,
-          )
-        : [],
+    () => (character ? buildGoals(character, dungeons, classMax, goalCtx, settings.maxGoals) : []),
     [character, settings.maxGoals],
   );
-  const recSet = useMemo(() => {
-    if (!character) return null;
-    const r = evaluateReadiness(character, dungeons, classMax, statPriority);
-    const verdictById = new Map(r.verdicts.map((v) => [v.id, v.status]));
-    return recommendSetFor(character, sets, verdictById);
-  }, [character]);
+  const verdicts = useMemo(() => (character ? verdictMap(character, plannerData) : null), [character]);
+  const recSet = useMemo(() => (character && verdicts ? recommendSetFor(character, sets, verdicts) : null), [character, verdicts]);
 
   // The headline "go here next": biome (+ beacon color) and the dungeon to enter.
   const target = useMemo(() => {
     const g = goals[0];
     if (!g) return null;
-    let biomeId = g.biome;
-    const dungeon = g.sources?.[0]?.name ?? (g.where ? g.where.split(',')[0]!.trim() : undefined);
-    if (!biomeId && g.where) {
-      biomeId = dungeons.find((d) => d.name === g.where!.split(',')[0]!.trim())?.biome;
-    }
+    const dungeonId = g.sources?.[0]?.id ?? dungeons.find((d) => d.name === g.where?.split(',')[0]?.trim())?.id;
+    const biomeId = g.biome ?? (dungeonId ? plannerData.dungeons.find((d) => d.id === dungeonId)?.biome : undefined);
+    const dungeon = dungeonId ? dungeonName(dungeonId) : undefined;
     if (!biomeId && !dungeon) return null;
     return { biomeId, beacon: beaconForBiome(biomeId), dungeon };
   }, [goals]);
@@ -94,14 +45,26 @@ export function OverlayHud({
     return out.slice(0, 4);
   }, [goals]);
 
+  const cur = useMemo(
+    () => (settings.currentDungeon ? dungeonInfo(settings.currentDungeon, plannerData) : null),
+    [settings.currentDungeon],
+  );
+
   if (!character) {
-    return <div className="ov-hud ov-empty">Pick an active character in the app →</div>;
+    return <div className="ov-hud ov-empty">Load a player in the app — the overlay follows the active character.</div>;
   }
 
   const w = settings.widgets;
+  const card = settings.dungeonCard;
   const icon = classIcon(character.className);
-  const curDungeon = settings.currentDungeon ? dungeonById.get(settings.currentDungeon) : undefined;
-  const curDrops = curDungeon ? (dungeonDrops[curDungeon.id]?.gear ?? []).slice(0, 4) : [];
+  const cls = character.className.toLowerCase();
+  const curStatus: SourceStatus = cur ? (verdicts?.get(cur.gate.id) ?? 'unknown') : 'unknown';
+  const curDrops = cur
+    ? (card.classDropsOnly ? cur.gear.filter((g) => g.classes.some((c) => c.toLowerCase() === cls)) : cur.gear)
+        .slice()
+        .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+        .slice(0, 4)
+    : [];
 
   return (
     <div className="ov-hud" style={{ transform: `scale(${settings.scale})`, opacity: settings.opacity }}>
@@ -172,26 +135,57 @@ export function OverlayHud({
         <div className="ov-set">
           <Icon name="sets" size={12} />
           <span className="ov-set-name">{recSet.name}</span>
-          {w.locations && recSet.sourceDungeonIds[0] && (
-            <span className="ov-where">{dungeonName.get(recSet.sourceDungeonIds[0])}</span>
-          )}
+          {w.locations && recSet.sourceDungeonIds[0] && <span className="ov-where">{dungeonName(recSet.sourceDungeonIds[0])}</span>}
         </div>
       )}
 
-      {w.currentDungeon && curDungeon && (
+      {w.currentDungeon && cur && (
         <div className="ov-dungeon">
           <div className="ov-dungeon-head">
-            <Icon name="chest" size={13} /> <b>{curDungeon.name}</b>
+            <Icon name="castle" size={13} /> <b>{cur.gate.name}</b>
+            <span className={`diff diff-${cur.gate.tier}`}>T{cur.gate.tier}</span>
+            {curStatus !== 'unknown' && <span className={`ov-status st-${curStatus}`}>{STATUS_WORD[curStatus]}</span>}
           </div>
-          {curDungeon.note && <div className="ov-dungeon-note">{curDungeon.note}</div>}
-          {curDrops.length > 0 && (
+          {card.exalt && cur.exalt && (
+            <div className="ov-dungeon-line">
+              <Icon name="exalt" size={11} /> Exalt:{' '}
+              {cur.exalt.stats.map((s) => (
+                <span key={s} className="ov-stat">
+                  <StatIcon stat={s} size={10} />
+                  {STAT_LABEL[s]}
+                </span>
+              ))}
+            </div>
+          )}
+          {card.pots && cur.potions.length + cur.greater.length > 0 && (
+            <div className="ov-dungeon-line">
+              <Icon name="flask" size={11} />
+              {cur.potions.map((s) => (
+                <span key={s} className={`ov-stat ${cur.guaranteed.includes(s) ? 'sure' : ''}`}>
+                  {STAT_LABEL[s]}
+                </span>
+              ))}
+              {cur.greater.map((s) => (
+                <span key={`g-${s}`} className="ov-stat greater">
+                  {STAT_LABEL[s]}+
+                </span>
+              ))}
+            </div>
+          )}
+          {card.strategy && cur.gate.note && <div className="ov-dungeon-note">{cur.gate.note}</div>}
+          {card.drops && curDrops.length > 0 && (
             <div className="ov-dungeon-drops">
               {curDrops.map((d) => (
                 <span key={d.slug} className="ov-drop">
-                  <span className={`tier tier-${tierCls(d.tier)}`}>{d.tier}</span>
+                  <span className={`tier tier-${tierClass(d.tier)}`}>{d.tier}</span>
                   {d.name}
                 </span>
               ))}
+            </div>
+          )}
+          {card.keyItems && cur.keyItems.length > 0 && (
+            <div className="ov-dungeon-line muted">
+              <Icon name="chest" size={11} /> {cur.keyItems.join(' · ')}
             </div>
           )}
         </div>

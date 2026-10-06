@@ -26,3 +26,11 @@ test('theme cycling wraps around', async () => {
   expect(themeAt(THEMES.length).name).toBe(THEMES[0]!.name)
   expect(themeAt(-1).name).toBe(THEMES[THEMES.length - 1]!.name)
 })
+
+test('the board tool is served without a refusal', async ($, on) => {
+  on('session.cwd', () => '/tmp')
+  const ran = await $.tool.call({ tool: 'mcp__mission-control__board', summary: 'testing' } as never)
+
+  expect(ran.deny).toBeUndefined()
+  expect(ran.isError).not.toBe(true)
+})

@@ -214,7 +214,7 @@ export const register: Register = on => {
       // The pane still shows it; the file just isn't saved.
     }
     $.ui.toast('🛰 Mission Control updated')
-    return { result: { content: [{ type: 'text', text: 'Board updated and saved to .claude/mission.json.' }] } as any }
+    return { result: 'Board updated and saved to .claude/mission.json.' }
   })
 
   on('prompt.submit', async ($, e, next) => {

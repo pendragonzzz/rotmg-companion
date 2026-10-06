@@ -1,27 +1,64 @@
 {
-  "updated": "2026-10-06T12:00:00.000Z",
-  "summary": "v0.3.1 is shipped: RealmEye live sync, per-enemy drop tables, self-updating data, the where-you-are overlay, Ctrl+K search and tray/startup all work and pass CI. Next up is proving location detection on a real PC and finishing the 2026-10 meta follow-ups.",
+  "updated": "2026-10-06T18:36:10.239Z",
+  "summary": "v0.3.1 is shipped and stable. The Mission Control mod is built and published in the repo as a plugin; it just needs merging to main to be installable. Next app work: scrape the 3 new dungeons and the 2026-10 meta follow-ups.",
   "needsYou": [
-    { "text": "Run the game once with the app open, then open Overlay → \"What the game log says\"", "why": "Only a real Player.log tells us whether Exalt names your location — I'll turn what it shows into an auto-detect pattern for everyone." },
-    { "text": "Confirm the transparent overlay + dungeon quick-pick (Ctrl+Shift+...) behave on your setup", "why": "Focus/click-through can't be checked from a Linux container." },
-    { "text": "Pick the next big feature from the queue (or veto some)", "why": "So I build what you'll actually use." }
+    {
+      "text": "Say 'make the PR' so the Mission Control plugin can merge to main",
+      "why": "Plugin installs read your main branch, so /plugin install only works after the merge."
+    },
+    {
+      "text": "Run the game once with the app open, then open Overlay → \"What the game log says\"",
+      "why": "Only a real Player.log tells us whether Exalt names your location."
+    },
+    {
+      "text": "Confirm the transparent overlay + dungeon quick-pick behave on your setup",
+      "why": "Focus/click-through can't be checked from a Linux container."
+    },
+    {
+      "text": "Pick the next big feature from the queue (or veto some)",
+      "why": "So I build what you'll actually use."
+    }
   ],
   "queue": [
-    { "text": "Scrape the 3 new dungeons (Ice Citadel, Deadwater Docks, Puppet Master's Encore) via npm run refresh", "status": "next" },
-    { "text": "Meta follow-ups: Neo Wormhole exalt colours, Druid stat priority, missing portal biomes", "status": "next" },
-    { "text": "Add biome wiki pages to the scraper so per-biome UT drops fill themselves", "status": "next" },
-    { "text": "Add real Player.log line formats to locations.json linePatterns", "status": "blocked" },
-    { "text": "Manual character entry for accounts not on RealmEye", "status": "later" },
-    { "text": "Item sprites / icons from datamined art", "status": "later" },
-    { "text": "Overlay layout presets + boss-mechanic notes", "status": "later" },
-    { "text": "Delete orphaned gear-goals.json", "status": "later" }
+    {
+      "text": "Scrape the 3 new dungeons (Ice Citadel, Deadwater Docks, Puppet Master's Encore) via npm run refresh",
+      "status": "next"
+    },
+    {
+      "text": "Meta follow-ups: Neo Wormhole exalt colours, Druid stat priority, missing portal biomes",
+      "status": "next"
+    },
+    {
+      "text": "Add biome wiki pages to the scraper so per-biome UT drops fill themselves",
+      "status": "next"
+    },
+    {
+      "text": "Add real Player.log line formats to locations.json linePatterns",
+      "status": "blocked"
+    },
+    {
+      "text": "Manual character entry for accounts not on RealmEye",
+      "status": "later"
+    },
+    {
+      "text": "Item sprites / icons from datamined art",
+      "status": "later"
+    },
+    {
+      "text": "Overlay layout presets + boss-mechanic notes",
+      "status": "later"
+    },
+    {
+      "text": "Delete orphaned gear-goals.json",
+      "status": "later"
+    }
   ],
   "done": [
+    "Mission Control mod: published in the repo as an installable plugin (mods/ + marketplace)",
+    "Mission Control mod: /mission shows the board in chat on any surface",
     "v0.3.1: explain an empty roster, drop the stock menu bar",
     "v0.3.0: where-you-are overlay, Ctrl+K search, tray + startup",
-    "One-click Release workflow that tags the commit",
-    "Per-enemy drop tables + self-updating game data",
-    "Live sync with RealmEye"
+    "Per-enemy drop tables + self-updating game data"
   ],
   "ideas": [
     "Weekly 'what changed in your account' digest from live-sync diffs",

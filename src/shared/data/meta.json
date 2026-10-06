@@ -1,0 +1,106 @@
+{
+  "_comment": "CURATED 'state of the realm' digest for the Meta tab. Re-researched 2026-10 from DECA patch notes (remaster.realmofthemadgod.com + hub.realmofthemadgod.com), RealmEye wiki, and the RealmEye drop tables in dungeon-drops.json. Full write-up + sources: META.md. '~' dates are approximate. Update this when a new season lands.",
+  "asOf": "2026-10",
+  "current": "Season 31 Part 1 (Halloween) is on Public Testing; Season 30 Part 2 — Time Chamber (Month of the Mad God) is live.",
+
+  "timeline": [
+    {
+      "season": "S27 P1",
+      "name": "Emberbloom Cycle",
+      "date": "~early 2026",
+      "highlights": [
+        "New class: Druid — Wand + Leather, Sigil ability; build meter by casting/hitting, then shapeshift (e.g. Shark = stealth rusher, Golem = tank).",
+        "Phoenix Crucible: +15% ATT/DEX for −10 DEF / −15% HP, +15% loot."
+      ]
+    },
+    {
+      "season": "S28 P1",
+      "name": "Hydroflow",
+      "date": "Apr 14, 2026",
+      "highlights": [
+        "Reskinned T6 abilities + new engraving.",
+        "Hydroflow Crucible: +12 SPD/+12 WIS/+20% MP for −ATT/−DEX/−25% VIT, +10% loot."
+      ]
+    },
+    {
+      "season": "S28 P2",
+      "name": "The Return of Stromwell",
+      "date": "May 5, 2026",
+      "highlights": [
+        "Realm Legions: Oryx's Legion occupies the realm; Veteran biomes host the Legion Watchtower, Strategy Center and Research Base.",
+        "Legion Elite gear (T13 weapon/armor, T6 ability equivalents) + the Nightmatter Circlet ST ring via Stromwell Rifts I/II/III.",
+        "Dungeon Mod rework: every mod now carries a loot, XP or dust boost — harder mods, bigger boost."
+      ]
+    },
+    {
+      "season": "S29 P1",
+      "name": "Alien Invasion",
+      "date": "Jun 2, 2026",
+      "highlights": [
+        "Alien Invasion reworked: can start at 15% Realm Score; Alien Reactors in the Adept biomes are the source of aliens.",
+        "Necromancer + skull rework, Summoner modernization, new realm event: The Jötunn."
+      ]
+    },
+    {
+      "season": "S29 P2",
+      "name": "Alien Overdrive",
+      "date": "~Jul 2026",
+      "highlights": [
+        "Neo Wormholes (difficulty 8): grant an EXALT — the wormhole's colour sets the stat — but only if you beat the timer AND kill the Satellite Core.",
+        "Upgraded Alien gear, new Essences."
+      ]
+    },
+    {
+      "season": "S30 P1",
+      "name": "Retrowinds",
+      "date": "Aug 4, 2026",
+      "highlights": [
+        "Mystic rework: weapon hits stack Hex on enemies (up to 100; drops after 3s without a new stack).",
+        "Six new community encounters: Artificial Slop (Haunted Hallows), Cold Soul + Stygian Mirror (Risen Hell), Towering Perfection (Sprite Forest), Man-eating Barnacle (Coral Reefs), Cube Deity (Deep Sea Abyss).",
+        "Retrowinds T13 reskins, Wind Vortex encounters in feature dungeons."
+      ]
+    },
+    {
+      "season": "S30 P2",
+      "name": "Time Chamber (Month of the Mad God)",
+      "date": "~Sep 2026",
+      "highlights": [
+        "Time Chamber: 12 portals to classic dungeon versions with their ORIGINAL loot tables (easiest at 12 o'clock, harder clockwise). Legacy Shatters grants an ATT exalt.",
+        "Trials of Cronus rework: pure 5-round boss rush (no minion waves), 2 boss choices per round, expects 6/8.",
+        "Onboarding: systems unlock by account level — Pets 5, Enchanter 17, Forge 23, Crucible 27."
+      ]
+    },
+    {
+      "season": "S31 P1",
+      "name": "Halloween (Public Testing)",
+      "date": "Oct 2026",
+      "highlights": [
+        "Blood Rituals return; Memories = short solo story encounters.",
+        "New Crucible: +30% VIT, −30% external healing, +10% loot/XP.",
+        "Druid ST reskin + new Halloween UTs."
+      ]
+    }
+  ],
+
+  "rules": [
+    "Level 1→20 in the Rookie biomes (Beach → Forest/Plains/Desert). Stat pots don't start dropping until the Adept biomes.",
+    "Adept biomes drop the 6 stat pots; Veteran biomes add Life & Mana. Activate a biome's Beacon (kill its Guardian) for fast-travel + a safe heal zone.",
+    "Guaranteed early pots: Sprite World (DEX), Snake Pit (SPD), Undead Lair (WIS), Abyss (VIT), Toxic Sewers (DEF), Puppet Master's Theatre (ATT).",
+    "Life & Mana are MID-game now: Woodland Labyrinth drops Life and The Crawling Depths / Ocean Trench drop Mana — all three spawn in Veteran biomes.",
+    "At 8/8, switch to exalts. Fastest: The Nest (DEX), Ice Citadel (SPD), Kogbold (VIT). Fungal → Crystal Cavern = 2 WIS per chain; The Shatters = 2 ATT per run.",
+    "Advanced / Plagued dungeons: you heal 50% less, but +30% loot, extra dust and 5× artifact rate.",
+    "Dungeon mods and the seasonal Crucible trade difficulty for loot/XP — opt in once your character can handle it.",
+    "O3 needs three runes: Sword (Nest / Kogbold / Crystal Cavern), Shield (Cnidarian Reef / Lair of Shaitan / Secluded Thicket), Helmet (Lost Halls / Cultist / Void).",
+    "Grind the exalt dungeon that's on a Double Exaltation calendar event — it's literally twice as fast."
+  ],
+
+  "corrections": [
+    "Ice CAVE grants no exalt — the SPD exalt is its rebuild, the Ice Citadel (Esben the Neurotic, Runic Tundra).",
+    "The Void grants Mana only — the Vial of Pure Darkness just opens it.",
+    "The Shatters grants Attack only, but TWICE per run (Twilight Archmage + Forgotten King) — not Life/Mana.",
+    "Ocean Trench drops Mana, not Life. Manor of the Immortals drops ATT, not WIS.",
+    "Crystal Cavern isn't an Easter seasonal — it's entered from the Fungal Cavern boss.",
+    "Kogbold → VIT and Fungal/Crystal → WIS (the old notes had them swapped).",
+    "'Advanced Nest' is now the Plagued Nest; Advanced dungeons trade extra damage for −50% healing."
+  ]
+}

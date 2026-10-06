@@ -8,7 +8,7 @@ interface State {
   error: Error | null;
 }
 
-/** Isolates a single card: if one character throws, the rest still render. */
+/** Isolates a card or page: if one throws, the rest of the app still renders. */
 export class ErrorBoundary extends Component<Props, State> {
   state: State = { error: null };
 
@@ -25,7 +25,7 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <section className="card card-error">
           <strong>{this.props.label}</strong>
-          <div className="muted">Couldn’t render this character: {this.state.error.message}</div>
+          <div className="muted">Couldn’t render this: {this.state.error.message}</div>
         </section>
       );
     }

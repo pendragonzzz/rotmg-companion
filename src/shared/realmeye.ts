@@ -115,6 +115,8 @@ export function parsePlayer(html: string, name = ''): PlayerProfile {
     })();
 
     const classId = intOf($(anchor).attr('data-class'));
+    const skinAttr = $(anchor).attr('data-skin');
+    const skin = skinAttr ? intOf(skinAttr) : undefined;
     const className = tds.eq(2).text().trim();
     const level = intOf(tds.eq(3).text());
     const fame = intOf(tds.eq(4).text());
@@ -152,6 +154,7 @@ export function parsePlayer(html: string, name = ''): PlayerProfile {
 
     characters.push({
       classId,
+      skin,
       className,
       level,
       fame,
@@ -174,6 +177,8 @@ let lastFetch = 0;
 const cache = new Map<string, { profile: PlayerProfile; ts: number }>();
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const MIN_GAP_MS = 1000;
+/** A stalled request must never hang the app (or live sync, which waits on it). */
+const FETCH_TIMEOUT_MS = 20_000;
 
 async function politeDelay(): Promise<void> {
   const wait = lastFetch + MIN_GAP_MS - Date.now();
@@ -182,17 +187,37 @@ async function politeDelay(): Promise<void> {
 }
 
 /**
- * Fetch and parse a player's RealmEye profile.
- * Returns null if the player does not exist (404).
+ * Fill in item tiers the player page left blank (RealmEye's item tooltips can be empty) from
+ * the game data's known UT/STs. The planner relies on these to tell a UT from plain gear.
  */
-export async function fetchPlayer(name: string): Promise<PlayerProfile | null> {
+export function withKnownTiers(profile: PlayerProfile, tiers: ReadonlyMap<string, string>): PlayerProfile {
+  return {
+    ...profile,
+    characters: profile.characters.map((c) => ({
+      ...c,
+      equipment: c.equipment.map((e) => (e.tier || !tiers.has(e.slug) ? e : { ...e, tier: tiers.get(e.slug)! })),
+    })),
+  };
+}
+
+/**
+ * Fetch and parse a player's RealmEye profile.
+ * Returns null if the player does not exist (404). `force` skips the 5-minute cache.
+ */
+export async function fetchPlayer(name: string, force = false): Promise<PlayerProfile | null> {
   const key = name.trim().toLowerCase();
   const cached = cache.get(key);
-  if (cached && Date.now() - cached.ts < CACHE_TTL_MS) return cached.profile;
+  if (!force && cached && Date.now() - cached.ts < CACHE_TTL_MS) return cached.profile;
 
   await politeDelay();
   const url = `${BASE}/player/${encodeURIComponent(name.trim())}`;
-  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+  let res: Response;
+  try {
+    res = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+  } catch (err) {
+    const timedOut = err instanceof Error && (err.name === 'TimeoutError' || err.name === 'AbortError');
+    throw new Error(timedOut ? `RealmEye didn't respond within ${FETCH_TIMEOUT_MS / 1000}s — will retry.` : `Couldn't reach RealmEye (${err instanceof Error ? err.message : String(err)}).`);
+  }
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`RealmEye returned ${res.status} for ${name}`);
 

@@ -1,0 +1,35 @@
+{
+  "asOf": "2026-10-06",
+  "_note": "Location detection reads ONLY the log file the game writes to disk (Unity Player.log) — never the game's memory, network traffic or input. Patterns must capture a (?<name>…) that resolves to a known place; the app also learns templates from the player's own manual picks.",
+  "places": [
+    { "id": "nexus", "kind": "nexus", "name": "Nexus" },
+    { "id": "vault", "kind": "vault", "name": "Vault" },
+    { "id": "realm", "kind": "realm", "name": "Realm", "aliases": ["Realm of the Mad God"] },
+    { "id": "oryx-castle", "kind": "realm", "name": "Oryx's Castle", "aliases": ["Oryx Castle"] },
+    { "id": "wine-cellar", "kind": "realm", "name": "Wine Cellar", "aliases": ["Oryx's Chamber", "Oryx Chamber"] },
+    { "id": "guild-hall", "kind": "hub", "name": "Guild Hall" },
+    { "id": "pet-yard", "kind": "hub", "name": "Pet Yard" },
+    { "id": "daily-quest-room", "kind": "hub", "name": "Daily Quest Room", "aliases": ["Quest Room"] },
+    { "id": "tutorial", "kind": "hub", "name": "Tutorial" }
+  ],
+  "dungeonAliases": {
+    "oryx-sanctuary": ["O3", "Oryx Sanctuary", "Oryx 3"],
+    "lost-halls": ["Lost Hall", "Marble Colossus"],
+    "the-void": ["Void"],
+    "davy-jones-locker": ["Davy Jones Locker", "Davy Jones' Locker"],
+    "puppet-masters-theatre": ["Puppet Theatre", "Puppet Master Theatre"],
+    "puppet-masters-encore": ["Puppet Encore", "Puppet Master Encore"],
+    "crawling-depths": ["Crawling Depths"],
+    "cave-of-a-thousand-treasures": ["Treasure Cave"],
+    "lair-of-draconis": ["Draconis"],
+    "lair-of-shaitan": ["Shaitan"],
+    "kogbold-steamworks": ["Steamworks"],
+    "manor-of-the-immortals": ["Manor"]
+  },
+  "linePatterns": [
+    "\\b(?:enter(?:ing|ed)?|join(?:ing|ed)?|load(?:ing|ed)?|switch(?:ing|ed)? to|travel(?:l?ing|l?ed)? to|teleport(?:ing|ed)? to|arriv(?:ing|ed) (?:at|in))\\s+(?:the\\s+)?(?:map|world|area|zone|dungeon|level|scene)?\\s*[:=-]?\\s*[\"'\\[]?(?<name>[A-Za-z][A-Za-z0-9'’ ]{2,48}?)[\"'\\]]?\\s*(?:[(\\[,.;|]|$)",
+    "\\b(?:map|map ?name|world ?name|zone|area|scene|dungeon)\\s*[:=]\\s*[\"'\\[]?(?<name>[A-Za-z][A-Za-z0-9'’ ]{2,48}?)[\"'\\]]?\\s*(?:[(\\[,.;|]|$)"
+  ],
+  "processNames": ["RotMG Exalt.exe", "RotMGExalt.exe"],
+  "logDirs": ["DECA Live Operations GmbH/RotMG Exalt", "DECA Live Operations GmbH/RotMGExalt", "DECA Live Operations GmbH"]
+}

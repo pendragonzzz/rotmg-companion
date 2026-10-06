@@ -1,59 +1,27 @@
 import { useMemo, useState } from 'react';
 import { STAT_KEYS, type Character, type StatKey, type Stats } from '../../../shared/types';
-import {
-  evaluateReadiness,
-  buildGoals,
-  type DungeonGate,
-  type ClassMaxTable,
-  type DungeonDropTable,
-  type StatPriority,
-  type PotRouting,
-  type BiomeData,
-  type ExaltationData,
-  type SetTable,
-  type STSet,
-  recommendSetFor,
-  type Goal,
-} from '../../../shared/engine';
-import dungeonsData from '../../../shared/data/dungeons.json';
-import classMaxData from '../../../shared/data/class-max-stats.json';
-import dungeonDropsData from '../../../shared/data/dungeon-drops.json';
-import statPriorityData from '../../../shared/data/stat-priority.json';
-import potRoutingData from '../../../shared/data/pot-routing.json';
-import biomesData from '../../../shared/data/biomes.json';
-import exaltationData from '../../../shared/data/exaltation.json';
-import setsData from '../../../shared/data/sets.json';
+import { evaluateReadiness, buildGoals, recommendSetFor, type STSet, type Goal } from '../../../shared/engine';
+import { classMax, dungeonName, dungeons, effectiveTier, goalCtx, sets, statPriority, tierClass } from '../gameData';
+import type { Nav } from '../pages';
 import { STAT_LABEL } from '../labels';
 import { Icon, StatIcon } from './Icon';
-import { classIcon } from '../classIcons';
+import { ClassSprite } from './ui';
 import { beaconForBiome, biomeName } from '../beacons';
-
-const dungeons = dungeonsData as DungeonGate[];
-const dungeonName = new Map(dungeons.map((d) => [d.id, d.name]));
-const classMax = classMaxData as ClassMaxTable;
-const dungeonDrops = dungeonDropsData as DungeonDropTable;
-const statPriority = statPriorityData as StatPriority;
-const potRouting = potRoutingData as unknown as PotRouting;
-const biomes = biomesData as unknown as BiomeData;
-const exaltation = exaltationData as unknown as ExaltationData;
-const sets = setsData as unknown as SetTable;
-// RealmEye's player tooltips label ST set pieces as "UT"; the set roster is the reliable signal.
-const stSlugs = new Set(sets.flatMap((s) => s.members.map((m) => m.slug)));
-const effectiveTier = (slug: string, tier: string | null) => (stSlugs.has(slug) ? 'ST' : tier);
 
 interface CardProps {
   character: Character;
+  active: boolean;
+  onActivate: () => void;
   declinedList: string[];
   onDecline: (id: string) => void;
   onRestore: (id: string) => void;
-  onBrowseSets: (className?: string) => void;
+  nav: Nav;
 }
 
-export function CharacterCard({ character, declinedList, onDecline, onRestore, onBrowseSets }: CardProps) {
+export function CharacterCard({ character, active, onActivate, declinedList, onDecline, onRestore, nav }: CardProps) {
   const [open, setOpen] = useState(false);
   const [showAllReady, setShowAllReady] = useState(false);
   const [showNotReady, setShowNotReady] = useState(false);
-  const icon = classIcon(character.className);
 
   const declinedSet = useMemo(() => new Set(declinedList), [declinedList]);
   const report = useMemo(
@@ -65,18 +33,15 @@ export function CharacterCard({ character, declinedList, onDecline, onRestore, o
     return recommendSetFor(character, sets, verdictById);
   }, [character, report]);
   const goals = useMemo(
-    () =>
-      buildGoals(character, dungeons, classMax, {
-        dungeonDrops,
-        statPriority,
-        potRouting,
-        biomes,
-        exaltation,
-        declined: declinedSet,
-      }),
+    () => buildGoals(character, dungeons, classMax, { ...goalCtx, declined: declinedSet }),
     [character, declinedSet],
   );
   const maxStats: Stats | undefined = classMax[character.className.toLowerCase()];
+  // Plan for this character on another page: make it active first.
+  const planOn = (page: 'potions' | 'gear') => {
+    onActivate();
+    nav.go(page);
+  };
 
   const ready = report.verdicts.filter((v) => v.status === 'ready');
   const risky = report.verdicts.filter((v) => v.status === 'risky');
@@ -90,14 +55,10 @@ export function CharacterCard({ character, declinedList, onDecline, onRestore, o
   const shownReady = showAllReady ? ready : relevantReady;
 
   return (
-    <section className={`card ${open ? 'open' : ''}`} data-class={character.className.toLowerCase()}>
+    <section className={`card ${open ? 'open' : ''} ${active ? 'active' : ''}`} data-class={character.className.toLowerCase()}>
       <header className="card-head" onClick={() => setOpen((o) => !o)}>
         <div className="card-id">
-          {icon ? (
-            <img className="class-sprite" src={icon} alt="" width={34} height={34} />
-          ) : (
-            <span className="class-sprite mono">{character.className.slice(0, 2)}</span>
-          )}
+          <ClassSprite className={character.className} />
           <div className="card-id-text">
             <div className="card-id-top">
               <span className="class-name">{character.className}</span>
@@ -105,7 +66,9 @@ export function CharacterCard({ character, declinedList, onDecline, onRestore, o
                 {character.statsMaxed}
               </span>
             </div>
-            <span className="lv">Level {character.level}</span>
+            <span className="lv">
+              Level {character.level} · {character.fame.toLocaleString()} fame
+            </span>
           </div>
         </div>
         <div className="card-focus">
@@ -118,17 +81,35 @@ export function CharacterCard({ character, declinedList, onDecline, onRestore, o
         </div>
       </header>
 
+      <div className="card-actions">
+        {active ? (
+          <span className="active-tag">
+            <Icon name="star" size={12} /> Active
+          </span>
+        ) : (
+          <button className="btn btn-ghost btn-sm" onClick={onActivate} title="Make this the active character (top bar + overlay)">
+            Set active
+          </button>
+        )}
+        <button className="btn btn-ghost btn-sm" onClick={() => planOn('potions')}>
+          <Icon name="flask" size={13} /> Potions
+        </button>
+        <button className="btn btn-ghost btn-sm" onClick={() => planOn('gear')}>
+          <Icon name="att" size={13} /> Gear
+        </button>
+      </div>
+
       <div className="goals">
         <div className="goals-title">Next Goals</div>
         {goals.length === 0 ? (
           <div className="goal-empty">All set — chase exaltations or help a friend!</div>
         ) : (
-          goals.map((g) => <GoalRow key={g.id} goal={g} onDecline={onDecline} />)
+          goals.map((g) => <GoalRow key={g.id} goal={g} onDecline={onDecline} onOpenDungeon={nav.openDungeon} />)
         )}
         {recommendedSet && (
-          <SetRecRow set={recommendedSet} onBrowse={() => onBrowseSets(character.className)} />
+          <SetRecRow set={recommendedSet} onBrowse={() => nav.browseSets(character.className)} />
         )}
-        <button className="link-btn sets-link" onClick={() => onBrowseSets(character.className)}>
+        <button className="link-btn sets-link" onClick={() => nav.browseSets(character.className)}>
           Browse all {character.className} sets ▸
         </button>
         {declinedList.length > 0 && (
@@ -183,13 +164,14 @@ export function CharacterCard({ character, declinedList, onDecline, onRestore, o
               </div>
               <div className="chips">
                 {shownReady.map((v) => (
-                  <span
+                  <button
                     key={v.id}
                     className={`chip ${v.obsolete ? 'obsolete' : ''}`}
-                    title={v.obsolete ? 'Diminishing returns — farm greater-pot dungeons or biomes instead' : undefined}
+                    title={v.obsolete ? 'Diminishing returns — farm greater-pot dungeons or biomes instead' : 'Open in Dungeons'}
+                    onClick={() => nav.openDungeon(v.id)}
                   >
                     {v.name}
-                  </span>
+                  </button>
                 ))}
                 {easierReady.length > 0 && (
                   <button
@@ -212,9 +194,9 @@ export function CharacterCard({ character, declinedList, onDecline, onRestore, o
                 </div>
                 <div className="chips">
                   {risky.map((v) => (
-                    <span key={v.id} className="chip" title={v.reasons.join('; ')}>
+                    <button key={v.id} className="chip" title={v.reasons.join('; ')} onClick={() => nav.openDungeon(v.id)}>
                       {v.name}
-                    </span>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -238,9 +220,9 @@ export function CharacterCard({ character, declinedList, onDecline, onRestore, o
                       .slice()
                       .sort((a, b) => a.tier - b.tier)
                       .map((v) => (
-                        <span key={v.id} className="chip" title={v.reasons.join('; ')}>
+                        <button key={v.id} className="chip" title={v.reasons.join('; ')} onClick={() => nav.openDungeon(v.id)}>
                           {v.name}
-                        </span>
+                        </button>
                       ))}
                   </div>
                 )}
@@ -253,7 +235,15 @@ export function CharacterCard({ character, declinedList, onDecline, onRestore, o
   );
 }
 
-function GoalRow({ goal, onDecline }: { goal: Goal; onDecline: (id: string) => void }) {
+function GoalRow({
+  goal,
+  onDecline,
+  onOpenDungeon,
+}: {
+  goal: Goal;
+  onDecline: (id: string) => void;
+  onOpenDungeon: (id: string) => void;
+}) {
   const [open, setOpen] = useState(false);
   const beacon = goal.biome ? beaconForBiome(goal.biome) : null;
   const sources = goal.sources ?? [];
@@ -303,9 +293,11 @@ function GoalRow({ goal, onDecline }: { goal: Goal; onDecline: (id: string) => v
           {sources.length > 0 && (
             <div className="pot-sources">
               {sources.map((s, i) => (
-                <div key={`${s.name}-${i}`} className="pot-source">
+                <div key={`${s.id}-${i}`} className="pot-source">
                   <span className={`diff diff-${s.tier}`}>T{s.tier}</span>
-                  <span className="pot-source-name">{s.name}</span>
+                  <button className="pot-source-name dungeon-link" onClick={() => onOpenDungeon(s.id)}>
+                    {s.name}
+                  </button>
                   {s.guaranteed && <span className="guaranteed-badge">GUARANTEED</span>}
                   {s.greater && <span className="greater-badge">GREATER</span>}
                 </div>
@@ -332,7 +324,7 @@ function GoalRow({ goal, onDecline }: { goal: Goal; onDecline: (id: string) => v
 }
 
 function SetRecRow({ set, onBrowse }: { set: STSet; onBrowse: () => void }) {
-  const where = (set.sourceDungeonIds[0] && dungeonName.get(set.sourceDungeonIds[0])) || null;
+  const where = set.sourceDungeonIds[0] ? dungeonName(set.sourceDungeonIds[0]) : null;
   const bonus = set.bonuses.four?.text ?? set.bonuses.two?.text ?? '';
   return (
     <div className="goal goal-set" onClick={onBrowse} style={{ cursor: 'pointer' }} title="View in the Sets browser">
@@ -359,10 +351,4 @@ function prettyDeclined(id: string): string {
   if (kind === 'unlock') return `Unlock · ${titleCase(key)}`;
   if (kind === 'exalt') return `Exalt · ${titleCase(key)}`;
   return id;
-}
-
-function tierClass(tier: string): string {
-  if (tier === 'UT') return 'ut';
-  if (tier === 'ST') return 'st';
-  return 't';
 }

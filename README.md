@@ -5,9 +5,9 @@ per character, get a prioritized plan: which stats to max and where, which **bea
 which **dungeons** you're ready for (with guide-sourced strategy tips), which **ST sets** to chase, and the
 post-8/8 **exaltation** grind — plus a click-through **in-game overlay** HUD.
 
-> **Informational companion only.** It never reads or automates the game client — all data comes from public
-> RealmEye pages + bundled static data. (That's also why the overlay can't auto-detect your dungeon/character;
-> you pick them.) Anything that reads/automates the Exalt client violates DECA's ToS and gets accounts banned.
+> **Informational companion only.** It never reads the game's memory or network traffic and never automates
+> input — that's what DECA bans. Player data comes from public RealmEye pages; "where you are" comes from the log
+> file the game itself writes on your PC (read-only, nothing leaves your PC) or from your own quick-pick.
 
 ## Download & install (players)
 
@@ -16,22 +16,55 @@ Grab the latest from the [**Releases**](../../releases) page:
 - **`RotMG-Companion-x.y.z-setup.exe`** — installer (Start-menu + desktop shortcut, uninstaller).
 - **`RotMG-Companion-x.y.z-portable.exe`** — single file, just double-click, no install.
 
+Or install the latest in one line from PowerShell (downloads the setup, checks its SHA-256, installs silently, launches):
+
+```powershell
+irm https://github.com/pendragonzzz/rotmg-companion/releases/latest/download/install.ps1 | iex
+```
+
 The app isn't code-signed, so Windows SmartScreen may warn on first run — click **More info → Run anyway**.
 
-The **installer auto-updates**: once you're on v0.1.2+, new releases download in the background and install on quit.
+**It keeps itself current, three ways:**
+
+- **App updates** — the installer build checks GitHub Releases on launch and every 6 h, downloads in the background,
+  and installs on quit.
+- **Game-data updates** — drop tables, sets, class maxes and the meta are refreshed weekly by CI and pulled by the app
+  on their own (no reinstall): a notice offers **Apply now**, or it switches over on the next launch.
+- **Desktop tidy** — the first launch of each new version moves old copies of the app off your Desktop (old
+  `RotMG Companion.bat` launchers, old `RotMG-Companion-x.y.z-portable/setup.exe` files, dead shortcuts) to the
+  **Recycle Bin**, and deletes installers it has already applied. Nothing else is touched; Settings → *Tidy old copies*
+  runs it again.
 
 Then type a **public** RealmEye username and hit Load.
 
 ## Features
 
-- **Per-character goals** — stat maxing (with the biome/beacon to farm), gear upgrades, and exaltations.
-- **Beacons & biomes** — the 2025 Realm Rework: which tier-colored beacon to head to for what you need.
-- **Dungeon readiness + guide-sourced tips** — when you're ready, and the key mechanic ("don't hit the Puppet
-  Master clones", etc.).
-- **ST set browser** — filter by class & difficulty; see pieces, stats, where to farm, and set bonuses.
-- **Game overlay** — transparent, click-through HUD (hotkey `Ctrl+Shift+O`) showing the active character's
-  next goals, beacons to farm, recommended set, and a current-dungeon card with drops + strategy. Fully
-  customizable on the **Overlay** tab (layout, opacity, which widgets, rebindable hotkeys, a dungeon quick-pick).
+- **Live sync** — the app re-reads your public RealmEye profile in the background (every 1–10 min) and spots
+  what changed: pots drunk, stats maxed, gear equipped, level-ups, exaltations, new or dead characters. Every plan and
+  the overlay update on the spot, with toasts and an activity feed. (It never reads the game client — that's a ban.)
+- **One active character, every page** — pick it in the top-right switcher; Potions, Gear, Dungeons and the
+  overlay all plan for it. Your last player reloads on launch.
+- **Potions** — pots left per stat in your class's maxing order, the best dungeon you can run *now* (or what
+  unlocks next), Greater-pot math, and the fewest-biomes **farm route** with beacon colors.
+- **Gear** — equipped vs best-you-can-farm-now vs endgame best-in-slot for every slot, with score deltas and
+  ST set progress.
+- **Dungeons** — a searchable encyclopedia: readiness for your character, the key mechanic, pots (regular /
+  Greater / guaranteed), exalts, biome + beacon, O3 runes, and **per-enemy drop tables** — which boss or mini-boss
+  drops each UT/ST, Greater pot and key (★ = usable by your class), straight from RealmEye.
+- **Characters** — your roster with each character's quest log (stats, exalts, gear, unlocks, sets).
+- **Meta, Sets, Pets** — the current realm meta, every ST set, and pet ability priorities.
+- **Game overlay** — transparent, click-through HUD (`Ctrl+Shift+O`) that **adapts to where you are**: in a dungeon it
+  leads with the strategy and *your loot here* (which boss drops gear your class can use ★); in the Nexus or a realm,
+  with where to go next and which beacons to farm. It appears when the game starts and hides when it closes.
+- **Where you are** — detected from the game's own `Player.log` (read-only). It calibrates itself: pick your location
+  once with the in-game quick-pick (`Ctrl+Shift+D` — Nexus, Realm, Vault, any dungeon) and it learns how your game's
+  log names places, so next time it's automatic. Optional: hide the HUD while you're alt-tabbed.
+- **Search everything (`Ctrl+K`)** — pages, dungeons, characters, sets, actions, and *where does this item drop?*
+  ("spectral sword" → Septavius the Ghost God · Undead Lair).
+- **Tray & startup** — keep running in the tray when you close the window (overlay keeps working), start with
+  Windows, optionally hidden.
+- **Settings** — 8 themes (incl. high contrast; first launch follows your OS light/dark), compact density, startup behavior, keyboard shortcuts (`Ctrl+1–9`, `/`, `F5`), and
+  your data.
 
 ## Run from source (dev)
 
@@ -41,7 +74,12 @@ npm run dev        # launch the desktop app (electron-vite, HMR)
 ```
 
 The bundled game data (dungeons, sets, class maxes, sprites) is committed, so the app runs without any
-network/data step. To refresh that data from RealmEye later: `npm run refresh` (token-free scraper).
+network/data step. To refresh that data from RealmEye later: `npm run refresh` (token-free scraper; refuses to write
+if the scrape looks broken, and bumps `src/shared/data/data-manifest.json` so installed apps pick it up from `main`).
+After hand-editing a curated JSON file, run `npm run data:bump` to publish it the same way.
+
+Tests (headless, no network): `npm run typecheck` and `npm test` (planner, live sync, data updates, Desktop tidy,
+location detection, game watcher, Ctrl+K search, RealmEye parsers).
 
 ## Build a launchable locally
 
@@ -54,18 +92,20 @@ npm run dist:win   # → dist/RotMG-Companion-x.y.z-setup.exe  +  -portable.exe
 
 ## Releasing (recommended — no local build)
 
-Push a version tag and GitHub Actions builds the Windows installer + portable and attaches them to a Release:
+Bump `version` in `package.json`, then either click **Actions → Release → Run workflow** (it tags the commit as
+`v<version>` itself) or push a version tag. GitHub Actions builds the Windows installer + portable and publishes the Release:
 
 ```powershell
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.2.0
+git push origin v0.2.0
 ```
 
-(See `.github/workflows/release.yml`. CI also typechecks + builds every push via `ci.yml`.)
+(See `.github/workflows/release.yml` — it also attaches `install.ps1`. CI typechecks + builds every push via `ci.yml`,
+and `refresh-data.yml` re-scrapes RealmEye every Monday and commits the new data.)
 
 ## Project layout
 
-See **`CONTEXT.md`** for the full architecture and **`META-2025.md`** for the meta/intel research the data is
+See **`CONTEXT.md`** for the full architecture and **`META.md`** for the meta/intel research the data is
 built from. In short: `src/shared` (isomorphic logic + curated/generated JSON data), `src/main` (Electron main
 + overlay window + IPC), `src/preload`, `src/renderer` (React UI + overlay). `scripts/refresh-data.ts` is the
 token-free weekly RealmEye scraper.

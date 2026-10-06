@@ -1,7 +1,4 @@
-import type { BiomeData } from '../../shared/engine';
-import biomesData from '../../shared/data/biomes.json';
-
-const biomes = biomesData as unknown as BiomeData;
+import { biomes } from './gameData';
 
 /** In-game beacon colors by biome tier — so players can spot the right beacon on their minimap. */
 export const BEACON: Record<string, { color: string; label: string }> = {

@@ -1,5 +1,6 @@
 import { STAT_KEYS, SLOT_NAMES, type StatKey, type Stats, type Character } from './types';
 import { POT_LABEL, STAT_LABEL } from './labels';
+import type { EnemyDropTable } from './dropTables';
 
 /** How much one regular potion raises each stat. */
 export const POT_INCREMENT: Record<StatKey, number> = {
@@ -97,11 +98,15 @@ export interface DungeonDropData {
   greaterPotions?: StatKey[];
   gear: GearDropItem[];
   other: { slug: string; name: string }[];
+  /** Per-enemy rare-loot tables (added by the 2026-10 refresh; absent in older data). */
+  enemies?: EnemyDropTable[];
 }
 export type DungeonDropTable = Record<string, DungeonDropData>;
 
 /** One place to farm a given potion. */
 export interface PotSource {
+  /** Dungeon id (dungeons.json). */
+  id: string;
   name: string;
   /** Dungeon difficulty tier 1–5 (sorted easiest first). */
   tier: number;
@@ -133,13 +138,19 @@ export function potionSources(
 
   let out: PotSource[] = (routing?.[stat] ?? []).map((r) => {
     const d = byId.get(r.dungeonId);
-    return { name: d?.name ?? r.dungeonId, tier: d?.tier ?? 9, greater: greaterAt(r.dungeonId), guaranteed: !!r.guaranteed };
+    return {
+      id: r.dungeonId,
+      name: d?.name ?? r.dungeonId,
+      tier: d?.tier ?? 9,
+      greater: greaterAt(r.dungeonId),
+      guaranteed: !!r.guaranteed,
+    };
   });
 
   if (out.length === 0 && drops) {
     out = dungeons
       .filter((d) => (drops[d.id]?.potions ?? []).includes(stat) || greaterAt(d.id))
-      .map((d) => ({ name: d.name, tier: d.tier, greater: greaterAt(d.id), guaranteed: false }));
+      .map((d) => ({ id: d.id, name: d.name, tier: d.tier, greater: greaterAt(d.id), guaranteed: false }));
   }
 
   return out.sort(
@@ -413,7 +424,7 @@ export function goalDungeonIds(goals: Goal[], dungeons: DungeonGate[]): string[]
   };
   for (const g of goals) {
     if (g.kind === 'exalt' || g.kind === 'unlock') add(g.id.split(':')[1]);
-    for (const s of g.sources ?? []) add(nameToId.get(s.name));
+    for (const s of g.sources ?? []) add(s.id);
     if (g.where) for (const nm of g.where.split(',')) add(nameToId.get(nm.trim()));
   }
   return ids;
@@ -435,8 +446,8 @@ export function buildGoals(
         kind: 'level',
         tag: 'LEVEL',
         title: `Reach Level ${MAX_LEVEL}`,
-        detail: `Currently Lv ${character.level} — level to max in the Godlands / easy dungeons before farming stat pots.`,
-        where: 'Godlands, Pirate Cave, Forest Maze',
+        detail: `Currently Lv ${character.level} — level to max in the Rookie biomes / easy dungeons before farming stat pots.`,
+        where: 'Rookie biomes, Pirate Cave, Forest Maze',
         priority: 0,
       },
       ...gearGoals(character, dungeons, verdictById, ctx),
@@ -473,6 +484,8 @@ export interface Biome {
   dungeons: string[];
   /** Biome UT the guardian can rarely drop (null = not yet verified). */
   ut: string | null;
+  /** Notable named encounters in this biome (not exhaustive). */
+  encounters?: string[];
   note?: string;
 }
 

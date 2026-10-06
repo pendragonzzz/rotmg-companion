@@ -1,0 +1,200 @@
+/* ============================================================
+   Overlay: the transparent HUD window, the in-game dungeon
+   quick-pick, and the Overlay settings page + live preview.
+   ============================================================ */
+body.overlay-mode { background: transparent !important; }
+
+.ov-root { position: fixed; inset: 0; display: flex; padding: 16px; pointer-events: none; }
+.corner-top-left { justify-content: flex-start; align-items: flex-start; }
+.corner-top-center { justify-content: center; align-items: flex-start; }
+.corner-top-right { justify-content: flex-end; align-items: flex-start; }
+.corner-left-center { justify-content: flex-start; align-items: center; }
+.corner-right-center { justify-content: flex-end; align-items: center; }
+.corner-bottom-left { justify-content: flex-start; align-items: flex-end; }
+.corner-bottom-center { justify-content: center; align-items: flex-end; }
+.corner-bottom-right { justify-content: flex-end; align-items: flex-end; }
+
+/* ---- HUD ---- */
+.ov-hud {
+  pointer-events: none; width: 280px; max-width: 80vw; padding: 10px 12px; border-radius: 11px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent); border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg); color: var(--text); font-size: 12px;
+  display: flex; flex-direction: column; gap: 8px; backdrop-filter: blur(3px);
+}
+.corner-top-left .ov-hud { transform-origin: top left; }
+.corner-top-center .ov-hud { transform-origin: top center; }
+.corner-top-right .ov-hud { transform-origin: top right; }
+.corner-left-center .ov-hud { transform-origin: center left; }
+.corner-right-center .ov-hud { transform-origin: center right; }
+.corner-bottom-left .ov-hud { transform-origin: bottom left; }
+.corner-bottom-center .ov-hud { transform-origin: bottom center; }
+.corner-bottom-right .ov-hud { transform-origin: bottom right; }
+.ov-hud.ov-empty { color: var(--muted); font-style: italic; }
+
+.ov-head { display: flex; align-items: center; gap: 7px; padding-bottom: 7px; border-bottom: 1px solid var(--line-soft); }
+.ov-class { font-weight: 800; }
+.ov-lv { color: var(--muted-2); font-size: 11px; }
+.ov-maxed { margin-left: auto; font-weight: 700; font-size: 11px; color: var(--muted); background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; padding: 1px 8px; }
+.ov-maxed.full { color: #0c1a10; background: linear-gradient(135deg, #4ade80, #28b463); border-color: transparent; }
+
+.ov-target { display: flex; align-items: center; gap: 9px; background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: 8px; padding: 6px 9px; }
+.ov-target-ico { color: var(--gold); flex-shrink: 0; }
+.ov-beacon { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; animation: ov-pulse 1.8s ease-in-out infinite; }
+@keyframes ov-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12); }
+  50% { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.02); }
+}
+.ov-target-main { display: flex; flex-direction: column; min-width: 0; }
+.ov-target-line { font-size: 12px; }
+.ov-target-sub { font-size: 11px; color: var(--gold); }
+
+.ov-beacons { display: flex; flex-direction: column; gap: 4px; }
+.ov-beacons-hdr { font-size: 9px; text-transform: uppercase; letter-spacing: 0.7px; color: var(--muted-2); font-weight: 700; }
+.ov-beacon-row { display: flex; align-items: center; gap: 7px; }
+.ov-beacon-name { font-weight: 600; }
+.ov-beacon-meta { margin-left: auto; color: var(--muted); font-size: 10.5px; white-space: nowrap; }
+
+.ov-goals { display: flex; flex-direction: column; gap: 6px; }
+.ov-goal { display: flex; align-items: center; gap: 7px; }
+.ov-dot { width: 7px; height: 7px; border-radius: 2px; background: var(--line); flex-shrink: 0; }
+.ov-goal.goal-stat .ov-dot { background: var(--goal-stat); }
+.ov-goal.goal-gear .ov-dot { background: var(--goal-gear); }
+.ov-goal.goal-exalt .ov-dot { background: var(--goal-exalt); }
+.ov-goal.goal-unlock .ov-dot { background: var(--goal-unlock); }
+.ov-goal.goal-level .ov-dot { background: var(--goal-level); }
+.ov-goal-main { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.ov-goal-title { font-weight: 600; line-height: 1.25; }
+.ov-goal-detail { color: var(--muted); font-size: 11px; }
+.ov-where { color: var(--gold); font-size: 10.5px; white-space: nowrap; flex-shrink: 0; max-width: 96px; overflow: hidden; text-overflow: ellipsis; }
+
+.ov-set { display: flex; align-items: center; gap: 6px; padding-top: 7px; border-top: 1px solid var(--line-soft); color: var(--goal-set); }
+.ov-set-name { font-weight: 700; color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.ov-dungeon { padding-top: 7px; border-top: 1px solid var(--line-soft); display: flex; flex-direction: column; gap: 5px; }
+.ov-dungeon-head { display: flex; align-items: center; gap: 6px; color: var(--cyan); }
+.ov-dungeon-head b { color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ov-status { font-size: 9.5px; font-weight: 800; padding: 0 6px; border-radius: 8px; border: 1px solid; white-space: nowrap; }
+.ov-status.st-ready { color: var(--green); }
+.ov-status.st-risky { color: var(--amber); }
+.ov-status.st-notReady { color: var(--red); }
+.ov-dungeon-line { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; font-size: 11px; color: var(--muted); }
+.ov-dungeon-line.muted { font-size: 10.5px; }
+.ov-stat { display: inline-flex; align-items: center; gap: 3px; font-size: 10.5px; font-weight: 700; color: var(--text); background: var(--panel-2); border-radius: 3px; padding: 0 5px; }
+.ov-stat.sure { box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.6); }
+.ov-stat.greater { box-shadow: inset 0 0 0 1px rgba(167, 139, 250, 0.7); }
+.ov-dungeon-note { font-size: 11px; color: var(--muted); line-height: 1.35; }
+.ov-dungeon-drops { display: flex; flex-wrap: wrap; gap: 4px; }
+.ov-drop { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; background: var(--panel-2); border: 1px solid var(--line-soft); border-radius: 4px; padding: 1px 5px; }
+
+/* ---- in-game dungeon quick-pick (interactive) ---- */
+.ov-picker-backdrop {
+  position: fixed; inset: 0; pointer-events: auto; display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 12vh; background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(2px);
+}
+.ov-picker {
+  width: 480px; max-width: 90vw; max-height: 70vh; display: flex; flex-direction: column; overflow: hidden;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg);
+}
+.ov-picker-search { display: flex; align-items: center; gap: 8px; padding: 11px 13px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.ov-picker-search input,
+.ov-picker-search input:focus { flex: 1; background: none; border: none; outline: none; color: var(--text); font: inherit; font-size: 14px; padding: 0; box-shadow: none; }
+.ov-picker-keys { display: flex; gap: 3px; }
+.ov-picker-list { overflow-y: auto; padding: 6px; }
+.ov-picker-hdr { font-size: 10px; text-transform: uppercase; letter-spacing: 0.7px; color: var(--muted-2); font-weight: 700; padding: 8px 8px 4px; }
+.ov-picker-row {
+  display: flex; align-items: center; gap: 9px; width: 100%; text-align: left; background: none; border: none;
+  color: var(--text); font: inherit; cursor: pointer; padding: 7px 8px; border-radius: 7px;
+}
+.ov-picker-row.cursor { background: var(--panel-2); }
+.ov-picker-row.current { outline: 1px solid var(--gold); }
+.ov-picker-row.clear { color: var(--muted); }
+.ov-picker-name { flex: 1; font-weight: 600; }
+.ov-star { color: var(--muted-2); font-size: 15px; line-height: 1; cursor: pointer; width: 18px; text-align: center; }
+.ov-star:hover, .ov-star.on { color: var(--gold); }
+.ov-picker-empty { color: var(--muted); padding: 16px; text-align: center; }
+
+/* ---- Overlay settings page ---- */
+.ov-page { display: grid; grid-template-columns: minmax(340px, 460px) minmax(0, 1fr); gap: var(--gap); align-items: start; }
+.ov-controls { display: flex; flex-direction: column; gap: var(--gap); min-width: 0; }
+.ov-active { display: flex; align-items: center; gap: 9px; padding: 9px 0 2px; font-size: 13px; flex-wrap: wrap; }
+.ov-active .muted.small { margin-left: auto; }
+.preset-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.preset {
+  display: flex; flex-direction: column; gap: 3px; text-align: left; padding: 9px 10px; border-radius: 8px; cursor: pointer;
+  background: var(--bg-2); border: 1px solid var(--line); color: var(--text); font: inherit;
+}
+.preset:hover { border-color: var(--gold); }
+.preset span { font-size: 11px; color: var(--muted); }
+.pos-row { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.pos-grid {
+  display: grid; grid-template-columns: repeat(3, 26px); grid-template-rows: repeat(3, 18px); gap: 4px; flex-shrink: 0;
+  padding: 6px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--line);
+}
+.pos-cell { border-radius: 3px; border: 1px solid var(--line); background: var(--panel-2); cursor: pointer; padding: 0; }
+.pos-cell:hover { border-color: var(--gold); }
+.pos-cell.on { background: var(--gold); border-color: transparent; }
+.pos-cell.void { background: transparent; border: 1px dashed var(--line-soft); cursor: default; }
+.pos-sliders { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 0; }
+.slider { display: flex; flex-direction: column; gap: 3px; font-size: 11.5px; color: var(--muted); font-weight: 600; }
+.ov-hotkeys { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
+.ov-hotkey-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; }
+.hotkey-btn {
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; color: var(--text);
+  font: inherit; font-size: 12px; padding: 4px 10px; cursor: pointer; min-width: 140px; text-align: center;
+}
+.hotkey-btn:hover { border-color: var(--gold); }
+.hotkey-btn.capturing { border-color: var(--gold); color: var(--gold); background: var(--accent-soft); }
+
+.ov-preview {
+  position: sticky; top: 76px; border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow);
+  background:
+    radial-gradient(400px 220px at 30% 70%, rgba(74, 222, 128, 0.07), transparent 70%),
+    repeating-linear-gradient(45deg, rgba(127, 127, 127, 0.05) 0 10px, transparent 10px 20px),
+    var(--bg-2);
+}
+.ov-preview-label { display: flex; align-items: center; gap: 7px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.7px; color: var(--muted-2); font-weight: 700; margin-bottom: 8px; }
+.ov-preview-label .pill { margin-left: auto; text-transform: none; letter-spacing: 0; }
+.ov-preview-stage { position: relative; display: flex; min-height: 520px; padding: 8px; }
+
+@media (max-width: 1180px) {
+  .ov-page { grid-template-columns: minmax(0, 1fr); }
+  .ov-preview { position: static; }
+  .ov-preview-stage { min-height: 380px; }
+}
+
+/* ---- where you are (location chip) ---- */
+.ov-loc {
+  display: flex; align-items: center; gap: 6px; font-size: 11.5px; padding: 3px 8px; border-radius: 6px;
+  background: var(--panel-2); border: 1px solid var(--line-soft); color: var(--muted);
+}
+.ov-loc b { color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ov-loc.kind-nexus { border-color: rgba(168, 85, 247, 0.5); color: #c084fc; }
+.ov-loc.kind-realm { border-color: rgba(74, 222, 128, 0.45); color: var(--green); }
+.ov-loc.kind-dungeon { border-color: var(--accent-line); color: var(--gold); }
+.ov-loc-src { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted-2); }
+.ov-target-kicker { font-size: 9px; text-transform: uppercase; letter-spacing: 0.7px; color: var(--muted-2); font-weight: 700; }
+
+/* ---- your loot here (boss → ★ items for your class) ---- */
+.ov-bossloot { display: flex; flex-direction: column; gap: 3px; padding: 5px 7px; border-radius: 6px; background: var(--accent-soft); border: 1px solid var(--accent-line); }
+.ov-bossloot-row { display: flex; gap: 7px; align-items: baseline; font-size: 10.5px; }
+.ov-bossloot-enemy { color: var(--muted); white-space: nowrap; flex-shrink: 0; max-width: 45%; overflow: hidden; text-overflow: ellipsis; }
+.ov-bossloot-items { display: flex; flex-wrap: wrap; gap: 2px 8px; }
+.ov-mine { color: var(--gold); font-weight: 700; }
+
+.ov-picker-row.place .icon { color: var(--gold); }
+
+/* ---- Overlay page: detection panel ---- */
+.det-grid { display: grid; grid-template-columns: 92px 1fr; gap: 6px 10px; font-size: 13px; padding: 4px 0 10px; }
+.det-k { color: var(--muted-2); font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 700; padding-top: 2px; }
+.det-v { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.det-on { color: var(--green); font-weight: 700; }
+.det-src { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding: 1px 6px; border-radius: 8px; border: 1px solid var(--line); color: var(--muted); }
+.det-src.log { color: var(--green); border-color: rgba(74, 222, 128, 0.45); }
+.det-log { margin: 8px 0 4px; font-size: 12px; }
+.det-log summary { cursor: pointer; color: var(--muted); }
+.det-log pre {
+  margin: 6px 0 4px; max-height: 180px; overflow: auto; font-size: 10.5px; line-height: 1.45; padding: 8px;
+  background: var(--bg-2); border: 1px solid var(--line-soft); border-radius: 6px; white-space: pre-wrap; word-break: break-all;
+}
+.ov-note.good { color: var(--green); }
+.ov-preview .segmented { margin-bottom: 8px; }

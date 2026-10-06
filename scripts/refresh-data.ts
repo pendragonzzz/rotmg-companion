@@ -32,9 +32,13 @@ import {
   parseSetIndex,
   parseSetPage,
   parseClassIcons,
+  type DungeonDrop,
   type ItemInfo,
 } from '../src/shared/realmeye-wiki';
 import { STAT_KEYS, SLOT_NAMES, type Stats, type StatKey } from '../src/shared/types';
+import { JUNK_RE, KEY_RE, buildEnemyTables, type EnemyDropTable } from '../src/shared/dropTables';
+import { DATA_FILES, validateBundle, type DataFile } from '../src/shared/gameDataBundle';
+import { bumpManifest } from './bump-data';
 
 const STAT_WEIGHT: Record<StatKey, number> = {
   def: 2, att: 2, dex: 1.5, vit: 1, spd: 1, wis: 1, hp: 0.25, mp: 0.2,
@@ -110,6 +114,7 @@ const WIKI_SLUG: Record<string, string> = {
   'davy-jones-locker': 'davy-jones-s-locker',
   'oryx-sanctuary': 'oryx-s-sanctuary',
   'puppet-masters-theatre': 'puppet-master-s-theatre',
+  'puppet-masters-encore': 'puppet-master-s-encore',
   'crawling-depths': 'the-crawling-depths',
 };
 
@@ -132,7 +137,7 @@ async function fetchCached(url: string, key: string): Promise<string | null> {
     if (wait > 0) await sleep(wait);
     lastNet = Date.now();
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': UA } });
+      const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30_000) });
       if (res.status === 404) return null;
       const html = await res.text();
       if (res.ok && html.length > 500) {
@@ -156,6 +161,7 @@ interface UniItem {
   tier: string | null;
 }
 const universe = new Map<string, UniItem>();
+const tooltipSample: string[] = [];
 const classMax: Record<string, Stats> = {};
 
 function bestSlot(u: UniItem): string {
@@ -175,6 +181,7 @@ for (const name of PLAYERS) {
     }
     for (const it of c.equipment) {
       if (it.slot === 'backpack') continue;
+      if (tooltipSample.length < 3) tooltipSample.push(`${it.slug}: ${JSON.stringify(it.tooltip.slice(0, 120))}`);
       let u = universe.get(it.slug);
       if (!u) { u = { name: it.name, slotCounts: {}, classes: new Set(), tier: it.tier }; universe.set(it.slug, u); }
       u.slotCounts[it.slot] = (u.slotCounts[it.slot] ?? 0) + 1;
@@ -183,7 +190,36 @@ for (const name of PLAYERS) {
     }
   }
 }
-console.log(`  ${Object.keys(classMax).length} classes, ${universe.size} unique items in universe`);
+const tieredInUniverse = [...universe.values()].filter((u) => u.tier === 'UT' || u.tier === 'ST').length;
+console.log(`  ${Object.keys(classMax).length} classes, ${universe.size} unique items in universe (${tieredInUniverse} tagged UT/ST)`);
+if (universe.size && !tieredInUniverse) {
+  // RealmEye's item tooltips changed shape — tiers will come from the item wiki pages instead.
+  console.log(`  ! no UT/ST tags in player tooltips; falling back to item pages. Sample: ${tooltipSample.join(' | ')}`);
+}
+
+// Slot + classes for gear the sampled players don't happen to wear: last run's drops + the ST sets.
+const knownPlacement = new Map<string, { slot: string; classes: string[] }>();
+try {
+  const prevDrops = JSON.parse(readFileSync(join(dataDir, 'dungeon-drops.json'), 'utf-8')) as Record<
+    string,
+    { gear?: { slug: string; slot: string; classes: string[] }[] }
+  >;
+  for (const d of Object.values(prevDrops)) for (const g of d.gear ?? []) knownPlacement.set(g.slug, { slot: g.slot, classes: g.classes });
+  const prevSets = JSON.parse(readFileSync(join(dataDir, 'sets.json'), 'utf-8')) as {
+    className: string;
+    members: { slug: string; slot: string }[];
+  }[];
+  for (const s of prevSets)
+    for (const m of s.members) if (!knownPlacement.has(m.slug)) knownPlacement.set(m.slug, { slot: m.slot, classes: [s.className] });
+} catch {
+  /* first run — the player universe is all we have */
+}
+
+function placementOf(slug: string): { slot: string; classes: string[] } | null {
+  const u = universe.get(slug);
+  if (u) return { slot: bestSlot(u), classes: [...u.classes].sort() };
+  return knownPlacement.get(slug) ?? null;
+}
 
 // ---- dungeon drops (from wiki) ----
 interface GearDrop {
@@ -195,6 +231,31 @@ interface DungeonDropData {
   greaterPotions: StatKey[];
   gear: GearDrop[];
   other: { slug: string; name: string }[];
+  /** Per-enemy rare-loot tables (boss / minibosses / notable enemies). */
+  enemies: EnemyDropTable[];
+}
+
+// Item facts for drop tables: tier + kind ("Swords", "Helms") from each item's (cached) wiki
+// page. The player sample only covers what those players wear, and RealmEye's player tooltips
+// no longer carry the tier, so the item page is the source of truth.
+const itemTier = new Map<string, string | null>();
+const itemKind = new Map<string, string | null>();
+async function resolveItem(slug: string, name: string): Promise<string | null> {
+  if (itemTier.has(slug)) return itemTier.get(slug)!;
+  const u = universe.get(slug);
+  let tier: string | null = u?.tier === 'UT' || u?.tier === 'ST' ? u.tier : null;
+  let kind: string | null = null;
+  if (!POTION_RE.test(name) && !JUNK_RE.test(name) && !KEY_RE.test(name)) {
+    const html = await fetchCached(`https://www.realmeye.com/wiki/${slug}`, `item-${slug}`);
+    if (html) {
+      const info = parseItemPage(html, slug);
+      tier ??= info.tierType === 'UT' || info.tierType === 'ST' ? info.tierType : info.tier;
+      kind = info.itemType;
+    }
+  }
+  itemTier.set(slug, tier);
+  itemKind.set(slug, kind);
+  return tier;
 }
 
 const dungeons = JSON.parse(readFileSync(join(dataDir, 'dungeons.json'), 'utf-8')) as {
@@ -205,14 +266,46 @@ const dungeons = JSON.parse(readFileSync(join(dataDir, 'dungeons.json'), 'utf-8'
 }[];
 const dungeonDrops: Record<string, DungeonDropData> = {};
 const failed: string[] = [];
+const rawDrops = new Map<string, DungeonDrop[]>();
 
 console.log(`\nReading ${dungeons.length} dungeon wiki pages...`);
 for (const d of dungeons) {
   const slug = WIKI_SLUG[d.id] ?? d.id;
   const html = await fetchCached(`https://www.realmeye.com/wiki/${slug}`, `dungeon-${d.id}`);
   if (!html) { failed.push(`${d.id} (${slug})`); continue; }
-
   const drops = parseDungeonDrops(html);
+  for (const drop of drops) await resolveItem(drop.slug, drop.name);
+  rawDrops.set(d.id, drops);
+}
+
+// Learn each item kind's slot + classes from the gear we can already place (player sample, last
+// run, ST rosters). Every item of a kind fits the same classes, so a UT nobody in the sample
+// wears (Bramble Bow, Spirit Staff…) still lands in the right slot, and a sword is offered to
+// every sword class — not just the ones a sampled player happened to be.
+const kindPlacement = new Map<string, { slots: Record<string, number>; classes: Set<string> }>();
+for (const [slug, kind] of itemKind) {
+  const own = kind ? placementOf(slug) : null;
+  if (!kind || !own) continue;
+  const k = kindPlacement.get(kind) ?? { slots: {}, classes: new Set<string>() };
+  k.slots[own.slot] = (k.slots[own.slot] ?? 0) + 1;
+  for (const c of own.classes) k.classes.add(c);
+  kindPlacement.set(kind, k);
+}
+console.log(`  learned ${kindPlacement.size} item kinds: ${[...kindPlacement.keys()].sort().join(', ')}`);
+
+function placeGear(slug: string): { slot: string; classes: string[] } | null {
+  const own = placementOf(slug);
+  const kind = itemKind.get(slug);
+  const k = kind ? kindPlacement.get(kind) : undefined;
+  if (!own && !k) return null;
+  const slot = own?.slot ?? Object.entries(k!.slots).sort((a, b) => b[1] - a[1])[0]![0];
+  return { slot, classes: [...new Set([...(own?.classes ?? []), ...(k?.classes ?? [])])].sort() };
+}
+
+const unplaced = new Set<string>();
+for (const d of dungeons) {
+  const drops = rawDrops.get(d.id);
+  if (!drops) continue;
   const potions = new Set<StatKey>();
   const greaterPotions = new Set<StatKey>();
   const gear: GearDrop[] = [];
@@ -225,15 +318,22 @@ for (const d of dungeons) {
       (potMatch[1] ? greaterPotions : potions).add(stat);
       continue;
     }
-    const u = universe.get(drop.slug);
-    if (u && (u.tier === 'UT' || u.tier === 'ST')) {
-      gear.push({ slug: drop.slug, name: drop.name, tier: u.tier, slot: bestSlot(u), classes: [...u.classes].sort() });
+    const tier = itemTier.get(drop.slug) ?? null;
+    const place = tier === 'UT' || tier === 'ST' ? placeGear(drop.slug) : null;
+    if (place) {
+      gear.push({ slug: drop.slug, name: drop.name, tier: tier!, slot: place.slot, classes: place.classes });
     } else {
+      if (tier === 'UT' || tier === 'ST') unplaced.add(drop.name);
       other.push({ slug: drop.slug, name: drop.name });
     }
   }
-  dungeonDrops[d.id] = { potions: [...potions], greaterPotions: [...greaterPotions], gear, other };
-  console.log(`  ${d.id}: ${gear.length} gear, ${potions.size}+${greaterPotions.size} pot types`);
+  const enemies = buildEnemyTables(drops, (slug) => itemTier.get(slug) ?? null);
+  dungeonDrops[d.id] = { potions: [...potions], greaterPotions: [...greaterPotions], gear, other, enemies };
+  console.log(`  ${d.id}: ${gear.length} gear, ${potions.size}+${greaterPotions.size} pot types, ${enemies.length} enemy drop tables`);
+}
+
+if (unplaced.size) {
+  console.log(`  (${unplaced.size} UT/ST drops of an unknown kind — shown in enemy tables only: ${[...unplaced].slice(0, 8).join(', ')}${unplaced.size > 8 ? '…' : ''})`);
 }
 
 // ---- enrich gear with stats/score from item pages (cached, so weekly re-runs are cheap) ----
@@ -376,19 +476,32 @@ if (setIndexHtml) {
     if (wait > 0) await sleep(wait);
     lastNet = Date.now();
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': UA } });
+      const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30_000) });
       if (res.ok) { writeFileSync(file, Buffer.from(await res.arrayBuffer())); got++; }
     } catch { /* skip a missing icon */ }
   }
   console.log(`Class icons: ${got}/${classIcons.length} in assets/classes`);
 }
 
-// ---- write outputs ----
+// ---- write outputs (only if the scrape looks healthy — installed apps pull this data) ----
 mkdirSync(dataDir, { recursive: true });
 const sortedClasses = Object.fromEntries(Object.entries(classMax).sort(([a], [b]) => a.localeCompare(b)));
-writeFileSync(join(dataDir, 'class-max-stats.json'), JSON.stringify(sortedClasses, null, 2) + '\n');
-writeFileSync(join(dataDir, 'dungeon-drops.json'), JSON.stringify(dungeonDrops, null, 2) + '\n');
-writeFileSync(join(dataDir, 'sets.json'), JSON.stringify(sets, null, 2) + '\n');
+const outputs: Partial<Record<DataFile, string>> = {
+  'class-max-stats.json': JSON.stringify(sortedClasses, null, 2) + '\n',
+  'dungeon-drops.json': JSON.stringify(dungeonDrops, null, 2) + '\n',
+  'sets.json': JSON.stringify(sets, null, 2) + '\n',
+};
+const readData = (f: DataFile) => (existsSync(join(dataDir, f)) ? readFileSync(join(dataDir, f), 'utf-8') : '');
+const candidate = Object.fromEntries(DATA_FILES.map((f) => [f, JSON.parse(outputs[f] ?? (readData(f) || 'null'))]));
+const problem = validateBundle(candidate);
+if (problem) {
+  console.error(`\n✗ Scrape looks broken — NOT writing data (${problem}). RealmEye blocked or changed?`);
+  process.exit(1);
+}
+const changed = (Object.keys(outputs) as DataFile[]).filter((f) => readData(f) !== outputs[f]);
+for (const f of changed) writeFileSync(join(dataDir, f), outputs[f]!);
+if (changed.length) bumpManifest(`RealmEye refresh: ${changed.join(', ')}`);
+else console.log('\nData unchanged — manifest revision kept.');
 
 console.log(`\nWrote class-max-stats.json (${Object.keys(sortedClasses).length} classes)`);
 console.log(`Wrote dungeon-drops.json (${Object.keys(dungeonDrops).length} dungeons)`);

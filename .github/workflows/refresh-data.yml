@@ -1,0 +1,79 @@
+name: Refresh game data
+
+# Re-scrapes RealmEye (dungeon drops + per-enemy loot tables, ST sets, class max stats)
+# and commits the result. Installed apps pull committed data from `main` on their own
+# (src/shared/data/data-manifest.json → revision), so no release is needed for new intel.
+# The scraper refuses to write if the scrape looks broken, and the planner/wiki tests
+# must pass before anything is committed.
+on:
+  schedule:
+    - cron: '17 6 * * 1' # Mondays 06:17 UTC
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/refresh-data.ts'
+      - 'src/shared/realmeye-wiki.ts'
+      - 'src/shared/dropTables.ts'
+      - 'src/shared/data/dungeons.json'
+      - '.github/workflows/refresh-data.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
+
+      # Keep the polite page cache between runs (the script reuses pages for 7 days).
+      # Saved even when a later step fails, so a retry doesn't re-download everything.
+      - uses: actions/cache/restore@v4
+        with:
+          path: scripts/.cache
+          key: realmeye-cache-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: realmeye-cache-
+
+      - name: Scrape RealmEye
+        run: npm run refresh
+
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: scripts/.cache
+          key: realmeye-cache-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Check the data before publishing it
+        run: |
+          npm run test:planner
+          npm run test:wiki
+          npm run typecheck
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/shared/data src/renderer/src/assets/classes
+          if git diff --cached --quiet; then
+            echo 'No data changes.'
+            exit 0
+          fi
+          rev=$(node -p "require('./src/shared/data/data-manifest.json').revision")
+          git commit -m "chore(data): RealmEye refresh (data rev ${rev})"
+          # Someone may have pushed while we scraped — replay the data commit on top.
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

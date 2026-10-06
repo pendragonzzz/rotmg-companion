@@ -729,8 +729,7 @@
     "className": "Assassin",
     "generation": "2nd Generation",
     "sourceDungeonIds": [
-      "toxic-sewers",
-      "snake-pit"
+      "toxic-sewers"
     ],
     "difficultyTier": 2,
     "difficultyCategory": "low",
@@ -738,8 +737,7 @@
       "Gulpord the Slime God",
       "Master Rat",
       "Golden Rat",
-      "Natural Slime God",
-      "Sewer Alligator",
+      "Toxic Sewers",
       "Standard Quest Chest"
     ],
     "bonuses": {
@@ -803,7 +801,7 @@
           "mp": 50,
           "spd": -5
         },
-        "dungeonId": "snake-pit",
+        "dungeonId": "toxic-sewers",
         "score": 59,
         "summary": "+50 HP, +50 MP, +18 DEF, -5 SPD, +5 VIT"
       },
@@ -815,7 +813,7 @@
           "hp": 150,
           "spd": -5
         },
-        "dungeonId": "snake-pit",
+        "dungeonId": "toxic-sewers",
         "score": 33,
         "summary": "+150 HP, -5 SPD"
       }
@@ -928,7 +926,9 @@
     "sourceDungeonIds": [],
     "difficultyTier": null,
     "difficultyCategory": null,
-    "sources": [],
+    "sources": [
+      "Crystal Entity"
+    ],
     "bonuses": {
       "two": {
         "text": "+35 HP, +5 ATT, +5 DEX",
@@ -1864,7 +1864,7 @@
     ],
     "bonuses": {
       "two": {
-        "text": "+20 HP, 5 ATT, 5 VIT",
+        "text": "+20 HP, +5 ATT, +5 VIT",
         "stats": {
           "hp": 20,
           "att": 5,
@@ -1872,7 +1872,7 @@
         }
       },
       "three": {
-        "text": "+40 HP, 5 ATT, 5 VIT",
+        "text": "+40 HP, +5 ATT, +5 VIT",
         "stats": {
           "hp": 40,
           "att": 5,
@@ -1880,7 +1880,7 @@
         }
       },
       "four": {
-        "text": "+60 HP, 10 ATT, 10 VIT",
+        "text": "+60 HP, +10 ATT, +10 VIT",
         "stats": {
           "hp": 60,
           "att": 10,
@@ -2386,6 +2386,85 @@
     ]
   },
   {
+    "slug": "2-bit-mystic-set",
+    "name": "2-Bit Mystic Set",
+    "className": "Mystic",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+33 HP, +33 MP, +4 ATT",
+        "stats": {
+          "hp": 33,
+          "mp": 33,
+          "att": 4
+        }
+      },
+      "three": {
+        "text": "+44 HP, +44 MP, +6 ATT",
+        "stats": {
+          "hp": 44,
+          "mp": 44,
+          "att": 6
+        }
+      },
+      "four": {
+        "text": "+55 HP, +55 MP, +8 ATT",
+        "stats": {
+          "hp": 55,
+          "mp": 55,
+          "att": 8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "monochrome-staff",
+        "name": "Monochrome Staff",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": null,
+        "score": 168,
+        "summary": "140–168 dmg",
+        "description": "Shots pass through obstacles"
+      },
+      {
+        "slug": "treasure-orb",
+        "name": "Treasure Orb",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 22,
+        "summary": "effect item",
+        "description": "Hold [Shift] for 1 seconds to change modes On enemy hit: Apply 1 Hex stacking up to 100 Hex Base Damage: 400 (+5 per ATT over 50) damage Hex Damage Per Stack: 10 (+0.15 per ATT over 50) + 1% damage Hex Damage Radius: 5.6 tiles Star Fire: Emit flaming stars for"
+      },
+      {
+        "slug": "1-bit-robe",
+        "name": "1-Bit Robe",
+        "slot": "armor",
+        "stats": {
+          "def": 15,
+          "att": 7
+        },
+        "dungeonId": null,
+        "score": 44,
+        "summary": "+7 ATT, +15 DEF"
+      },
+      {
+        "slug": "strange-ring",
+        "name": "Strange Ring",
+        "slot": "ring",
+        "stats": {},
+        "dungeonId": null,
+        "score": 0,
+        "summary": "effect item"
+      }
+    ]
+  },
+  {
     "slug": "astral-arcanist-set",
     "name": "Astral Arcanist Set",
     "className": "Mystic",
@@ -2441,7 +2520,7 @@
         "dungeonId": null,
         "score": 22,
         "summary": "effect item",
-        "description": "Hold [Shift] for 1 seconds to change modes Star Fire: Emit flaming stars for 185-315 damage. Empowerment: Gain additional stars while Energized. Teleport to Target MP Decrease (-50 MP) on self for 5 seconds. Ability 1: Space Warp Solar Flare: Curse enemies for"
+        "description": "Hold [Shift] for 1 seconds to change modes On enemy hit: Apply 1 Hex stacking up to 100 Hex Base Damage: 400 (+5 per ATT over 50) damage Hex Damage Per Stack: 10 (+0.15 per ATT over 50) + 1% damage Hex Damage Radius: 5.6 tiles Star Fire: Emit flaming stars for"
       },
       {
         "slug": "astronomer-s-gown",
@@ -2502,12 +2581,13 @@
         }
       },
       "four": {
-        "text": "+20 HP, +15 MP, +7 ATT, +6 DEF",
+        "text": "+60 HP, +15 MP, +7 ATT, +6 DEF, +6 SPD",
         "stats": {
-          "hp": 20,
+          "hp": 60,
           "mp": 15,
           "att": 7,
-          "def": 6
+          "def": 6,
+          "spd": 6
         }
       }
     },
@@ -2528,7 +2608,7 @@
         "stats": {},
         "dungeonId": null,
         "score": 36,
-        "description": "On enemies: Stasis is centered on player Stasis Radius: 4.5 tiles Stasis Duration: 6 seconds On self: Speedy and Berserk Speedy & Berserk Duration: 2.5 (+0.1 per WIS over 55) seconds"
+        "description": "Effect on Enemy: Stasis Stasis Duration: 6 seconds Stasis Radius: 4.5 tiles Effect on Self: Speedy and Berserk Speedy & Berserk Duration: 2.5 (+0.1 per WIS over 55) seconds"
       },
       {
         "slug": "soulless-robe",
@@ -2554,6 +2634,89 @@
         "dungeonId": null,
         "score": 40,
         "summary": "+80 MP, +8 ATT, +8 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "timekeeper-mystic-set",
+    "name": "Timekeeper Mystic Set",
+    "className": "Mystic",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+10 HP, +2 WIS, +3 DEX",
+        "stats": {
+          "hp": 10,
+          "wis": 2,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+20 HP, +4 WIS, +5 DEX",
+        "stats": {
+          "hp": 20,
+          "wis": 4,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+40 HP, +40 MP, +8 WIS",
+        "stats": {
+          "hp": 40,
+          "mp": 40,
+          "wis": 8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "staff-of-rich-history",
+        "name": "Staff of Rich History",
+        "slot": "weapon",
+        "stats": {
+          "wis": 4
+        },
+        "dungeonId": null,
+        "score": 150,
+        "summary": "60–115 dmg ×2"
+      },
+      {
+        "slug": "entrancing-hourglass",
+        "name": "Entrancing Hourglass",
+        "slot": "ability",
+        "stats": {},
+        "dungeonId": null,
+        "score": 22,
+        "description": "On enemy hit: Apply 1 Hex stacking up to 100 Creates an Tornado Trap at the target location for 5 seconds Effect on Enemy: Slowed and Paralyzed Slowed Duration: 5 seconds Slowed Radius: 4.5 tiles Paralyze Duration: 2 seconds Paralyze Radius: 2.5 tiles Hex Base"
+      },
+      {
+        "slug": "traditional-blouse",
+        "name": "Traditional Blouse",
+        "slot": "armor",
+        "stats": {
+          "def": 12,
+          "vit": 5,
+          "wis": 5
+        },
+        "dungeonId": null,
+        "score": 34,
+        "summary": "+12 DEF, +5 VIT, +5 WIS",
+        "description": "Traditional Expertise: Reduces the Magic casting cost of your ability by 15%"
+      },
+      {
+        "slug": "bronze-pocketwatch",
+        "name": "Bronze Pocketwatch",
+        "slot": "ring",
+        "stats": {
+          "wis": 5
+        },
+        "dungeonId": null,
+        "score": 5,
+        "summary": "+5 WIS"
       }
     ]
   },
@@ -2613,7 +2776,7 @@
         "dungeonId": null,
         "score": 36,
         "summary": "effect item",
-        "description": "On enemies: Stasis is centered on player Stasis Radius: 4.5 tiles Stasis Duration: 6 seconds On self: Speedy and Berserk Speedy & Berserk Duration: 2.5 (+0.1 per WIS over 55) seconds"
+        "description": "Effect on Enemy: Stasis Stasis Duration: 6 seconds Stasis Radius: 4.5 tiles Effect on Self: Speedy and Berserk Speedy & Berserk Duration: 2.5 (+0.1 per WIS over 55) seconds"
       },
       {
         "slug": "robe-of-the-enchantress",
@@ -2655,7 +2818,7 @@
     "sources": [
       "Archdemon Malphas",
       "Abyss Idol",
-      "White Demon of the Abyss",
+      "Abyss of Demons",
       "Red Demon",
       "Mighty Quest Chest",
       "Standard Quest Chest"
@@ -2671,19 +2834,22 @@
         }
       },
       "three": {
-        "text": "+25 HP, +60 MP, +5 ATT, +10 VIT",
+        "text": "+40 HP, +60 MP, +5 ATT, +4 DEF, +10 VIT",
         "stats": {
-          "hp": 25,
+          "hp": 40,
           "mp": 60,
           "att": 5,
+          "def": 4,
           "vit": 10
         }
       },
       "four": {
-        "text": "+50 HP, +20 ATT, +5 SPD, +15 VIT",
+        "text": "+50 HP, +60 MP, +15 ATT, +5 DEF, +5 SPD, +15 VIT",
         "stats": {
           "hp": 50,
-          "att": 20,
+          "mp": 60,
+          "att": 15,
+          "def": 5,
           "spd": 5,
           "vit": 15
         }
@@ -2696,8 +2862,9 @@
         "slot": "weapon",
         "stats": {},
         "dungeonId": "abyss-of-demons",
-        "score": 860,
-        "summary": "700–860 dmg"
+        "score": 780,
+        "summary": "700–780 dmg",
+        "description": "Ignores defense of target"
       },
       {
         "slug": "scorchium-stone",
@@ -2705,9 +2872,9 @@
         "slot": "ability",
         "stats": {},
         "dungeonId": "abyss-of-demons",
-        "score": 20,
+        "score": 0,
         "summary": "effect item",
-        "description": "Shoot a spread of fireballs at the cursor. Number of Shots: 5 (arc gap: 9°) Damage: 350 (+3 per VIT over 30) (total: 1750) Projectile Speed: 15 tiles/second Range: 5 tiles Effect on enemies: Curse for 5 seconds Shots pass through obstacles Ignores defense of t"
+        "description": "On enemy hit: Apply 1 Hex stacking up to 100 Consume 25 Hex on Enemy: Fires additional shots. Hex Base Damage: 500 (+12 per VIT over 30) damage Hex Damage Per Stack: 10 (+0.25 per VIT over 30) + 1% damage Hex Damage Radius: 3.5 (+0.1 per VIT over 30) tiles"
       },
       {
         "slug": "molten-mantle",
@@ -2717,25 +2884,26 @@
           "def": 12,
           "mp": 80,
           "spd": 4,
-          "att": 4
+          "att": 6
         },
         "dungeonId": "abyss-of-demons",
-        "score": 52,
-        "summary": "+80 MP, +4 ATT, +12 DEF, +4 SPD"
+        "score": 56,
+        "summary": "+80 MP, +6 ATT, +12 DEF, +4 SPD"
       },
       {
         "slug": "ring-of-the-inferno",
         "name": "Ring of the Inferno",
         "slot": "ring",
         "stats": {
+          "hp": 25,
           "mp": 75,
           "def": 4,
           "spd": 4,
-          "att": 4
+          "att": 6
         },
         "dungeonId": "abyss-of-demons",
-        "score": 35,
-        "summary": "+75 MP, +4 ATT, +4 DEF, +4 SPD"
+        "score": 45,
+        "summary": "+25 HP, +75 MP, +6 ATT, +4 DEF, +4 SPD"
       }
     ]
   },
@@ -2799,9 +2967,9 @@
           "def": 5
         },
         "dungeonId": null,
-        "score": 10,
+        "score": 22,
         "summary": "+5 DEF",
-        "description": "Necromancy: raise 1 Cubic Undead to fight for you. Cubic Protection: Locks onto the closest player granting 20hp/sec within 3 sqrs."
+        "description": "Necromancy: raise 1 Cubic Undead to fight for you. Cubic Protection: Locks onto the closest player within 10 tiles, granting Healing [20/s] within 3 sqrs."
       },
       {
         "slug": "polygonal-garbs",
@@ -3896,95 +4064,6 @@
     ]
   },
   {
-    "slug": "frost-harbinger-set",
-    "name": "Frost Harbinger Set",
-    "className": "Paladin",
-    "generation": "3rd Generation",
-    "sourceDungeonIds": [],
-    "difficultyTier": null,
-    "difficultyCategory": null,
-    "sources": [
-      "Esben the Neurotic"
-    ],
-    "bonuses": {
-      "two": {
-        "text": "+30 HP, +30 MP, +2 ATT, +2 DEF",
-        "stats": {
-          "hp": 30,
-          "mp": 30,
-          "att": 2,
-          "def": 2
-        }
-      },
-      "three": {
-        "text": "+35 HP, +35 MP, +3 ATT, +3 DEF",
-        "stats": {
-          "hp": 35,
-          "mp": 35,
-          "att": 3,
-          "def": 3
-        }
-      },
-      "four": {
-        "text": "+40 HP, +40 MP, +4 ATT, +4 DEF",
-        "stats": {
-          "hp": 40,
-          "mp": 40,
-          "att": 4,
-          "def": 4
-        }
-      }
-    },
-    "members": [
-      {
-        "slug": "heartsteel-claymore",
-        "name": "Heartsteel Claymore",
-        "slot": "weapon",
-        "stats": {},
-        "dungeonId": null,
-        "score": 375,
-        "summary": "325–375 dmg"
-      },
-      {
-        "slug": "symbol-of-the-lost",
-        "name": "Symbol of the Lost",
-        "slot": "ability",
-        "stats": {
-          "def": 6,
-          "spd": -5
-        },
-        "dungeonId": null,
-        "score": 32,
-        "summary": "+6 DEF, -5 SPD",
-        "description": "Summon a Frostborn Crystal for 9 seconds Ally effect: Damaging within 7 squares Blizzard: Creates a swarm of snowflakes for 100 armor piercing damage Cold Snap: Deals 200 damage and inflicts Slowed for 2 seconds to enemies within 7 tiles every 2 seconds"
-      },
-      {
-        "slug": "hull-of-the-tundra",
-        "name": "Hull of the Tundra",
-        "slot": "armor",
-        "stats": {
-          "hp": 45,
-          "mp": 45,
-          "def": 19
-        },
-        "dungeonId": null,
-        "score": 58,
-        "summary": "+45 HP, +45 MP, +19 DEF"
-      },
-      {
-        "slug": "frozen-heart",
-        "name": "Frozen Heart",
-        "slot": "ring",
-        "stats": {
-          "spd": -5
-        },
-        "dungeonId": null,
-        "score": -5,
-        "summary": "-5 SPD"
-      }
-    ]
-  },
-  {
     "slug": "swoll-paladin-set",
     "name": "Swoll Paladin Set",
     "className": "Paladin",
@@ -4033,7 +4112,7 @@
         "slot": "weapon",
         "stats": {},
         "dungeonId": null,
-        "score": 330,
+        "score": 232,
         "summary": "75–90 dmg ×4"
       },
       {
@@ -4047,7 +4126,7 @@
         "dungeonId": null,
         "score": 49,
         "summary": "+50 HP, +4 ATT",
-        "description": "On party: Damaging Damaging Range: 4.5 (+0.1 per WIS over 50) tiles Damaging Duration: 4 (+1 per 10 WIS over 50) seconds On self: +250 max HP for 6 seconds On self: Healing [40/s] for 3.2 seconds"
+        "description": "On party: Damaging Damaging Range: 4.5 (+0.1 per WIS over 50) tiles Damaging Duration: 4 (+1 per 10 WIS over 50) seconds On self: HP Boost (+250 HP) for 6 seconds On self: Healing [40/s] for 3.2 seconds"
       },
       {
         "slug": "fairy-plate",
@@ -4119,7 +4198,7 @@
         "slot": "weapon",
         "stats": {},
         "dungeonId": null,
-        "score": 330,
+        "score": 232,
         "summary": "75–90 dmg ×4"
       },
       {
@@ -4133,7 +4212,7 @@
         "dungeonId": null,
         "score": 49,
         "summary": "+50 HP, +4 ATT",
-        "description": "On party: Damaging Damaging Range: 4.5 (+0.1 per WIS over 50) tiles Damaging Duration: 4 (+1 per 10 WIS over 50) seconds On self: +250 max HP for 6 seconds On self: Healing [40/s] for 3.2 seconds"
+        "description": "On party: Damaging Damaging Range: 4.5 (+0.1 per WIS over 50) tiles Damaging Duration: 4 (+1 per 10 WIS over 50) seconds On self: HP Boost (+250 HP) for 6 seconds On self: Healing [40/s] for 3.2 seconds"
       },
       {
         "slug": "tormentor-s-chainmail",
@@ -4254,6 +4333,97 @@
         "dungeonId": "the-shatters",
         "score": 36,
         "summary": "+80 HP, +8 DEF"
+      }
+    ]
+  },
+  {
+    "slug": "frost-harbinger-set",
+    "name": "Frost Harbinger Set",
+    "className": "Paladin",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [
+      "ice-citadel"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Esben the Neurotic"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +30 MP, +2 ATT, +2 DEF",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "att": 2,
+          "def": 2
+        }
+      },
+      "three": {
+        "text": "+35 HP, +35 MP, +3 ATT, +3 DEF",
+        "stats": {
+          "hp": 35,
+          "mp": 35,
+          "att": 3,
+          "def": 3
+        }
+      },
+      "four": {
+        "text": "+40 HP, +40 MP, +4 ATT, +4 DEF",
+        "stats": {
+          "hp": 40,
+          "mp": 40,
+          "att": 4,
+          "def": 4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "heartsteel-claymore",
+        "name": "Heartsteel Claymore",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "ice-citadel",
+        "score": 375,
+        "summary": "325–375 dmg"
+      },
+      {
+        "slug": "symbol-of-the-lost",
+        "name": "Symbol of the Lost",
+        "slot": "ability",
+        "stats": {
+          "def": 6,
+          "spd": -5
+        },
+        "dungeonId": "ice-citadel",
+        "score": 32,
+        "summary": "+6 DEF, -5 SPD",
+        "description": "Summon a Frostborn Crystal for 9 seconds Ally effect: Damaging within 7 squares Blizzard: Creates a swarm of snowflakes for 100 armor piercing damage Cold Snap: Deals 200 damage and inflicts Slowed for 2 seconds to enemies within 7 tiles every 2 seconds"
+      },
+      {
+        "slug": "hull-of-the-tundra",
+        "name": "Hull of the Tundra",
+        "slot": "armor",
+        "stats": {
+          "hp": 45,
+          "mp": 45,
+          "def": 19
+        },
+        "dungeonId": "ice-citadel",
+        "score": 58,
+        "summary": "+45 HP, +45 MP, +19 DEF"
+      },
+      {
+        "slug": "frozen-heart",
+        "name": "Frozen Heart",
+        "slot": "ring",
+        "stats": {
+          "spd": -5
+        },
+        "dungeonId": "ice-citadel",
+        "score": -5,
+        "summary": "-5 SPD"
       }
     ]
   },
@@ -4728,7 +4898,9 @@
     "sourceDungeonIds": [],
     "difficultyTier": null,
     "difficultyCategory": null,
-    "sources": [],
+    "sources": [
+      "Marble Colossus"
+    ],
     "bonuses": {
       "two": {
         "text": "+3 SPD, +3 DEX",
@@ -5094,95 +5266,6 @@
     ]
   },
   {
-    "slug": "frost-advisor-set",
-    "name": "Frost Advisor Set",
-    "className": "Samurai",
-    "generation": "3rd Generation",
-    "sourceDungeonIds": [],
-    "difficultyTier": null,
-    "difficultyCategory": null,
-    "sources": [
-      "Esben the Neurotic"
-    ],
-    "bonuses": {
-      "two": {
-        "text": "+25 HP, +3 DEF, +3 DEX, -2 VIT",
-        "stats": {
-          "hp": 25,
-          "def": 3,
-          "dex": 3,
-          "vit": -2
-        }
-      },
-      "three": {
-        "text": "+30 HP, +4 DEF, +4 DEX, -3 VIT",
-        "stats": {
-          "hp": 30,
-          "def": 4,
-          "dex": 4,
-          "vit": -3
-        }
-      },
-      "four": {
-        "text": "+35 HP, +5 DEF, +5 DEX, -4 VIT",
-        "stats": {
-          "hp": 35,
-          "def": 5,
-          "dex": 5,
-          "vit": -4
-        }
-      }
-    },
-    "members": [
-      {
-        "slug": "iceborn-arsenal",
-        "name": "Iceborn Arsenal",
-        "slot": "weapon",
-        "stats": {},
-        "dungeonId": null,
-        "score": 100,
-        "summary": "54–100 dmg ×2",
-        "description": "Shots hit multiple targets Ignores defense of target"
-      },
-      {
-        "slug": "sublimation-sidearm",
-        "name": "Sublimation Sidearm",
-        "slot": "ability",
-        "stats": {
-          "hp": 50
-        },
-        "dungeonId": null,
-        "score": 43,
-        "summary": "+50 HP",
-        "description": "Exposed for 2.8 seconds Ability uses can combo for increased effectiveness 1st attack: 3 shots deal 150-200 damage and applies MP Decrease (-25 MP) to self for 1.6 seconds 2nd attack: 4 shots deal 250-300 damage and applies WIS Decrease (-5 WIS) to self for 1."
-      },
-      {
-        "slug": "retainer-s-battlesuit",
-        "name": "Retainer's Battlesuit",
-        "slot": "armor",
-        "stats": {
-          "def": 16,
-          "dex": 7,
-          "vit": -6
-        },
-        "dungeonId": null,
-        "score": 37,
-        "summary": "+16 DEF, +7 DEX, -6 VIT"
-      },
-      {
-        "slug": "legacy-s-pendant",
-        "name": "Legacy's Pendant",
-        "slot": "ring",
-        "stats": {
-          "vit": -6
-        },
-        "dungeonId": null,
-        "score": -6,
-        "summary": "-6 VIT"
-      }
-    ]
-  },
-  {
     "slug": "valentine-s-day-samurai-set",
     "name": "Valentine's Day Samurai Set",
     "className": "Samurai",
@@ -5358,6 +5441,97 @@
         "dungeonId": "mountain-temple",
         "score": 37,
         "summary": "+60 HP, +60 MP, +4 SPD, +4 DEX"
+      }
+    ]
+  },
+  {
+    "slug": "frost-advisor-set",
+    "name": "Frost Advisor Set",
+    "className": "Samurai",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [
+      "ice-citadel"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Esben the Neurotic"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+25 HP, +3 DEF, +3 DEX, -2 VIT",
+        "stats": {
+          "hp": 25,
+          "def": 3,
+          "dex": 3,
+          "vit": -2
+        }
+      },
+      "three": {
+        "text": "+30 HP, +4 DEF, +4 DEX, -3 VIT",
+        "stats": {
+          "hp": 30,
+          "def": 4,
+          "dex": 4,
+          "vit": -3
+        }
+      },
+      "four": {
+        "text": "+35 HP, +5 DEF, +5 DEX, -4 VIT",
+        "stats": {
+          "hp": 35,
+          "def": 5,
+          "dex": 5,
+          "vit": -4
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "iceborn-arsenal",
+        "name": "Iceborn Arsenal",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "ice-citadel",
+        "score": 100,
+        "summary": "54–100 dmg ×2",
+        "description": "Shots hit multiple targets Ignores defense of target"
+      },
+      {
+        "slug": "sublimation-sidearm",
+        "name": "Sublimation Sidearm",
+        "slot": "ability",
+        "stats": {
+          "hp": 50
+        },
+        "dungeonId": "ice-citadel",
+        "score": 43,
+        "summary": "+50 HP",
+        "description": "Exposed for 2.8 seconds Ability uses can combo for increased effectiveness 1st attack: 3 shots deal 150-200 damage and applies MP Decrease (-25 MP) to self for 1.6 seconds 2nd attack: 4 shots deal 250-300 damage and applies WIS Decrease (-5 WIS) to self for 1."
+      },
+      {
+        "slug": "retainer-s-battlesuit",
+        "name": "Retainer's Battlesuit",
+        "slot": "armor",
+        "stats": {
+          "def": 16,
+          "dex": 7,
+          "vit": -6
+        },
+        "dungeonId": "ice-citadel",
+        "score": 37,
+        "summary": "+16 DEF, +7 DEX, -6 VIT"
+      },
+      {
+        "slug": "legacy-s-pendant",
+        "name": "Legacy's Pendant",
+        "slot": "ring",
+        "stats": {
+          "vit": -6
+        },
+        "dungeonId": "ice-citadel",
+        "score": -6,
+        "summary": "-6 VIT"
       }
     ]
   },
@@ -5785,7 +5959,7 @@
         "dungeonId": null,
         "score": 18,
         "summary": "+5 DEF",
-        "description": "Reflect attack: Summons only shoot when they are hit. Shots hit multiple targets Shots pass through obstacles Ignores defense of target"
+        "description": "Shots hit multiple targets Ignores defense of target Shots pass through obstacles"
       },
       {
         "slug": "chocolate-glazed-robe",
@@ -5874,7 +6048,7 @@
         "dungeonId": null,
         "score": 23,
         "summary": "+5 ATT",
-        "description": "Unbearable Presence: The Terrible Specter, unbound from its world, becomes unstable after 5 seconds. Unbearable Presence: Shoots 3 paralyzing shots thrice, then explodes for 1250 damage in 4.5 squares. Shots hit multiple targets"
+        "description": "Unbearable Presence: The Terrible Specter, unbound from its world, becomes unstable after 5 seconds. Unbearable Presence: Shoots 3 paralyzing shots thrice, then explodes for 1250 damage in 4.5 squares."
       },
       {
         "slug": "lacerated-gown",
@@ -5906,15 +6080,105 @@
     ]
   },
   {
+    "slug": "phytomancer-summoner-set",
+    "name": "Phytomancer Summoner Set",
+    "className": "Summoner",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+1 Summon Power, +20 MP, +4 WIS, +2 DEF",
+        "stats": {
+          "mp": 20,
+          "wis": 4,
+          "def": 2
+        }
+      },
+      "three": {
+        "text": "+2 Summon Power, +40 HP, +40 MP, +4 DEX",
+        "stats": {
+          "hp": 40,
+          "mp": 40,
+          "dex": 4
+        }
+      },
+      "four": {
+        "text": "+4 Summon Power, +60 HP, +60 MP, +5 DEX, +5 WIS",
+        "stats": {
+          "hp": 60,
+          "mp": 60,
+          "dex": 5,
+          "wis": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "razorthorn-branch",
+        "name": "Razorthorn Branch",
+        "slot": "weapon",
+        "stats": {
+          "wis": 4
+        },
+        "dungeonId": null,
+        "score": 315,
+        "summary": "80–120 dmg ×2",
+        "description": "Nettle Burst: Alternates between firing one and two shots, every 7th shot is a 5 shot burst followed by a brief delay. Shots hit multiple targets Shots pass through obstacles Bleeding on enemies for 5 seconds. (Bleed Damage: 30)"
+      },
+      {
+        "slug": "mace-of-the-woods",
+        "name": "Mace of the Woods",
+        "slot": "ability",
+        "stats": {
+          "def": 4,
+          "wis": 4
+        },
+        "dungeonId": null,
+        "score": 12,
+        "summary": "+4 DEF, +4 WIS",
+        "description": "Shots hit multiple targets Shots are parametricFaces Direction"
+      },
+      {
+        "slug": "leafweave-raiment",
+        "name": "Leafweave Raiment",
+        "slot": "armor",
+        "stats": {
+          "mp": 100,
+          "def": 10,
+          "dex": 6,
+          "wis": 10
+        },
+        "dungeonId": null,
+        "score": 59,
+        "summary": "+100 MP, +10 DEF, +6 DEX, +10 WIS"
+      },
+      {
+        "slug": "bud-of-beginning",
+        "name": "Bud of Beginning",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "mp": 120,
+          "dex": 4,
+          "wis": 6
+        },
+        "dungeonId": null,
+        "score": 56,
+        "summary": "+80 HP, +120 MP, +4 DEX, +6 WIS"
+      }
+    ]
+  },
+  {
     "slug": "scientific-summoner-set",
     "name": "Scientific Summoner Set",
     "className": "Summoner",
     "generation": "1st Generation",
-    "sourceDungeonIds": [
-      "mad-lab"
-    ],
-    "difficultyTier": 2,
-    "difficultyCategory": "low",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
     "sources": [
       "F.E.R.A.L.",
       "A.E.G.I.S.",
@@ -5970,7 +6234,7 @@
         "dungeonId": null,
         "score": 23,
         "summary": "+5 ATT",
-        "description": "Early Prototype: The M.E.R.V. becomes unstable after 5 seconds. Unstable M.E.R.V: Shoots 3 paralyzing shots thrice, then explodes for 1250 damage in 4.5 squares. Shots hit multiple targets"
+        "description": "Early Prototype: The M.E.R.V. becomes unstable after 5 seconds. Unstable M.E.R.V: Shoots 3 paralyzing shots thrice, then explodes for 1250 damage in 4.5 squares."
       },
       {
         "slug": "a-r-m-o-r",
@@ -5995,7 +6259,7 @@
           "def": 8,
           "spd": 5
         },
-        "dungeonId": "mad-lab",
+        "dungeonId": null,
         "score": 34,
         "summary": "+50 HP, +8 DEF, +5 SPD"
       }
@@ -6064,7 +6328,7 @@
         "dungeonId": "lair-of-draconis",
         "score": 18,
         "summary": "+5 DEF",
-        "description": "Reflect attack: Summons only shoot when they are hit. Shots hit multiple targets Shots pass through obstacles Ignores defense of target"
+        "description": "Shots hit multiple targets Ignores defense of target Shots pass through obstacles"
       },
       {
         "slug": "rocky-robe",
@@ -6625,107 +6889,6 @@
     ]
   },
   {
-    "slug": "pirate-king-warrior-set",
-    "name": "Pirate King Warrior Set",
-    "className": "Warrior",
-    "generation": "2nd Generation",
-    "sourceDungeonIds": [],
-    "difficultyTier": null,
-    "difficultyCategory": null,
-    "sources": [
-      "Jon Bilgewater the Pirate King",
-      "Calamity Crab",
-      "Commotion Crab",
-      "Bilgewater’s Booty",
-      "Deadwater Admiral",
-      "Deadwater Captain",
-      "Deadwater Lieutenant",
-      "Mighty Quest Chest"
-    ],
-    "bonuses": {
-      "two": {
-        "text": "+30 HP, +30 MP, +5 ATT, -2 DEX",
-        "stats": {
-          "hp": 30,
-          "mp": 30,
-          "att": 5,
-          "dex": -2
-        }
-      },
-      "three": {
-        "text": "+50 HP, +50 MP, +10 ATT, -3 DEX",
-        "stats": {
-          "hp": 50,
-          "mp": 50,
-          "att": 10,
-          "dex": -3
-        }
-      },
-      "four": {
-        "text": "+80 HP, +80 MP, +15 ATT, -5 SPD, -8 DEX",
-        "stats": {
-          "hp": 80,
-          "mp": 80,
-          "att": 15,
-          "spd": -5,
-          "dex": -8
-        }
-      }
-    },
-    "members": [
-      {
-        "slug": "swashbuckler-s-sickle",
-        "name": "Swashbuckler's Sickle",
-        "slot": "weapon",
-        "stats": {},
-        "dungeonId": null,
-        "score": 280,
-        "summary": "275–280 dmg",
-        "description": "Wavy shots"
-      },
-      {
-        "slug": "tricorne-of-the-high-seas",
-        "name": "Tricorne of the High Seas",
-        "slot": "ability",
-        "stats": {
-          "def": 7
-        },
-        "dungeonId": null,
-        "score": 32,
-        "summary": "+7 DEF",
-        "description": "On party: Berserk for 4 (+0.1 per WIS over 30) seconds Shoot Cannonball: Damage: 1000 Projectile Speed: 7 tiles/second Lifetime: 1 seconds Range: 7 tiles Hitbox Size: 2 Shots hit multiple targets"
-      },
-      {
-        "slug": "naval-uniform",
-        "name": "Naval Uniform",
-        "slot": "armor",
-        "stats": {
-          "def": 19,
-          "vit": 6,
-          "spd": 3,
-          "dex": -2,
-          "att": 8
-        },
-        "dungeonId": null,
-        "score": 60,
-        "summary": "+8 ATT, +19 DEF, +3 SPD, -2 DEX, +6 VIT"
-      },
-      {
-        "slug": "first-mate-s-hook",
-        "name": "First Mate's Hook",
-        "slot": "ring",
-        "stats": {
-          "hp": 80,
-          "att": 12,
-          "dex": -5
-        },
-        "dungeonId": null,
-        "score": 37,
-        "summary": "+80 HP, +12 ATT, -5 DEX"
-      }
-    ]
-  },
-  {
     "slug": "dragon-tamer-set",
     "name": "Dragon Tamer Set",
     "className": "Warrior",
@@ -6814,6 +6977,109 @@
         "dungeonId": "lair-of-draconis",
         "score": 34,
         "summary": "+115 HP, +5 SPD"
+      }
+    ]
+  },
+  {
+    "slug": "pirate-king-warrior-set",
+    "name": "Pirate King Warrior Set",
+    "className": "Warrior",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [
+      "deadwater-docks"
+    ],
+    "difficultyTier": 3,
+    "difficultyCategory": "mid",
+    "sources": [
+      "Jon Bilgewater the Pirate King",
+      "Calamity Crab",
+      "Commotion Crab",
+      "Bilgewater’s Booty",
+      "Deadwater Admiral",
+      "Deadwater Captain",
+      "Deadwater Lieutenant",
+      "Mighty Quest Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +30 MP, +5 ATT, -2 DEX",
+        "stats": {
+          "hp": 30,
+          "mp": 30,
+          "att": 5,
+          "dex": -2
+        }
+      },
+      "three": {
+        "text": "+50 HP, +50 MP, +10 ATT, -3 DEX",
+        "stats": {
+          "hp": 50,
+          "mp": 50,
+          "att": 10,
+          "dex": -3
+        }
+      },
+      "four": {
+        "text": "+80 HP, +80 MP, +15 ATT, -5 SPD, -8 DEX",
+        "stats": {
+          "hp": 80,
+          "mp": 80,
+          "att": 15,
+          "spd": -5,
+          "dex": -8
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "swashbuckler-s-sickle",
+        "name": "Swashbuckler's Sickle",
+        "slot": "weapon",
+        "stats": {},
+        "dungeonId": "deadwater-docks",
+        "score": 280,
+        "summary": "275–280 dmg",
+        "description": "Wavy shots"
+      },
+      {
+        "slug": "tricorne-of-the-high-seas",
+        "name": "Tricorne of the High Seas",
+        "slot": "ability",
+        "stats": {
+          "def": 7
+        },
+        "dungeonId": "deadwater-docks",
+        "score": 32,
+        "summary": "+7 DEF",
+        "description": "On party: Berserk for 4 (+0.1 per WIS over 30) seconds Shoot Cannonball: Damage: 1000 Projectile Speed: 7 tiles/second Lifetime: 1 seconds Range: 7 tiles Hitbox Size: 2 Shots hit multiple targets"
+      },
+      {
+        "slug": "naval-uniform",
+        "name": "Naval Uniform",
+        "slot": "armor",
+        "stats": {
+          "def": 19,
+          "vit": 6,
+          "spd": 3,
+          "dex": -2,
+          "att": 8
+        },
+        "dungeonId": "deadwater-docks",
+        "score": 60,
+        "summary": "+8 ATT, +19 DEF, +3 SPD, -2 DEX, +6 VIT"
+      },
+      {
+        "slug": "first-mate-s-hook",
+        "name": "First Mate's Hook",
+        "slot": "ring",
+        "stats": {
+          "hp": 80,
+          "att": 12,
+          "dex": -5
+        },
+        "dungeonId": "deadwater-docks",
+        "score": 37,
+        "summary": "+80 HP, +12 ATT, -5 DEX"
       }
     ]
   },
@@ -7053,7 +7319,7 @@
         "dungeonId": null,
         "score": 0,
         "summary": "effect item",
-        "description": "SPD Boost (+25 SPD) for 3 secondsDamage Nova: explodes 2 (+1 per 25 SPD over 42) times every 0.4 seconds for 5 (+1 per 10 SPD over 42) seconds."
+        "description": "SPD Boost (+25 SPD) for 3 seconds Damage Nova: explodes 2 (+1 per 25 SPD over 42) times, once every 0.4 seconds."
       },
       {
         "slug": "phosphorescent-rags",
@@ -7146,7 +7412,7 @@
         "dungeonId": "ocean-trench",
         "score": 0,
         "summary": "effect item",
-        "description": "SPD Boost (+25 SPD) for 3 secondsDamage Nova: explodes 2 (+1 per 25 SPD over 42) times, once every 0.4 seconds."
+        "description": "SPD Boost (+25 SPD) for 3 seconds Damage Nova: explodes 2 (+1 per 25 SPD over 42) times, once every 0.4 seconds."
       },
       {
         "slug": "oceanic-apparel",

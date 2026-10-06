@@ -1,0 +1,100 @@
+/* ============================================================
+   Design tokens + themes. Every color in the app comes from here,
+   so a theme is just a block of overrides on <html data-theme>.
+   ============================================================ */
+:root {
+  --bg: #0b0d12;
+  --bg-2: #0f1219;
+  --panel: #161a24;
+  --panel-2: #1d2230;
+  --line: #2b3242;
+  --line-soft: #222838;
+  --text: #eef1f6;
+  --muted: #8a93a6;
+  --muted-2: #5f6878;
+
+  --gold: #f5b342; /* the theme accent (named for the default theme) */
+  --accent-ink: #1a1206; /* text drawn ON the accent */
+  --accent-soft: rgba(245, 179, 66, 0.12);
+  --accent-line: rgba(245, 179, 66, 0.35);
+  --cyan: #2dd4bf;
+  --purple: #a78bfa;
+  --green: #4ade80;
+  --amber: #fbbf24;
+  --red: #f87171;
+  --bad: var(--red);
+
+  --goal-stat: var(--cyan);
+  --goal-unlock: var(--gold);
+  --goal-gear: var(--purple);
+  --goal-level: #f472b6;
+  --goal-exalt: var(--green);
+  --goal-set: #f59e0b;
+
+  --glow-a: rgba(167, 139, 250, 0.1);
+  --glow-b: rgba(45, 212, 191, 0.08);
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.55);
+
+  --radius: 8px;
+  --radius-sm: 4px;
+  --pad: 14px;
+  --gap: 14px;
+  --sidebar-w: 212px;
+  --font: 14px;
+}
+
+[data-density='compact'] {
+  --pad: 10px;
+  --gap: 10px;
+  --font: 13px;
+}
+
+[data-theme='crimson'] {
+  --bg: #120c0e; --bg-2: #170f12; --panel: #1d1316; --panel-2: #271a1e;
+  --line: #3a2630; --line-soft: #2c1c24;
+  --gold: #ef4444; --accent-ink: #fff; --accent-soft: rgba(239, 68, 68, 0.13); --accent-line: rgba(239, 68, 68, 0.4);
+  --glow-a: rgba(239, 68, 68, 0.1); --glow-b: rgba(245, 158, 11, 0.05);
+}
+[data-theme='void'] {
+  --bg: #0d0b16; --bg-2: #120f1d; --panel: #181428; --panel-2: #221c38;
+  --line: #322a4d; --line-soft: #261f3b;
+  --gold: #a855f7; --accent-ink: #fff; --accent-soft: rgba(168, 85, 247, 0.14); --accent-line: rgba(168, 85, 247, 0.42);
+  --glow-a: rgba(168, 85, 247, 0.14); --glow-b: rgba(59, 130, 246, 0.06);
+}
+[data-theme='abyss'] {
+  --bg: #08110f; --bg-2: #0c1614; --panel: #111d1b; --panel-2: #182a27;
+  --line: #234039; --line-soft: #18302b;
+  --gold: #2dd4bf; --accent-ink: #04201d; --accent-soft: rgba(45, 212, 191, 0.12); --accent-line: rgba(45, 212, 191, 0.38);
+  --glow-a: rgba(45, 212, 191, 0.1); --glow-b: rgba(56, 189, 248, 0.06);
+}
+[data-theme='sprite'] {
+  --bg: #0a110b; --bg-2: #0d160f; --panel: #121c14; --panel-2: #19271b;
+  --line: #27402a; --line-soft: #1c3020;
+  --gold: #84cc16; --accent-ink: #0d1a04; --accent-soft: rgba(132, 204, 22, 0.12); --accent-line: rgba(132, 204, 22, 0.38);
+  --glow-a: rgba(132, 204, 22, 0.09); --glow-b: rgba(250, 204, 21, 0.05);
+}
+[data-theme='midnight'] {
+  --bg: #05070c; --bg-2: #080b13; --panel: #0d1220; --panel-2: #131a2c;
+  --line: #1f2a44; --line-soft: #172036;
+  --gold: #60a5fa; --accent-ink: #04122a; --accent-soft: rgba(96, 165, 250, 0.12); --accent-line: rgba(96, 165, 250, 0.38);
+  --glow-a: rgba(96, 165, 250, 0.1); --glow-b: rgba(129, 140, 248, 0.06);
+}
+[data-theme='contrast'] {
+  --bg: #000; --bg-2: #000; --panel: #0a0a0a; --panel-2: #161616;
+  --line: #8a8a8a; --line-soft: #5a5a5a;
+  --text: #fff; --muted: #e0e0e0; --muted-2: #c4c4c4;
+  --gold: #ffd400; --accent-ink: #000; --accent-soft: rgba(255, 212, 0, 0.18); --accent-line: #ffd400;
+  --cyan: #00ffff; --green: #3dff6e; --amber: #ffd400; --red: #ff5c5c; --purple: #d4a6ff;
+  --glow-a: transparent; --glow-b: transparent;
+}
+[data-theme='daylight'] {
+  --bg: #eef1f6; --bg-2: #ffffff; --panel: #ffffff; --panel-2: #eef2f8;
+  --line: #d3dae6; --line-soft: #e4e9f1;
+  --text: #1a1f2b; --muted: #5f6878; --muted-2: #8a93a6;
+  --gold: #c8861a; --accent-ink: #fff; --accent-soft: rgba(200, 134, 26, 0.12); --accent-line: rgba(200, 134, 26, 0.4);
+  --cyan: #0f9f8f; --green: #16a34a; --amber: #d97706; --red: #dc2626; --purple: #7c3aed;
+  --glow-a: rgba(124, 58, 237, 0.05); --glow-b: rgba(15, 159, 143, 0.05);
+  --shadow: 0 4px 14px rgba(20, 30, 50, 0.08);
+  --shadow-lg: 0 18px 50px rgba(20, 30, 50, 0.18);
+}

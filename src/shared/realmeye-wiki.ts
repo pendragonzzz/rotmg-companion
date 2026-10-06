@@ -92,6 +92,8 @@ export interface ItemInfo {
   shots: number | null;
   /** Free-text "Effect(s)" blurb from the wiki, cleaned of markup. */
   effect: string | null;
+  /** Item kind from the page's "all items of this kind" table, e.g. "Swords", "Helms", "Staves". */
+  itemType: string | null;
 }
 
 function parseOnEquip(text: string): Partial<Record<StatKey, number>> {
@@ -189,9 +191,23 @@ export function parseItemPage(html: string, slugFallback = ''): ItemInfo {
   const effectCell = thRowValue($, 'Effect(s)') ?? thRowValue($, 'Effect');
   const effect = effectCell ? effectCell.text().replace(/\s+/g, ' ').trim() || null : null;
 
+  // Item kind: the centred header of the table that lists every item of this kind, where this
+  // item appears in bold ("<strong>UT. Demon Blade</strong>" under "Swords"). Set tables share
+  // the layout — skip those.
+  let itemType: string | null = null;
+  const norm = (t: string) => t.replace(/^[A-Z]{1,2}\d*\.\s*/, '').replace(/[’‘]/g, "'").trim().toLowerCase();
+  const me = norm(name);
+  $('th > a').each((_, a) => {
+    if (itemType) return;
+    const href = $(a).attr('href') ?? '';
+    if (!/^\/wiki\/[a-z0-9-]+$/.test(href) || href.endsWith('-set')) return;
+    const bold = $(a).closest('table').find('strong');
+    if (bold.filter((_, el) => norm($(el).text()) === me).length) itemType = $(a).text().trim() || null;
+  });
+
   return {
     slug, name, tier, tierType, dungeon, generation, set, dropsFrom, soulbound,
-    powerLevel, feedPower, statBonuses, damage, shots, effect,
+    powerLevel, feedPower, statBonuses, damage, shots, effect, itemType,
   };
 }
 

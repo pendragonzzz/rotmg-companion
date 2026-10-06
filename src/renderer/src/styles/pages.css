@@ -1,0 +1,235 @@
+/* ============================================================
+   Page-specific layouts: Potions, Gear, Dungeons, Settings,
+   Sets, Pets, Meta.
+   ============================================================ */
+
+/* ---- Potions ---- */
+.pot-table { display: flex; flex-direction: column; }
+.pot-row {
+  display: grid; align-items: center; gap: 12px; padding: 9px 4px; border-bottom: 1px solid var(--line-soft);
+  grid-template-columns: 34px 112px minmax(110px, 1fr) 128px minmax(160px, 1.5fr) 138px 22px;
+}
+.pot-row.maxed { opacity: 0.55; }
+.pot-row.open { background: var(--accent-soft); border-radius: 6px; border-bottom-color: transparent; }
+.pot-rank { font-size: 11px; font-weight: 800; color: var(--muted-2); text-align: center; }
+.pot-row.maxed .pot-rank { color: var(--green); }
+.pot-stat {
+  display: inline-flex; align-items: center; gap: 7px; background: none; border: none; color: var(--text);
+  font: inherit; font-weight: 700; cursor: pointer; padding: 0; text-align: left;
+}
+.pot-stat:disabled { cursor: default; }
+.pot-progress { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.pot-progress .bar { flex: 1; }
+.pot-nums { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pot-need { font-size: 12.5px; white-space: nowrap; }
+.pot-need b { font-size: 15px; color: var(--gold); }
+.pot-need.done { color: var(--green); font-weight: 700; }
+.pot-best { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12.5px; min-width: 0; }
+.pot-biome { min-width: 0; overflow: hidden; }
+.pot-caret { background: none; border: none; cursor: pointer; padding: 0; display: inline-flex; }
+.pot-detail {
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; padding: 10px 12px 12px 50px;
+  border-bottom: 1px solid var(--line-soft); background: var(--accent-soft); border-radius: 0 0 6px 6px; margin-bottom: 4px;
+}
+.pot-detail-col { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+.route { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.route-stop { display: flex; gap: 10px; }
+.route-n {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; background: var(--gold); color: var(--accent-ink);
+}
+.route-body { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.route-portals, .route-guardian { font-size: 11.5px; color: var(--muted); }
+
+/* ---- Gear ---- */
+.gear-grid { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: var(--gap); align-items: start; }
+.slot-card.has-upgrade { border-color: var(--accent-line); }
+.upgrade-tag, .bis-tag { font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
+.upgrade-tag { background: var(--gold); color: var(--accent-ink); }
+.bis-tag { background: linear-gradient(135deg, #4ade80, #28b463); color: #0c1a10; }
+.slot-line { display: grid; grid-template-columns: 74px 1fr; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--line-soft); }
+.slot-key { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted-2); font-weight: 700; }
+.slot-item { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12.5px; min-width: 0; }
+.slot-item.good { color: var(--green); font-weight: 600; }
+.slot-more { margin-top: 8px; font-size: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.slot-options { display: flex; flex-direction: column; gap: 3px; margin-top: 6px; max-height: 320px; overflow-y: auto; }
+.slot-option { display: flex; align-items: center; gap: 7px; font-size: 12px; padding: 4px 6px; border-radius: 5px; flex-wrap: wrap; }
+.slot-option:hover { background: var(--panel-2); }
+.slot-option.equipped { outline: 1px solid var(--accent-line); }
+.slot-rank { width: 18px; font-size: 10.5px; color: var(--muted-2); font-weight: 700; text-align: right; }
+.slot-option-name { font-weight: 600; }
+
+.set-progress { display: flex; flex-direction: column; gap: 5px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+.set-progress:last-child { border-bottom: none; }
+.set-progress-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 3px; }
+.set-missing { display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 2px 0; }
+.set-slot { font-size: 9px; font-weight: 800; color: var(--muted-2); min-width: 46px; letter-spacing: 0.4px; }
+
+/* ---- Dungeons ---- */
+.dungeons { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: var(--gap); align-items: start; }
+.dungeon-list-pane {
+  position: sticky; top: 76px; display: flex; flex-direction: column; max-height: calc(100vh - 100px);
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+}
+.dungeon-filters { display: flex; flex-direction: column; gap: 8px; padding: 10px; border-bottom: 1px solid var(--line); }
+.dungeon-filters .segmented button { padding: 4px 7px; }
+.flag-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.flag-chip {
+  font: inherit; font-size: 11.5px; padding: 3px 9px; border-radius: 12px; cursor: pointer;
+  background: transparent; border: 1px solid var(--line); color: var(--muted);
+}
+.flag-chip:hover { color: var(--text); }
+.flag-chip.on { color: var(--gold); background: var(--accent-soft); border-color: var(--accent-line); }
+.dungeon-list { overflow-y: auto; padding: 4px 6px 8px; }
+.dungeon-list-hdr { font-size: 10px; text-transform: uppercase; letter-spacing: 0.9px; color: var(--muted-2); font-weight: 700; padding: 10px 6px 4px; }
+.dungeon-row {
+  display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; background: transparent;
+  border: 1px solid transparent; color: var(--text); font: inherit; font-size: 13px; padding: 6px 8px; border-radius: 6px; cursor: pointer;
+}
+.dungeon-row:hover { background: var(--panel-2); }
+.dungeon-row.active { background: var(--accent-soft); border-color: var(--accent-line); }
+.dungeon-row-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fav-on { color: var(--gold); font-size: 12px; }
+
+.dungeon-detail { display: flex; flex-direction: column; gap: var(--gap); }
+.dd-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.dd-head h2 { font-size: 22px; margin-bottom: 6px; }
+.dd-badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dd-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.dd-ready { display: flex; align-items: center; gap: 10px; font-size: 13px; padding: 9px 12px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--panel); }
+.dd-ready.st-ready { border-color: rgba(74, 222, 128, 0.35); }
+.dd-ready.st-risky { border-color: rgba(251, 191, 36, 0.4); }
+.dd-ready.st-notReady { border-color: rgba(248, 113, 113, 0.35); }
+.dd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--gap); align-items: start; }
+.dd-wide { grid-column: 1 / -1; }
+.dd-note { margin: 0; font-size: 13.5px; line-height: 1.55; }
+.dd-grid .panel p { margin: 6px 0 0; }
+.drop-list { display: flex; flex-direction: column; }
+.drop-row { display: flex; align-items: center; gap: 8px; padding: 5px 2px; border-bottom: 1px solid var(--line-soft); font-size: 12.5px; flex-wrap: wrap; }
+.drop-row:last-child { border-bottom: none; }
+.drop-classes { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.enemy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.enemy-card { display: flex; flex-direction: column; gap: 7px; padding: 10px 12px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--line-soft); border-top: 3px solid var(--gold); }
+.enemy-head { display: flex; align-items: baseline; gap: 7px; }
+.enemy-count { font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 8px; background: var(--accent-soft); color: var(--gold); border: 1px solid var(--accent-line); white-space: nowrap; }
+.enemy-loot { display: flex; flex-direction: column; gap: 3px; }
+.loot-gear {
+  display: flex; align-items: center; gap: 6px; background: none; border: none; padding: 2px 0; text-align: left;
+  color: var(--text); font: inherit; font-size: 12.5px; cursor: pointer;
+}
+.loot-gear:hover { color: var(--gold); }
+.loot-gear.mine { font-weight: 700; }
+.loot-mine { color: var(--gold); font-size: 11px; }
+.enemy-other { line-height: 1.4; }
+
+/* ---- Settings ---- */
+.settings { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: var(--gap); align-items: start; }
+.settings-wide { grid-column: 1 / -1; }
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-bottom: 8px; }
+.theme-card {
+  display: flex; flex-direction: column; gap: 7px; padding: 7px; border-radius: 10px; cursor: pointer; text-align: left;
+  background: var(--bg-2); border: 1px solid var(--line); color: var(--text); font: inherit;
+}
+.theme-card:hover { border-color: var(--muted-2); }
+.theme-card.on { border-color: var(--gold); box-shadow: 0 0 0 2px var(--accent-soft); }
+.theme-preview { display: block; height: 62px; border-radius: 7px; padding: 8px; border: 1px solid rgba(127, 127, 127, 0.25); }
+.theme-preview-panel { display: flex; flex-direction: column; gap: 5px; height: 100%; border-radius: 5px; padding: 7px; }
+.theme-preview-accent { width: 34px; height: 7px; border-radius: 3px; }
+.theme-preview-line { height: 4px; border-radius: 2px; background: rgba(127, 127, 127, 0.35); width: 80%; }
+.theme-preview-line.short { width: 50%; }
+.theme-name { font-size: 12px; font-weight: 600; padding: 0 2px; }
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+.settings-label { display: flex; flex-direction: column; }
+.settings-label strong { font-size: 13px; font-weight: 600; }
+.settings-label em { font-style: normal; font-size: 11.5px; color: var(--muted); }
+.settings-sub { padding: 8px 0 12px; border-bottom: 1px solid var(--line-soft); margin-bottom: 10px; }
+.settings-sub-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; font-size: 13px; }
+.kbd-list { display: flex; flex-direction: column; margin: 6px 0; }
+.kbd-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12.5px; padding: 5px 0; border-bottom: 1px solid var(--line-soft); }
+.kbd-row:last-child { border-bottom: none; }
+
+/* ---- Sets ---- */
+.sets-filters { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.sets-filters .search-field input { width: 220px; }
+.sets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--gap); }
+.set-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); border-left: 3px solid var(--goal-set); padding: 12px var(--pad); box-shadow: var(--shadow); }
+.set-card-head { display: flex; align-items: flex-start; gap: 11px; }
+.set-title-wrap { min-width: 0; flex: 1; }
+.set-title { font-weight: 700; font-size: 15px; }
+.set-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 5px; }
+.set-members { margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
+.set-member { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 12px; padding: 4px 0; border-bottom: 1px solid var(--line-soft); }
+.set-member-name { font-weight: 600; }
+.set-member-stats { color: var(--muted); }
+.set-member-where { margin-left: auto; color: var(--muted-2); font-size: 11px; white-space: nowrap; }
+.set-source { margin-top: 8px; font-size: 11px; color: var(--muted-2); }
+.set-bonuses { margin-top: 10px; display: flex; flex-direction: column; gap: 3px; }
+.set-bonus { font-size: 12px; color: var(--muted); }
+.set-bonus .pc { display: inline-block; min-width: 34px; font-weight: 800; font-size: 10px; color: var(--muted-2); margin-right: 6px; }
+.set-bonus .pc.full { color: var(--goal-set); }
+
+/* ---- Pets ---- */
+.pets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: var(--gap); align-items: start; }
+.pet-panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--pad); box-shadow: var(--shadow); }
+.pet-h { margin: 0 0 12px; font-size: 14px; }
+.pet-rarities { display: flex; flex-direction: column; gap: 4px; }
+.pet-rarity { display: flex; align-items: center; gap: 10px; border-left: 3px solid var(--line); padding: 6px 0 6px 10px; }
+.pet-rarity-name { font-weight: 800; min-width: 86px; }
+.pet-rarity[data-rarity='common'] { border-left-color: #9aa3b2; }
+.pet-rarity[data-rarity='uncommon'] { border-left-color: #4ade80; }
+.pet-rarity[data-rarity='rare'] { border-left-color: #38bdf8; }
+.pet-rarity[data-rarity='legendary'] { border-left-color: #f5b342; }
+.pet-rarity[data-rarity='divine'] { border-left-color: #c084fc; }
+.pet-rarity-cap { font-size: 12.5px; white-space: nowrap; }
+.pet-rarity-feed { margin-left: auto; font-size: 11px; color: var(--gold); text-align: right; white-space: nowrap; }
+.pet-abilities { display: flex; flex-direction: column; gap: 9px; }
+.pet-ability { display: flex; gap: 10px; }
+.pet-tier {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 6px; display: inline-flex;
+  align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: #0b0d12;
+}
+.pet-tier.tier-S { background: linear-gradient(135deg, #f5b342, #ffce6b); }
+.pet-tier.tier-A { background: #2dd4bf; }
+.pet-tier.tier-B { background: #84cc16; }
+.pet-tier.tier-F { background: #f87171; color: #fff; }
+.pet-ability-body { min-width: 0; }
+.pet-ability-top { display: flex; align-items: baseline; gap: 8px; }
+.pet-ability-name { font-weight: 700; }
+.pet-ability-slot { font-size: 10px; color: var(--muted-2); text-transform: uppercase; letter-spacing: 0.5px; }
+.pet-ability-desc { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.pet-list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.pet-list li { font-size: 12.5px; line-height: 1.45; }
+
+/* ---- Meta ---- */
+.meta-wide { grid-column: 1 / -1; }
+.meta-rules li::marker { color: var(--gold); font-weight: 800; }
+.meta-exalts { display: flex; flex-direction: column; gap: 7px; }
+.meta-exalt-row { display: flex; align-items: flex-start; gap: 10px; }
+.meta-exalt-stat { flex-shrink: 0; min-width: 92px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 12.5px; color: var(--goal-exalt); }
+.meta-exalt-dungeons { display: flex; flex-wrap: wrap; gap: 5px; }
+.meta-eff {
+  --eff: var(--line);
+  display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 11.5px; padding: 2px 9px 2px 7px;
+  border-radius: 10px; border: 1px solid var(--eff); background: var(--panel-2); color: var(--text); cursor: pointer; white-space: nowrap;
+}
+.meta-eff:hover { background: var(--accent-soft); }
+.meta-eff::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--eff); }
+.meta-eff.eff-high { --eff: var(--green); }
+.meta-eff.eff-moderate { --eff: var(--amber); }
+.meta-eff.eff-low { --eff: var(--red); }
+.meta-timeline { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.meta-season { border-left: 3px solid var(--gold); padding: 2px 0 2px 12px; }
+.meta-season:first-child { border-left-color: var(--cyan); }
+.meta-season-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+.meta-season-tag { font-size: 10.5px; font-weight: 800; letter-spacing: 0.4px; padding: 1px 7px; border-radius: 8px; background: var(--gold); color: var(--accent-ink); }
+.meta-season-name { font-weight: 700; }
+.meta-season-date { margin-left: auto; font-size: 11px; color: var(--muted); }
+.ov-note { font-size: 11.5px; color: var(--muted-2); margin: 6px 0 0; line-height: 1.45; }
+
+@media (max-width: 1180px) {
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .pot-row { grid-template-columns: 30px 100px minmax(90px, 1fr) 110px minmax(140px, 1.4fr) 22px; }
+  .pot-biome { display: none; }
+  .dungeons { grid-template-columns: 290px minmax(0, 1fr); }
+}

@@ -1,6 +1,7 @@
-import { app, BrowserWindow, ipcMain, globalShortcut, screen, shell } from 'electron';
+import { app, BrowserWindow, ipcMain, globalShortcut, Menu, nativeImage, screen, shell, Tray } from 'electron';
 import { join } from 'node:path';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { execFile } from 'node:child_process';
+import { closeSync, existsSync, openSync, readFileSync, readSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import electronUpdater from 'electron-updater';
 import { fetchPlayer, withKnownTiers } from '../shared/realmeye';
 import { knownItemTiers } from '../shared/dropTables';
@@ -11,14 +12,20 @@ import classMaxData from '../shared/data/class-max-stats.json';
 import bundledManifest from '../shared/data/data-manifest.json';
 import bundledDrops from '../shared/data/dungeon-drops.json';
 import bundledSets from '../shared/data/sets.json';
+import bundledLocations from '../shared/data/locations.json';
+import bundledDungeons from '../shared/data/dungeons.json';
+import { buildPlaceIndex, type LearnedTemplate, type LocationData, type PlaceIndex } from '../shared/location';
+import { GameWatcher } from './gameWatcher';
+import { FocusWatcher } from './focusWatcher';
 import { GameDataUpdater } from './gameDataUpdater';
 import { tidyOldCopies, type CleanupReport } from './cleanup';
 import type { DataManifest, DataStatus } from '../shared/gameDataBundle';
+import { DEFAULT_DESKTOP_SETTINGS, type DesktopSettings } from '../shared/desktop';
 
 const { autoUpdater } = electronUpdater;
 import type { Character, PlayerProfile } from '../shared/types';
 import {
-  DEFAULT_OVERLAY_SETTINGS,
+  EMPTY_OVERLAY_STATE,
   OVERLAY_TOAST_MS,
   mergeOverlaySettings,
   type OverlaySettings,
@@ -48,17 +55,83 @@ let mainWin: BrowserWindow | null = null;
 let overlayWin: BrowserWindow | null = null;
 let peekTimer: NodeJS.Timeout | null = null;
 let toastTimer: NodeJS.Timeout | null = null;
-const overlayState: OverlayState = {
-  settings: { ...DEFAULT_OVERLAY_SETTINGS },
-  character: null,
-  peek: false,
-  picker: false,
-  toast: null,
-};
+const overlayState: OverlayState = { ...EMPTY_OVERLAY_STATE, settings: { ...EMPTY_OVERLAY_STATE.settings } };
 
 const settingsFile = () => join(app.getPath('userData'), 'overlay-settings.json');
 const windowStateFile = () => join(app.getPath('userData'), 'window-state.json');
 const liveSettingsFile = () => join(app.getPath('userData'), 'live-settings.json');
+const desktopSettingsFile = () => join(app.getPath('userData'), 'desktop-settings.json');
+
+// ---- tray + Windows startup ----
+let desktop: DesktopSettings = { ...DEFAULT_DESKTOP_SETTINGS };
+let tray: Tray | null = null;
+/** Set when the user really means to quit (tray → Quit, updater) so close-to-tray lets go. */
+let quitting = false;
+/** Launched by Windows at sign-in with "start hidden" → stay in the tray. */
+const launchedHidden = process.argv.includes('--hidden');
+
+function showMain(): void {
+  if (!mainWin || mainWin.isDestroyed()) return createMainWindow();
+  if (mainWin.isMinimized()) mainWin.restore();
+  mainWin.show();
+  mainWin.focus();
+}
+
+function toggleOverlayEnabled(): void {
+  overlayState.settings.enabled = !overlayState.settings.enabled;
+  saveSettings();
+  applyOverlay();
+  broadcastOverlay();
+}
+
+function refreshTray(): void {
+  if (!tray) return;
+  tray.setContextMenu(
+    Menu.buildFromTemplate([
+      { label: 'Open RotMG Companion', click: showMain },
+      { type: 'separator' },
+      { label: 'Overlay', type: 'checkbox', checked: overlayState.settings.enabled, click: toggleOverlayEnabled },
+      { label: 'Pick where I am…', click: () => setPicker(true) },
+      { label: 'Check RealmEye now', click: () => void live?.syncNow() },
+      { type: 'separator' },
+      {
+        label: 'Quit',
+        click: () => {
+          quitting = true;
+          app.quit();
+        },
+      },
+    ]),
+  );
+}
+
+async function createTray(): Promise<void> {
+  try {
+    // The exe's own (embedded) icon, so the tray matches the desktop shortcut.
+    let icon = nativeImage.createEmpty();
+    try {
+      icon = await app.getFileIcon(process.execPath, { size: 'small' });
+    } catch {
+      /* keep empty */
+    }
+    tray = new Tray(icon);
+    tray.setToolTip('RotMG Companion');
+    tray.on('click', showMain);
+    refreshTray();
+  } catch {
+    tray = null; // no tray on this desktop — closing still quits as usual
+  }
+}
+
+function applyDesktop(): void {
+  // Only packaged builds register with Windows startup (dev would register electron.exe).
+  if (app.isPackaged && process.platform === 'win32') {
+    app.setLoginItemSettings({
+      openAtLogin: desktop.startWithWindows,
+      args: desktop.startWithWindows && desktop.startHidden ? ['--hidden'] : [],
+    });
+  }
+}
 
 function readJson<T>(file: string): Partial<T> {
   try {
@@ -71,7 +144,7 @@ function readJson<T>(file: string): Partial<T> {
 function loadSettings(): void {
   try {
     const raw = readFileSync(settingsFile(), 'utf-8');
-    overlayState.settings = mergeOverlaySettings(DEFAULT_OVERLAY_SETTINGS, JSON.parse(raw));
+    overlayState.settings = mergeOverlaySettings(EMPTY_OVERLAY_STATE.settings, JSON.parse(raw));
   } catch {
     /* first run — keep defaults */
   }
@@ -132,10 +205,140 @@ function broadcastOverlay(): void {
   }
 }
 
+/**
+ * The HUD shows when it's switched on AND (if "follow the game" is on) the game is running
+ * AND (if "hide when unfocused" is on) the game is in front. Peek and the picker always show.
+ */
+function overlayVisible(): boolean {
+  const { settings: s, game: g } = overlayState;
+  // Until the game has been seen on this PC (exe name / log location unknown), never hide for it.
+  const gameGate = !s.followGame || !g.supported || !g.seenGame || g.running;
+  const focusGate = !s.hideWhenUnfocused || !g.running || g.focused !== false;
+  return (s.enabled && gameGate && focusGate) || overlayState.peek || overlayState.picker;
+}
+
 function applyOverlay(): void {
   if (!overlayWin || overlayWin.isDestroyed()) return;
-  if (overlayState.settings.enabled || overlayState.peek) overlayWin.showInactive();
+  if (overlayVisible()) overlayWin.showInactive();
   else overlayWin.hide();
+}
+
+// ---- game detection: process list + the game's own Player.log (read-only) ----
+let watcher: GameWatcher | null = null;
+let focus: FocusWatcher | null = null;
+
+function activeLocations(): LocationData {
+  return (gameData?.get()?.files['locations.json'] as LocationData | undefined) ?? (bundledLocations as unknown as LocationData);
+}
+let placeCache: { source: unknown; index: PlaceIndex } | null = null;
+function placeIndex(): PlaceIndex {
+  const bundle = gameData?.get() ?? null;
+  if (!placeCache || placeCache.source !== bundle) {
+    const dungeons = (bundle?.files['dungeons.json'] ?? bundledDungeons) as { id: string; name: string }[];
+    placeCache = { source: bundle, index: buildPlaceIndex(activeLocations(), dungeons) };
+  }
+  return placeCache.index;
+}
+
+/** %USERPROFILE%\AppData\LocalLow\DECA…\…\Player.log candidates, newest first (re-scanned every 15 s). */
+let logScan: { at: number; files: string[] } | null = null;
+function findGameLogs(): string[] {
+  if (logScan && Date.now() - logScan.at < 15_000) return logScan.files;
+  logScan = { at: Date.now(), files: scanGameLogs() };
+  return logScan.files;
+}
+function scanGameLogs(): string[] {
+  const lowLow = join(app.getPath('home'), 'AppData', 'LocalLow');
+  const found = new Set<string>();
+  for (const d of activeLocations().logDirs) found.add(join(lowLow, d, 'Player.log'));
+  try {
+    for (const company of readdirSync(lowLow).filter((n) => /^deca/i.test(n))) {
+      found.add(join(lowLow, company, 'Player.log'));
+      for (const game of readdirSync(join(lowLow, company))) found.add(join(lowLow, company, game, 'Player.log'));
+    }
+  } catch {
+    /* no LocalLow (not Windows / game never run) */
+  }
+  return [...found]
+    .filter((f) => existsSync(f))
+    .sort((a, b) => statSync(b).mtimeMs - statSync(a).mtimeMs);
+}
+
+function readSlice(file: string, start: number, length: number): string {
+  const fd = openSync(file, 'r');
+  try {
+    const buf = Buffer.alloc(length);
+    const n = readSync(fd, buf, 0, length, start);
+    return buf.subarray(0, n).toString('utf-8');
+  } finally {
+    closeSync(fd);
+  }
+}
+
+function runningProcesses(): Promise<string[]> {
+  return new Promise((resolve, reject) => {
+    execFile('tasklist', ['/FO', 'CSV', '/NH'], { windowsHide: true, maxBuffer: 4 * 1024 * 1024 }, (err, out) => {
+      if (err) return reject(err);
+      resolve(out.split(/\r?\n/).map((l) => l.match(/^"([^"]+)"/)?.[1] ?? '').filter(Boolean));
+    });
+  });
+}
+
+const learnedFile = () => join(app.getPath('userData'), 'learned-locations.json');
+const gameSeenFile = () => join(app.getPath('userData'), 'game-seen.json');
+
+function startGameWatch(): void {
+  watcher = new GameWatcher(
+    {
+      supported: process.platform === 'win32',
+      listProcesses: runningProcesses,
+      findLogs: findGameLogs,
+      stat: (f) => {
+        try {
+          const st = statSync(f);
+          return { size: st.size, mtimeMs: st.mtimeMs };
+        } catch {
+          return null;
+        }
+      },
+      read: readSlice,
+      data: activeLocations,
+      index: placeIndex,
+      loadLearned: () => {
+        const v = readJson<{ templates: LearnedTemplate[] }>(learnedFile()).templates;
+        return Array.isArray(v) ? v : [];
+      },
+      saveLearned: (templates) => {
+        try {
+          writeFileSync(learnedFile(), JSON.stringify({ templates }, null, 2));
+        } catch {
+          /* non-fatal */
+        }
+      },
+      seenBefore: existsSync(gameSeenFile()),
+      markSeen: () => {
+        try {
+          writeFileSync(gameSeenFile(), JSON.stringify({ at: new Date().toISOString() }));
+        } catch {
+          /* non-fatal */
+        }
+      },
+      onChange: (g) => {
+        overlayState.game = g;
+        applyOverlay();
+        broadcastOverlay();
+      },
+    },
+    { detectFromLog: overlayState.settings.detectFromLog },
+  );
+  overlayState.game = watcher.getState();
+  watcher.start();
+  focus = new FocusWatcher((name) => {
+    if (name === null) return watcher?.setFocused(null);
+    const games = activeLocations().processNames.map((p) => p.toLowerCase().replace(/\.exe$/, ''));
+    watcher?.setFocused(games.includes(name.toLowerCase()));
+  });
+  if (overlayState.settings.hideWhenUnfocused) focus.start();
 }
 
 /** Briefly show the overlay (a quick glance), then revert to the enabled state. */
@@ -208,6 +411,7 @@ function setPicker(open: boolean): void {
 /** (Re)register the customizable global hotkeys from settings. Invalid combos are skipped. */
 function registerHotkeys(): void {
   globalShortcut.unregisterAll();
+  refreshTray();
   const { hotkeys } = overlayState.settings;
   const bind = (accel: string, fn: () => void) => {
     if (!accel) return;
@@ -218,18 +422,17 @@ function registerHotkeys(): void {
     }
   };
   bind(hotkeys.toggle, () => {
-    overlayState.settings.enabled = !overlayState.settings.enabled;
-    saveSettings();
-    applyOverlay();
-    broadcastOverlay();
+    toggleOverlayEnabled();
+    refreshTray();
   });
   bind(hotkeys.peek, peekOverlay);
   bind(hotkeys.picker, () => setPicker(!overlayState.picker));
 }
 
-function createMainWindow(): void {
+function createMainWindow(show = true): void {
   const ws = loadWindowState();
   mainWin = new BrowserWindow({
+    show,
     x: ws.x,
     y: ws.y,
     width: ws.width,
@@ -244,9 +447,16 @@ function createMainWindow(): void {
       contextIsolation: true,
     },
   });
-  if (ws.maximized) mainWin.maximize();
+  if (ws.maximized && show) mainWin.maximize();
   rendererTarget(mainWin);
-  mainWin.on('close', () => mainWin && saveWindowState(mainWin));
+  mainWin.on('close', (e) => {
+    if (mainWin) saveWindowState(mainWin);
+    // Close-to-tray: keep running (overlay, live sync, game detection) until Quit.
+    if (desktop.closeToTray && tray && !quitting) {
+      e.preventDefault();
+      mainWin?.hide();
+    }
+  });
   mainWin.on('closed', () => {
     mainWin = null;
     // The overlay is a hidden/always-on-top helper window with no taskbar entry, so it
@@ -297,11 +507,9 @@ const gotLock = app.requestSingleInstanceLock();
 if (!gotLock) {
   app.quit();
 } else {
-  app.on('second-instance', () => {
-    if (!mainWin) return;
-    if (mainWin.isMinimized()) mainWin.restore();
-    mainWin.show();
-    mainWin.focus();
+  app.on('second-instance', () => showMain());
+  app.on('before-quit', () => {
+    quitting = true;
   });
 }
 
@@ -375,10 +583,29 @@ app.whenReady().then(() => {
   ipcMain.handle('overlay:setSettings', (_e, partial: Partial<OverlaySettings>) => {
     overlayState.settings = mergeOverlaySettings(overlayState.settings, partial);
     saveSettings();
-    applyOverlay();
     if (partial.hotkeys) registerHotkeys();
+    if (partial.detectFromLog !== undefined) watcher?.configure({ detectFromLog: partial.detectFromLog });
+    if (partial.hideWhenUnfocused !== undefined) {
+      if (partial.hideWhenUnfocused) focus?.start();
+      else focus?.stop();
+    }
+    applyOverlay();
     broadcastOverlay();
+    if (partial.enabled !== undefined) refreshTray();
     return overlayState.settings;
+  });
+  // Location: a manual pick (quick-pick / app). Teaches the log watcher too.
+  ipcMain.handle('overlay:setLocation', (_e, placeId: string | null) => {
+    const place = placeId ? (placeIndex().byId.get(placeId) ?? null) : null;
+    const res = watcher?.setManual(place) ?? { learned: false };
+    overlayState.settings.currentDungeon = place?.dungeonId ?? '';
+    saveSettings();
+    broadcastOverlay();
+    return res;
+  });
+  ipcMain.handle('overlay:forgetLearned', () => {
+    watcher?.forgetLearned();
+    return true;
   });
   ipcMain.handle('overlay:setPicker', (_e, open: boolean) => {
     setPicker(open);
@@ -390,15 +617,30 @@ app.whenReady().then(() => {
     return true;
   });
   ipcMain.handle('overlay:toggle', () => {
-    overlayState.settings.enabled = !overlayState.settings.enabled;
-    saveSettings();
-    applyOverlay();
-    broadcastOverlay();
+    toggleOverlayEnabled();
+    refreshTray();
     return overlayState.settings.enabled;
   });
 
-  createMainWindow();
+  desktop = { ...DEFAULT_DESKTOP_SETTINGS, ...readJson<DesktopSettings>(desktopSettingsFile()) };
+  ipcMain.handle('app:getDesktop', () => desktop);
+  ipcMain.handle('app:setDesktop', (_e, patch: Partial<DesktopSettings>) => {
+    desktop = { ...desktop, ...patch };
+    try {
+      writeFileSync(desktopSettingsFile(), JSON.stringify(desktop, null, 2));
+    } catch {
+      /* non-fatal */
+    }
+    applyDesktop();
+    return desktop;
+  });
+  applyDesktop();
+  void createTray();
+
+  // Started by Windows with "start hidden": live in the tray until opened.
+  createMainWindow(!(launchedHidden && desktop.closeToTray));
   createOverlayWindow();
+  startGameWatch();
   applyOverlay();
   registerHotkeys();
 
@@ -437,6 +679,8 @@ app.whenReady().then(() => {
 app.on('will-quit', () => {
   globalShortcut.unregisterAll();
   live?.stop();
+  watcher?.stop();
+  focus?.stop();
 });
 
 app.on('window-all-closed', () => {

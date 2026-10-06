@@ -134,6 +134,27 @@ const PATHS = {
       <path d="M8.2 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.8" />
     </>
   ),
+  /** Nexus: a portal ring. */
+  portal: (
+    <>
+      <ellipse cx="12" cy="12" rx="6.5" ry="9" />
+      <ellipse cx="12" cy="12" rx="3" ry="5" />
+    </>
+  ),
+  /** Realm: a map. */
+  map: <path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6zM9 4v14M15 6v14" />,
+  /** Command palette. */
+  command: (
+    <>
+      <path d="M9 6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3z" />
+    </>
+  ),
+  eye: (
+    <>
+      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
 };
 
 export type IconName = keyof typeof PATHS;

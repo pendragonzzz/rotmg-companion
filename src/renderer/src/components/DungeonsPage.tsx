@@ -266,7 +266,7 @@ function DungeonDetail({
   const d = info.gate;
   const [mineOnly, setMineOnly] = useState(true);
   const fav = favs.has(d.id);
-  const tracking = overlay.settings.currentDungeon === d.id;
+  const tracking = (overlay.game.location?.dungeonId ?? overlay.settings.currentDungeon) === d.id;
   const cls = character?.className.toLowerCase();
   const gear = cls && mineOnly ? info.gear.filter((g) => g.classes.some((c) => c.toLowerCase() === cls)) : info.gear;
   const obsolete = character ? isStatFarmObsolete(d, character.maxedCount) : false;
@@ -293,7 +293,7 @@ function DungeonDetail({
           </button>
           <button
             className={`btn btn-sm ${tracking ? 'btn-ghost on' : 'btn-primary'}`}
-            onClick={() => overlay.patch({ currentDungeon: tracking ? '' : d.id })}
+            onClick={() => void window.api.overlay.setLocation(tracking ? null : d.id).catch(() => {})}
             title="Show this dungeon's card on the in-game overlay"
           >
             <Icon name="layout" size={13} /> {tracking ? 'On overlay ✓' : 'Show on overlay'}

@@ -20,6 +20,7 @@ export const DATA_FILES = [
   'sets.json',
   'meta.json',
   'pets.json',
+  'locations.json',
 ] as const;
 export type DataFile = (typeof DATA_FILES)[number];
 
@@ -82,6 +83,9 @@ export function validateBundle(files: Partial<Record<DataFile, unknown>>): strin
   if (!isObj(meta) || !Array.isArray(meta.timeline)) return 'meta.json: malformed';
   const pets = files['pets.json'];
   if (!isObj(pets) || !Array.isArray(pets.rarities)) return 'pets.json: malformed';
+  const loc = files['locations.json'];
+  if (!isObj(loc) || !Array.isArray(loc.places) || !Array.isArray(loc.linePatterns) || !Array.isArray(loc.processNames))
+    return 'locations.json: malformed';
   return null;
 }
 

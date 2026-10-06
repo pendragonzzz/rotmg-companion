@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { DEFAULT_OVERLAY_SETTINGS, type OverlaySettings, type OverlayState } from '../../shared/overlay';
+import { EMPTY_GAME_STATE, type GameState } from '../../shared/location';
 import type { PageId } from './pages';
 
 // ---- themes ----
@@ -203,24 +204,31 @@ export function useDeclined(): DeclinedApi {
 export interface OverlayApi {
   settings: OverlaySettings;
   patch: (p: Partial<OverlaySettings>) => void;
+  /** Game running / focused / location (from the main process's game watcher). */
+  game: GameState;
 }
 
 export function useOverlaySettings(): OverlayApi {
   const [settings, setSettings] = useState<OverlaySettings>(DEFAULT_OVERLAY_SETTINGS);
+  const [game, setGame] = useState<GameState>(EMPTY_GAME_STATE);
 
   useEffect(() => {
+    const take = (s: OverlayState) => {
+      setSettings(s.settings);
+      if (s.game) setGame(s.game);
+    };
     window.api.overlay
       .getState()
-      .then((s: OverlayState) => setSettings(s.settings))
+      .then(take)
       .catch(() => {});
-    return window.api.overlay.onState((s) => setSettings(s.settings));
+    return window.api.overlay.onState(take);
   }, []);
 
   const patch = useCallback((p: Partial<OverlaySettings>) => {
     window.api.overlay.setSettings(p).catch(() => {});
   }, []);
 
-  return { settings, patch };
+  return { settings, patch, game };
 }
 
 // ---- small time helper ----

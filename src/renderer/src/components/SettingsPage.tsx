@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { DEFAULT_DESKTOP_SETTINGS, type DesktopSettings } from '../../../shared/desktop';
 import { HOTKEY_ACTIONS } from '../../../shared/overlay';
 import { classMax, dataManifest, dataSource, dungeons, exaltation, meta, sets } from '../gameData';
 import type { DataStatus } from '../../../shared/gameDataBundle';
@@ -92,6 +93,7 @@ export function SettingsPage({
       <LiveSettingsPanel live={live} now={now} />
 
       <Panel title="Startup" icon="refresh">
+        <DesktopRows />
         <ToggleRow
           title="Re-open my last player"
           hint={prefs.lastPlayer ? `Loads “${prefs.lastPlayer}” from RealmEye on launch` : 'Load a player once to enable'}
@@ -145,6 +147,10 @@ export function SettingsPage({
 
       <Panel title="Keyboard shortcuts" icon="keyboard">
         <div className="kbd-list">
+          <div className="kbd-row">
+            <span>Search everything — pages, dungeons, items, actions</span>
+            <kbd>Ctrl+K</kbd>
+          </div>
           {PAGES.map((p, i) => (
             <div key={p.id} className="kbd-row">
               <span>{p.label}</span>
@@ -315,5 +321,41 @@ function ConfirmButton({ label, confirmLabel, onConfirm }: { label: string; conf
     >
       {armed ? confirmLabel : label}
     </button>
+  );
+}
+
+/** Tray + Windows-startup toggles (stored by the main process). */
+function DesktopRows() {
+  const [d, setD] = useState<DesktopSettings>(DEFAULT_DESKTOP_SETTINGS);
+  useEffect(() => {
+    window.api.app.getDesktop().then(setD).catch(() => {});
+  }, []);
+  const patch = (p: Partial<DesktopSettings>) => {
+    setD((cur) => ({ ...cur, ...p }));
+    window.api.app.setDesktop(p).then(setD).catch(() => {});
+  };
+  return (
+    <>
+      <ToggleRow
+        title="Keep running in the tray"
+        hint="Closing the window leaves the overlay, live sync and game detection running — quit from the tray icon"
+        on={d.closeToTray}
+        onChange={(closeToTray) => patch({ closeToTray })}
+      />
+      <ToggleRow
+        title="Start with Windows"
+        hint="Ready before you launch the game"
+        on={d.startWithWindows}
+        onChange={(startWithWindows) => patch({ startWithWindows })}
+      />
+      {d.startWithWindows && (
+        <ToggleRow
+          title="…quietly, in the tray"
+          hint={d.closeToTray ? 'No window at sign-in — click the tray icon to open' : 'Needs “Keep running in the tray”'}
+          on={d.startHidden && d.closeToTray}
+          onChange={(startHidden) => patch({ startHidden, ...(startHidden ? { closeToTray: true } : {}) })}
+        />
+      )}
+    </>
   );
 }

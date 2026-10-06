@@ -4,6 +4,7 @@ import type { OverlaySettings, OverlayState } from '../shared/overlay';
 import type { LiveSettings, LiveState } from '../shared/live';
 import type { DataBundle, DataStatus } from '../shared/gameDataBundle';
 import type { CleanupReport } from '../main/cleanupRules';
+import type { DesktopSettings } from '../shared/desktop';
 
 export type GetPlayerResult =
   | { ok: true; profile: PlayerProfile | null }
@@ -17,6 +18,9 @@ const api = {
   app: {
     cleanupReport: (): Promise<CleanupReport> => ipcRenderer.invoke('app:cleanupReport'),
     tidyNow: (): Promise<CleanupReport> => ipcRenderer.invoke('app:tidyNow'),
+    /** Tray + Windows startup preferences. */
+    getDesktop: (): Promise<DesktopSettings> => ipcRenderer.invoke('app:getDesktop'),
+    setDesktop: (patch: Partial<DesktopSettings>): Promise<DesktopSettings> => ipcRenderer.invoke('app:setDesktop', patch),
   },
   /** Self-updating game data (drop tables, meta, sets…) pulled from the repo. */
   data: {
@@ -51,6 +55,10 @@ const api = {
     setCharacter: (c: Character | null): Promise<boolean> => ipcRenderer.invoke('overlay:setCharacter', c),
     toggle: (): Promise<boolean> => ipcRenderer.invoke('overlay:toggle'),
     setPicker: (open: boolean): Promise<boolean> => ipcRenderer.invoke('overlay:setPicker', open),
+    /** Set where you are (place id from locations/dungeons, or null to clear). */
+    setLocation: (placeId: string | null): Promise<{ learned: boolean }> => ipcRenderer.invoke('overlay:setLocation', placeId),
+    /** Forget the log formats learned on this PC. */
+    forgetLearned: (): Promise<boolean> => ipcRenderer.invoke('overlay:forgetLearned'),
     /** Subscribe to pushed state (settings/character changes, hotkey toggles). Returns an unsubscribe. */
     onState: (cb: (s: OverlayState) => void): (() => void) => {
       const h = (_e: IpcRendererEvent, s: OverlayState) => cb(s);

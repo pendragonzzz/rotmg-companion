@@ -5,9 +5,9 @@ per character, get a prioritized plan: which stats to max and where, which **bea
 which **dungeons** you're ready for (with guide-sourced strategy tips), which **ST sets** to chase, and the
 post-8/8 **exaltation** grind — plus a click-through **in-game overlay** HUD.
 
-> **Informational companion only.** It never reads or automates the game client — all data comes from public
-> RealmEye pages + bundled static data. (That's also why the overlay can't auto-detect your dungeon/character;
-> you pick them.) Anything that reads/automates the Exalt client violates DECA's ToS and gets accounts banned.
+> **Informational companion only.** It never reads the game's memory or network traffic and never automates
+> input — that's what DECA bans. Player data comes from public RealmEye pages; "where you are" comes from the log
+> file the game itself writes on your PC (read-only, nothing leaves your PC) or from your own quick-pick.
 
 ## Download & install (players)
 
@@ -53,8 +53,16 @@ Then type a **public** RealmEye username and hit Load.
   drops each UT/ST, Greater pot and key (★ = usable by your class), straight from RealmEye.
 - **Characters** — your roster with each character's quest log (stats, exalts, gear, unlocks, sets).
 - **Meta, Sets, Pets** — the current realm meta, every ST set, and pet ability priorities.
-- **Game overlay** — transparent, click-through HUD (`Ctrl+Shift+O`) with your next goal, beacons, and a
-  current-dungeon card; presets, 3×3 positioning, rebindable hotkeys, and an in-game quick-pick (`Ctrl+Shift+D`).
+- **Game overlay** — transparent, click-through HUD (`Ctrl+Shift+O`) that **adapts to where you are**: in a dungeon it
+  leads with the strategy and *your loot here* (which boss drops gear your class can use ★); in the Nexus or a realm,
+  with where to go next and which beacons to farm. It appears when the game starts and hides when it closes.
+- **Where you are** — detected from the game's own `Player.log` (read-only). It calibrates itself: pick your location
+  once with the in-game quick-pick (`Ctrl+Shift+D` — Nexus, Realm, Vault, any dungeon) and it learns how your game's
+  log names places, so next time it's automatic. Optional: hide the HUD while you're alt-tabbed.
+- **Search everything (`Ctrl+K`)** — pages, dungeons, characters, sets, actions, and *where does this item drop?*
+  ("spectral sword" → Septavius the Ghost God · Undead Lair).
+- **Tray & startup** — keep running in the tray when you close the window (overlay keeps working), start with
+  Windows, optionally hidden.
 - **Settings** — 8 themes (incl. high contrast; first launch follows your OS light/dark), compact density, startup behavior, keyboard shortcuts (`Ctrl+1–9`, `/`, `F5`), and
   your data.
 
@@ -70,7 +78,8 @@ network/data step. To refresh that data from RealmEye later: `npm run refresh` (
 if the scrape looks broken, and bumps `src/shared/data/data-manifest.json` so installed apps pick it up from `main`).
 After hand-editing a curated JSON file, run `npm run data:bump` to publish it the same way.
 
-Tests (headless, no network): `npm run typecheck`, `test:planner`, `test:live`, `test:data`, `test:cleanup`, `test:wiki`.
+Tests (headless, no network): `npm run typecheck` and `npm test` (planner, live sync, data updates, Desktop tidy,
+location detection, game watcher, Ctrl+K search, RealmEye parsers).
 
 ## Build a launchable locally
 

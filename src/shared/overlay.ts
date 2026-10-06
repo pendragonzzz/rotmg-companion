@@ -1,4 +1,5 @@
 import type { Character } from './types';
+import { EMPTY_GAME_STATE, type GameState } from './location';
 
 /** Which HUD pieces the user wants visible (the "pick what you want" toggles). */
 export interface OverlayWidgets {
@@ -10,6 +11,7 @@ export interface OverlayWidgets {
   locations: boolean; // 📍 where-to-farm tags on goals
   currentDungeon: boolean; // info card for the dungeon you're running (drops + strategy)
   liveToasts: boolean; // flash live RealmEye changes (pot maxed, gear equipped…) on the HUD
+  location: boolean; // 📍 where you are (detected from the game's log, or picked)
 }
 
 /** What the current-dungeon card shows. */
@@ -20,13 +22,14 @@ export interface OverlayDungeonCard {
   drops: boolean; // UT/ST drops
   classDropsOnly: boolean; // only drops the active character's class can use
   keyItems: boolean; // runes / incantations
+  bossLoot: boolean; // which enemy here drops gear your class can use
 }
 
 /** Customizable global hotkeys (Electron accelerator strings). */
 export interface OverlayHotkeys {
   toggle: string;
   peek: string;
-  picker: string; // open the dungeon quick-pick menu
+  picker: string; // open the location quick-pick menu
 }
 
 /** Where the HUD anchors: 4 corners + 4 edge-centers. */
@@ -62,6 +65,12 @@ export interface OverlaySettings {
   favorites: string[];
   /** App theme, mirrored so the HUD matches the main window. */
   theme: string;
+  /** Work out the current location from the game's own log file (read-only, local). */
+  detectFromLog: boolean;
+  /** Only show the HUD while the game is running (Windows). */
+  followGame: boolean;
+  /** Hide the HUD while another window is in front of the game (Windows, beta). */
+  hideWhenUnfocused: boolean;
   hotkeys: OverlayHotkeys;
   widgets: OverlayWidgets;
   dungeonCard: OverlayDungeonCard;
@@ -78,6 +87,8 @@ export interface OverlayState {
   picker: boolean;
   /** Transient: the latest live-sync change for the active character, shown for a few seconds. */
   toast: OverlayToast | null;
+  /** Is the game running / focused, and where is the player (log or manual pick). */
+  game: GameState;
 }
 
 export interface OverlayToast {
@@ -103,6 +114,9 @@ export const DEFAULT_OVERLAY_SETTINGS: OverlaySettings = {
   currentDungeon: '',
   favorites: [],
   theme: 'realm',
+  detectFromLog: true,
+  followGame: true,
+  hideWhenUnfocused: false,
   hotkeys: {
     toggle: 'CommandOrControl+Shift+O',
     peek: 'CommandOrControl+Shift+P',
@@ -117,6 +131,7 @@ export const DEFAULT_OVERLAY_SETTINGS: OverlaySettings = {
     locations: true,
     currentDungeon: true,
     liveToasts: true,
+    location: true,
   },
   dungeonCard: {
     strategy: true,
@@ -125,6 +140,7 @@ export const DEFAULT_OVERLAY_SETTINGS: OverlaySettings = {
     drops: true,
     classDropsOnly: true,
     keyItems: false,
+    bossLoot: true,
   },
 };
 
@@ -146,7 +162,7 @@ export function mergeOverlaySettings(base: OverlaySettings, patch: Partial<Overl
 export const HOTKEY_ACTIONS: { key: keyof OverlayHotkeys; label: string }[] = [
   { key: 'toggle', label: 'Show / hide overlay' },
   { key: 'peek', label: 'Peek (momentary)' },
-  { key: 'picker', label: 'Open dungeon quick-pick' },
+  { key: 'picker', label: 'Open location quick-pick' },
 ];
 
 /** One-click layouts for the HUD. */
@@ -158,7 +174,7 @@ export const OVERLAY_PRESETS: { id: string; label: string; hint: string; apply: 
     apply: {
       compact: true,
       maxGoals: 1,
-      widgets: { header: false, target: true, beacons: false, goals: true, setToFarm: false, locations: true, currentDungeon: false, liveToasts: true },
+      widgets: { header: false, target: true, beacons: false, goals: true, setToFarm: false, locations: true, currentDungeon: false, liveToasts: true, location: true },
     },
   },
   {
@@ -168,7 +184,7 @@ export const OVERLAY_PRESETS: { id: string; label: string; hint: string; apply: 
     apply: {
       compact: false,
       maxGoals: 3,
-      widgets: { header: true, target: true, beacons: false, goals: true, setToFarm: false, locations: true, currentDungeon: true, liveToasts: true },
+      widgets: { header: true, target: true, beacons: false, goals: true, setToFarm: false, locations: true, currentDungeon: true, liveToasts: true, location: true },
     },
   },
   {
@@ -178,8 +194,18 @@ export const OVERLAY_PRESETS: { id: string; label: string; hint: string; apply: 
     apply: {
       compact: false,
       maxGoals: 5,
-      widgets: { header: true, target: true, beacons: true, goals: true, setToFarm: true, locations: true, currentDungeon: true, liveToasts: true },
-      dungeonCard: { strategy: true, pots: true, exalt: true, drops: true, classDropsOnly: true, keyItems: true },
+      widgets: { header: true, target: true, beacons: true, goals: true, setToFarm: true, locations: true, currentDungeon: true, liveToasts: true, location: true },
+      dungeonCard: { strategy: true, pots: true, exalt: true, drops: true, classDropsOnly: true, keyItems: true, bossLoot: true },
     },
   },
 ];
+
+/** Initial overlay state (before the main process has pushed anything). */
+export const EMPTY_OVERLAY_STATE: OverlayState = {
+  settings: DEFAULT_OVERLAY_SETTINGS,
+  character: null,
+  peek: false,
+  picker: false,
+  toast: null,
+  game: EMPTY_GAME_STATE,
+};

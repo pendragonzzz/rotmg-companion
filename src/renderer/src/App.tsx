@@ -21,6 +21,7 @@ import { OverlayPage } from './components/OverlayPage';
 import { SettingsPage } from './components/SettingsPage';
 import { NeedCharacter } from './components/NeedCharacter';
 import { LiveBadge, Toasts } from './components/Live';
+import { CommandPalette } from './components/CommandPalette';
 import { Notices } from './components/Notices';
 import type { DataStatus } from '../../shared/gameDataBundle';
 import type { CleanupReport } from '../../main/cleanupRules';
@@ -50,6 +51,7 @@ export function App() {
   const [phase, setPhase] = useState<Phase>({ kind: 'idle' });
   const [activeKey, setActiveKey] = useState('');
   const [page, setPage] = useState<PageId>(prefs.startPage === 'last' ? prefs.lastPage : prefs.startPage);
+  const [palette, setPalette] = useState(false);
   const [setsClass, setSetsClass] = useState<string | undefined>();
   const [dungeonId, setDungeonId] = useState('');
   const [live, setLive] = useState<LiveState | null>(null);
@@ -179,11 +181,14 @@ export function App() {
     [],
   );
 
-  // Keyboard: Ctrl+1…9 pages · "/" or Ctrl+L search · F5 refresh the profile.
+  // Keyboard: Ctrl+K search everything · Ctrl+1…9 pages · "/" or Ctrl+L player search · F5 refresh.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const typing = e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement;
-      if ((e.ctrlKey || e.metaKey) && !e.shiftKey && /^[1-9]$/.test(e.key)) {
+      if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setPalette((o) => !o);
+      } else if ((e.ctrlKey || e.metaKey) && !e.shiftKey && /^[1-9]$/.test(e.key)) {
         const p = PAGES[Number(e.key) - 1];
         if (p) {
           e.preventDefault();
@@ -326,6 +331,9 @@ export function App() {
               </button>
             </>
           )}
+          <button className="btn btn-icon cmdk-open" onClick={() => setPalette(true)} title="Search everything (Ctrl+K)">
+            <Icon name="command" size={15} />
+          </button>
           <CharacterSwitcher characters={characters} active={active} onSelect={selectCharacter} />
         </header>
 
@@ -346,6 +354,16 @@ export function App() {
         </main>
       </div>
       <Toasts toasts={toasts} onDismiss={(id) => setToasts((t) => t.filter((x) => x.id !== id))} />
+      {palette && (
+        <CommandPalette
+          onClose={() => setPalette(false)}
+          characters={characters}
+          onSelectCharacter={selectCharacter}
+          nav={nav}
+          setTheme={(theme) => setPrefs({ theme })}
+          hasProfile={!!profile}
+        />
+      )}
       <Notices
         data={dataStatus}
         cleanup={cleanup}

@@ -3,24 +3,29 @@ import type { Character } from '../../../shared/types';
 import { buildGoals, goalDungeonIds } from '../../../shared/engine';
 import { verdictMap, type SourceStatus } from '../../../shared/planner';
 import type { OverlaySettings } from '../../../shared/overlay';
-import { classMax, dungeonById, dungeons, exaltation, goalCtx, plannerData } from '../gameData';
+import type { Location } from '../../../shared/location';
+import { classMax, dungeonById, dungeons, exaltation, goalCtx, placeIndex, plannerData } from '../gameData';
 import { STAT_LABEL } from '../labels';
-import { Icon } from './Icon';
+import { Icon, type IconName } from './Icon';
 
-/** Sentinel row id that clears the current dungeon. */
+/** Sentinel row id that clears the current location. */
 const CLEAR = '__clear__';
+const PLACE_ICON: Record<string, IconName> = { nexus: 'portal', realm: 'map', vault: 'chest', hub: 'pin' };
 
 /**
- * Command-palette dungeon chooser over the game: search, ★ favorites, an auto
- * "For your goals" group, and full keyboard control (↑/↓, Enter, Esc).
+ * Command-palette location chooser over the game: Nexus / Realm / Vault / hubs, then
+ * dungeons with ★ favorites and an auto "For your goals" group; full keyboard control
+ * (↑/↓, Enter, Esc). Each pick also teaches the log-based detection what to look for.
  */
 export function DungeonPicker({
   settings,
   character,
+  location = null,
   onClose,
 }: {
   settings: OverlaySettings;
   character: Character | null;
+  location?: Location | null;
   onClose: () => void;
 }) {
   const [q, setQ] = useState('');
@@ -38,20 +43,33 @@ export function DungeonPicker({
   const favSet = useMemo(() => new Set(settings.favorites), [settings.favorites]);
   const goalSet = useMemo(() => new Set(goalIds), [goalIds]);
 
+  const places = useMemo(() => placeIndex.places.filter((p) => p.kind !== 'dungeon'), []);
+  const currentId = location?.placeId ?? settings.currentDungeon;
+
   const groups = useMemo(() => {
     const ql = q.trim().toLowerCase();
     if (ql) {
-      return [{ label: null, ids: dungeons.filter((d) => d.name.toLowerCase().includes(ql)).map((d) => d.id) }];
+      const hit = (names: string[]) => names.some((n) => n.toLowerCase().includes(ql));
+      return [
+        {
+          label: null,
+          ids: [
+            ...places.filter((p) => hit(p.names)).map((p) => p.id),
+            ...placeIndex.places.filter((p) => p.kind === 'dungeon' && hit(p.names)).map((p) => p.id),
+          ],
+        },
+      ];
     }
     const favOnly = settings.favorites.filter((f) => !goalSet.has(f) && dungeonById.has(f));
     const rest = dungeons.filter((d) => !goalSet.has(d.id) && !favSet.has(d.id)).map((d) => d.id);
     return [
-      ...(settings.currentDungeon ? [{ label: null, ids: [CLEAR] }] : []),
+      ...(currentId ? [{ label: null, ids: [CLEAR] }] : []),
+      { label: 'Places', ids: places.map((p) => p.id) },
       { label: 'For your goals', ids: goalIds },
       { label: 'Favorites', ids: favOnly },
       { label: 'All dungeons', ids: rest },
     ].filter((g) => g.ids.length);
-  }, [q, goalIds, goalSet, favSet, settings.favorites, settings.currentDungeon]);
+  }, [q, places, goalIds, goalSet, favSet, settings.favorites, currentId]);
 
   const flat = useMemo(() => groups.flatMap((g) => g.ids), [groups]);
   useEffect(() => setCursor(0), [q]);
@@ -61,7 +79,7 @@ export function DungeonPicker({
   }, [cursor]);
 
   const pick = (id: string) => {
-    window.api.overlay.setSettings({ currentDungeon: id === CLEAR ? '' : id }).catch(() => {});
+    window.api.overlay.setLocation(id === CLEAR ? null : id).catch(() => {});
     onClose();
   };
   const toggleFav = (id: string, e: MouseEvent) => {
@@ -90,7 +108,7 @@ export function DungeonPicker({
             value={q}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={onKey}
-            placeholder="Search dungeons…"
+            placeholder="Where are you? Nexus, Realm, a dungeon…"
             spellCheck={false}
           />
           <span className="ov-picker-keys">
@@ -107,7 +125,22 @@ export function DungeonPicker({
                   return (
                     <button key={id} className={`ov-picker-row clear ${isCursor ? 'cursor' : ''}`} onClick={() => pick(id)}>
                       <Icon name="trash" size={13} />
-                      <span className="ov-picker-name">Clear current dungeon</span>
+                      <span className="ov-picker-name">Clear location</span>
+                    </button>
+                  );
+                }
+                const place = placeIndex.byId.get(id);
+                if (place && place.kind !== 'dungeon') {
+                  return (
+                    <button
+                      key={id}
+                      className={`ov-picker-row place ${currentId === id ? 'current' : ''} ${isCursor ? 'cursor' : ''}`}
+                      onClick={() => pick(id)}
+                      onMouseEnter={() => setCursor(flat.indexOf(id))}
+                    >
+                      <Icon name={PLACE_ICON[place.kind] ?? 'pin'} size={13} />
+                      <span className="ov-picker-name">{place.name}</span>
+                      <span className="set-badge">{place.kind}</span>
                     </button>
                   );
                 }
@@ -119,7 +152,7 @@ export function DungeonPicker({
                 return (
                   <button
                     key={id}
-                    className={`ov-picker-row ${settings.currentDungeon === id ? 'current' : ''} ${isCursor ? 'cursor' : ''}`}
+                    className={`ov-picker-row ${currentId === id ? 'current' : ''} ${isCursor ? 'cursor' : ''}`}
                     onClick={() => pick(id)}
                     onMouseEnter={() => setCursor(flat.indexOf(id))}
                   >

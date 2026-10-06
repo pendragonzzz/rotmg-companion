@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "revision": 3,
+  "revision": 4,
   "updated": "2026-10-06",
   "files": [
     "dungeons.json",
@@ -12,6 +12,7 @@
     "exaltation.json",
     "sets.json",
     "meta.json",
-    "pets.json"
+    "pets.json",
+    "locations.json"
   ]
 }

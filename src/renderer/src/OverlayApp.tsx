@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react';
 import { OverlayHud } from './components/OverlayHud';
 import { DungeonPicker } from './components/DungeonPicker';
-import { DEFAULT_OVERLAY_SETTINGS, type OverlayState } from '../../shared/overlay';
+import { EMPTY_OVERLAY_STATE, type OverlayState } from '../../shared/overlay';
 
 /** Root rendered in the transparent, click-through overlay window. */
 export function OverlayApp() {
-  const [state, setState] = useState<OverlayState>({
-    settings: DEFAULT_OVERLAY_SETTINGS,
-    character: null,
-    peek: false,
-    picker: false,
-    toast: null,
-  });
+  const [state, setState] = useState<OverlayState>(EMPTY_OVERLAY_STATE);
 
   useEffect(() => {
     window.api.overlay.getState().then(setState).catch(() => {});
@@ -30,13 +24,14 @@ export function OverlayApp() {
     <>
       {visible && (
         <div className={`ov-root corner-${state.settings.corner}`}>
-          <OverlayHud character={state.character} settings={state.settings} toast={state.toast} />
+          <OverlayHud character={state.character} settings={state.settings} toast={state.toast} location={state.game.location} />
         </div>
       )}
       {state.picker && (
         <DungeonPicker
           settings={state.settings}
           character={state.character}
+          location={state.game.location}
           onClose={() => window.api.overlay.setPicker(false).catch(() => {})}
         />
       )}

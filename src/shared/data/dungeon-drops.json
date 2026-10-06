@@ -376,40 +376,10 @@
             "name": "Wine Cellar Incantation",
             "kind": "key"
           }
-        ]
-      },
-      {
-        "name": "Snakepit Guard",
-        "loot": [
-          {
-            "slug": "snake-charmer-pungi",
-            "name": "Snake Charmer Pungi",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "snake-eye-ring",
-            "name": "Snake Eye Ring",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "wand-of-the-bulwark",
-            "name": "Wand of the Bulwark",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "potion-of-speed",
-            "name": "Potion of Speed",
-            "kind": "potion",
-            "stat": "spd"
-          },
-          {
-            "slug": "wine-cellar-incantation",
-            "name": "Wine Cellar Incantation",
-            "kind": "key"
-          }
+        ],
+        "sharedBy": [
+          "Stheno the Snake Queen",
+          "Snakepit Guard"
         ]
       }
     ]
@@ -1068,28 +1038,11 @@
             "kind": "gear",
             "tier": "UT"
           }
-        ]
-      },
-      {
-        "name": "Native Nature Sprite",
-        "loot": [
-          {
-            "slug": "sprite-wand",
-            "name": "Sprite Wand",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Greater Sprites",
-        "loot": [
-          {
-            "slug": "sprite-wand",
-            "name": "Sprite Wand",
-            "kind": "gear",
-            "tier": "UT"
-          }
+        ],
+        "sharedBy": [
+          "Native Magic Sprite",
+          "Native Nature Sprite",
+          "Greater Sprites"
         ]
       },
       {
@@ -1368,23 +1321,10 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Sand Elemental",
-        "loot": [
-          {
-            "slug": "aquamarine-amulet",
-            "name": "Aquamarine Amulet",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "ornate-armor",
-            "name": "Ornate Armor",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Ancient Monolith",
+          "Sand Elemental"
         ]
       }
     ]
@@ -2363,121 +2303,14 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Lil Feratu",
-        "loot": [
-          {
-            "slug": "bone-dagger",
-            "name": "Bone Dagger",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "hallowed-hide",
-            "name": "Hallowed Hide",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "ruthven-s-rosary",
-            "name": "Ruthven's Rosary",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Helmet Head",
-        "loot": [
-          {
-            "slug": "bone-dagger",
-            "name": "Bone Dagger",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "hallowed-hide",
-            "name": "Hallowed Hide",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "ruthven-s-rosary",
-            "name": "Ruthven's Rosary",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Armor Guard",
-        "loot": [
-          {
-            "slug": "bone-dagger",
-            "name": "Bone Dagger",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "hallowed-hide",
-            "name": "Hallowed Hide",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "ruthven-s-rosary",
-            "name": "Ruthven's Rosary",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Hellhound",
-        "loot": [
-          {
-            "slug": "bone-dagger",
-            "name": "Bone Dagger",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "hallowed-hide",
-            "name": "Hallowed Hide",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "ruthven-s-rosary",
-            "name": "Ruthven's Rosary",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Nosferatu",
-        "loot": [
-          {
-            "slug": "bone-dagger",
-            "name": "Bone Dagger",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "hallowed-hide",
-            "name": "Hallowed Hide",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "ruthven-s-rosary",
-            "name": "Ruthven's Rosary",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Lesser Bald Vampire",
+          "Lil Feratu",
+          "Helmet Head",
+          "Armor Guard",
+          "Hellhound",
+          "Nosferatu"
         ]
       }
     ]
@@ -2753,40 +2586,11 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Goblin Knight",
-        "loot": [
-          {
-            "slug": "acidic-armor",
-            "name": "Acidic Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "pernicious-peridot",
-            "name": "Pernicious Peridot",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Goblin Warlock",
-        "loot": [
-          {
-            "slug": "acidic-armor",
-            "name": "Acidic Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "pernicious-peridot",
-            "name": "Pernicious Peridot",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Sewer Alligator",
+          "Goblin Knight",
+          "Goblin Warlock"
         ]
       }
     ]
@@ -3087,50 +2891,13 @@
             "kind": "gear",
             "tier": "UT"
           }
-        ]
-      },
-      {
-        "name": "Eye of the Edified",
-        "loot": [
-          {
-            "slug": "ronin-s-wakizashi",
-            "name": "Ronin's Wakizashi",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Hand of the Helpless",
-        "loot": [
-          {
-            "slug": "ronin-s-wakizashi",
-            "name": "Ronin's Wakizashi",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Headless Specter",
-        "loot": [
-          {
-            "slug": "ronin-s-wakizashi",
-            "name": "Ronin's Wakizashi",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Lips of the Lost",
-        "loot": [
-          {
-            "slug": "ronin-s-wakizashi",
-            "name": "Ronin's Wakizashi",
-            "kind": "gear",
-            "tier": "UT"
-          }
+        ],
+        "sharedBy": [
+          "Deholder",
+          "Eye of the Edified",
+          "Hand of the Helpless",
+          "Headless Specter",
+          "Lips of the Lost"
         ]
       },
       {
@@ -3426,23 +3193,10 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Escaped Experiment",
-        "loot": [
-          {
-            "slug": "garment-of-the-beast",
-            "name": "Garment of the Beast",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "horrific-claws",
-            "name": "Horrific Claws",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Crusher Abomination",
+          "Escaped Experiment"
         ]
       }
     ]
@@ -4702,57 +4456,12 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Lizicle",
-        "loot": [
-          {
-            "slug": "chainmail-body-armor",
-            "name": "Chainmail Body Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "gjallarhorn",
-            "name": "Gjallarhorn",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Snow Bat Mama",
-        "loot": [
-          {
-            "slug": "chainmail-body-armor",
-            "name": "Chainmail Body Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "gjallarhorn",
-            "name": "Gjallarhorn",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Big Yeti",
-        "loot": [
-          {
-            "slug": "chainmail-body-armor",
-            "name": "Chainmail Body Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "gjallarhorn",
-            "name": "Gjallarhorn",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Iceion",
+          "Lizicle",
+          "Snow Bat Mama",
+          "Big Yeti"
         ]
       }
     ]
@@ -5278,17 +4987,10 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Worshipping Priestess",
-        "loot": [
-          {
-            "slug": "geb-s-ring-of-wisdom",
-            "name": "Geb's Ring of Wisdom",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Worshipping Priest",
+          "Worshipping Priestess"
         ]
       }
     ]
@@ -5662,57 +5364,12 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Giant Squid",
-        "loot": [
-          {
-            "slug": "imperial-keepsake",
-            "name": "Imperial Keepsake",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "oceanic-apparel",
-            "name": "Oceanic Apparel",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Sea Mare",
-        "loot": [
-          {
-            "slug": "imperial-keepsake",
-            "name": "Imperial Keepsake",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "oceanic-apparel",
-            "name": "Oceanic Apparel",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Sea Slurp Home",
-        "loot": [
-          {
-            "slug": "imperial-keepsake",
-            "name": "Imperial Keepsake",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "oceanic-apparel",
-            "name": "Oceanic Apparel",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Fishman Warrior",
+          "Giant Squid",
+          "Sea Mare",
+          "Sea Slurp Home"
         ]
       },
       {
@@ -6941,28 +6598,11 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Deadwater Captain",
-        "loot": [
-          {
-            "slug": "first-mate-s-hook",
-            "name": "First Mate's Hook",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Deadwater Lieutenant",
-        "loot": [
-          {
-            "slug": "first-mate-s-hook",
-            "name": "First Mate's Hook",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Deadwater Admiral",
+          "Deadwater Captain",
+          "Deadwater Lieutenant"
         ]
       }
     ]
@@ -7196,39 +6836,12 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Trickster Puppet",
-        "loot": [
-          {
-            "slug": "performer-s-hat",
-            "name": "Performer's Hat",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Puppet of Pain",
-        "loot": [
-          {
-            "slug": "performer-s-hat",
-            "name": "Performer's Hat",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Puppet of Chaos",
-        "loot": [
-          {
-            "slug": "performer-s-hat",
-            "name": "Performer's Hat",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Huntress Puppet",
+          "Trickster Puppet",
+          "Puppet of Pain",
+          "Puppet of Chaos"
         ]
       }
     ]
@@ -7940,50 +7553,13 @@
             "kind": "gear",
             "tier": "UT"
           }
-        ]
-      },
-      {
-        "name": "Thorned Drake",
-        "loot": [
-          {
-            "slug": "sulfuric-stone",
-            "name": "Sulfuric Stone",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Thorned Drake Baby",
-        "loot": [
-          {
-            "slug": "sulfuric-stone",
-            "name": "Sulfuric Stone",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Wetlands Chomper",
-        "loot": [
-          {
-            "slug": "sulfuric-stone",
-            "name": "Sulfuric Stone",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Sulfuric Centipede",
-        "loot": [
-          {
-            "slug": "sulfuric-stone",
-            "name": "Sulfuric Stone",
-            "kind": "gear",
-            "tier": "UT"
-          }
+        ],
+        "sharedBy": [
+          "Thorned Ravager",
+          "Thorned Drake",
+          "Thorned Drake Baby",
+          "Wetlands Chomper",
+          "Sulfuric Centipede"
         ]
       },
       {
@@ -8258,40 +7834,11 @@
             "kind": "potion",
             "stat": "att"
           }
-        ]
-      },
-      {
-        "name": "Pterasite Colony",
-        "loot": [
-          {
-            "slug": "hivemind-circlet",
-            "name": "Hivemind Circlet",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "potion-of-attack",
-            "name": "Potion of Attack",
-            "kind": "potion",
-            "stat": "att"
-          }
-        ]
-      },
-      {
-        "name": "Swarm Colony",
-        "loot": [
-          {
-            "slug": "hivemind-circlet",
-            "name": "Hivemind Circlet",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "potion-of-attack",
-            "name": "Potion of Attack",
-            "kind": "potion",
-            "stat": "att"
-          }
+        ],
+        "sharedBy": [
+          "Blob Colony",
+          "Pterasite Colony",
+          "Swarm Colony"
         ]
       }
     ]
@@ -8573,40 +8120,11 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Demon Tribesman",
-        "loot": [
-          {
-            "slug": "tlatoani-s-shroud",
-            "name": "Tlatoani's Shroud",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "heavenly-magatama",
-            "name": "",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Bird Tribesman",
-        "loot": [
-          {
-            "slug": "tlatoani-s-shroud",
-            "name": "Tlatoani's Shroud",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "heavenly-magatama",
-            "name": "",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Insect Tribesman",
+          "Demon Tribesman",
+          "Bird Tribesman"
         ]
       }
     ]
@@ -9133,90 +8651,13 @@
             "name": "Greater Magic Potion",
             "kind": "other"
           }
-        ]
-      },
-      {
-        "name": "Kogbold Battlesmith",
-        "loot": [
-          {
-            "slug": "overclocking-amulet",
-            "name": "Overclocking Amulet",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "greater-health-potion",
-            "name": "Greater Health Potion",
-            "kind": "other"
-          },
-          {
-            "slug": "greater-magic-potion",
-            "name": "Greater Magic Potion",
-            "kind": "other"
-          }
-        ]
-      },
-      {
-        "name": "Kogbold Overseer",
-        "loot": [
-          {
-            "slug": "overclocking-amulet",
-            "name": "Overclocking Amulet",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "greater-health-potion",
-            "name": "Greater Health Potion",
-            "kind": "other"
-          },
-          {
-            "slug": "greater-magic-potion",
-            "name": "Greater Magic Potion",
-            "kind": "other"
-          }
-        ]
-      },
-      {
-        "name": "Kogbold Steamwalker",
-        "loot": [
-          {
-            "slug": "overclocking-amulet",
-            "name": "Overclocking Amulet",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "greater-health-potion",
-            "name": "Greater Health Potion",
-            "kind": "other"
-          },
-          {
-            "slug": "greater-magic-potion",
-            "name": "Greater Magic Potion",
-            "kind": "other"
-          }
-        ]
-      },
-      {
-        "name": "Steam Serpent",
-        "loot": [
-          {
-            "slug": "overclocking-amulet",
-            "name": "Overclocking Amulet",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "greater-health-potion",
-            "name": "Greater Health Potion",
-            "kind": "other"
-          },
-          {
-            "slug": "greater-magic-potion",
-            "name": "Greater Magic Potion",
-            "kind": "other"
-          }
+        ],
+        "sharedBy": [
+          "Kogbold Worker",
+          "Kogbold Battlesmith",
+          "Kogbold Overseer",
+          "Kogbold Steamwalker",
+          "Steam Serpent"
         ]
       }
     ]
@@ -9721,57 +9162,12 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Lizicle",
-        "loot": [
-          {
-            "slug": "chainmail-body-armor",
-            "name": "Chainmail Body Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "gjallarhorn",
-            "name": "Gjallarhorn",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Snow Bat",
-        "loot": [
-          {
-            "slug": "chainmail-body-armor",
-            "name": "Chainmail Body Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "gjallarhorn",
-            "name": "Gjallarhorn",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Yeti",
-        "loot": [
-          {
-            "slug": "chainmail-body-armor",
-            "name": "Chainmail Body Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "gjallarhorn",
-            "name": "Gjallarhorn",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Iceion",
+          "Lizicle",
+          "Snow Bat",
+          "Yeti"
         ]
       }
     ]
@@ -10732,40 +10128,11 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Stone Paladin",
-        "loot": [
-          {
-            "slug": "royal-guard-s-cuirass",
-            "name": "Royal Guard's Cuirass",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "vortex-plating",
-            "name": "Vortex Plating",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Stone Warrior",
-        "loot": [
-          {
-            "slug": "royal-guard-s-cuirass",
-            "name": "Royal Guard's Cuirass",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "vortex-plating",
-            "name": "Vortex Plating",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Stone Knight",
+          "Stone Paladin",
+          "Stone Warrior"
         ]
       },
       {
@@ -10873,28 +10240,11 @@
             "kind": "gear",
             "tier": "UT"
           }
-        ]
-      },
-      {
-        "name": "Hollow Smith",
-        "loot": [
-          {
-            "slug": "royal-guard-s-cuirass",
-            "name": "Royal Guard's Cuirass",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Royal Chamberlain",
-        "loot": [
-          {
-            "slug": "royal-guard-s-cuirass",
-            "name": "Royal Guard's Cuirass",
-            "kind": "gear",
-            "tier": "UT"
-          }
+        ],
+        "sharedBy": [
+          "Hollow Mason",
+          "Hollow Smith",
+          "Royal Chamberlain"
         ]
       },
       {
@@ -10906,94 +10256,17 @@
             "kind": "gear",
             "tier": "UT"
           }
-        ]
-      },
-      {
-        "name": "Hollow Tracker",
-        "loot": [
-          {
-            "slug": "vest-of-abandoned-shadows",
-            "name": "Vest of Abandoned Shadows",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Hollow Peasant",
-        "loot": [
-          {
-            "slug": "vest-of-abandoned-shadows",
-            "name": "Vest of Abandoned Shadows",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Hollow Serf",
-        "loot": [
-          {
-            "slug": "vest-of-abandoned-shadows",
-            "name": "Vest of Abandoned Shadows",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Hollow Trader",
-        "loot": [
-          {
-            "slug": "vest-of-abandoned-shadows",
-            "name": "Vest of Abandoned Shadows",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Hollow Importer",
-        "loot": [
-          {
-            "slug": "vest-of-abandoned-shadows",
-            "name": "Vest of Abandoned Shadows",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Hollow Outlaw",
-        "loot": [
-          {
-            "slug": "vest-of-abandoned-shadows",
-            "name": "Vest of Abandoned Shadows",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Hollow Brigand",
-        "loot": [
-          {
-            "slug": "vest-of-abandoned-shadows",
-            "name": "Vest of Abandoned Shadows",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Royal Jester",
-        "loot": [
-          {
-            "slug": "vest-of-abandoned-shadows",
-            "name": "Vest of Abandoned Shadows",
-            "kind": "gear",
-            "tier": "UT"
-          }
+        ],
+        "sharedBy": [
+          "Hollow Huntsman",
+          "Hollow Tracker",
+          "Hollow Peasant",
+          "Hollow Serf",
+          "Hollow Trader",
+          "Hollow Importer",
+          "Hollow Outlaw",
+          "Hollow Brigand",
+          "Royal Jester"
         ]
       },
       {
@@ -11005,50 +10278,13 @@
             "kind": "gear",
             "tier": "UT"
           }
-        ]
-      },
-      {
-        "name": "Hollow Oracle",
-        "loot": [
-          {
-            "slug": "mantle-of-the-monarchy",
-            "name": "Mantle of the Monarchy",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Royal Magistrate",
-        "loot": [
-          {
-            "slug": "mantle-of-the-monarchy",
-            "name": "Mantle of the Monarchy",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Royal Steward",
-        "loot": [
-          {
-            "slug": "mantle-of-the-monarchy",
-            "name": "Mantle of the Monarchy",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Royal Herald",
-        "loot": [
-          {
-            "slug": "mantle-of-the-monarchy",
-            "name": "Mantle of the Monarchy",
-            "kind": "gear",
-            "tier": "UT"
-          }
+        ],
+        "sharedBy": [
+          "Hollow Gypsy",
+          "Hollow Oracle",
+          "Royal Magistrate",
+          "Royal Steward",
+          "Royal Herald"
         ]
       },
       {
@@ -11520,33 +10756,16 @@
         ]
       },
       {
-        "name": "Adolescent Blue Beehemoth",
+        "name": "Adolescent Beehemoth",
+        "variants": [
+          "Adolescent Blue Beehemoth",
+          "Adolescent Red Beehemoth",
+          "Adolescent Yellow Beehemoth"
+        ],
         "loot": [
           {
             "slug": "blue-beehemoth-armor",
-            "name": "Blue Beehemoth Armor",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Adolescent Red Beehemoth",
-        "loot": [
-          {
-            "slug": "red-beehemoth-armor",
-            "name": "Red Beehemoth Armor",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Adolescent Yellow Beehemoth",
-        "loot": [
-          {
-            "slug": "yellow-beehemoth-armor",
-            "name": "Yellow Beehemoth Armor",
+            "name": "Blue/Red/Yellow Beehemoth Armor",
             "kind": "gear",
             "tier": "UT"
           }
@@ -11919,74 +11138,13 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Crystallised Crawler",
-        "loot": [
-          {
-            "slug": "luminous-armor",
-            "name": "Luminous Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "radiant-heart",
-            "name": "Radiant Heart",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Crystallised Shrieker",
-        "loot": [
-          {
-            "slug": "luminous-armor",
-            "name": "Luminous Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "radiant-heart",
-            "name": "Radiant Heart",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Crystallised Charger",
-        "loot": [
-          {
-            "slug": "luminous-armor",
-            "name": "Luminous Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "radiant-heart",
-            "name": "Radiant Heart",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Crystallised Watcher",
-        "loot": [
-          {
-            "slug": "luminous-armor",
-            "name": "Luminous Armor",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "radiant-heart",
-            "name": "Radiant Heart",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Crystallised Boomer",
+          "Crystallised Crawler",
+          "Crystallised Shrieker",
+          "Crystallised Charger",
+          "Crystallised Watcher"
         ]
       },
       {
@@ -11998,50 +11156,13 @@
             "kind": "gear",
             "tier": "UT"
           }
-        ]
-      },
-      {
-        "name": "Crystallised Lizard",
-        "loot": [
-          {
-            "slug": "irradiance-sheath",
-            "name": "Irradiance Sheath",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Crystallised Fish",
-        "loot": [
-          {
-            "slug": "irradiance-sheath",
-            "name": "Irradiance Sheath",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Crystallised Scorpion",
-        "loot": [
-          {
-            "slug": "irradiance-sheath",
-            "name": "Irradiance Sheath",
-            "kind": "gear",
-            "tier": "UT"
-          }
-        ]
-      },
-      {
-        "name": "Crystallised Monstrosity",
-        "loot": [
-          {
-            "slug": "irradiance-sheath",
-            "name": "Irradiance Sheath",
-            "kind": "gear",
-            "tier": "UT"
-          }
+        ],
+        "sharedBy": [
+          "Crystallised Cyclops",
+          "Crystallised Lizard",
+          "Crystallised Fish",
+          "Crystallised Scorpion",
+          "Crystallised Monstrosity"
         ]
       }
     ]
@@ -12807,144 +11928,11 @@
             "name": "The Princess and the Fox: Page 1-6",
             "kind": "other"
           }
-        ]
-      },
-      {
-        "name": "Drummer Kaguya",
-        "loot": [
-          {
-            "slug": "elegant-parasol",
-            "name": "Elegant Parasol",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "ethereal-happi",
-            "name": "Ethereal Happi",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "flowering-kimono",
-            "name": "Flowering Kimono",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "rain-maker",
-            "name": "Rain Maker",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "sage-s-wakibiki",
-            "name": "Sage's Wakibiki",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "taiko-drums",
-            "name": "Taiko Drums",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "greater-potion-of-life",
-            "name": "Greater Potion of Life",
-            "kind": "greater",
-            "stat": "hp"
-          },
-          {
-            "slug": "greater-potion-of-vitality",
-            "name": "Greater Potion of Vitality",
-            "kind": "greater",
-            "stat": "vit"
-          },
-          {
-            "slug": "greater-potion-of-wisdom",
-            "name": "Greater Potion of Wisdom",
-            "kind": "greater",
-            "stat": "wis"
-          },
-          {
-            "slug": "onmyoji-ninja-set-shard",
-            "name": "",
-            "kind": "other"
-          },
-          {
-            "slug": "the-princess-and-the-fox",
-            "name": "The Princess and the Fox: Page 1-6",
-            "kind": "other"
-          }
-        ]
-      },
-      {
-        "name": "Dancer Miko",
-        "loot": [
-          {
-            "slug": "elegant-parasol",
-            "name": "Elegant Parasol",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "ethereal-happi",
-            "name": "Ethereal Happi",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "flowering-kimono",
-            "name": "Flowering Kimono",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "rain-maker",
-            "name": "Rain Maker",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "sage-s-wakibiki",
-            "name": "Sage's Wakibiki",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "taiko-drums",
-            "name": "Taiko Drums",
-            "kind": "gear",
-            "tier": "UT"
-          },
-          {
-            "slug": "greater-potion-of-life",
-            "name": "Greater Potion of Life",
-            "kind": "greater",
-            "stat": "hp"
-          },
-          {
-            "slug": "greater-potion-of-vitality",
-            "name": "Greater Potion of Vitality",
-            "kind": "greater",
-            "stat": "vit"
-          },
-          {
-            "slug": "greater-potion-of-wisdom",
-            "name": "Greater Potion of Wisdom",
-            "kind": "greater",
-            "stat": "wis"
-          },
-          {
-            "slug": "onmyoji-ninja-set-shard",
-            "name": "",
-            "kind": "other"
-          },
-          {
-            "slug": "the-princess-and-the-fox",
-            "name": "The Princess and the Fox: Page 1-6",
-            "kind": "other"
-          }
+        ],
+        "sharedBy": [
+          "Sage Genji",
+          "Drummer Kaguya",
+          "Dancer Miko"
         ]
       },
       {
@@ -13393,28 +12381,11 @@
             "kind": "gear",
             "tier": "ST"
           }
-        ]
-      },
-      {
-        "name": "Golem of Fear",
-        "loot": [
-          {
-            "slug": "rusty-cuffs",
-            "name": "Rusty Cuffs",
-            "kind": "gear",
-            "tier": "ST"
-          }
-        ]
-      },
-      {
-        "name": "Golem of Sorrow",
-        "loot": [
-          {
-            "slug": "rusty-cuffs",
-            "name": "Rusty Cuffs",
-            "kind": "gear",
-            "tier": "ST"
-          }
+        ],
+        "sharedBy": [
+          "Golem of Anger",
+          "Golem of Fear",
+          "Golem of Sorrow"
         ]
       }
     ]
@@ -14538,58 +13509,11 @@
             "name": "Wines",
             "kind": "other"
           }
-        ]
-      },
-      {
-        "name": "Oryx Minister",
-        "loot": [
-          {
-            "slug": "harmonious-harp",
-            "name": "Harmonious Harp",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "tincture-of-courage",
-            "name": "Tincture of Courage",
-            "kind": "other"
-          },
-          {
-            "slug": "tincture-of-fear",
-            "name": "Tincture of Fear",
-            "kind": "other"
-          },
-          {
-            "slug": "wines",
-            "name": "Wines",
-            "kind": "other"
-          }
-        ]
-      },
-      {
-        "name": "Oryx Judge",
-        "loot": [
-          {
-            "slug": "harmonious-harp",
-            "name": "Harmonious Harp",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "tincture-of-courage",
-            "name": "Tincture of Courage",
-            "kind": "other"
-          },
-          {
-            "slug": "tincture-of-fear",
-            "name": "Tincture of Fear",
-            "kind": "other"
-          },
-          {
-            "slug": "wines",
-            "name": "Wines",
-            "kind": "other"
-          }
+        ],
+        "sharedBy": [
+          "Oryx Ambassador",
+          "Oryx Minister",
+          "Oryx Judge"
         ]
       },
       {
@@ -14616,58 +13540,11 @@
             "name": "Wines",
             "kind": "other"
           }
-        ]
-      },
-      {
-        "name": "Oryx Aristocrat",
-        "loot": [
-          {
-            "slug": "heavenly-halo",
-            "name": "Heavenly Halo",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "tincture-of-courage",
-            "name": "Tincture of Courage",
-            "kind": "other"
-          },
-          {
-            "slug": "tincture-of-fear",
-            "name": "Tincture of Fear",
-            "kind": "other"
-          },
-          {
-            "slug": "wines",
-            "name": "Wines",
-            "kind": "other"
-          }
-        ]
-      },
-      {
-        "name": "Oryx Patrician",
-        "loot": [
-          {
-            "slug": "heavenly-halo",
-            "name": "Heavenly Halo",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "tincture-of-courage",
-            "name": "Tincture of Courage",
-            "kind": "other"
-          },
-          {
-            "slug": "tincture-of-fear",
-            "name": "Tincture of Fear",
-            "kind": "other"
-          },
-          {
-            "slug": "wines",
-            "name": "Wines",
-            "kind": "other"
-          }
+        ],
+        "sharedBy": [
+          "Oryx Noble",
+          "Oryx Aristocrat",
+          "Oryx Patrician"
         ]
       },
       {
@@ -14694,58 +13571,11 @@
             "name": "Wines",
             "kind": "other"
           }
-        ]
-      },
-      {
-        "name": "Oryx Cleric",
-        "loot": [
-          {
-            "slug": "wings-of-sanctity",
-            "name": "Wings of Sanctity",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "tincture-of-courage",
-            "name": "Tincture of Courage",
-            "kind": "other"
-          },
-          {
-            "slug": "tincture-of-fear",
-            "name": "Tincture of Fear",
-            "kind": "other"
-          },
-          {
-            "slug": "wines",
-            "name": "Wines",
-            "kind": "other"
-          }
-        ]
-      },
-      {
-        "name": "Oryx Cardinal",
-        "loot": [
-          {
-            "slug": "wings-of-sanctity",
-            "name": "Wings of Sanctity",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "tincture-of-courage",
-            "name": "Tincture of Courage",
-            "kind": "other"
-          },
-          {
-            "slug": "tincture-of-fear",
-            "name": "Tincture of Fear",
-            "kind": "other"
-          },
-          {
-            "slug": "wines",
-            "name": "Wines",
-            "kind": "other"
-          }
+        ],
+        "sharedBy": [
+          "Oryx Deacon",
+          "Oryx Cleric",
+          "Oryx Cardinal"
         ]
       },
       {
@@ -14772,58 +13602,11 @@
             "name": "Wines",
             "kind": "other"
           }
-        ]
-      },
-      {
-        "name": "Oryx Sergeant",
-        "loot": [
-          {
-            "slug": "angel-s-fanfare",
-            "name": "Angel's Fanfare",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "tincture-of-courage",
-            "name": "Tincture of Courage",
-            "kind": "other"
-          },
-          {
-            "slug": "tincture-of-fear",
-            "name": "Tincture of Fear",
-            "kind": "other"
-          },
-          {
-            "slug": "wines",
-            "name": "Wines",
-            "kind": "other"
-          }
-        ]
-      },
-      {
-        "name": "Oryx Major",
-        "loot": [
-          {
-            "slug": "angel-s-fanfare",
-            "name": "Angel's Fanfare",
-            "kind": "gear",
-            "tier": "ST"
-          },
-          {
-            "slug": "tincture-of-courage",
-            "name": "Tincture of Courage",
-            "kind": "other"
-          },
-          {
-            "slug": "tincture-of-fear",
-            "name": "Tincture of Fear",
-            "kind": "other"
-          },
-          {
-            "slug": "wines",
-            "name": "Wines",
-            "kind": "other"
-          }
+        ],
+        "sharedBy": [
+          "Oryx Officer",
+          "Oryx Sergeant",
+          "Oryx Major"
         ]
       }
     ]

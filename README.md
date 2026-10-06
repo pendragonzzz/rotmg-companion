@@ -83,7 +83,8 @@ npm run dist:win   # → dist/RotMG-Companion-x.y.z-setup.exe  +  -portable.exe
 
 ## Releasing (recommended — no local build)
 
-Push a version tag and GitHub Actions builds the Windows installer + portable and attaches them to a Release:
+Bump `version` in `package.json`, then either click **Actions → Release → Run workflow** (it tags the commit as
+`v<version>` itself) or push a version tag. GitHub Actions builds the Windows installer + portable and publishes the Release:
 
 ```powershell
 git tag v0.2.0

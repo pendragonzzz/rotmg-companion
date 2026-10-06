@@ -25,7 +25,7 @@ vault — and only as fast as RealmEye itself updates.
 - Headless tests: `npm run test:planner` (82 asserts on potion/gear/route/dungeon plans), `npm run test:live` (28 asserts:
   snapshot matching/diffing + the LiveSync poller), `npm run test:data` (14: game-data hot-update vs a fake GitHub),
   `npm run test:cleanup` (12: Desktop-tidy rules), `npm run test:readiness`, `npm run test:wiki` (parsers + per-enemy tables).
-- Shipping: tag `v*` → `release.yml` builds the NSIS installer + portable, publishes the Release, attaches `scripts/install.ps1`.
+- Shipping: tag `v*` (or Actions → Release → *Run workflow*, which tags the commit as `v<package.json version>`) → `release.yml` builds the NSIS installer + portable, publishes the Release, attaches `scripts/install.ps1`.
   Installed apps auto-update (electron-updater, launch + every 6 h, install on quit).
 - One-click: the **installed app** (NSIS desktop + Start-menu shortcut with the icon). The old dev launcher
   `RotMG Companion.bat` on the Desktop is retired — v0.2.0's first launch moves it to the Recycle Bin (Desktop tidy).

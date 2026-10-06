@@ -1,14 +1,21 @@
 name: Release
 
-# Push a tag like v0.1.0 to build the Windows installer + portable exe and
-# attach them to a GitHub Release automatically.
+# Builds the Windows installer + portable exe and publishes them as a GitHub Release
+# (installed copies auto-update to it). Two ways in:
+#   - push a tag like v0.2.0, or
+#   - "Run workflow" (Actions tab / API) on a branch: tags that commit as v<package.json version>.
 on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 jobs:
   release:
@@ -21,6 +28,29 @@ jobs:
           node-version: 24
           cache: npm
 
+      - name: Resolve the release tag
+        id: tag
+        shell: bash
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = tag ]; then tag="${GITHUB_REF_NAME}"
+          else tag="v$(node -p "require('./package.json').version")"; fi
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+          echo "Releasing ${tag} from ${GITHUB_SHA}"
+
+      # Manual runs tag the commit themselves. (A tag pushed with GITHUB_TOKEN doesn't
+      # re-trigger this workflow, so the build below is the only one.)
+      - name: Tag this commit
+        if: github.ref_type != 'tag'
+        shell: bash
+        run: |
+          tag='${{ steps.tag.outputs.tag }}'
+          if git ls-remote --exit-code origin "refs/tags/${tag}" >/dev/null; then
+            echo "::error::${tag} already exists — bump the version in package.json first."
+            exit 1
+          fi
+          git tag "${tag}" "${GITHUB_SHA}"
+          git push origin "refs/tags/${tag}"
+
       - run: npm ci
 
       - name: Build + package + publish to GitHub Release
@@ -32,6 +62,6 @@ jobs:
       #   irm https://github.com/pendragonzzz/rotmg-companion/releases/latest/download/install.ps1 | iex
       - name: Attach install.ps1
         shell: bash
-        run: gh release upload "${GITHUB_REF_NAME}" scripts/install.ps1 --clobber
+        run: gh release upload '${{ steps.tag.outputs.tag }}' scripts/install.ps1 --clobber
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

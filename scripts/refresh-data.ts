@@ -160,6 +160,7 @@ interface UniItem {
   tier: string | null;
 }
 const universe = new Map<string, UniItem>();
+const tooltipSample: string[] = [];
 const classMax: Record<string, Stats> = {};
 
 function bestSlot(u: UniItem): string {
@@ -179,6 +180,7 @@ for (const name of PLAYERS) {
     }
     for (const it of c.equipment) {
       if (it.slot === 'backpack') continue;
+      if (tooltipSample.length < 3) tooltipSample.push(`${it.slug}: ${JSON.stringify(it.tooltip.slice(0, 120))}`);
       let u = universe.get(it.slug);
       if (!u) { u = { name: it.name, slotCounts: {}, classes: new Set(), tier: it.tier }; universe.set(it.slug, u); }
       u.slotCounts[it.slot] = (u.slotCounts[it.slot] ?? 0) + 1;
@@ -187,7 +189,36 @@ for (const name of PLAYERS) {
     }
   }
 }
-console.log(`  ${Object.keys(classMax).length} classes, ${universe.size} unique items in universe`);
+const tieredInUniverse = [...universe.values()].filter((u) => u.tier === 'UT' || u.tier === 'ST').length;
+console.log(`  ${Object.keys(classMax).length} classes, ${universe.size} unique items in universe (${tieredInUniverse} tagged UT/ST)`);
+if (universe.size && !tieredInUniverse) {
+  // RealmEye's item tooltips changed shape — tiers will come from the item wiki pages instead.
+  console.log(`  ! no UT/ST tags in player tooltips; falling back to item pages. Sample: ${tooltipSample.join(' | ')}`);
+}
+
+// Slot + classes for gear the sampled players don't happen to wear: last run's drops + the ST sets.
+const knownPlacement = new Map<string, { slot: string; classes: string[] }>();
+try {
+  const prevDrops = JSON.parse(readFileSync(join(dataDir, 'dungeon-drops.json'), 'utf-8')) as Record<
+    string,
+    { gear?: { slug: string; slot: string; classes: string[] }[] }
+  >;
+  for (const d of Object.values(prevDrops)) for (const g of d.gear ?? []) knownPlacement.set(g.slug, { slot: g.slot, classes: g.classes });
+  const prevSets = JSON.parse(readFileSync(join(dataDir, 'sets.json'), 'utf-8')) as {
+    className: string;
+    members: { slug: string; slot: string }[];
+  }[];
+  for (const s of prevSets)
+    for (const m of s.members) if (!knownPlacement.has(m.slug)) knownPlacement.set(m.slug, { slot: m.slot, classes: [s.className] });
+} catch {
+  /* first run — the player universe is all we have */
+}
+
+function placementOf(slug: string): { slot: string; classes: string[] } | null {
+  const u = universe.get(slug);
+  if (u) return { slot: bestSlot(u), classes: [...u.classes].sort() };
+  return knownPlacement.get(slug) ?? null;
+}
 
 // ---- dungeon drops (from wiki) ----
 interface GearDrop {
@@ -229,6 +260,7 @@ const dungeons = JSON.parse(readFileSync(join(dataDir, 'dungeons.json'), 'utf-8'
 }[];
 const dungeonDrops: Record<string, DungeonDropData> = {};
 const failed: string[] = [];
+const unplaced = new Set<string>();
 
 console.log(`\nReading ${dungeons.length} dungeon wiki pages...`);
 for (const d of dungeons) {
@@ -249,17 +281,22 @@ for (const d of dungeons) {
       (potMatch[1] ? greaterPotions : potions).add(stat);
       continue;
     }
-    const u = universe.get(drop.slug);
-    if (u && (u.tier === 'UT' || u.tier === 'ST')) {
-      gear.push({ slug: drop.slug, name: drop.name, tier: u.tier, slot: bestSlot(u), classes: [...u.classes].sort() });
+    const tier = await resolveTier(drop.slug, drop.name);
+    const place = tier === 'UT' || tier === 'ST' ? placementOf(drop.slug) : null;
+    if (place) {
+      gear.push({ slug: drop.slug, name: drop.name, tier: tier!, slot: place.slot, classes: place.classes });
     } else {
+      if (tier === 'UT' || tier === 'ST') unplaced.add(drop.name);
       other.push({ slug: drop.slug, name: drop.name });
     }
   }
-  for (const drop of drops) await resolveTier(drop.slug, drop.name);
   const enemies = buildEnemyTables(drops, (slug) => itemTier.get(slug) ?? null);
   dungeonDrops[d.id] = { potions: [...potions], greaterPotions: [...greaterPotions], gear, other, enemies };
   console.log(`  ${d.id}: ${gear.length} gear, ${potions.size}+${greaterPotions.size} pot types, ${enemies.length} enemy drop tables`);
+}
+
+if (unplaced.size) {
+  console.log(`  (${unplaced.size} UT/ST drops with no known slot yet — shown in enemy tables only: ${[...unplaced].slice(0, 8).join(', ')}${unplaced.size > 8 ? '…' : ''})`);
 }
 
 // ---- enrich gear with stats/score from item pages (cached, so weekly re-runs are cheap) ----

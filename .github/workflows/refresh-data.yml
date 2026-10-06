@@ -15,6 +15,7 @@ on:
       - 'src/shared/realmeye-wiki.ts'
       - 'src/shared/dropTables.ts'
       - 'src/shared/data/dungeons.json'
+      - '.github/workflows/refresh-data.yml'
 
 permissions:
   contents: write
@@ -40,14 +41,21 @@ jobs:
           ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
 
       # Keep the polite page cache between runs (the script reuses pages for 7 days).
-      - uses: actions/cache@v4
+      # Saved even when a later step fails, so a retry doesn't re-download everything.
+      - uses: actions/cache/restore@v4
         with:
           path: scripts/.cache
-          key: realmeye-cache-${{ github.run_id }}
+          key: realmeye-cache-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: realmeye-cache-
 
       - name: Scrape RealmEye
         run: npm run refresh
+
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: scripts/.cache
+          key: realmeye-cache-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Check the data before publishing it
         run: |

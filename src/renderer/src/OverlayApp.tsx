@@ -10,6 +10,7 @@ export function OverlayApp() {
     character: null,
     peek: false,
     picker: false,
+    toast: null,
   });
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export function OverlayApp() {
     <>
       {visible && (
         <div className={`ov-root corner-${state.settings.corner}`}>
-          <OverlayHud character={state.character} settings={state.settings} />
+          <OverlayHud character={state.character} settings={state.settings} toast={state.toast} />
         </div>
       )}
       {state.picker && (

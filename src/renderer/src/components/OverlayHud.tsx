@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import type { Character } from '../../../shared/types';
 import { buildGoals, recommendSetFor } from '../../../shared/engine';
 import { dungeonInfo, verdictMap, type SourceStatus } from '../../../shared/planner';
-import type { OverlaySettings } from '../../../shared/overlay';
+import type { OverlaySettings, OverlayToast } from '../../../shared/overlay';
 import { biomes, classMax, dungeons, dungeonName, goalCtx, plannerData, sets, tierClass } from '../gameData';
 import { Icon, StatIcon } from './Icon';
 import { classIcon } from '../classIcons';
@@ -11,7 +11,16 @@ import { STAT_LABEL } from '../labels';
 
 const STATUS_WORD: Record<SourceStatus, string> = { ready: 'Ready', risky: 'Risky', notReady: 'Not ready', unknown: '' };
 
-export function OverlayHud({ character, settings }: { character: Character | null; settings: OverlaySettings }) {
+export function OverlayHud({
+  character,
+  settings,
+  toast = null,
+}: {
+  character: Character | null;
+  settings: OverlaySettings;
+  /** Latest live-sync change for this character (pushed by the main process). */
+  toast?: OverlayToast | null;
+}) {
   const goals = useMemo(
     () => (character ? buildGoals(character, dungeons, classMax, goalCtx, settings.maxGoals) : []),
     [character, settings.maxGoals],
@@ -68,6 +77,16 @@ export function OverlayHud({ character, settings }: { character: Character | nul
 
   return (
     <div className="ov-hud" style={{ transform: `scale(${settings.scale})`, opacity: settings.opacity }}>
+      {w.liveToasts && toast && (
+        <div className="ov-toast" key={toast.at}>
+          <Icon name="refresh" size={12} />
+          <div className="ov-toast-body">
+            <b>{toast.title}</b>
+            {toast.detail && <span>{toast.detail}</span>}
+          </div>
+          {toast.more > 0 && <span className="ov-toast-more">+{toast.more}</span>}
+        </div>
+      )}
       {w.header && (
         <div className="ov-head">
           {icon ? (

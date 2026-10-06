@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import type { Character, PlayerProfile } from '../../shared/types';
 import { gearPlan, potionPlan } from '../../shared/planner';
+import { carryCharacter, type LiveEvent, type LiveState } from '../../shared/live';
 import { charKey, pickActive, rememberActive } from './activeChar';
 import { plannerData } from './gameData';
 import { PAGES, pageDef, type Nav, type PageId } from './pages';
@@ -19,6 +20,10 @@ import { PetsPage } from './components/PetsPage';
 import { OverlayPage } from './components/OverlayPage';
 import { SettingsPage } from './components/SettingsPage';
 import { NeedCharacter } from './components/NeedCharacter';
+import { LiveBadge, Toasts } from './components/Live';
+
+/** How long a live-change toast stays in the corner. */
+const TOAST_MS = 7000;
 
 export type Phase =
   | { kind: 'idle' }
@@ -44,11 +49,20 @@ export function App() {
   const [page, setPage] = useState<PageId>(prefs.startPage === 'last' ? prefs.lastPage : prefs.startPage);
   const [setsClass, setSetsClass] = useState<string | undefined>();
   const [dungeonId, setDungeonId] = useState('');
+  const [live, setLive] = useState<LiveState | null>(null);
+  const [toasts, setToasts] = useState<LiveEvent[]>([]);
   const searchRef = useRef<HTMLInputElement>(null);
 
   const profile = phase.kind === 'loaded' ? phase.profile : null;
   const characters = useMemo(() => (profile ? sortCharacters(profile.characters) : []), [profile]);
   const active = characters.find((c) => charKey(c) === activeKey) ?? null;
+
+  // The live subscription is registered once, so it reads current values through refs.
+  const phaseRef = useRef(phase);
+  phaseRef.current = phase;
+  const activeRef = useRef(active);
+  activeRef.current = active;
+  const seenEvents = useRef<Set<string> | null>(null);
 
   const { add: addRecent } = recent;
   const load = useCallback(
@@ -57,7 +71,7 @@ export function App() {
       if (!name) return;
       setQuery(name);
       setPhase({ kind: 'loading', name });
-      const res = await window.api.getPlayer(name, force);
+      const res = await window.api.live.load(name, force);
       if (!res.ok) return setPhase({ kind: 'error', message: res.error });
       if (!res.profile) return setPhase({ kind: 'error', message: `No RealmEye player found named "${name}".` });
       setPhase({ kind: 'loaded', profile: res.profile, loadedAt: Date.now() });
@@ -78,6 +92,44 @@ export function App() {
   useEffect(() => {
     if (prefs.autoLoad && prefs.lastPlayer) void load(prefs.lastPlayer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Live sync: the main process re-reads RealmEye in the background and pushes every
+  // change. Adopt newer snapshots of the loaded player (keeping the same active
+  // character — its key changes as fame grows) and toast the new events.
+  useEffect(() => {
+    const onLive = (s: LiveState) => {
+      setLive(s);
+      const ph = phaseRef.current;
+      if (
+        s.profile &&
+        s.syncedAt &&
+        ph.kind === 'loaded' &&
+        s.player.toLowerCase() === ph.profile.name.toLowerCase() &&
+        s.syncedAt !== ph.loadedAt
+      ) {
+        const cur = activeRef.current;
+        const next = cur ? carryCharacter(cur, ph.profile.characters, s.profile.characters) : null;
+        if (next) {
+          setActiveKey(charKey(next));
+          rememberActive(next);
+        }
+        setPhase({ kind: 'loaded', profile: s.profile, loadedAt: s.syncedAt });
+      }
+      // Toast only events we haven't seen (the first state just marks history as seen).
+      if (!seenEvents.current) {
+        seenEvents.current = new Set(s.feed.map((e) => e.id));
+        return;
+      }
+      const fresh = s.feed.filter((e) => !seenEvents.current!.has(e.id));
+      if (!fresh.length) return;
+      fresh.forEach((e) => seenEvents.current!.add(e.id));
+      setToasts((t) => [...fresh.slice(0, 4), ...t].slice(0, 4));
+      const ids = new Set(fresh.map((e) => e.id));
+      setTimeout(() => setToasts((t) => t.filter((x) => !ids.has(x.id))), TOAST_MS);
+    };
+    window.api.live.getState().then(onLive).catch(() => {});
+    return window.api.live.onState(onLive);
   }, []);
 
   // Remember the open page.
@@ -128,7 +180,7 @@ export function App() {
         searchRef.current?.select();
       } else if (e.key === 'F5' && profile) {
         e.preventDefault();
-        void load(profile.name, true);
+        void window.api.live.syncNow();
       }
     };
     window.addEventListener('keydown', onKey);
@@ -169,6 +221,8 @@ export function App() {
             recent={recent}
             onLoad={(n) => void load(n)}
             nav={nav}
+            live={live}
+            now={now}
           />
         );
       case 'potions':
@@ -196,6 +250,8 @@ export function App() {
             recent={recent}
             declined={declined}
             overlay={overlay}
+            live={live}
+            now={now}
             nav={nav}
           />
         );
@@ -240,13 +296,16 @@ export function App() {
             </button>
           </form>
           {phase.kind === 'loaded' && (
-            <button
-              className="btn btn-icon"
-              onClick={() => void load(phase.profile.name, true)}
-              title={`Refresh from RealmEye (F5) · updated ${timeAgo(phase.loadedAt, now)}`}
-            >
-              <Icon name="refresh" size={15} />
-            </button>
+            <>
+              <LiveBadge live={live} now={now} onOpenFeed={() => setPage('characters')} />
+              <button
+                className={`btn btn-icon ${live?.status === 'syncing' ? 'spinning' : ''}`}
+                onClick={() => void window.api.live.syncNow()}
+                title={`Check RealmEye now (F5) · updated ${timeAgo(phase.loadedAt, now)}`}
+              >
+                <Icon name="refresh" size={15} />
+              </button>
+            </>
           )}
           <CharacterSwitcher characters={characters} active={active} onSelect={selectCharacter} />
         </header>
@@ -257,6 +316,7 @@ export function App() {
           </ErrorBoundary>
         </main>
       </div>
+      <Toasts toasts={toasts} onDismiss={(id) => setToasts((t) => t.filter((x) => x.id !== id))} />
     </div>
   );
 }

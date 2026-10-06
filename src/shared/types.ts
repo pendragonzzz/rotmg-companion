@@ -24,6 +24,8 @@ export interface EquippedItem {
 export interface Character {
   /** RealmEye/RotMG class object id (e.g. 768 = Rogue). */
   classId: number;
+  /** Skin id from RealmEye (helps tell same-class characters apart — RealmEye has no character id). */
+  skin?: number;
   className: string;
   level: number;
   fame: number;

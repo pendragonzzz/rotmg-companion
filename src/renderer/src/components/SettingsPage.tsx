@@ -3,7 +3,9 @@ import { HOTKEY_ACTIONS } from '../../../shared/overlay';
 import { classMax, dungeons, exaltation, meta, sets } from '../gameData';
 import { THEMES, type DeclinedApi, type Density, type OverlayApi, type Prefs, type RecentApi } from '../hooks';
 import { PAGES, type Nav, type PageId } from '../pages';
+import type { LiveState } from '../../../shared/live';
 import { Icon } from './Icon';
+import { LiveSettingsPanel } from './Live';
 import { Panel, Segmented, ToggleRow } from './ui';
 
 const hk = (a: string) => a.replace('CommandOrControl', 'Ctrl');
@@ -15,8 +17,12 @@ export function SettingsPage({
   recent,
   declined,
   overlay,
+  live,
+  now,
   nav,
 }: {
+  live: LiveState | null;
+  now: number;
   prefs: Prefs;
   setPrefs: (p: Partial<Prefs>) => void;
   resetPrefs: () => void;
@@ -71,6 +77,8 @@ export function SettingsPage({
           onChange={(sidebarCollapsed) => setPrefs({ sidebarCollapsed })}
         />
       </Panel>
+
+      <LiveSettingsPanel live={live} now={now} />
 
       <Panel title="Startup" icon="refresh">
         <ToggleRow
@@ -139,7 +147,7 @@ export function SettingsPage({
             </span>
           </div>
           <div className="kbd-row">
-            <span>Refresh from RealmEye</span>
+            <span>Check RealmEye now (live sync)</span>
             <kbd>F5</kbd>
           </div>
         </div>

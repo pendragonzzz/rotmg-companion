@@ -24,6 +24,9 @@ Then type a **public** RealmEye username and hit Load.
 
 ## Features
 
+- **Live sync** — the app re-reads your public RealmEye profile in the background (every 1–10 min) and spots
+  what changed: pots drunk, stats maxed, gear equipped, level-ups, exaltations, new or dead characters. Every plan and
+  the overlay update on the spot, with toasts and an activity feed. (It never reads the game client — that's a ban.)
 - **One active character, every page** — pick it in the top-right switcher; Potions, Gear, Dungeons and the
   overlay all plan for it. Your last player reloads on launch.
 - **Potions** — pots left per stat in your class's maxing order, the best dungeon you can run *now* (or what

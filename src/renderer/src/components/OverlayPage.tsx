@@ -32,7 +32,11 @@ const WIDGETS: { key: keyof OverlayWidgets; label: string; hint: string }[] = [
   { key: 'locations', label: 'Where-to-farm tags', hint: 'Dungeon name on each goal' },
   { key: 'setToFarm', label: 'Recommended set', hint: 'Best ST set to farm' },
   { key: 'currentDungeon', label: 'Current-dungeon card', hint: 'Details for the dungeon you picked' },
+  { key: 'liveToasts', label: 'Live change toasts', hint: 'Flash pots maxed / gear equipped as RealmEye syncs' },
 ];
+
+/** Shown in the preview so the toast style is visible before a real change arrives. */
+const SAMPLE_TOAST = { title: 'Live: Defense maxed!', detail: 'Changes RealmEye picks up flash here for 8s', more: 0, at: 0 };
 
 const CARD: { key: keyof OverlayDungeonCard; label: string; hint: string }[] = [
   { key: 'strategy', label: 'Strategy tip', hint: 'The one mechanic that matters' },
@@ -170,6 +174,12 @@ export function OverlayPage({ character, overlay, nav }: { character: Character 
         </Panel>
 
         <Panel title="Behavior & hotkeys" icon="keyboard">
+          <ToggleRow
+            title="Peek when something changes"
+            hint="Pop the HUD up with the live toast even while it's hidden"
+            on={settings.peekOnChange}
+            onChange={(peekOnChange) => patch({ peekOnChange })}
+          />
           <Slider
             label={`Peek lasts — ${settings.peekSeconds}s`}
             min={2}
@@ -198,7 +208,7 @@ export function OverlayPage({ character, overlay, nav }: { character: Character 
           <span className={`pill ${settings.enabled ? 'on' : ''}`}>{settings.enabled ? 'Overlay on' : 'Overlay off'}</span>
         </div>
         <div className={`ov-preview-stage corner-${settings.corner}`}>
-          <OverlayHud character={character} settings={{ ...settings, opacity: 1 }} />
+          <OverlayHud character={character} settings={{ ...settings, opacity: 1 }} toast={character ? SAMPLE_TOAST : null} />
         </div>
       </div>
     </div>

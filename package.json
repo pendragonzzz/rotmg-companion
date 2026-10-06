@@ -20,6 +20,7 @@
     "parse:fixture": "tsx scripts/parse-fixture.ts",
     "test:readiness": "tsx scripts/test-readiness.ts",
     "test:planner": "tsx scripts/test-planner.ts",
+    "test:live": "tsx scripts/test-live.ts",
     "test:wiki": "tsx scripts/test-wiki.ts"
   },
   "dependencies": {

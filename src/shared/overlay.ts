@@ -9,6 +9,7 @@ export interface OverlayWidgets {
   setToFarm: boolean; // recommended ST set
   locations: boolean; // 📍 where-to-farm tags on goals
   currentDungeon: boolean; // info card for the dungeon you're running (drops + strategy)
+  liveToasts: boolean; // flash live RealmEye changes (pot maxed, gear equipped…) on the HUD
 }
 
 /** What the current-dungeon card shows. */
@@ -53,6 +54,8 @@ export interface OverlaySettings {
   maxGoals: number;
   /** How long a peek stays up, in seconds. */
   peekSeconds: number;
+  /** Briefly show the HUD when live sync spots a change, even if it's hidden. */
+  peekOnChange: boolean;
   /** Dungeon id for the "current dungeon" info card ('' = none). */
   currentDungeon: string;
   /** Favorite dungeon ids (shown first in the quick-pick menu). */
@@ -73,7 +76,20 @@ export interface OverlayState {
   peek: boolean;
   /** Transient: the dungeon quick-pick menu is open (overlay becomes interactive). */
   picker: boolean;
+  /** Transient: the latest live-sync change for the active character, shown for a few seconds. */
+  toast: OverlayToast | null;
 }
+
+export interface OverlayToast {
+  title: string;
+  detail?: string;
+  /** Extra events in the same sync, summarized as "+N more". */
+  more: number;
+  at: number;
+}
+
+/** How long a live toast stays on the HUD. */
+export const OVERLAY_TOAST_MS = 8000;
 
 export const DEFAULT_OVERLAY_SETTINGS: OverlaySettings = {
   enabled: false,
@@ -83,6 +99,7 @@ export const DEFAULT_OVERLAY_SETTINGS: OverlaySettings = {
   compact: false,
   maxGoals: 3,
   peekSeconds: 5,
+  peekOnChange: false,
   currentDungeon: '',
   favorites: [],
   theme: 'realm',
@@ -99,6 +116,7 @@ export const DEFAULT_OVERLAY_SETTINGS: OverlaySettings = {
     setToFarm: true,
     locations: true,
     currentDungeon: true,
+    liveToasts: true,
   },
   dungeonCard: {
     strategy: true,
@@ -140,7 +158,7 @@ export const OVERLAY_PRESETS: { id: string; label: string; hint: string; apply: 
     apply: {
       compact: true,
       maxGoals: 1,
-      widgets: { header: false, target: true, beacons: false, goals: true, setToFarm: false, locations: true, currentDungeon: false },
+      widgets: { header: false, target: true, beacons: false, goals: true, setToFarm: false, locations: true, currentDungeon: false, liveToasts: true },
     },
   },
   {
@@ -150,7 +168,7 @@ export const OVERLAY_PRESETS: { id: string; label: string; hint: string; apply: 
     apply: {
       compact: false,
       maxGoals: 3,
-      widgets: { header: true, target: true, beacons: false, goals: true, setToFarm: false, locations: true, currentDungeon: true },
+      widgets: { header: true, target: true, beacons: false, goals: true, setToFarm: false, locations: true, currentDungeon: true, liveToasts: true },
     },
   },
   {
@@ -160,7 +178,7 @@ export const OVERLAY_PRESETS: { id: string; label: string; hint: string; apply: 
     apply: {
       compact: false,
       maxGoals: 5,
-      widgets: { header: true, target: true, beacons: true, goals: true, setToFarm: true, locations: true, currentDungeon: true },
+      widgets: { header: true, target: true, beacons: true, goals: true, setToFarm: true, locations: true, currentDungeon: true, liveToasts: true },
       dungeonCard: { strategy: true, pots: true, exalt: true, drops: true, classDropsOnly: true, keyItems: true },
     },
   },

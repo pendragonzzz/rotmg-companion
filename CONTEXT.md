@@ -14,11 +14,16 @@ where to farm the pots, which UT/ST gear to chase, and which dungeons you're rea
 **Hard rule:** informational only. It must NEVER read the game client's memory or automate input —
 that's a ToS violation / ban. All data comes from public RealmEye pages + bundled static data.
 (Consequence: the game overlay cannot auto-detect your character — you pick the active one manually.)
+"Real-time" therefore means **live sync from RealmEye**: the main process re-reads the player's public RealmEye page
+every 1–10 min (default 3), diffs it against the last snapshot, and every plan + the overlay re-computes. It sees what
+RealmEye shows publicly (characters, levels, fame, base stats, 4 equipped items, pet, exaltations) — not inventory or
+vault — and only as fast as RealmEye itself updates.
 
 ## Stack & how to run
 - **Electron + React + TypeScript + cheerio**, bundled by **electron-vite**. (No Rust → Tauri was rejected.)
 - Dev: `npm run dev` (electron-vite, renderer HMR). Build: `npm run build`. Typecheck: `npm run typecheck`.
-- Headless tests: `npm run test:planner` (82 asserts on potion/gear/route/dungeon plans), `npm run test:readiness`, `npm run test:wiki`.
+- Headless tests: `npm run test:planner` (82 asserts on potion/gear/route/dungeon plans), `npm run test:live` (28 asserts:
+  snapshot matching/diffing + the LiveSync poller), `npm run test:readiness`, `npm run test:wiki`.
 - One-click: **`RotMG Companion.bat`** on the Desktop (resolves the emoji folder via `for /d %%D in ("%USERPROFILE%\Desktop\*Scripts")`, installs deps, runs `npm run refresh` if data missing, launches).
 - Data refresh: **`npm run refresh`** — token-free Node scraper; a Windows scheduled task ("RotMG Companion Refresh") runs it weekly (Sun 4AM, StartWhenAvailable).
 
@@ -31,7 +36,9 @@ src/shared/            # isomorphic — used by BOTH main and renderer
   realmeye-wiki.ts     # parseDungeonDrops + parseItemPage (now also set membership + ST generation) + parseSetIndex + parseSetPage
   engine.ts            # PURE logic: evaluateReadiness, buildGoals, potsToMax, potionSources (now carry dungeon id) + biomesForStat, exaltDungeonsForStat, isStatFarmObsolete, setsForClass, recommendSetFor; Biome/Exaltation/STSet types
   planner.ts           # PURE planners behind the v0.2 pages: potionPlan (pots/greaters per stat, bestNow, nextUnlock), farmRoute (Adept-then-Veteran biome set-cover), exaltPlan, gearPlan (equipped vs best-now vs BiS, set progress), dungeonInfo, verdictMap
-  overlay.ts           # OverlaySettings (+ peekSeconds, theme, dungeonCard) / OverlayState types, DEFAULT_OVERLAY_SETTINGS, mergeOverlaySettings (1-level deep), OVERLAY_PRESETS, HOTKEY_ACTIONS
+  live.ts              # LIVE SYNC (pure): charKey, matchCharacters (no RealmEye char id → class + skin + gear, fame/level only go up),
+                       # carryCharacter, diffProfiles → LiveEvents (maxed/gear/level/exalts/pots/new/gone), LiveSettings/LiveState
+  overlay.ts           # OverlaySettings (+ peekSeconds, peekOnChange, theme, dungeonCard, widgets.liveToasts) / OverlayState (+ toast) types, DEFAULT_OVERLAY_SETTINGS, mergeOverlaySettings (1-level deep), OVERLAY_PRESETS, HOTKEY_ACTIONS
   data/
     dungeons.json          # CURATED: dungeon ladder (id,name,category,tier,recommendedMaxed,minHp,note + biome,greaterPots,exaltStats,obsoleteAtMaxed). note = guide-sourced mechanic/strategy tip (shown in overlay current-dungeon card)
     biomes.json            # CURATED (2025 Realm Rework): biome -> {tier,guardian,statPots,dungeons,ut,encounters} — see META.md
@@ -47,7 +54,10 @@ src/shared/            # isomorphic — used by BOTH main and renderer
 src/main/index.ts      # Electron main: MAIN window + OVERLAY window (transparent/frameless/always-on-top/click-through);
                        # single-instance lock; window size/position memory (window-state.json); ipcMain 'player:get'(name, force),
                        # 'app:openExternal' (allow-list: realmeye.com + this repo), 'overlay:*'; global hotkeys; persists overlay-settings.json
-src/preload/index.ts   # contextBridge -> window.api.{getPlayer(name,force), openExternal, overlay.{getState,setSettings,setCharacter,toggle,setPicker,onState}}
+src/main/liveSync.ts   # LiveSync: background RealmEye poller (interval, error backoff ×2ⁿ ≤8, in-flight dedupe, feed cap 60); main wires
+                       # IPC live:{getState,load,syncNow,configure,clearFeed} + push 'live:state', persists live-settings.json,
+                       # carries the overlay character across syncs and flashes OverlayState.toast (optional peek-on-change)
+src/preload/index.ts   # contextBridge -> window.api.{getPlayer(name,force), openExternal, live.{…}, overlay.{getState,setSettings,setCharacter,toggle,setPicker,onState}}
 src/renderer/
   index.html           # single entry; #overlay hash selects the overlay root (no 2nd build entry needed)
   src/main.tsx         # renders <App/> normally, <OverlayApp/> when location.hash === '#overlay' (+ body.overlay-mode)
@@ -61,7 +71,7 @@ src/renderer/
   src/activeChar.ts    # charKey + remembered active character (pickActive/rememberActive)
   src/classIcons.ts    # import.meta.glob loader for bundled class sprites (assets/classes/*.png); monogram fallback
   src/beacons.ts       # shared BEACON colors by biome tier + beaconForBiome(slug) + biomeName(slug)
-  src/styles/          # tokens.css (vars + 7 themes + density) · base.css (component kit) · shell.css · characters.css · pages.css · overlay.css (index.css imports all)
+  src/styles/          # tokens.css (vars + 7 themes + density) · base.css (component kit) · shell.css · characters.css · pages.css · overlay.css · live.css (index.css imports all)
   components/ui.tsx              # shared kit: Panel, StatTile, Switch, ToggleRow, Segmented, EmptyState, TierBadge, StatusPill, BeaconTag, StatChip, ClassSprite, Bar, DungeonLink
   components/Sidebar.tsx         # grouped nav (Plan/Browse/App), live badges (pots left, gear upgrades), collapse
   components/CharacterSwitcher.tsx # top-bar active-character picker (sprites, n/8, level)
@@ -72,6 +82,7 @@ src/renderer/
   components/DungeonsPage.tsx    # encyclopedia: filterable list (category, exalt, greater, ready, favorites, stat) + detail (readiness, strategy, pots, exalt, biome, key items, drops)
   components/SettingsPage.tsx    # themes (swatch cards), density, sidebar, startup, overlay, shortcuts, your data (recents/declined/reset), about
   components/NeedCharacter.tsx   # empty state for character-driven pages
+  components/Live.tsx            # LiveBadge (top-bar ● Live + popover), Toasts (bottom-right), ActivityFeed (Characters page), LiveSettingsPanel
   components/SetsPage.tsx        # ST set browser: search + class + difficulty filters; per-set members/stats/where/bonuses
   components/OverlayPage.tsx     # "Overlay" tab: status, presets, 3×3 position grid + sliders, widgets, dungeon-card options, peek + hotkeys, sticky live preview
   components/OverlayHud.tsx      # the HUD (overlay window + preview): header/target/beacons/goals/set + rich dungeon card (readiness, exalt, pots, class drops, key items, strategy)
@@ -79,6 +90,7 @@ src/renderer/
   components/PetsPage.tsx, MetaPage.tsx (exalt pills open Dungeons), Icon.tsx (IconName-typed SVG set), Dropdown.tsx, ErrorBoundary.tsx
 scripts/
   refresh-data.ts      # THE data pipeline (see below). `npm run refresh`
+  test-live.ts         # headless: simulated play session between two snapshots + the LiveSync poller. `npm run test:live`
   test-planner.ts      # headless: potion/gear/route/dungeon plans for fixture chars + a synthetic 2/8 beginner, with asserts. `npm run test:planner`
   test-readiness.ts    # headless: prints goals/readiness for a fixture. `npm run test:readiness`
   test-wiki.ts         # headless: tests wiki parsers. `npm run test:wiki`
@@ -280,3 +292,12 @@ RealmEye import (all chars, sorted, error-isolated) · goals panel (level/stat/g
     data management, about). **Overlay:** presets, 3×3 position grid, configurable peek, HUD follows the app theme,
     richer dungeon card (readiness, exalt, pots, class-usable drops, key items), quick-pick arrow-key nav + clear.
     CSS split into `styles/` layers; shared `gameData.ts` + `ui.tsx` kit. typecheck + build (91 modules) + all tests pass.
+26. **Live sync ("real-time" character + item intel, ToS-safe):** the app now keeps the loaded player in sync with
+    RealmEye in the background — main-process `LiveSync` polls every 1/3/5/10 min (default 3, ≥60s, backoff on errors),
+    `shared/live.ts` diffs snapshots (matching characters without an id via class + skin + gear, fame/level monotonic)
+    into events: stat maxed, gear equipped, level up, pots drunk, exaltations, new / dead characters. Every page
+    re-plans instantly (e.g. Samurai hits 8/8 → its goals flip to exalts); the active character is carried across
+    syncs even though its key changes with fame. UI: top-bar ● Live badge + popover (toggle, interval, check now),
+    toast stack, Characters-page activity feed (click → make active), Settings panel, HUD change toasts + optional
+    peek-on-change. Refresh/F5 = check now. Parser now reads RealmEye `data-skin`. Still never reads the game client.
+    Verified: test:live (28) + test:planner (82) + typecheck + build + Playwright simulated-sync run (0 errors).

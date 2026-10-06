@@ -3,11 +3,16 @@ import { join } from 'node:path';
 import { readFileSync, writeFileSync } from 'node:fs';
 import electronUpdater from 'electron-updater';
 import { fetchPlayer } from '../shared/realmeye';
+import { LiveSync } from './liveSync';
+import { carryCharacter, charKey, type LiveEvent, type LiveSettings, type LiveState } from '../shared/live';
+import type { ClassMaxTable } from '../shared/engine';
+import classMaxData from '../shared/data/class-max-stats.json';
 
 const { autoUpdater } = electronUpdater;
-import type { Character } from '../shared/types';
+import type { Character, PlayerProfile } from '../shared/types';
 import {
   DEFAULT_OVERLAY_SETTINGS,
+  OVERLAY_TOAST_MS,
   mergeOverlaySettings,
   type OverlaySettings,
   type OverlayState,
@@ -16,15 +21,26 @@ import {
 let mainWin: BrowserWindow | null = null;
 let overlayWin: BrowserWindow | null = null;
 let peekTimer: NodeJS.Timeout | null = null;
+let toastTimer: NodeJS.Timeout | null = null;
 const overlayState: OverlayState = {
   settings: { ...DEFAULT_OVERLAY_SETTINGS },
   character: null,
   peek: false,
   picker: false,
+  toast: null,
 };
 
 const settingsFile = () => join(app.getPath('userData'), 'overlay-settings.json');
 const windowStateFile = () => join(app.getPath('userData'), 'window-state.json');
+const liveSettingsFile = () => join(app.getPath('userData'), 'live-settings.json');
+
+function readJson<T>(file: string): Partial<T> {
+  try {
+    return JSON.parse(readFileSync(file, 'utf-8')) as Partial<T>;
+  } catch {
+    return {};
+  }
+}
 
 function loadSettings(): void {
   try {
@@ -97,7 +113,7 @@ function applyOverlay(): void {
 }
 
 /** Briefly show the overlay (a quick glance), then revert to the enabled state. */
-function peekOverlay(): void {
+function peekOverlay(ms = Math.max(1, overlayState.settings.peekSeconds) * 1000): void {
   if (peekTimer) clearTimeout(peekTimer);
   overlayState.peek = true;
   applyOverlay();
@@ -106,7 +122,38 @@ function peekOverlay(): void {
     overlayState.peek = false;
     applyOverlay();
     broadcastOverlay();
-  }, Math.max(1, overlayState.settings.peekSeconds) * 1000);
+  }, ms);
+}
+
+// ---- live sync: background RealmEye polling ----
+let live: LiveSync | null = null;
+
+/**
+ * A live sync finished. Push the new state to the app, keep the overlay on the same
+ * character (its key changes as fame grows), and flash its changes on the HUD.
+ */
+function onLiveState(state: LiveState, events: LiveEvent[], prev: PlayerProfile | null): void {
+  if (mainWin && !mainWin.isDestroyed()) mainWin.webContents.send('live:state', state);
+  if (!state.profile || !prev) return;
+
+  const cur = overlayState.character;
+  if (cur) overlayState.character = carryCharacter(cur, prev.characters, state.profile.characters) ?? cur;
+  const key = overlayState.character ? charKey(overlayState.character) : null;
+  const mine = events.filter((e) => e.charKey === '' || e.charKey === key);
+  if (!mine.length) return broadcastOverlay();
+
+  const top = mine[0]!;
+  overlayState.toast = { title: top.title, detail: top.detail, more: mine.length - 1, at: Date.now() };
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    overlayState.toast = null;
+    broadcastOverlay();
+  }, OVERLAY_TOAST_MS);
+  if (overlayState.settings.peekOnChange && !overlayState.settings.enabled && overlayState.settings.widgets.liveToasts) {
+    peekOverlay(OVERLAY_TOAST_MS);
+  } else {
+    broadcastOverlay();
+  }
 }
 
 /**
@@ -233,6 +280,27 @@ app.whenReady().then(() => {
   if (!gotLock) return; // a second launch only hands focus to the first one
   loadSettings();
 
+  live = new LiveSync(
+    {
+      fetch: fetchPlayer,
+      classMax: classMaxData as ClassMaxTable,
+      onState: onLiveState,
+      saveSettings: (s) => {
+        try {
+          writeFileSync(liveSettingsFile(), JSON.stringify(s));
+        } catch {
+          /* non-fatal */
+        }
+      },
+    },
+    readJson<LiveSettings>(liveSettingsFile()),
+  );
+  ipcMain.handle('live:getState', () => live!.getState());
+  ipcMain.handle('live:load', (_e, name: string, force?: boolean) => live!.load(String(name ?? ''), !!force));
+  ipcMain.handle('live:syncNow', () => live!.syncNow());
+  ipcMain.handle('live:configure', (_e, patch: Partial<LiveSettings>) => live!.configure(patch ?? {}));
+  ipcMain.handle('live:clearFeed', () => live!.clearFeed());
+
   // RealmEye fetch happens in the main process: no CORS, one place for the polite UA / rate-limit.
   ipcMain.handle('player:get', async (_event, name: string, force?: boolean) => {
     try {
@@ -297,7 +365,10 @@ app.whenReady().then(() => {
   });
 });
 
-app.on('will-quit', () => globalShortcut.unregisterAll());
+app.on('will-quit', () => {
+  globalShortcut.unregisterAll();
+  live?.stop();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();

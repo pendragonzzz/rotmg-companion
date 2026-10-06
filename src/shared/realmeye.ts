@@ -115,6 +115,8 @@ export function parsePlayer(html: string, name = ''): PlayerProfile {
     })();
 
     const classId = intOf($(anchor).attr('data-class'));
+    const skinAttr = $(anchor).attr('data-skin');
+    const skin = skinAttr ? intOf(skinAttr) : undefined;
     const className = tds.eq(2).text().trim();
     const level = intOf(tds.eq(3).text());
     const fame = intOf(tds.eq(4).text());
@@ -152,6 +154,7 @@ export function parsePlayer(html: string, name = ''): PlayerProfile {
 
     characters.push({
       classId,
+      skin,
       className,
       level,
       fame,

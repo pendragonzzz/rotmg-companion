@@ -5,7 +5,9 @@ import type { DeclinedApi, RecentApi } from '../hooks';
 import type { Nav } from '../pages';
 import { charKey } from '../activeChar';
 import { dungeons, meta } from '../gameData';
+import type { LiveState } from '../../../shared/live';
 import { CharacterCard } from './CharacterCard';
+import { ActivityFeed } from './Live';
 import { ErrorBoundary } from './ErrorBoundary';
 import { Icon, type IconName } from './Icon';
 import { Segmented, StatTile } from './ui';
@@ -29,7 +31,11 @@ export function CharactersPage({
   recent,
   onLoad,
   nav,
+  live,
+  now,
 }: {
+  live: LiveState | null;
+  now: number;
   phase: Phase;
   characters: Character[];
   active: Character | null;
@@ -88,6 +94,8 @@ export function CharactersPage({
         {s.accountFame != null && <StatTile label="Account fame" value={s.accountFame.toLocaleString()} />}
         {s.exaltations != null && <StatTile label="Exaltations" value={s.exaltations.toLocaleString()} tone="good" />}
       </div>
+
+      {live && <ActivityFeed live={live} now={now} characters={characters} onSelect={onSelect} />}
 
       <div className="toolbar">
         <Segmented<SortKey>

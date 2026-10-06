@@ -5,6 +5,7 @@ import { CharacterCard } from './components/CharacterCard';
 import { SetsPage } from './components/SetsPage';
 import { OverlayPage } from './components/OverlayPage';
 import { PetsPage } from './components/PetsPage';
+import { MetaPage } from './components/MetaPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Dropdown } from './components/Dropdown';
 import { Icon } from './components/Icon';
@@ -23,7 +24,7 @@ type Phase =
   | { kind: 'error'; message: string }
   | { kind: 'loaded'; profile: PlayerProfile };
 
-type View = { kind: 'characters' } | { kind: 'sets'; className?: string } | { kind: 'overlay' } | { kind: 'pets' };
+type View = { kind: 'characters' } | { kind: 'sets'; className?: string } | { kind: 'overlay' } | { kind: 'pets' } | { kind: 'meta' };
 
 export function App() {
   const [name, setName] = useState('');
@@ -97,6 +98,12 @@ export function App() {
           >
             <Icon name="paw" size={15} /> Pets
           </button>
+          <button
+            className={`nav-tab ${view.kind === 'meta' ? 'active' : ''}`}
+            onClick={() => setView({ kind: 'meta' })}
+          >
+            <Icon name="exalt" size={15} /> Meta
+          </button>
         </nav>
         <div className="topbar-right">
           <form className="search" onSubmit={load}>
@@ -126,7 +133,9 @@ export function App() {
       </header>
 
       <main className="content">
-        {view.kind === 'pets' ? (
+        {view.kind === 'meta' ? (
+          <MetaPage />
+        ) : view.kind === 'pets' ? (
           <PetsPage />
         ) : view.kind === 'overlay' ? (
           <OverlayPage characters={phase.kind === 'loaded' ? sortCharacters(phase.profile.characters) : []} />

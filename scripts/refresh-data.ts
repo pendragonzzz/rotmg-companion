@@ -110,6 +110,7 @@ const WIKI_SLUG: Record<string, string> = {
   'davy-jones-locker': 'davy-jones-s-locker',
   'oryx-sanctuary': 'oryx-s-sanctuary',
   'puppet-masters-theatre': 'puppet-master-s-theatre',
+  'puppet-masters-encore': 'puppet-master-s-encore',
   'crawling-depths': 'the-crawling-depths',
 };
 

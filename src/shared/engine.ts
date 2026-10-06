@@ -435,8 +435,8 @@ export function buildGoals(
         kind: 'level',
         tag: 'LEVEL',
         title: `Reach Level ${MAX_LEVEL}`,
-        detail: `Currently Lv ${character.level} — level to max in the Godlands / easy dungeons before farming stat pots.`,
-        where: 'Godlands, Pirate Cave, Forest Maze',
+        detail: `Currently Lv ${character.level} — level to max in the Rookie biomes / easy dungeons before farming stat pots.`,
+        where: 'Rookie biomes, Pirate Cave, Forest Maze',
         priority: 0,
       },
       ...gearGoals(character, dungeons, verdictById, ctx),
@@ -473,6 +473,8 @@ export interface Biome {
   dungeons: string[];
   /** Biome UT the guardian can rarely drop (null = not yet verified). */
   ut: string | null;
+  /** Notable named encounters in this biome (not exhaustive). */
+  encounters?: string[];
   note?: string;
 }
 

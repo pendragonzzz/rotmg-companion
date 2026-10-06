@@ -1,21 +1,34 @@
 {
-  "_comment": "Curated stat-potion routing (dungeon track), verified against RealmEye/Fandom + 2025 Realm Rework. 'guaranteed' = boss reliably drops it (soulbound). Ordered easiest-first; the engine re-sorts guaranteed-first then by tier. NOTE: since the Realm Rework, the 6 stat pots also drop from Adept-biome enemies and LIFE/MANA from Veteran-biome enemies (see biomes.json statPots) — that open-world track is now often faster than dungeon farming. Greater-pot dungeons (Kogbold/Fungal/Crystal) are the late upgrade: one Greater = a bigger jump than a normal pot.",
+  "_comment": "Curated stat-potion routing (dungeon track). Re-verified 2026-10 against the RealmEye drop tables in dungeon-drops.json (scraped, not hand-guessed) — see META.md §3. 'guaranteed' = boss reliably drops it (soulbound). The engine re-sorts guaranteed-first then by tier, so list order only breaks ties. 2026-10 fixes: Ocean Trench drops MANA, not Life (removed from hp); Manor drops ATT only (removed from wis); added the mid-tier Life source Woodland Labyrinth and the mid-tier Mana source The Crawling Depths. Moonlight Village guarantees a GREATER Life on regular difficulty. Open-world track: Adept biomes drop the 6 stat pots, Veteran biomes add Life/Mana (biomes.json statPots). Greater-pot dungeons are the late upgrade: one Greater = a bigger jump than a normal pot.",
 
   "dex": [
     { "dungeonId": "sprite-world", "guaranteed": true },
     { "dungeonId": "magic-woods", "guaranteed": false },
+    { "dungeonId": "haunted-cemetery", "guaranteed": false },
+    { "dungeonId": "ice-cave", "guaranteed": false },
+    { "dungeonId": "the-hive", "guaranteed": false },
+    { "dungeonId": "the-nest", "guaranteed": false },
     { "dungeonId": "kogbold-steamworks", "guaranteed": false }
   ],
   "spd": [
     { "dungeonId": "snake-pit", "guaranteed": true },
     { "dungeonId": "magic-woods", "guaranteed": false },
+    { "dungeonId": "haunted-cemetery", "guaranteed": false },
+    { "dungeonId": "crawling-depths", "guaranteed": false },
+    { "dungeonId": "tomb-of-the-ancients", "guaranteed": false },
+    { "dungeonId": "cnidarian-reef", "guaranteed": false },
+    { "dungeonId": "spectral-penitentiary", "guaranteed": false },
     { "dungeonId": "kogbold-steamworks", "guaranteed": false }
   ],
   "wis": [
     { "dungeonId": "undead-lair", "guaranteed": true },
     { "dungeonId": "cursed-library", "guaranteed": false },
     { "dungeonId": "mad-lab", "guaranteed": false },
-    { "dungeonId": "manor-of-the-immortals", "guaranteed": false },
+    { "dungeonId": "haunted-cemetery", "guaranteed": false },
+    { "dungeonId": "crawling-depths", "guaranteed": false },
+    { "dungeonId": "sulfurous-wetlands", "guaranteed": false },
+    { "dungeonId": "cnidarian-reef", "guaranteed": false },
+    { "dungeonId": "spectral-penitentiary", "guaranteed": false },
     { "dungeonId": "kogbold-steamworks", "guaranteed": false },
     { "dungeonId": "fungal-cavern", "guaranteed": false },
     { "dungeonId": "crystal-cavern", "guaranteed": false }
@@ -23,6 +36,12 @@
   "vit": [
     { "dungeonId": "abyss-of-demons", "guaranteed": true },
     { "dungeonId": "cursed-library", "guaranteed": false },
+    { "dungeonId": "haunted-cemetery", "guaranteed": false },
+    { "dungeonId": "crawling-depths", "guaranteed": false },
+    { "dungeonId": "woodland-labyrinth", "guaranteed": false },
+    { "dungeonId": "cnidarian-reef", "guaranteed": false },
+    { "dungeonId": "lair-of-shaitan", "guaranteed": false },
+    { "dungeonId": "spectral-penitentiary", "guaranteed": false },
     { "dungeonId": "kogbold-steamworks", "guaranteed": false }
   ],
   "def": [
@@ -30,29 +49,50 @@
     { "dungeonId": "sprite-world", "guaranteed": false },
     { "dungeonId": "abyss-of-demons", "guaranteed": false },
     { "dungeonId": "mad-lab", "guaranteed": false },
+    { "dungeonId": "cursed-library", "guaranteed": false },
+    { "dungeonId": "haunted-cemetery", "guaranteed": false },
+    { "dungeonId": "crawling-depths", "guaranteed": false },
+    { "dungeonId": "tomb-of-the-ancients", "guaranteed": false },
+    { "dungeonId": "cnidarian-reef", "guaranteed": false },
+    { "dungeonId": "mountain-temple", "guaranteed": false },
     { "dungeonId": "kogbold-steamworks", "guaranteed": false },
     { "dungeonId": "lost-halls", "guaranteed": false }
   ],
   "att": [
     { "dungeonId": "puppet-masters-theatre", "guaranteed": true },
     { "dungeonId": "sprite-world", "guaranteed": false },
+    { "dungeonId": "abyss-of-demons", "guaranteed": false },
+    { "dungeonId": "manor-of-the-immortals", "guaranteed": false },
+    { "dungeonId": "mad-lab", "guaranteed": false },
     { "dungeonId": "cursed-library", "guaranteed": false },
+    { "dungeonId": "haunted-cemetery", "guaranteed": false },
+    { "dungeonId": "woodland-labyrinth", "guaranteed": false },
+    { "dungeonId": "tomb-of-the-ancients", "guaranteed": false },
+    { "dungeonId": "lair-of-shaitan", "guaranteed": false },
     { "dungeonId": "kogbold-steamworks", "guaranteed": false }
   ],
 
   "hp": [
-    { "dungeonId": "ocean-trench", "guaranteed": false },
+    { "dungeonId": "woodland-labyrinth", "guaranteed": false },
     { "dungeonId": "tomb-of-the-ancients", "guaranteed": false },
-    { "dungeonId": "fungal-cavern", "guaranteed": false },
-    { "dungeonId": "crystal-cavern", "guaranteed": false },
+    { "dungeonId": "lair-of-shaitan", "guaranteed": false },
+    { "dungeonId": "mountain-temple", "guaranteed": false },
+    { "dungeonId": "secluded-thicket", "guaranteed": false },
     { "dungeonId": "the-nest", "guaranteed": false },
-    { "dungeonId": "lost-halls", "guaranteed": false }
+    { "dungeonId": "crystal-cavern", "guaranteed": false },
+    { "dungeonId": "lost-halls", "guaranteed": false },
+    { "dungeonId": "moonlight-village", "guaranteed": true }
   ],
   "mp": [
     { "dungeonId": "ocean-trench", "guaranteed": false },
+    { "dungeonId": "crawling-depths", "guaranteed": false },
+    { "dungeonId": "cnidarian-reef", "guaranteed": false },
+    { "dungeonId": "sulfurous-wetlands", "guaranteed": false },
+    { "dungeonId": "parasite-chambers", "guaranteed": false },
     { "dungeonId": "lost-halls", "guaranteed": false },
-    { "dungeonId": "the-shatters", "guaranteed": false },
+    { "dungeonId": "spectral-penitentiary", "guaranteed": false },
     { "dungeonId": "the-void", "guaranteed": false },
+    { "dungeonId": "the-shatters", "guaranteed": false },
     { "dungeonId": "oryx-sanctuary", "guaranteed": false }
   ]
 }

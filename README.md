@@ -29,6 +29,8 @@ Then type a **public** RealmEye username and hit Load.
 - **Dungeon readiness + guide-sourced tips** — when you're ready, and the key mechanic ("don't hit the Puppet
   Master clones", etc.).
 - **ST set browser** — filter by class & difficulty; see pieces, stats, where to farm, and set bonuses.
+- **Meta tab** — the current realm meta at a glance: the grind in order, an exaltation map (which dungeon
+  gives which stat, color-coded by grind efficiency), the 2026 season timeline, and what changed.
 - **Game overlay** — transparent, click-through HUD (hotkey `Ctrl+Shift+O`) showing the active character's
   next goals, beacons to farm, recommended set, and a current-dungeon card with drops + strategy. Fully
   customizable on the **Overlay** tab (layout, opacity, which widgets, rebindable hotkeys, a dungeon quick-pick).
@@ -65,7 +67,7 @@ git push origin v0.1.0
 
 ## Project layout
 
-See **`CONTEXT.md`** for the full architecture and **`META-2025.md`** for the meta/intel research the data is
+See **`CONTEXT.md`** for the full architecture and **`META.md`** for the meta/intel research the data is
 built from. In short: `src/shared` (isomorphic logic + curated/generated JSON data), `src/main` (Electron main
 + overlay window + IPC), `src/preload`, `src/renderer` (React UI + overlay). `scripts/refresh-data.ts` is the
 token-free weekly RealmEye scraper.

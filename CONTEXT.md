@@ -407,3 +407,8 @@ RealmEye import (all chars, sorted, error-isolated) · goals panel (level/stat/g
     hidden). `npm test` + CI test job. Data rev 4. Verified: typecheck, 8 suites (238 checks), build (102 modules),
     Playwright screenshots of every HUD mode, real Electron run (location IPC, Ctrl+K → Undead Lair, close-to-tray keeps
     the app alive; 0 errors).
+29. **v0.3.1 polish (from the user's screenshot):** a loaded player whose RealmEye page lists no characters now says so
+    everywhere — the top-bar switcher shows "Characters hidden" / "No characters on RealmEye" (click → Characters page
+    with the likely causes: hidden in RealmEye privacy settings, account not on RealmEye yet, no living characters/typo,
+    plus "Open on RealmEye" + "Check again"); broader private-profile detection. Removed the stock File/Edit/View menu
+    bar (Ctrl +/−/0 zoom kept). Being in-game is NOT needed for characters (RealmEye) — only for location detection.

@@ -167,8 +167,13 @@ export function parsePlayer(html: string, name = ''): PlayerProfile {
     });
   });
 
+  // RealmEye's wording for hidden characters varies ("…set their characters to private",
+  // "Characters are hidden"); only consulted when no character rows were found.
   const isPrivate =
-    characters.length === 0 && /set (their|his|her) (profile|characters) to private/i.test(html);
+    characters.length === 0 &&
+    (/set (their|his|her) (profile|characters) to private/i.test(html) ||
+      /characters?[^<]{0,40}\b(are|is) (hidden|private)\b/i.test(html) ||
+      /\b(hidden|private) characters?\b/i.test(html));
 
   return { name, isPrivate, characters, summary };
 }

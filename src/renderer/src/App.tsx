@@ -334,7 +334,13 @@ export function App() {
           <button className="btn btn-icon cmdk-open" onClick={() => setPalette(true)} title="Search everything (Ctrl+K)">
             <Icon name="command" size={15} />
           </button>
-          <CharacterSwitcher characters={characters} active={active} onSelect={selectCharacter} />
+          <CharacterSwitcher
+            characters={characters}
+            active={active}
+            onSelect={selectCharacter}
+            empty={profile && !profile.characters.length ? (profile.isPrivate ? 'hidden' : 'none') : null}
+            onEmptyClick={() => setPage('characters')}
+          />
         </header>
 
         {/* Load errors are visible on every page (Characters / empty states show their own). */}

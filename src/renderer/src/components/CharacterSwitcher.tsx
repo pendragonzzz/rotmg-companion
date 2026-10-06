@@ -9,10 +9,15 @@ export function CharacterSwitcher({
   characters,
   active,
   onSelect,
+  empty = null,
+  onEmptyClick,
 }: {
   characters: Character[];
   active: Character | null;
   onSelect: (c: Character) => void;
+  /** A profile loaded but RealmEye lists no characters: 'hidden' (privacy) or 'none'. */
+  empty?: 'hidden' | 'none' | null;
+  onEmptyClick?: () => void;
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -25,6 +30,15 @@ export function CharacterSwitcher({
     return () => document.removeEventListener('mousedown', onDoc);
   }, []);
 
+  if (empty && onEmptyClick) {
+    return (
+      <div className="switcher" title="RealmEye shows no characters for this player — click for why and how to fix it">
+        <button className="switcher-empty warn" onClick={onEmptyClick}>
+          <Icon name="info" size={15} /> {empty === 'hidden' ? 'Characters hidden' : 'No characters on RealmEye'}
+        </button>
+      </div>
+    );
+  }
   if (!characters.length || !active) {
     return (
       <div className="switcher disabled" title="Load a player to pick a character">

@@ -2590,7 +2590,8 @@
         "sharedBy": [
           "Sewer Alligator",
           "Goblin Knight",
-          "Goblin Warlock"
+          "Goblin Warlock",
+          "Sewer Slime"
         ]
       }
     ]
@@ -7712,6 +7713,10 @@
       {
         "slug": "wine-cellar-incantation",
         "name": "Wine Cellar Incantation"
+      },
+      {
+        "slug": "dungeon-keys",
+        "name": "Infected Key"
       }
     ],
     "enemies": [
@@ -7839,6 +7844,16 @@
           "Blob Colony",
           "Pterasite Colony",
           "Swarm Colony"
+        ]
+      },
+      {
+        "name": "Uninfected Chest",
+        "loot": [
+          {
+            "slug": "dungeon-keys",
+            "name": "Infected Key",
+            "kind": "key"
+          }
         ]
       }
     ]
@@ -10368,7 +10383,6 @@
         "tier": "UT",
         "slot": "weapon",
         "classes": [
-          "Priest",
           "Summoner"
         ],
         "score": 125,

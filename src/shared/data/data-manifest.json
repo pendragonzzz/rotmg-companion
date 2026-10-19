@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "revision": 4,
-  "updated": "2026-10-06",
+  "revision": 5,
+  "updated": "2026-10-19",
   "files": [
     "dungeons.json",
     "dungeon-drops.json",

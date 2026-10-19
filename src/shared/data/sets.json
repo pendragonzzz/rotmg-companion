@@ -1298,6 +1298,93 @@
     ]
   },
   {
+    "slug": "extra-dimensional-druid-set",
+    "name": "Extra Dimensional Druid Set",
+    "className": "Druid",
+    "generation": "3rd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+30 MP, +2 ATT, +2 DEF",
+        "stats": {
+          "mp": 30,
+          "att": 2,
+          "def": 2
+        }
+      },
+      "three": {
+        "text": "+65 MP, +3 ATT, +3 DEF",
+        "stats": {
+          "mp": 65,
+          "att": 3,
+          "def": 3
+        }
+      },
+      "four": {
+        "text": "+85 MP, +10 ATT, +5 DEF",
+        "stats": {
+          "mp": 85,
+          "att": 10,
+          "def": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "dimensional-union",
+        "name": "Dimensional Union",
+        "slot": "weapon",
+        "stats": {
+          "att": 5
+        },
+        "dungeonId": null,
+        "score": 95,
+        "summary": "55–95 dmg",
+        "description": "Shots hit multiple targets Hitbox Size: 1.2 tiles"
+      },
+      {
+        "slug": "hyper-sigil",
+        "name": "Hyper Sigil",
+        "slot": "ability",
+        "stats": {
+          "mp": 20,
+          "spd": 4
+        },
+        "dungeonId": null,
+        "score": 17,
+        "summary": "+20 MP, +4 SPD",
+        "description": "Square Attack: 16 projectiles up to 4.5 tiles away. Cube Form: Stat Boost, Slowed, Reduced weapon range Requires full meter to transform Switches back only automatically after 9 seconds."
+      },
+      {
+        "slug": "sprite-s-dream",
+        "name": "Sprite's Dream",
+        "slot": "armor",
+        "stats": {
+          "mp": 100,
+          "def": 12,
+          "spd": 6
+        },
+        "dungeonId": null,
+        "score": 50,
+        "summary": "+100 MP, +12 DEF, +6 SPD"
+      },
+      {
+        "slug": "infinite-bands",
+        "name": "Infinite Bands",
+        "slot": "ring",
+        "stats": {
+          "def": 3
+        },
+        "dungeonId": null,
+        "score": 6,
+        "summary": "+3 DEF"
+      }
+    ]
+  },
+  {
     "slug": "mechanical-raptor-druid-set",
     "name": "Mechanical Raptor Druid Set",
     "className": "Druid",
@@ -1383,6 +1470,184 @@
         "dungeonId": null,
         "score": 45,
         "summary": "+100 HP, +5 DEF, +10 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "skeletosaur-druid-set",
+    "name": "Skeletosaur Druid Set",
+    "className": "Druid",
+    "generation": "Reskin",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [
+      "Event Chest"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+80 HP, +40 MP, +3 DEF",
+        "stats": {
+          "hp": 80,
+          "mp": 40,
+          "def": 3
+        }
+      },
+      "three": {
+        "text": "+80 HP, +5 ATT, +5 WIS",
+        "stats": {
+          "hp": 80,
+          "att": 5,
+          "wis": 5
+        }
+      },
+      "four": {
+        "text": "+60 MP, +10 ATT, +5 DEF",
+        "stats": {
+          "mp": 60,
+          "att": 10,
+          "def": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "aeonic-talon",
+        "name": "Aeonic Talon",
+        "slot": "weapon",
+        "stats": {
+          "att": 4,
+          "dex": 4
+        },
+        "dungeonId": null,
+        "score": 110,
+        "summary": "80–110 dmg ×5"
+      },
+      {
+        "slug": "jurassic-sigil",
+        "name": "Jurassic Sigil",
+        "slot": "ability",
+        "stats": {
+          "dex": 5
+        },
+        "dungeonId": null,
+        "score": 8,
+        "summary": "+5 DEX",
+        "description": "Skeletosaur Form: Stat Boost, Reduced weapon range, summon Skeletosaur, improving the ability Requires full meter to transform Switches back only automatically after 10 seconds."
+      },
+      {
+        "slug": "primal-padding",
+        "name": "Primal Padding",
+        "slot": "armor",
+        "stats": {
+          "hp": 80,
+          "def": 7,
+          "spd": 5,
+          "dex": 4
+        },
+        "dungeonId": null,
+        "score": 45,
+        "summary": "+80 HP, +7 DEF, +5 SPD, +4 DEX"
+      },
+      {
+        "slug": "storied-fossil",
+        "name": "Storied Fossil",
+        "slot": "ring",
+        "stats": {
+          "hp": 100,
+          "wis": 10,
+          "def": 5
+        },
+        "dungeonId": null,
+        "score": 45,
+        "summary": "+100 HP, +5 DEF, +10 WIS"
+      }
+    ]
+  },
+  {
+    "slug": "swamp-hermit-druid-set",
+    "name": "Swamp Hermit Druid Set",
+    "className": "Druid",
+    "generation": "2nd Generation",
+    "sourceDungeonIds": [],
+    "difficultyTier": null,
+    "difficultyCategory": null,
+    "sources": [],
+    "bonuses": {
+      "two": {
+        "text": "+30 HP, +3 DEX",
+        "stats": {
+          "hp": 30,
+          "dex": 3
+        }
+      },
+      "three": {
+        "text": "+30 HP, +4 SPD, +5 DEX",
+        "stats": {
+          "hp": 30,
+          "spd": 4,
+          "dex": 5
+        }
+      },
+      "four": {
+        "text": "+50 HP, +7 DEX, +5 VIT",
+        "stats": {
+          "hp": 50,
+          "dex": 7,
+          "vit": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "pulsating-wand",
+        "name": "Pulsating Wand",
+        "slot": "weapon",
+        "stats": {
+          "dex": 6
+        },
+        "dungeonId": null,
+        "score": 95,
+        "summary": "65–95 dmg",
+        "description": "Subsequent shots become larger and then smaller again. Shots hit multiple targets Shots pass through obstacles Bleeding on enemies for 2 seconds. (Bleed Damage: 40) Hitbox Size: 0.75 / 1 / 1.25 / 1.5 / 1.75 / 2 tiles"
+      },
+      {
+        "slug": "swampy-sigil",
+        "name": "Swampy Sigil",
+        "slot": "ability",
+        "stats": {
+          "hp": 45,
+          "vit": 5
+        },
+        "dungeonId": null,
+        "score": 46,
+        "summary": "+45 HP, +5 VIT",
+        "description": "Swamp Monster Form: Stat Boost, Berserk, Reduced weapon range, Heal, improving the ability Requires full meter to transform Switches back only automatically after 9 seconds."
+      },
+      {
+        "slug": "mossy-guard",
+        "name": "Mossy Guard",
+        "slot": "armor",
+        "stats": {
+          "def": 15,
+          "dex": 4,
+          "vit": 4
+        },
+        "dungeonId": null,
+        "score": 40,
+        "summary": "+15 DEF, +4 DEX, +4 VIT"
+      },
+      {
+        "slug": "willow-sprout",
+        "name": "Willow Sprout",
+        "slot": "ring",
+        "stats": {
+          "vit": 6,
+          "spd": 6
+        },
+        "dungeonId": null,
+        "score": 12,
+        "summary": "+6 SPD, +6 VIT"
       }
     ]
   },
@@ -2749,12 +3014,13 @@
         }
       },
       "four": {
-        "text": "+20 HP, +15 MP, +7 ATT, +6 DEF",
+        "text": "+60 HP, +15 MP, +7 ATT, +6 DEF, +6 SPD",
         "stats": {
-          "hp": 20,
+          "hp": 60,
           "mp": 15,
           "att": 7,
-          "def": 6
+          "def": 6,
+          "spd": 6
         }
       }
     },

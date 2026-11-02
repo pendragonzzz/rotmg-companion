@@ -690,7 +690,7 @@
           "Mystic"
         ],
         "score": 18,
-        "description": "On enemy hit: Apply 1 Hex stacking up to 100 Hex Base Damage: 400 (+5 per DEX over 50) damage Hex Damage Per Stack: 10 (+0.15 per DEX over 50) + 1% damage Hex Damage Radius: 2 (+0.1 per DEX over 50) tiles Consume 25 Hex on Enemy: Gain a 4 / 7 / 10 / 12 DEX buf"
+        "description": "On enemy hit: Apply 1 Hex stacking up to 100 Hex Base Damage: 400 (+5 per DEX over 50) damage Hex Damage Per Stack: 10 (+0.15 per DEX over 50) + 1% damage Hex Damage Radius: 2 (+0.1 per DEX over 50) tiles Consume 25 Hex on Enemy: Gain DEX Boost (+4 / 7 / 10 / "
       }
     ],
     "other": [
@@ -10383,6 +10383,7 @@
         "tier": "UT",
         "slot": "weapon",
         "classes": [
+          "Priest",
           "Summoner"
         ],
         "score": 125,
@@ -11308,7 +11309,7 @@
         "tier": "UT",
         "slot": "weapon",
         "classes": [
-          "Paladin"
+          "Knight"
         ],
         "score": 1,
         "summary": "0–1 dmg",

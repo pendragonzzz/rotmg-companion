@@ -5165,6 +5165,18 @@
         "description": "Shark Form: Stat Boost, Reduced weapon range, Stealth, Lethal Strike, improving the ability Stealth: Gain up to 3s of invisbility, doubled when transformed, 5s cooldown. Lethal Strike: Your weapon deals 25 (+0.33 per SPD over 50) additional damage for 7 second"
       },
       {
+        "slug": "squidver",
+        "name": "Squidver",
+        "tier": "UT",
+        "slot": "ability",
+        "classes": [
+          "Archer"
+        ],
+        "score": 5,
+        "summary": "+5 SPD",
+        "description": "Shots hit multiple targets"
+      },
+      {
         "slug": "slurpian-sea-scroll",
         "name": "Slurpian Sea Scroll",
         "tier": "ST",
@@ -5199,6 +5211,14 @@
         "name": "Sea Slurp Skin Unlocker"
       },
       {
+        "slug": "fire-coral-branch",
+        "name": "Fire Coral Branch"
+      },
+      {
+        "slug": "coral-juice-refinery",
+        "name": "Coral Juice Refinery"
+      },
+      {
         "slug": "dungeon-treasures",
         "name": "Golden Cockle"
       },
@@ -5209,17 +5229,17 @@
     ],
     "enemies": [
       {
-        "name": "Coral Gift",
+        "name": "Thessal the Mermaid Goddess",
         "loot": [
           {
-            "slug": "arctic-bow",
-            "name": "Arctic Bow",
+            "slug": "coral-bow",
+            "name": "Coral Bow",
             "kind": "gear",
             "tier": "UT"
           },
           {
-            "slug": "coral-bow",
-            "name": "Coral Bow",
+            "slug": "coral-juice-refinery",
+            "name": "Coral Juice Refinery",
             "kind": "gear",
             "tier": "UT"
           },
@@ -5244,6 +5264,12 @@
           {
             "slug": "sharktooth-sigil",
             "name": "Sharktooth Sigil",
+            "kind": "gear",
+            "tier": "UT"
+          },
+          {
+            "slug": "squidver",
+            "name": "Squidver",
             "kind": "gear",
             "tier": "UT"
           },
@@ -5276,6 +5302,12 @@
             "kind": "other"
           },
           {
+            "slug": "fire-coral-branch",
+            "name": "Fire Coral Branch",
+            "kind": "other",
+            "tier": "AT"
+          },
+          {
             "slug": "dungeon-treasures",
             "name": "Golden Cockle",
             "kind": "other"
@@ -5283,8 +5315,14 @@
         ]
       },
       {
-        "name": "Thessal the Mermaid Goddess",
+        "name": "Coral Gift",
         "loot": [
+          {
+            "slug": "arctic-bow",
+            "name": "Arctic Bow",
+            "kind": "gear",
+            "tier": "UT"
+          },
           {
             "slug": "coral-bow",
             "name": "Coral Bow",
@@ -8443,6 +8481,19 @@
         "description": "Ignores defense of target"
       },
       {
+        "slug": "gearhawk-morning-star",
+        "name": "Gearhawk Morning Star",
+        "tier": "ST",
+        "slot": "weapon",
+        "classes": [
+          "Druid",
+          "Priest",
+          "Summoner"
+        ],
+        "score": 110,
+        "summary": "80–110 dmg ×5"
+      },
+      {
         "slug": "steam-pipe",
         "name": "Steam Pipe",
         "tier": "UT",
@@ -8453,6 +8504,53 @@
         "score": 85,
         "summary": "65–85 dmg ×2",
         "description": "Shots hit multiple targets Acceleration: -22.2/-50 tiles/sec2"
+      },
+      {
+        "slug": "mechpilot-s-jerkin",
+        "name": "Mechpilot's Jerkin",
+        "tier": "ST",
+        "slot": "armor",
+        "classes": [
+          "Archer",
+          "Assassin",
+          "Druid",
+          "Huntress",
+          "Ninja",
+          "Rogue",
+          "Trickster"
+        ],
+        "score": 45,
+        "summary": "+80 HP, +7 DEF, +5 SPD, +4 DEX"
+      },
+      {
+        "slug": "pressure-gauge-band",
+        "name": "Pressure Gauge Band",
+        "tier": "ST",
+        "slot": "ring",
+        "classes": [
+          "Archer",
+          "Assassin",
+          "Bard",
+          "Druid",
+          "Huntress",
+          "Kensei",
+          "Knight",
+          "Mystic",
+          "Necromancer",
+          "Ninja",
+          "Paladin",
+          "Priest",
+          "Rogue",
+          "Samurai",
+          "Sorcerer",
+          "Summoner",
+          "Trickster",
+          "Warrior",
+          "Wizard"
+        ],
+        "score": 45,
+        "summary": "+100 HP, +5 DEF, +10 WIS",
+        "powerLevel": 59
       },
       {
         "slug": "brain-cube",
@@ -8507,6 +8605,18 @@
         "score": 12,
         "summary": "+8 ATT, -8 DEF, +8 DEX",
         "powerLevel": 16
+      },
+      {
+        "slug": "mechraptor-sigil",
+        "name": "Mechraptor Sigil",
+        "tier": "ST",
+        "slot": "ability",
+        "classes": [
+          "Druid"
+        ],
+        "score": 8,
+        "summary": "+5 DEX",
+        "description": "Raptor Form: Stat Boost, Reduced weapon range, summon Raptor, improving the ability Requires full meter to transform Switches back only automatically after 10 seconds."
       },
       {
         "slug": "scepter-of-rust",
@@ -8609,6 +8719,18 @@
             "tier": "UT"
           },
           {
+            "slug": "gearhawk-morning-star",
+            "name": "Gearhawk Morning Star",
+            "kind": "gear",
+            "tier": "ST"
+          },
+          {
+            "slug": "mechraptor-sigil",
+            "name": "Mechraptor Sigil",
+            "kind": "gear",
+            "tier": "ST"
+          },
+          {
             "slug": "kogbold-inventor-archer-set-shard",
             "name": "Kogbold Inventor Archer Set Shard",
             "kind": "key"
@@ -8641,10 +8763,47 @@
             "tier": "UT"
           },
           {
+            "slug": "mechpilot-s-jerkin",
+            "name": "Mechpilot's Jerkin",
+            "kind": "gear",
+            "tier": "ST"
+          },
+          {
             "slug": "kogbold-pyrotechnician-wizard-set-shard",
             "name": "Kogbold Pyrotechnician Wizard Set Shard",
             "kind": "key"
           }
+        ]
+      },
+      {
+        "name": "Kogbold Battlesmith",
+        "loot": [
+          {
+            "slug": "overclocking-amulet",
+            "name": "Overclocking Amulet",
+            "kind": "gear",
+            "tier": "UT"
+          },
+          {
+            "slug": "pressure-gauge-band",
+            "name": "Pressure Gauge Band",
+            "kind": "gear",
+            "tier": "ST"
+          },
+          {
+            "slug": "greater-health-potion",
+            "name": "Greater Health Potion",
+            "kind": "other"
+          },
+          {
+            "slug": "greater-magic-potion",
+            "name": "Greater Magic Potion",
+            "kind": "other"
+          }
+        ],
+        "sharedBy": [
+          "Kogbold Battlesmith",
+          "Kogbold Steamwalker"
         ]
       },
       {
@@ -8669,9 +8828,7 @@
         ],
         "sharedBy": [
           "Kogbold Worker",
-          "Kogbold Battlesmith",
           "Kogbold Overseer",
-          "Kogbold Steamwalker",
           "Steam Serpent"
         ]
       }
@@ -10383,6 +10540,7 @@
         "tier": "UT",
         "slot": "weapon",
         "classes": [
+          "Druid",
           "Priest",
           "Summoner"
         ],

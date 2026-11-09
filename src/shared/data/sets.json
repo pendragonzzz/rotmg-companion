@@ -1385,95 +1385,6 @@
     ]
   },
   {
-    "slug": "mechanical-raptor-druid-set",
-    "name": "Mechanical Raptor Druid Set",
-    "className": "Druid",
-    "generation": "1st Generation",
-    "sourceDungeonIds": [],
-    "difficultyTier": null,
-    "difficultyCategory": null,
-    "sources": [],
-    "bonuses": {
-      "two": {
-        "text": "+80 HP, +40 MP, +3 DEF",
-        "stats": {
-          "hp": 80,
-          "mp": 40,
-          "def": 3
-        }
-      },
-      "three": {
-        "text": "+80 HP, +5 ATT, +5 WIS",
-        "stats": {
-          "hp": 80,
-          "att": 5,
-          "wis": 5
-        }
-      },
-      "four": {
-        "text": "+60 MP, +10 ATT, +5 DEF",
-        "stats": {
-          "mp": 60,
-          "att": 10,
-          "def": 5
-        }
-      }
-    },
-    "members": [
-      {
-        "slug": "gearhawk-morning-star",
-        "name": "Gearhawk Morning Star",
-        "slot": "weapon",
-        "stats": {
-          "att": 4,
-          "dex": 4
-        },
-        "dungeonId": null,
-        "score": 110,
-        "summary": "80–110 dmg ×5"
-      },
-      {
-        "slug": "mechraptor-sigil",
-        "name": "Mechraptor Sigil",
-        "slot": "ability",
-        "stats": {
-          "dex": 5
-        },
-        "dungeonId": null,
-        "score": 8,
-        "summary": "+5 DEX",
-        "description": "Raptor Form: Stat Boost, Reduced weapon range, summon Raptor, improving the ability Requires full meter to transform Switches back only automatically after 10 seconds."
-      },
-      {
-        "slug": "mechpilot-s-jerkin",
-        "name": "Mechpilot's Jerkin",
-        "slot": "armor",
-        "stats": {
-          "hp": 80,
-          "def": 7,
-          "spd": 5,
-          "dex": 4
-        },
-        "dungeonId": null,
-        "score": 45,
-        "summary": "+80 HP, +7 DEF, +5 SPD, +4 DEX"
-      },
-      {
-        "slug": "pressure-gauge-band",
-        "name": "Pressure Gauge Band",
-        "slot": "ring",
-        "stats": {
-          "hp": 100,
-          "wis": 10,
-          "def": 5
-        },
-        "dungeonId": null,
-        "score": 45,
-        "summary": "+100 HP, +5 DEF, +10 WIS"
-      }
-    ]
-  },
-  {
     "slug": "skeletosaur-druid-set",
     "name": "Skeletosaur Druid Set",
     "className": "Druid",
@@ -1648,6 +1559,102 @@
         "dungeonId": null,
         "score": 12,
         "summary": "+6 SPD, +6 VIT"
+      }
+    ]
+  },
+  {
+    "slug": "mechanical-raptor-druid-set",
+    "name": "Mechanical Raptor Druid Set",
+    "className": "Druid",
+    "generation": "1st Generation",
+    "sourceDungeonIds": [
+      "kogbold-steamworks"
+    ],
+    "difficultyTier": 5,
+    "difficultyCategory": "endgame",
+    "sources": [
+      "Factory Control Core",
+      "Kogbold Flying Machine",
+      "Kogbold Battlesmith",
+      "Kogbold Steamwalker"
+    ],
+    "bonuses": {
+      "two": {
+        "text": "+80 HP, +40 MP, +3 DEF",
+        "stats": {
+          "hp": 80,
+          "mp": 40,
+          "def": 3
+        }
+      },
+      "three": {
+        "text": "+80 HP, +5 ATT, +5 WIS",
+        "stats": {
+          "hp": 80,
+          "att": 5,
+          "wis": 5
+        }
+      },
+      "four": {
+        "text": "+60 MP, +10 ATT, +5 DEF",
+        "stats": {
+          "mp": 60,
+          "att": 10,
+          "def": 5
+        }
+      }
+    },
+    "members": [
+      {
+        "slug": "gearhawk-morning-star",
+        "name": "Gearhawk Morning Star",
+        "slot": "weapon",
+        "stats": {
+          "att": 4,
+          "dex": 4
+        },
+        "dungeonId": "kogbold-steamworks",
+        "score": 110,
+        "summary": "80–110 dmg ×5"
+      },
+      {
+        "slug": "mechraptor-sigil",
+        "name": "Mechraptor Sigil",
+        "slot": "ability",
+        "stats": {
+          "dex": 5
+        },
+        "dungeonId": "kogbold-steamworks",
+        "score": 8,
+        "summary": "+5 DEX",
+        "description": "Raptor Form: Stat Boost, Reduced weapon range, summon Raptor, improving the ability Requires full meter to transform Switches back only automatically after 10 seconds."
+      },
+      {
+        "slug": "mechpilot-s-jerkin",
+        "name": "Mechpilot's Jerkin",
+        "slot": "armor",
+        "stats": {
+          "hp": 80,
+          "def": 7,
+          "spd": 5,
+          "dex": 4
+        },
+        "dungeonId": "kogbold-steamworks",
+        "score": 45,
+        "summary": "+80 HP, +7 DEF, +5 SPD, +4 DEX"
+      },
+      {
+        "slug": "pressure-gauge-band",
+        "name": "Pressure Gauge Band",
+        "slot": "ring",
+        "stats": {
+          "hp": 100,
+          "wis": 10,
+          "def": 5
+        },
+        "dungeonId": "kogbold-steamworks",
+        "score": 45,
+        "summary": "+100 HP, +5 DEF, +10 WIS"
       }
     ]
   },
